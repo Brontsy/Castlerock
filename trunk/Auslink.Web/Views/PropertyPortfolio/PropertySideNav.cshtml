@@ -1,0 +1,21 @@
+﻿
+<ul>
+    <li@(ViewBag.SelctedProperty == "Location Map" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Location Map", "Property-Portfolio")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Carnarvon" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Carnarvon, WA", "Carnarvon")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Boronia" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Boronia, VIC", "Boronia")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Port Pirie" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Port Pirie, SA", "Port-Pirie")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Footscray" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Footscray, VIC", "Footscray")
+    </li>
+    <li@(ViewBag.SelctedProperty == "South Brisbane" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("South Brisbane, QLD", "South-Brisbane")
+    </li>
+</ul>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Footscray, VIC Centrelink";
+    ViewBag.PageId = "property-portfolio-single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.SelectedTab = "Property Portfolio";
+    ViewBag.SelctedProperty = "Footscray";
+}
+
+@section LeftNavigation{
+
+    @Html.Partial("PropertySideNav")
+}
+
+<h2>Footscray, VIC</h2>
+
+<ul class="table two-column">
+    <li>
+        <p>Address:</p>        <p>60 Hopkins St, Footscray, Vic </p>    </li>
+    <li>        <p>Description:</p>	        <p>Two level office building with underground parking for 40 cars</p>    </li>
+    <li>        <p>Net Lettable Area:</p>        <p>2,200 square metres</p>    </li>
+    <li>        <p>Tenant:</p>        <p>Commonwealth Government</p>    </li>
+    <li>        <p>Lease Term:</p>        <p>7 years + 2 x 3 years</p>    </li>
+    <li>        <p>Lease Commencement:</p>
+        <p>TBA</p>
+    </li>
+</ul>
+
+<img src="/Content/Images/Properties/Footscray/755x311.jpg" />
