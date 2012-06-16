@@ -4,7 +4,6 @@ using System.Text;
 using Castlerock.Properties.Interfaces;
 using Castlerock.Properties.Models;
 using Common.Nhibernate;
-using Portal.Images;
 using Castlerock.Properties.Enums;
 
 namespace Castlerock.Properties
@@ -12,13 +11,11 @@ namespace Castlerock.Properties
     public class PropertyService : IPropertyService
     {
         private IPropertyDao _propertyDao = null;
-        private IImageService _imageService = null;
         private ITransactionManager _transactionManager = null;
 
-        public PropertyService(IPropertyDao propertyDao, IImageService imageService, ITransactionManager transactionManager)
+        public PropertyService(IPropertyDao propertyDao, ITransactionManager transactionManager)
         {
             this._propertyDao = propertyDao;
-            this._imageService = imageService;
             this._transactionManager = transactionManager;
         }
 

@@ -4,10 +4,6 @@ using Castlerock.Properties;
 using Castlerock.Properties.Interfaces;
 using Castlerock.Properties.Models;
 using Common.Nhibernate;
-using Portal.Images;
-using Portal.Images.Daos;
-using Portal.Images.Interfaces;
-using Portal.Images.Storage;
 using Portal.Websites.Models;
 using Portal.Websites;
 using System.Web;
@@ -29,16 +25,16 @@ namespace Castlerock.Web
         public static IPropertyService GetPropertyService()
         {
             IPropertyDao propertyDao = new PropertyNhibernateDao(GetCurrentSession());
-            return new PropertyService(propertyDao, GetImageService(), GetCastlerockTransactionManager());
+            return new PropertyService(propertyDao, GetCastlerockTransactionManager());
         }
 
-        public static IImageService GetImageService()
-        {
-            IImageRepository repoistory = new ImageNhibernateRepository(GetCurrentSession());
-            IImageStorage storage = new AzureBlobStorage();
+        //public static IImageService GetImageService()
+        //{
+        //    IImageRepository repoistory = new ImageNhibernateRepository(GetCurrentSession());
+        //    IImageStorage storage = new AzureBlobStorage();
 
-            return new ImageService(GetWebsite(), storage, repoistory, GetCastlerockTransactionManager());
-        }
+        //    return new ImageService(GetWebsite(), storage, repoistory, GetCastlerockTransactionManager());
+        //}
 
         public static Common.Nhibernate.ITransactionManager GetCastlerockTransactionManager()
         {

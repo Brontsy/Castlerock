@@ -283,10 +283,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Portal\Portal.Images\Portal.Images.csproj">
-      <Project>{BEEDC002-ABA8-478E-9951-EE3A214E8D99}</Project>
-      <Name>Portal.Images</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Portal\Portal.Websites\Portal.Websites.csproj">
       <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
       <Name>Portal.Websites</Name>

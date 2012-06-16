@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Castlerock.Properties.Interfaces;
 using Castlerock.Properties.Enums;
-using Portal.Images.Models;
 
 namespace Castlerock.Properties.Models
 {

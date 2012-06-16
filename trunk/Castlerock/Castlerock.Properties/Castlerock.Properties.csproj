@@ -113,10 +113,6 @@
     <EmbeddedResource Include="Persistence\Investment.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Portal\Portal.Images\Portal.Images.csproj">
-      <Project>{BEEDC002-ABA8-478E-9951-EE3A214E8D99}</Project>
-      <Name>Portal.Images</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
       <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
       <Name>Common.Nhibernate</Name>
