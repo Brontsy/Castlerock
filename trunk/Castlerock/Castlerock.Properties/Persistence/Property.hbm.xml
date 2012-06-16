@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="CastleRock.dbo" assembly="Castlerock.Properties" namespace="Castlerock.Properties.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+    <class name="Castlerock.Properties.Models.Property" table="Properties">
+        <id column="PropertyId" name="PropertyId">
+            <generator class="native"/>
+        </id>
+        <property name="Name" column="Name" />
+        <property name="Address" column="Address" />
+        <property name="Town" column="Town" />
+        <property name="State" column="State" type="Castlerock.Properties.Daos.StateEnumMapping, Castlerock.Properties" />
+        <property name="Tenant" column="Tenant" />
+        <property name="Department" column="Department" />
+        <property name="FloorArea" column="FloorArea" />
+        <property name="LeaseCommenced" column="LeaseCommenced" />
+        <property name="ExpectedCompletionDate" column="ExpectedCompletionDate" />
+        <property name="EnergyRating" column="EnergyRating" />
+        <property name="IsComplete" column="IsComplete" />
+        <property name="ImageFolder" column="ImageFolder" />
+        <property name="IsManaged" column="IsManaged" />
+
+    </class>
+
+</hibernate-mapping>
+
+

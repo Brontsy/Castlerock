@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A65A6009-C833-4ACF-B49E-001069E04541}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Castlerock.Web</RootNamespace>
+    <AssemblyName>Castlerock.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\SharedLib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache2">
+      <HintPath>..\SharedLib\NHibernate.Caches.SysCache2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\V2\Controllers\V2InvestorsController.cs" />
+    <Compile Include="Areas\V2\Controllers\V2HomeController.cs" />
+    <Compile Include="Areas\V2\V2AreaRegistration.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\CastleRockController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\DisclaimerController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExperienceController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvestorsController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyController.cs" />
+    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\PropertyPageViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Css\cms.css" />
+    <Content Include="Content\Css\pngFix.css" />
+    <Content Include="Content\Css\reset.css" />
+    <Content Include="Content\Css\Site.css" />
+    <Content Include="Content\Images\aboutUs.jpg" />
+    <Content Include="Content\Images\Australia\australia.jpg" />
+    <Content Include="Content\Images\Australia\nsw.png" />
+    <Content Include="Content\Images\Australia\nt.png" />
+    <Content Include="Content\Images\Australia\qld.png" />
+    <Content Include="Content\Images\Australia\sa.png" />
+    <Content Include="Content\Images\Australia\tas.png" />
+    <Content Include="Content\Images\Australia\vic.png" />
+    <Content Include="Content\Images\Australia\wa.png" />
+    <Content Include="Content\Images\contactUs.jpg" />
+    <Content Include="Content\Images\developmentExpertise.jpg" />
+    <Content Include="Content\Images\greenCircle.gif" />
+    <Content Include="Content\Images\home.gif" />
+    <Content Include="Content\Images\home.jpg" />
+    <Content Include="Content\Images\HomePage\1.jpg" />
+    <Content Include="Content\Images\HomePage\10.jpg" />
+    <Content Include="Content\Images\HomePage\11.jpg" />
+    <Content Include="Content\Images\HomePage\2.jpg" />
+    <Content Include="Content\Images\HomePage\3.jpg" />
+    <Content Include="Content\Images\HomePage\4.jpg" />
+    <Content Include="Content\Images\HomePage\5.jpg" />
+    <Content Include="Content\Images\HomePage\6.jpg" />
+    <Content Include="Content\Images\HomePage\7.jpg" />
+    <Content Include="Content\Images\HomePage\8.jpg" />
+    <Content Include="Content\Images\HomePage\9.jpg" />
+    <Content Include="Content\Images\investors.jpg" />
+    <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\managementExpertise.jpg" />
+    <Content Include="Content\Images\propertiesDelivered.jpg" />
+    <Content Include="Content\Images\Properties\Boronia\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Borroloola\755x311.jpg" />
+    <Content Include="Content\Images\Properties\BrokenHill\178x117.jpg" />
+    <Content Include="Content\Images\Properties\BrokenHill\286x286.png" />
+    <Content Include="Content\Images\Properties\BrokenHill\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Caboolture\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Caboolture\286x286.png" />
+    <Content Include="Content\Images\Properties\Caboolture\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Carnarvon\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Cranbourne\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Footscray\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Goodiwindi\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Horsham\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Ingleburn\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Kmart\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Kmart\286x286.png" />
+    <Content Include="Content\Images\Properties\Kmart\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Maningrida\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Moe\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Moe\286x286.png" />
+    <Content Include="Content\Images\Properties\Moe\755x311.jpg" />
+    <Content Include="Content\Images\Properties\NarreWarren\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Port-Lincoln\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Port-Pirie\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Portland\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Portland\286x286.png" />
+    <Content Include="Content\Images\Properties\Portland\755x311.jpg" />
+    <Content Include="Content\Images\Properties\RosneyPark\178x117.jpg" />
+    <Content Include="Content\Images\Properties\RosneyPark\286x286.png" />
+    <Content Include="Content\Images\Properties\RosneyPark\755x311.jpg" />
+    <Content Include="Content\Images\Properties\SaleDHS\178x117.jpg" />
+    <Content Include="Content\Images\Properties\SaleDHS\286x286.png" />
+    <Content Include="Content\Images\Properties\SaleDHS\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Sale\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Sale\286x286.png" />
+    <Content Include="Content\Images\Properties\Sale\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Tumut\755x311.jpg" />
+    <Content Include="Content\Images\Properties\VictorHarbour\178x117.jpg" />
+    <Content Include="Content\Images\Properties\VictorHarbour\286x286.png" />
+    <Content Include="Content\Images\Properties\VictorHarbour\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Warragul\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Werribee\178x117.jpg" />
+    <Content Include="Content\Images\Properties\Werribee\286x286.png" />
+    <Content Include="Content\Images\Properties\Werribee\755x311.jpg" />
+    <Content Include="Content\Images\Properties\Yuendumu\755x311.jpg" />
+    <Content Include="Content\Javascript\AustralianMap.js" />
+    <Content Include="Content\Javascript\Castlerock.js" />
+    <Content Include="Content\Javascript\HeaderImage.js" />
+    <Content Include="Content\Javascript\mootools-more.js" />
+    <Content Include="Content\Javascript\mootools.js" />
+    <Content Include="Content\V2\Images\green-circle.png" />
+    <Content Include="Content\V2\Images\header-overlay.png" />
+    <Content Include="Content\V2\Images\header01.jpg" />
+    <Content Include="Content\V2\Images\header02.png" />
+    <Content Include="Content\V2\Images\header03.png" />
+    <Content Include="Content\V2\Images\header04.png" />
+    <Content Include="Content\V2\Images\header05.png" />
+    <Content Include="Content\V2\Images\header06.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\AboutUs\AboutUs.ascx" />
+    <Content Include="Views\ContactUs\ContactUs.ascx" />
+    <Content Include="Views\Disclaimer\Disclaimer.ascx" />
+    <Content Include="Views\Error\404.aspx" />
+    <Content Include="Views\Error\404a.aspx" />
+    <Content Include="Views\Error\500.aspx" />
+    <Content Include="Views\Experience\Experience.ascx" />
+    <Content Include="Views\Home\Home.ascx" />
+    <Content Include="Views\Investors\Investors.ascx" />
+    <Content Include="Views\PrivacyPolicy\PrivacyPolicy.ascx" />
+    <Content Include="Views\Properties\Australia.ascx" />
+    <Content Include="Views\Properties\AustralianMap.ascx" />
+    <None Include="Views\Properties\PropertiesInState.cshtml" />
+    <Content Include="Views\Properties\Property.ascx" />
+    <Content Include="Views\Shared\GoogleAnalytics.ascx" />
+    <Content Include="Views\Shared\List.ascx" />
+    <Content Include="Views\Shared\Person.ascx" />
+    <Content Include="Views\Shared\StandardPageLayout.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Portal\Portal.Images\Portal.Images.csproj">
+      <Project>{BEEDC002-ABA8-478E-9951-EE3A214E8D99}</Project>
+      <Name>Portal.Images</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal\Portal.Websites\Portal.Websites.csproj">
+      <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
+      <Name>Portal.Websites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
+      <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
+      <Name>Common.Nhibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedLibraries\Common\Common.csproj">
+      <Project>{25746165-E026-4443-88EA-A1E8DDF82BCC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Castlerock.Properties\Castlerock.Properties.csproj">
+      <Project>{78A9ACCD-68C4-436B-868B-385486619063}</Project>
+      <Name>Castlerock.Properties</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\V2\Views\Web.config" />
+    <Content Include="Areas\V2\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\V2\Views\V2Home\Index.cshtml" />
+    <Content Include="Areas\V2\Views\V2Investors\Index.cshtml" />
+    <None Include="Content\Images\Properties\Borroloola\Generic RASC Architectural Drawings.pdf" />
+    <None Include="Content\Images\Properties\Yuendumu\Generic RASC Architectural Drawings.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\V2\Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51515</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>rename $(ProjectDir)Properties Properties1</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rename $(ProjectDir)Properties1 Properties</PreBuildEvent>
+  </PropertyGroup>
+</Project>
