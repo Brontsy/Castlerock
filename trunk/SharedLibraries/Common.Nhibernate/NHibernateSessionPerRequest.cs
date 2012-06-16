@@ -12,11 +12,12 @@ namespace Common.Nhibernate
     public class NHibernateSessionPerRequest : IHttpModule
     {
         private static ISessionFactory _sessionFactory;
-        private static ISession _session = null;
+        //private static ISession _session = null;
 
         public NHibernateSessionPerRequest()
         {
             _sessionFactory = CreateSessionFactory();
+            //_session = null;
         }
 
         public void Init(HttpApplication context)
