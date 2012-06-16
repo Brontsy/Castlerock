@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="dbo" assembly="Portal.Images" namespace="Portal.Images.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.Images.Models.Image" table="Images">
+    
+    <id column="ImageId" name="Id">
+      <generator class="native"/>
+    </id>
+
+    <property name="Source" column="Source" />
+    <property name="StorageId" column="StorageId" />
+    <property name="WebsiteId" column="WebsiteId" />
+
+  </class>
+
+</hibernate-mapping>
+
+

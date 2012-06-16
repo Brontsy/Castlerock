@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" ?>
+
+<hibernate-mapping schema="Castlerock.Cms" assembly="Portal.Cms" namespace="Portal.Cms.Pages.Page" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Portal.Cms.Pages.Page" table="Pages" >
+		
+    <id column="PageId" name="Id">
+			<generator class="native"/>
+		</id>
+
+    <property name="Name" column="Name" />
+    <property name="Key" column="[Key]" />
+    <property name="Url" column="Url" />
+
+    <many-to-one name="Website" column="WebsiteId" cascade="none" class="Portal.Websites.Models.Website, Portal.Websites" />
+
+    <bag name="Controls" table="PageControls" inverse="true" cascade="none" lazy="true" fetch="join">
+        <key column="PageId"/>
+        <many-to-many column="ControlId" fetch="join" class="Portal.Cms.Controls.Control, Portal.Cms" order-by="DisplayOrder asc" />
+    </bag>
+
+  </class>
+</hibernate-mapping>
+

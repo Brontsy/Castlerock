@@ -1,0 +1,38 @@
+﻿@model PropertiesPageViewModel
+@using Portal.Web.Areas.PropertyEditor.Models
+@using Portal.Web.Areas.PropertyEditor
+@{
+    ViewBag.Title = "Castlerock Properties";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+.properties li { margin: 10px 0px 20px 0px; min-height: 120px; }
+.properties li img { border: 1px solid #DAE9ED; }
+</style>
+
+<style>
+.properties { width: 100%; overflow: hidden; margin: 40px 0px 0px 0px; }
+.properties li { float: left; width: 280px; min-height: 70px; margin-right: 40px; }
+.properties li:nth-child(4n + 4) { margin-right: 0px; }
+.new-property { float: right; }
+</style>
+
+@Html.RouteLink("New Property", PropertyEditorAreaRegistration.Edit, new { }, new { @class = "new-property button white-arrow" })
+
+<div class="content-padding">
+
+    <h1>Castlerock Properties</h1>
+  
+     <ul class="properties">
+    @foreach(PropertyViewModel property in Model.Properties)
+    {
+        <li>
+            @Html.RouteLink(property.Name, PropertyEditorAreaRegistration.Edit, new { propertyName = property.Name, propertyId = property.Id }, new {})
+            <img height="100" width="280" src="http://www.castlerockproperty.com.au/Content/Images/Properties/@property.ImageFolder/755x311.jpg" />
+        </li>   
+    }
+    </ul>
+
+</div>

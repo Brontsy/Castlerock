@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="Membership" assembly="Portal.Membership" namespace="Portal.Membership.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.Membership.Models.Member" table="Members">
+    
+    <id column="MemberId" name="Id">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name" column="Name" />
+    <property name="Company" column="Company" />
+    <property name="Username" column="Username" />
+    <property name="Email" column="Email" />
+    <property name="PasswordHashed" column="Password" />
+    <property name="DateCreated" column="DateCreated" />
+
+    <bag name="Websites" table="MemberWebsites" cascade="none" lazy="true">
+      <key column="MemberId"/>
+      <many-to-many column="WebsiteId" fetch="join" class="Portal.Websites.Models.Website, Portal.Websites" />
+    </bag>
+
+    <bag name="Roles" table="MemberRoles" cascade="none">
+      <key column="MemberId"/>
+      <many-to-many column="RoleId" fetch="join" class="Portal.Membership.Models.Role, Portal.Membership" />
+    </bag>
+
+
+  </class>
+
+</hibernate-mapping>
+
+

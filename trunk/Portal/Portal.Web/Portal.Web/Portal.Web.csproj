@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13BCBA19-44E5-4136-8A1F-81472D8CB9BC}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.Web</RootNamespace>
+    <AssemblyName>Portal.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.2.2.2.0\lib\net40-Full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectMVC3.cs" />
+    <Compile Include="Areas\CMS\CMSAreaRegistration.cs" />
+    <Compile Include="Areas\CMS\Controllers\PagesController.cs" />
+    <Compile Include="Areas\CMS\Models\CmsPagesViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\CmsPageViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\ControlViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\PageViewModel.cs" />
+    <Compile Include="Areas\FileManager\Controllers\FileManagerController.cs" />
+    <Compile Include="Areas\FileManager\FileManagerAreaRegistration.cs" />
+    <Compile Include="Areas\FileManager\Models\FileManagerPageViewModel.cs" />
+    <Compile Include="Areas\FileManager\Models\StorageItemViewModel.cs" />
+    <Compile Include="Areas\Membership\Controllers\MembershipController.cs" />
+    <Compile Include="Areas\Membership\Extensions\MembershipExtensions.cs" />
+    <Compile Include="Areas\Membership\MembershipAreaRegistration.cs" />
+    <Compile Include="Areas\Membership\ModelBinders\MemberModelBinder.cs" />
+    <Compile Include="Areas\Membership\ModelBinders\MemberModelBinderProvider.cs" />
+    <Compile Include="Areas\Property-Editor\Extensions\PropertyEditorExtensions.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="ModelBinders\PortalModelBinder.cs" />
+    <Compile Include="Areas\Membership\Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Areas\Property-Editor\Controllers\PropertiesController.cs" />
+    <Compile Include="Areas\Property-Editor\Models\PropertiesPageViewModel.cs" />
+    <Compile Include="Areas\Property-Editor\Models\PropertyViewModel.cs" />
+    <Compile Include="Areas\Property-Editor\PropertyEditorAreaRegistration.cs" />
+    <Compile Include="Controllers\PortalBaseController.cs" />
+    <Compile Include="Models\ComponetViewModel.cs" />
+    <Compile Include="Models\ImageUploadViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Areas\Membership\Models\MembershipPageViewModel.cs" />
+    <Compile Include="Areas\Membership\Models\MemberViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Attributes\AdministratorAttribute.cs" />
+    <Compile Include="Attributes\ModelStateTempDataTransfer.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MyBlobStorageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Css\reset.css" />
+    <Content Include="Content\Css\site.css" />
+    <Content Include="Content\Images\check.gif" />
+    <Content Include="Content\Images\question.gif" />
+    <Content Include="Content\Images\warning.gif" />
+    <Content Include="Content\Images\x.gif" />
+    <Content Include="Content\Scripts\File.Upload.js" />
+    <Content Include="Content\Scripts\mootools-more.js" />
+    <Content Include="Content\Scripts\mootools.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Property-Editor\Views\Properties\Edit.cshtml" />
+    <Content Include="Areas\Property-Editor\Views\Properties\Fields.cshtml" />
+    <Content Include="Areas\Property-Editor\Views\Properties\Blobs.cshtml" />
+    <Content Include="Content\Scripts\Image.Upload.js" />
+    <Content Include="Areas\FileManager\Views\Web.config" />
+    <Content Include="Areas\FileManager\Views\FileManager\Index.cshtml" />
+    <Content Include="Areas\FileManager\Views\FileManager\File.cshtml" />
+    <Content Include="Areas\FileManager\Views\FileManager\Folder.cshtml" />
+    <Content Include="Areas\CMS\Views\Pages\Page.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\AuslinkHeader.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Image.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Heading.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Link.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\Navigation.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\NavigationItem.cshtml" />
+    <None Include="Views\Shared\Messages\Confirmation.cshtml" />
+    <None Include="Views\Shared\Messages\Error.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\ImageUpload.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\FileManager\Views\Shared\" />
+    <Folder Include="Areas\Membership\Views\Shared\" />
+    <Folder Include="Areas\Property-Editor\Views\Shared\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Membership\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Castlerock\Castlerock.Properties\Castlerock.Properties.csproj">
+      <Project>{78A9ACCD-68C4-436B-868B-385486619063}</Project>
+      <Name>Castlerock.Properties</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedLibraries\Common.Exceptions\Common.Exceptions.csproj">
+      <Project>{5A067489-0357-4E58-93D8-B204DF7F9566}</Project>
+      <Name>Common.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
+      <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
+      <Name>Common.Nhibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedLibraries\Common\Common.csproj">
+      <Project>{25746165-E026-4443-88EA-A1E8DDF82BCC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Cms\Portal.Cms.csproj">
+      <Project>{2578A7D7-2BD4-4963-BBB1-B6C1D0BE0DC1}</Project>
+      <Name>Portal.Cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.FileManager\Portal.FileManager.csproj">
+      <Project>{0F40C13B-9CB6-4F03-A234-2B4689858D0A}</Project>
+      <Name>Portal.FileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Images\Portal.Images.csproj">
+      <Project>{BEEDC002-ABA8-478E-9951-EE3A214E8D99}</Project>
+      <Name>Portal.Images</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Membership\Portal.Membership.csproj">
+      <Project>{9AC2069E-B262-43D0-96A0-990F18757B53}</Project>
+      <Name>Portal.Membership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Websites\Portal.Websites.csproj">
+      <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
+      <Name>Portal.Websites</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CMS\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Membership\Views\Membership\Index.cshtml" />
+    <Content Include="Areas\Membership\Views\Membership\ChangePassword.cshtml" />
+    <Content Include="Areas\Membership\Views\Membership\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Permission\Invalid.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Membership\Views\Membership\Fields.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Membership\Views\Membership\New.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CMS\Views\Pages\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Property-Editor\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Property-Editor\Views\Properties\Index.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61764</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

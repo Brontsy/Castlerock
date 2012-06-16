@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" ?>
+
+
+<hibernate-mapping schema="Castlerock.Cms" assembly="Portal.Cms" namespace="Portal.Cms.Controls.Control" default-access="field.camelcase-underscore" auto-import="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+    <class name="Portal.Cms.Controls.Control, Portal.Cms" table="Controls" abstract="true" lazy="false">
+
+        
+        <id name="Id" column="ControlId">
+            <generator class="identity"/>
+        </id>
+
+        <discriminator column="ClassName" type="string"/>
+
+        <property name="DisplayOrder" column="DisplayOrder" />
+        <property name="Name" column="Name" />
+        <property name="View" column="[View]" />
+
+        <many-to-one name="ParentControl" column="ParentControlId" cascade="none" class="Portal.Cms.Controls.Control, Portal.Cms" />
+
+        <bag name="Controls" access="property" table="Controls" lazy="false" inverse="true" cascade="all" order-by="DisplayOrder asc">
+            <key column="ParentControlId" />
+            <one-to-many class="Portal.Cms.Controls.Control, Portal.Cms"/>
+        </bag>
+
+        <bag name="Pages" table="PageControls" inverse="false" cascade="none" lazy="true">
+            <key column="ControlId" not-null="true" />
+            <many-to-many column="PageId" class="Portal.Cms.Pages.Page, Portal.Cms"/>
+        </bag>
+
+
+      <map name="DataItems" table="ControlDataItems" lazy="false">
+        <key column="ControlId" not-null="false"/>
+        <index column="[Key]" type="System.String"/>
+        <element column="[Value]" type="System.String"/>
+      </map>
+
+      <map name="HtmlProperties" table="ControlHtmlProperties" lazy="false">
+        <key column="ControlId" not-null="false"/>
+        <index column="[Property]" type="System.String"/>
+        <element column="[Value]" type="System.String"/>
+      </map>
+
+      <subclass name="Portal.Cms.Controls.AggregateControl" discriminator-value="Cms.Controls.AggregateControl"></subclass>
+        <subclass name="Portal.Cms.Controls.Column" discriminator-value="Cms.Controls.Column"></subclass>
+        <subclass name="Portal.Cms.Controls.Layout" discriminator-value="Cms.Controls.Layout"></subclass>
+        <subclass name="Portal.Cms.Controls.Html" discriminator-value="Cms.Controls.Html"></subclass>
+        <subclass name="Portal.Cms.Controls.Link" discriminator-value="Cms.Controls.Link"></subclass>
+        <subclass name="Portal.Cms.Controls.ImageLink" discriminator-value="Cms.Controls.ImageLink"></subclass>
+      <subclass name="Portal.Cms.Controls.Image" discriminator-value="Cms.Controls.Image"></subclass>
+      <subclass name="Portal.Cms.Controls.Heading" discriminator-value="Cms.Controls.Heading"></subclass>
+      <subclass name="Portal.Cms.Controls.NavigationItem" discriminator-value="Cms.Controls.NavigationItem"></subclass>
+
+
+    </class>
+</hibernate-mapping>
+
+

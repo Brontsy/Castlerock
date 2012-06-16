@@ -1,0 +1,27 @@
+﻿@model MembershipPageViewModel
+@using Portal.Web.Areas.Membership.Models;
+@using Portal.Web.Areas.Membership;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Edit @Model.Member.Name</h1>
+
+@Html.ValidationMessage("ErrorMessage")
+
+@using (Html.BeginRouteForm(MembershipAreaRegistration.MembershipSaveRouteUrl, new { }, FormMethod.Post, new { }))
+{
+
+    Html.RenderPartial("Fields", Model.Member);
+
+}
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+@{Html.RenderPartial("ChangePassword", Model.Member);}

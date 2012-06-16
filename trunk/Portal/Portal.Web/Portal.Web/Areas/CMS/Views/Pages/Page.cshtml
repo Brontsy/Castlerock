@@ -1,0 +1,26 @@
+﻿@model CmsPageViewModel
+@using Portal.Cms.Interfaces
+@using Portal.Web.Areas.CMS.Models
+@using Portal.Web.Areas.CMS
+@{
+    ViewBag.Title = "Content Management System";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-padding">
+    <h1>@Model.Page.Name</h1>
+
+    @foreach (IControl control in Model.Page.Controls)
+    {
+        Html.RenderPartial(control.View, control);
+    }
+
+</div>
+
+
+
+
+
+

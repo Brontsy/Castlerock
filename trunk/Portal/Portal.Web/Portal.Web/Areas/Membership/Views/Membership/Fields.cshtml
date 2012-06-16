@@ -1,0 +1,47 @@
+﻿@model MemberViewModel
+@using Portal.Web.Areas.Membership.Models;
+
+
+@Html.HiddenFor(o => o.Id)
+
+<ul>
+    
+    <li>
+        @Html.LabelFor(o => o.Name) 
+        @Html.TextBoxFor(o => o.Name) 
+        @Html.ValidationMessageFor(o => o.Name) 
+    </li>
+        
+    <li>
+        @Html.LabelFor(o => o.Company) 
+        @Html.TextBoxFor(o => o.Company) 
+        @Html.ValidationMessageFor(o => o.Company) 
+    </li>
+        
+    <li>
+        @Html.LabelFor(o => o.Username) 
+        @Html.TextBoxFor(o => o.Username) 
+        @Html.ValidationMessageFor(o => o.Username) 
+    </li>
+        
+    <li>
+        @Html.LabelFor(o => o.Email) 
+        @Html.TextBoxFor(o => o.Email)
+        @Html.ValidationMessageFor(o => o.Email)
+    </li>
+
+    @if (Model.Id == 0)
+    {
+        <li class="pasword">
+            @Html.LabelFor(o => o.ChangePassword.Password) 
+            @Html.TextBoxFor(o => o.ChangePassword.Password)
+            @Html.ValidationMessageFor(o => o.ChangePassword.Password)
+        </li>
+    }
+    
+    <li>
+        <button type="submit"><div>Save</div></button>
+        @Html.RouteLink("Cancel", Portal.Web.Areas.Membership.MembershipAreaRegistration.MembershipRouteUrl)
+    </li>
+
+</ul>

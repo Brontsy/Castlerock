@@ -1,0 +1,91 @@
+﻿@model Portal.Web.Models.PageViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Css/reset.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Css/site.css")" rel="stylesheet" type="text/css" />
+    
+    <script src="@Url.Content("~/Content/Scripts/mootools.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/mootools-more.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/File.Upload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/Image.Upload.js")" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+
+        <a href="/">@Model.WebsiteName</a>
+
+        <ul class="navigation">
+
+            @if (Model.IsLoggedIn)
+            {
+                foreach (Portal.Web.Models.ComponentViewModel component in Model.Components)
+                {
+                    System.Web.Mvc.MvcHtmlString cssClass = new System.Web.Mvc.MvcHtmlString((component.IsSelected ? " class=\"selected\"" : string.Empty));
+                    <li@cssClass>
+                        <a href="@component.Url">@component.Name</a>
+                    </li>
+                }
+                <li>
+                    @Html.RouteLink("Logout", "Logout")
+                </li>
+            }
+            else
+            {
+            <li class="selected">
+                @Html.RouteLink("Login", "Login")
+            </li>
+            }
+
+        </ul>
+
+    </header>
+
+    <div class="content">
+
+        @{Html.RenderPartial("Messages/Confirmation");}
+        @{Html.RenderPartial("Messages/Error");}
+
+        @RenderBody()
+
+    </div>
+
+</div>
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    window.addEvent('domready', function () {
+
+        $$('button').addEvent('click', function () 
+        { 
+            this.addClass('disabled'); 
+            var div = this.getElement('div');
+
+            div.set('html', GetButtonText(div.get('html'))); 
+        });
+
+    });
+
+    function GetButtonText(buttonText) {
+
+        if (buttonText == 'Save') {
+            return 'Saving';
+        }
+
+        if (buttonText == 'Add Folder') { return 'Adding'; }
+
+        if (buttonText == 'Create') {
+            return 'Creating';
+        }
+
+        return buttonText;
+    }
+</script>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2578A7D7-2BD4-4963-BBB1-B6C1D0BE0DC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.Cms</RootNamespace>
+    <AssemblyName>Portal.Cms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Portal.Web\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Portal.Web\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\Portal.Web\packages\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CmsService.cs" />
+    <Compile Include="Controls\AggregateControls\AggregateControl.cs" />
+    <Compile Include="Controls\AggregateControls\Column.cs" />
+    <Compile Include="Controls\AggregateControls\NavigationItem.cs" />
+    <Compile Include="Controls\AggregateControls\Layout.cs" />
+    <Compile Include="Controls\Control.cs" />
+    <Compile Include="Controls\Heading.cs" />
+    <Compile Include="Controls\Html.cs" />
+    <Compile Include="Controls\Image.cs" />
+    <Compile Include="Controls\ImageLink.cs" />
+    <Compile Include="Controls\Link.cs" />
+    <Compile Include="Daos\ControlNhibernateDao.cs" />
+    <Compile Include="Daos\PageNhibernateDao.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ParameterExtensions.cs" />
+    <Compile Include="ICmsService.cs" />
+    <Compile Include="Interfaces\IAggregateControl.cs" />
+    <Compile Include="Interfaces\IControl.cs" />
+    <Compile Include="Interfaces\IControlDao.cs" />
+    <Compile Include="Interfaces\IPage.cs" />
+    <Compile Include="Interfaces\IPageDao.cs" />
+    <Compile Include="Interfaces\IParameter.cs" />
+    <Compile Include="Pages\Page.cs" />
+    <Compile Include="Parameters\Checkbox.cs" />
+    <Compile Include="Parameters\DatePicker.cs" />
+    <Compile Include="Parameters\DisabledTextbox.cs" />
+    <Compile Include="Parameters\Image.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
+    <Compile Include="Parameters\Selectbox.cs" />
+    <Compile Include="Parameters\Textarea.cs" />
+    <Compile Include="Parameters\Textbox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Control.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Page.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
+      <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
+      <Name>Common.Nhibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Websites\Portal.Websites.csproj">
+      <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
+      <Name>Portal.Websites</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

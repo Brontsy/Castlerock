@@ -1,0 +1,23 @@
+﻿@model PropertiesPageViewModel
+@using Portal.Web.Areas.PropertyEditor.Models
+@using Portal.Web.Areas.PropertyEditor;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-padding">
+
+
+<h1>Edit @Model.Property.Name</h1>
+
+@Html.ValidationMessage("ErrorMessage")
+
+@using (Html.BeginRouteForm(PropertyEditorAreaRegistration.Save, new { }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    Html.RenderPartial("Fields", Model.Property);
+
+}
+
+</div>

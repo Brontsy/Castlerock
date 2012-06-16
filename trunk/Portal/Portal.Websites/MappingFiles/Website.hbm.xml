@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="dbo" assembly="Portal.Websites" namespace="Portal.Websites.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.Websites.Models.Website" table="Websites">
+    
+    <id column="WebsiteId" name="Id">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name" column="Name" />
+    <property name="Domain" column="Domain" />
+    <property name="Url" column="Url" />
+    <property name="PortalUrl" column="PortalUrl" />
+    <property name="Host" column="Host" />
+    <property name="LogoImageUrl" column="LogoImageUrl" />
+
+    <bag name="Components" table="WebsiteComponents" cascade="none">
+      <key column="WebsiteId"/>
+      <many-to-many column="ComponentId" fetch="join" class="Portal.Websites.Models.Component, Portal.Websites" />
+    </bag>
+
+  </class>
+
+</hibernate-mapping>
+
+

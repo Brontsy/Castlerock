@@ -1,0 +1,49 @@
+﻿@model Portal.Web.Areas.FileManager.Models.FileManagerPageViewModel
+@{
+    ViewBag.Title = "File Manager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>My Cloudy Album</h2>
+
+<style>
+.files { width: 100%; overflow: hidden; margin-top: 20px; }
+.files li { float: left; margin-right: 20px; }
+</style>
+
+
+<ul class="files">
+    <li>
+        <a href="/File-Manager/View?file=@Model.ParentPath" style="text-align: center;">
+            <img src="/Content/images/icons/folder-back.png" height="128" /><br />
+        </a>  
+    </li>
+@foreach (var file in Model.Files)
+{
+    <li>
+        @{Html.RenderPartial(file.View, file);}
+    </li>
+}
+</ul>
+
+<form action="/File-Manager/Folder/New?file=@Model.Path" method="post">
+    <ul>
+        <li>
+            <label for="FolderName">Name</label>
+            <input type="text" name="FolderName" id="FolderName" />
+
+        </li>
+        <li>
+            <button type="submit"><div>Add Folder</div></button>
+        </li>
+    </ul>
+</form>
+
+
+
+<script type="text/javascript">
+    window.addEvent('domready', function () {
+        new FileUpload('upload-image', '@Model.Path');
+    });
+</script>

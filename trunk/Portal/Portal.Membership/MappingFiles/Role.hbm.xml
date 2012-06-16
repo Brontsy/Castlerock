@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="Membership" assembly="Portal.Membership" namespace="Portal.Membership.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.Membership.Models.Role" table="Roles">
+    
+    <id column="RoleId" name="Id">
+      <generator class="native"/>
+    </id>
+    
+    <property name="Name" column="Name" />
+    <property name="Type" column="Type" type="Portal.Membership.Daos.RoleEnumMapping, Portal.Membership" />
+
+    <many-to-one name="Website" column="WebsiteId" cascade="none" class="Portal.Websites.Models.Website, Portal.Websites" />
+
+    <bag name="Members" table="MemberRoles" cascade="none">
+      <key column="RoleId"/>
+      <many-to-many column="MemberId" fetch="join" class="Portal.Membership.Models.Member, Portal.Membership" />
+    </bag>
+
+  </class>
+
+</hibernate-mapping>
+
+
