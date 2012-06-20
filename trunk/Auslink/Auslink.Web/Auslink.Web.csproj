@@ -14,6 +14,7 @@
     <AssemblyName>Auslink.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,8 +37,8 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -46,11 +47,11 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\packages\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -142,12 +143,22 @@
     <Content Include="Content\Images\Australia\orange.png" />
     <Content Include="Content\Images\Australia\purple.png" />
     <Content Include="Content\Images\Australia\red.png" />
+    <Content Include="Content\Images\header\about-key-features.jpg" />
+    <Content Include="Content\Images\header\about-overview.jpg" />
     <Content Include="Content\Images\header\attractive-yields.png" />
+    <Content Include="Content\Images\header\contact-us.jpg" />
+    <Content Include="Content\Images\header\financials.jpg" />
+    <Content Include="Content\Images\header\home.jpg" />
+    <Content Include="Content\Images\header\investors-prospective.jpg" />
+    <Content Include="Content\Images\header\investors-unitholders.jpg" />
     <Content Include="Content\Images\header\low-entry-costs.png" />
     <Content Include="Content\Images\header\low-management-fees.png" />
     <Content Include="Content\Images\header\management-expertise.png" />
+    <Content Include="Content\Images\header\management.jpg" />
     <Content Include="Content\Images\header\property-development.png" />
     <Content Include="Content\Images\header\property-location-diversification.png" />
+    <Content Include="Content\Images\header\property-portfolio-01.jpg" />
+    <Content Include="Content\Images\header\property-portfolio-02.jpg" />
     <Content Include="Content\Images\header\quality-assets.png" />
     <Content Include="Content\Images\header\stable-income.png" />
     <Content Include="Content\Images\header\sustainable-buildings.png" />
@@ -277,6 +288,9 @@
     <Content Include="Views\Privacy\Index.cshtml" />
     <None Include="Content\Pdfs\Quarterly-Update-December-2011.pdf" />
     <None Include="Content\Pdfs\Quarterly-Update-March-2012.pdf" />
+    <None Include="Properties\PublishProfiles\Auslink Local Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\auslinkproperty - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\auslinkproperty - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

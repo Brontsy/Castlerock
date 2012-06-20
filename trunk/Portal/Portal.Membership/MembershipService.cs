@@ -31,13 +31,20 @@ namespace Portal.Membership
         /// <returns>true if the email and password match a record in the database</returns>
         public bool Authenticate(string username, string password)
         {
-            Member member = this.GetMemberByUsername(username);
-
-            string encryptedPassword = SimpleHash.ComputeHash(password, "MD5");
-
-            if (member != null && SimpleHash.VerifyHash(password, "MD5", member.PasswordHashed))
+            try
             {
-                return true;
+                Member member = this.GetMemberByUsername(username);
+
+                string encryptedPassword = SimpleHash.ComputeHash(password, "MD5");
+
+                if (member != null && SimpleHash.VerifyHash(password, "MD5", member.PasswordHashed))
+                {
+                    return true;
+                }
+            }
+            catch (Exception exception)
+            {
+                // TODO: Log Exception
             }
 
             return false;

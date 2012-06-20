@@ -37,6 +37,11 @@ namespace Common.Nhibernate
 
             if (session == null)
             {
+                if (_sessionFactory == null)
+                {
+                    throw new Exception("Session Factory Is Null");
+                }
+
                 session = _sessionFactory.OpenSession();
                 currentContext.Items["NHibernateSession"] = session;
             }
@@ -78,25 +83,9 @@ namespace Common.Nhibernate
         {
             var config = new NHibernate.Cfg.Configuration();
 
-
-            config.BeforeBindMapping += new EventHandler<BindMappingEventArgs>(config_BeforeBindMapping);
-
-            config.AfterBindMapping += new EventHandler<BindMappingEventArgs>(config_AfterBindMapping);
-
             config.Configure();
 
             return config.BuildSessionFactory();
         }
-
-        static void config_BeforeBindMapping(object sender, BindMappingEventArgs e)
-        {
-
-        }
-
-        static void config_AfterBindMapping(object sender, BindMappingEventArgs e)
-        {
-
-        }
-
     }
 }

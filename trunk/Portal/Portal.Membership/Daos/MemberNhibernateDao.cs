@@ -26,9 +26,6 @@ namespace Portal.Membership.Daos
         {
             IQuery query = this.Session.CreateQuery("Select m From Member m Inner Join Fetch m.Websites w  Where m.Username = :username And w.Id = :websiteId");
 
-            //"from Gig g inner join fetch g.gigVenue gv where g.artistId = :artistId and  (g.territoryId = -1 or g.territoryId = :territoryId) order by g.gigDatetime desc";
-
-
             query.SetParameter("username", username);
             query.SetParameter("websiteId", website.Id);
 

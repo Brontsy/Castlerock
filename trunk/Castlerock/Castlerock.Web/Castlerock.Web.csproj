@@ -14,6 +14,7 @@
     <AssemblyName>Castlerock.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -256,6 +257,8 @@
     <Content Include="Views\PrivacyPolicy\PrivacyPolicy.ascx" />
     <Content Include="Views\Properties\Australia.ascx" />
     <Content Include="Views\Properties\AustralianMap.ascx" />
+    <None Include="Properties\PublishProfiles\castlerock - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\castlerock - Web Deploy.pubxml" />
     <None Include="Views\Properties\PropertiesInState.cshtml" />
     <Content Include="Views\Properties\Property.ascx" />
     <Content Include="Views\Shared\GoogleAnalytics.ascx" />
