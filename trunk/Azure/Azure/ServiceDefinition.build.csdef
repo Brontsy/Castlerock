@@ -16,22 +16,22 @@
           <Binding name="Endpoint1" endpointName="Endpoint1" />
         </Bindings>
       </Site>
-      <Site name="Auslink" physicalDirectory="D:\Castlerock\Auslink\Auslink.Web">
+      <Site name="Auslink" physicalDirectory="D:\Github\Castlerock\trunk\Auslink\Auslink.Web">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.auslinkproperty.com.au" />
         </Bindings>
       </Site>
-      <Site name="Castlerock" physicalDirectory="D:\Castlerock\Castlerock\Castlerock.Web">
+      <Site name="Castlerock" physicalDirectory="D:\Github\Castlerock\trunk\Castlerock\Castlerock.Web">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.castlerockproperty.com.au" />
         </Bindings>
       </Site>
-      <Site name="Auslink Portal" physicalDirectory="D:\Castlerock\Portal\Portal.Web\Portal.Web">
+      <Site name="Auslink Portal" physicalDirectory="D:\Github\Castlerock\trunk\Portal\Portal.Web\Portal.Web">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="portal.auslinkproperty.com.au" />
         </Bindings>
       </Site>
-      <Site name="Castlerock Portal" physicalDirectory="D:\Castlerock\Portal\Portal.Web\Portal.Web">
+      <Site name="Castlerock Portal" physicalDirectory="D:\Github\Castlerock\trunk\Portal\Portal.Web\Portal.Web">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="portal.castlerockproperty.com.au" />
         </Bindings>

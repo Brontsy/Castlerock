@@ -16,7 +16,7 @@ h3 { color: #888676; font-weight: bold; margin: 0px 0px 5px 0px; }
 .content-padding { padding: 20px; }
 
 .page { width: 1280px; margin: 0px auto 0px auto; box-shadow: 0 0 85px rgba(0, 0, 0, .3); border-radius: 0 0 10px 10px; }
-header { background: #3C454F; height: 31px; color: #ffffff; line-height: 31px; padding: 0px 0px 0px 20px; display: block; }
+header { background: #3C454F; height: 35px; color: #ffffff; line-height: 35px; padding: 0px 0px 0px 20px; display: block; }
 header a { text-decoration: none; font-weight: bold; color: #ffffff; }
 header a:hover { text-decoration: underline; color: #ffffff; }
 
@@ -31,7 +31,7 @@ header ul li.selected a { color: #000000; }
 
       
 
-.button { background-color: #00ADEE; padding: 25px 50px 25px 20px; font-weight: bold; font-size: 16px; }
+.button { background-color: #00ADEE; padding: 25px 50px 25px 20px; font-weight: bold; font-size: 16px; min-width: 70px; }
 a.button { color: #ffffff; }
 .white-arrow { background-image: url(/content/images/arrowwhite.png); background-repeat: no-repeat; background-position: 95% center; }
       

@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="content-padding">
 
 <h1>Edit @Model.Member.Name</h1>
 
@@ -25,3 +26,5 @@
 
 
 @{Html.RenderPartial("ChangePassword", Model.Member);}
+
+</div>

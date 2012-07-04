@@ -122,6 +122,11 @@ namespace Portal.Web.App_Start
         {
             string host = System.Web.HttpContext.Current.Request.Url.Host;
 
+            if (host.Contains("http://portalmanagement.azurewebsites.net/"))
+            {
+                host.Replace("portal", string.Empty).Replace(".azurewebsites.net", string.Empty);
+            }
+
             return this._websiteService.GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("portal.", string.Empty));
         }
     }

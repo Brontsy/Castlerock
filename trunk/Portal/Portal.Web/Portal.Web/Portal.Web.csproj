@@ -14,6 +14,7 @@
     <AssemblyName>Portal.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
@@ -45,8 +47,9 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
@@ -138,6 +141,8 @@
     <Compile Include="Areas\FileManager\FileManagerAreaRegistration.cs" />
     <Compile Include="Areas\FileManager\Models\FileManagerPageViewModel.cs" />
     <Compile Include="Areas\FileManager\Models\StorageItemViewModel.cs" />
+    <Compile Include="Areas\Google-Analytics\Controllers\GoogleAnalyticsController.cs" />
+    <Compile Include="Areas\Google-Analytics\GoogleAnalyticsAreaRegistration.cs" />
     <Compile Include="Areas\Membership\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Membership\Extensions\MembershipExtensions.cs" />
     <Compile Include="Areas\Membership\MembershipAreaRegistration.cs" />
@@ -195,6 +200,15 @@
     <Content Include="Areas\CMS\Views\Shared\Controls\Link.cshtml" />
     <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\Navigation.cshtml" />
     <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\NavigationItem.cshtml" />
+    <Content Include="Areas\Google-Analytics\Views\GoogleAnalytics\Index.cshtml" />
+    <Content Include="Areas\Google-Analytics\Views\Web.config" />
+    <None Include="Properties\PublishProfiles\portalauslink - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\portalauslink - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\portalmanagement - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\portalmanagement - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\portalmanagement - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\portalmanagement - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Views\Shared\Messages\Confirmation.cshtml" />
     <None Include="Views\Shared\Messages\Error.cshtml" />
     <Content Include="Web.config">
@@ -211,6 +225,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\FileManager\Views\Shared\" />
+    <Folder Include="Areas\Google-Analytics\Models\" />
+    <Folder Include="Areas\Google-Analytics\Views\Shared\" />
     <Folder Include="Areas\Membership\Views\Shared\" />
     <Folder Include="Areas\Property-Editor\Views\Shared\" />
     <Folder Include="Scripts\" />
