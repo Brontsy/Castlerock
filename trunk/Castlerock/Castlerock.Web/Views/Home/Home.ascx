@@ -3,7 +3,7 @@
 
 <div class="home">
     <div class="headerImage">
-        <img class="selected" src="/Content/Images/HomePage/1.jpg" alt="Castle Rock Property" />
+        <img class="selected" src="http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/1.jpg" alt="Castle Rock Property" />
     </div>
 </div>
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Portal.Web.Models;
-using Portal.Web.Areas.Membership.Extensions;
 using Portal.Websites.Interfaces;
 using Portal.Membership.Models;
 
@@ -19,7 +18,7 @@ namespace Portal.Web.Areas.Membership.Models
         public MembershipPageViewModel(IWebsite website, Member member)
             : base(website)
         {
-            this.Member = member.ToViewModel();
+            this.Member = new MemberViewModel(member);
         }
 
         /// <summary>
@@ -30,7 +29,7 @@ namespace Portal.Web.Areas.Membership.Models
         public MembershipPageViewModel(IWebsite website, IList<Member> members)
             : base(website)
         {
-            this.Members = members.Select(o => o.ToViewModel()).ToList();
+            this.Members = members.Select(o => new MemberViewModel(o)).ToList();
         }
 
         public IList<MemberViewModel> Members { get; set; }

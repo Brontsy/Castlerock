@@ -20,13 +20,13 @@ namespace Portal.Membership.Attributes
         {
             string password = value.ToString();
             // We only want to do validation when the password changes!
-            if (password != Member.DefaultPassword)
-            {
+            //if (password != Member.DefaultPassword)
+            //{
                 if (string.IsNullOrEmpty(password) || password.Length < this.MinLength)
                 {
                     return false;
                 }
-            }
+            //}
 
             return true;
         }

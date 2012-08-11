@@ -135,17 +135,20 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CastleRockController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\DisclaimerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExperienceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvestorsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PrivacyPolicyController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Models\PropertyPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -259,6 +262,8 @@
     <Content Include="Views\Properties\AustralianMap.ascx" />
     <None Include="Properties\PublishProfiles\castlerock - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\castlerock - Web Deploy.pubxml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Member\Downloads.cshtml" />
     <None Include="Views\Properties\PropertiesInState.cshtml" />
     <Content Include="Views\Properties\Property.ascx" />
     <Content Include="Views\Shared\GoogleAnalytics.ascx" />
@@ -286,6 +291,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Portal\Portal.FileManager\Portal.FileManager.csproj">
+      <Project>{0F40C13B-9CB6-4F03-A234-2B4689858D0A}</Project>
+      <Name>Portal.FileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal\Portal.Membership\Portal.Membership.csproj">
+      <Project>{9AC2069E-B262-43D0-96A0-990F18757B53}</Project>
+      <Name>Portal.Membership</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Portal\Portal.Websites\Portal.Websites.csproj">
       <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
       <Name>Portal.Websites</Name>
@@ -345,11 +358,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>IF EXIST $(ProjectDir)Properties rename $(ProjectDir)Properties Properties1</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>IF EXIST $(ProjectDir)Properties1 rename $(ProjectDir)Properties1 Properties</PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -15,8 +15,6 @@ using Portal.Web.Areas.PropertyEditor.Extensions;
 using Portal.Web.Attributes;
 using Common.Exceptions;
 using Microsoft.WindowsAzure.StorageClient;
-using Portal.Images;
-using Portal.Images.Models;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -28,13 +26,11 @@ namespace Portal.Web.Areas.PropertyEditor.Controllers
     {
         private IPropertyService _propertyService = null;
         private IExceptionManager _exceptionManager = null;
-        private IImageService _imageService = null;
 
-        public PropertiesController(IWebsite website, IPropertyService propertyService, IImageService imageService, IExceptionManager exceptionManager)
+        public PropertiesController(IWebsite website, IPropertyService propertyService, IExceptionManager exceptionManager)
             : base(website)
         {
             this._propertyService = propertyService;
-            this._imageService = imageService;
         }
 
         public ActionResult Index()
@@ -49,24 +45,6 @@ namespace Portal.Web.Areas.PropertyEditor.Controllers
             IProperty property = this._propertyService.GetPropertyById(propertyId);
 
             return View(new PropertiesPageViewModel(this.Website, property));
-        }
-
-        public ActionResult Blobs()
-        {
-            MyBlobStorageService _myBlobStorageService = new MyBlobStorageService();
-
-            // Retrieve a reference to a container 
-            CloudBlobContainer blobContainer = _myBlobStorageService.GetCloudBlobContainer();
-
-            List<string> blobs = new List<string>();
-
-            // Loop over blobs within the container and output the URI to each of them
-            foreach (var blobItem in blobContainer.ListBlobs())
-            {
-                blobs.Add(blobItem.Uri.ToString());
-            }
-
-            return View(blobs);
         }
 
         private T Deserialise<T>(string json)

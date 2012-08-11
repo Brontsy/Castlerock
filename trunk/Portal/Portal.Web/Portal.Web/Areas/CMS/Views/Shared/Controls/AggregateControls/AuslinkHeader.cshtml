@@ -11,7 +11,7 @@
 .header .background { display: block; margin: 0px 0px 0px 0px; float: left; }
 </style>
 
-<div class="header">
+<div class="header" id="control-@Model.Id.ToString()">
     @foreach (IControl control in Model.Controls)
     {
         Html.RenderPartial(control.View, control);

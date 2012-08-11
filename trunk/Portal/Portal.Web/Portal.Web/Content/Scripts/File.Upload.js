@@ -8,14 +8,14 @@ Element.NativeEvents = Object.append(Element.NativeEvents, {
 FileUpload = new Class({
 
     _dropZoneCssClass: null,
-    _path: null,
+    _parentFolderId: null,
     _images: new Array(),
     _imageIds: new Array(),
     
-    initialize: function (dropZoneCssClass, path)
+    initialize: function (dropZoneCssClass, parentFolderId)
     {
         this._dropZoneCssClass = dropZoneCssClass;
-        this._path = path;
+        this._parentFolderId = parentFolderId;
 
         this.createDropEvents();
     },
@@ -61,11 +61,9 @@ FileUpload = new Class({
     {
         e.stop();
 
+        var parent = this.dropZone()[0].removeClass('active');
 
-
-        var parent = this.dropZone()[0].removeClass('active').getParent();
-
-        var paddingTop = (parent.getStyle('height').toInt() / 2) - 19;
+        var center = (parent.getStyle('height').toInt() / 2) - 20;
 
         if($$('.loading-large').length == 0)
         {
@@ -75,9 +73,9 @@ FileUpload = new Class({
                 'class': 'loading-large',
                 styles: {
                     width: parent.getStyle('width'),
-                    height: parent.getStyle('height').toInt() - paddingTop,
-                    'padding-top': paddingTop,
-                    'background-position': '150px ' + (paddingTop - 40) + 'px'
+                    height: parent.getStyle('height').toInt(),
+                    'line-height': parent.getStyle('height'),
+                    'background-position': '150px ' + (center - 40) + 'px'
                 }
             });
 
@@ -120,7 +118,7 @@ FileUpload = new Class({
             }
         } .bind(this);
 
-        xhr.open("POST", '/File-Manager/Upload?path='+this._path);
+        xhr.open("POST", '/File-Manager/Upload?parentFolderId='+this._parentFolderId);
         xhr.send(formData);
         return;
     },
@@ -133,27 +131,32 @@ FileUpload = new Class({
 
     uploadComplete: function (response)
     {
-        var json = JSON.decode(response);
+        var html = response;
+
+        $$('.files').set('html', $$('.files').get('html') + html);
         
             $$('.loading-large').addClass('hidden');
-        json.each(function(item, index) {
+//        var json = JSON.decode(response);
+//        
+//            $$('.loading-large').addClass('hidden');
+//        json.each(function(item, index) {
 
-//            var image = new Element('img', 
-//            {
-//                src: item.Source,
-//                width: this.dropZone()[0].getStyle('width'),
-//                styles: 
-//                {
-//                    'display': 'block'
-//                }
-//            });
-//            
-//            image.onload = function() { this.imageLoaded(image); }.bind(this);
+////            var image = new Element('img', 
+////            {
+////                src: item.Source,
+////                width: this.dropZone()[0].getStyle('width'),
+////                styles: 
+////                {
+////                    'display': 'block'
+////                }
+////            });
+////            
+////            image.onload = function() { this.imageLoaded(image); }.bind(this);
 
-//            //this.imageIds.set('value', this.imageIds.get('value') + '|' + item.ImageId);
-//            this._imageIds.push(item.ImageId);
+////            //this.imageIds.set('value', this.imageIds.get('value') + '|' + item.ImageId);
+////            this._imageIds.push(item.ImageId);
 
-        }.bind(this));
+//        }.bind(this));
 
         //$('imageIds').set('value', JSON.encode(this._imageIds));
     },

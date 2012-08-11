@@ -11,11 +11,18 @@
 
     <style>
     /*body, html { font-family: 'Droid Serif', serif; font-size: 16px; color: #424242; }*/
-    
+   
+* {
+	margin: 0;
+} 
     body {
    font-family: "Helvetica Neue LT Com 45 Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 16px; color: #424242;
+    font-size: 16px; color: #424242; padding: 0px; margin: 0px; height: 100%;
 }
+    html {
+   padding: 0px; margin: 0px; height: 100%;
+}
+
     
     p { margin: 10px 0px 10px 0px; line-height: 25px; }
     p:first-child { margin-top: 0px; }
@@ -25,11 +32,18 @@
     
     
     .content-wide { width: 1200px; margin: 0px auto 0px auto; }
-    .content { width: 960px; margin: 0px auto 0px auto; }
+    .content { width: 960px; margin: 0px auto 0px auto; overflow: hidden; }
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -35px; /* the bottom margin is the negative value of the footer's height */
+}
     
     .navigation { width: 100%; overflow: hidden; font-family: "Helvetica Neue LT Com 75 Bold" }
     .navigation li { float: right; margin: 10px 0px 0px 0px; background: none; }
-    .navigation li.logo { float: left; background: url(/Content/Images/logo.gif) no-repeat; text-indent: -9999px; width: 188px; height: 29px; margin-top: 13px; }
+    .navigation li.logo { float: left; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/logo.gif) no-repeat; text-indent: -9999px; width: 188px; height: 29px; margin-top: 13px; }
     .navigation li a { color: #424242; text-decoration: none; display: block; padding: 13px 25px 5px 25px; font-weight: bold; }
     .navigation li a:hover { color: #8ebc22; }
     
@@ -53,11 +67,18 @@
     ol.benefits li { line-height: 38px; width: 100%; overflow: hidden; padding: 10px 0px 10px 0px; font-weight: bold; font-family: "Helvetica Neue LT Com 75 Bold" }
     ol.benefits li span { color: #ffffff; float: left; width: 38px; height: 38px; background: url(/Content/V2/Images/green-circle.png) no-repeat; text-align: center; margin: 0px 20px 0px 0px; font-size: 24px; font-weight: bold; display: block; }
     
+    .footer { height: 35px; background: #424242; line-height: 35px; }
+    
+    .footer a { color: #ffffff; text-decoration: none; display: block; font-weight: bold; font-size: 14px; }
+    .footer a:hover { color: #ffffff; text-decoration: underline; }
+    
     </style>
 
 </head>
 
 <body>
+
+<div class="wrapper">
 
     <div class="content-wide">
         <div class="content">
@@ -87,6 +108,14 @@
 
     <div class="content">
         @RenderBody()
+    </div>
+</div>
+    <div class="footer">
+    
+        <div class="content">
+            <a href="/content-us">Contact us</a>
+        </div>
+
     </div>
 </body>
 </html>

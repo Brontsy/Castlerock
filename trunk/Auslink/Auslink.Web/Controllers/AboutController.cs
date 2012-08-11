@@ -12,9 +12,9 @@ namespace Auslink.Web.Controllers
         public ActionResult Overview()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/low-entry-costs.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/low-entry-costs.png";
             page.RedLogoText = "Low Entry Costs";
-            page.HeaderImageUrl = "/Content/Images/header/about-key-features.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/about-key-features.jpg";
 
             return View(page);
         }
@@ -22,9 +22,9 @@ namespace Auslink.Web.Controllers
         public ActionResult KeyFeatures()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/low-entry-costs.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/low-entry-costs.png";
             page.RedLogoText = "Low Entry Costs";
-            page.HeaderImageUrl = "/Content/Images/header/about-key-features.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/about-key-features.jpg";
 
             return View(page);
         }

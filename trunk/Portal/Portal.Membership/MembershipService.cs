@@ -45,6 +45,34 @@ namespace Portal.Membership
             catch (Exception exception)
             {
                 // TODO: Log Exception
+                throw;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Authenticates the email address and password passed
+        /// </summary>
+        /// <param name="email">the members email address</param>
+        /// <param name="password">the members password</param>
+        /// <returns>true if the email and password match a record in the database</returns>
+        public bool AuthenticateEmail(string email, string password)
+        {
+            try
+            {
+                Member member = this.GetMemberByEmail(email);
+
+                string encryptedPassword = SimpleHash.ComputeHash(password, "MD5");
+
+                if (member != null && SimpleHash.VerifyHash(password, "MD5", member.PasswordHashed))
+                {
+                    return true;
+                }
+            }
+            catch (Exception exception)
+            {
+                throw;
             }
 
             return false;
@@ -82,6 +110,15 @@ namespace Portal.Membership
         public Member GetMemberByUsername(string username)
         {
             return this._memberDao.GetMemberByUsername(this._website, username);
+        }
+
+        /// <summary>
+        /// Get a specific member by there email
+        /// </summary>
+        /// <param name="email">the email of the member to return</param>
+        public Member GetMemberByEmail(string email)
+        {
+            return this._memberDao.GetMemberByEmail(this._website, email);
         }
 
         /// <summary>

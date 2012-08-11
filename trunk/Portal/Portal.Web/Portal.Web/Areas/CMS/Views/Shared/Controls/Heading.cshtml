@@ -4,7 +4,7 @@
 @using Portal.Web.Areas.CMS.Models
 
 
-<@Model.Size>@if (Model.Controls.Count > 0)
+<@Model.Size id="control-@Model.Id.ToString()">@if (Model.Controls.Count > 0)
 {
     foreach (IControl control in Model.Controls)
     {

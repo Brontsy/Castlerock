@@ -17,8 +17,8 @@ namespace Portal.FileManager
         /// <param name="website">the website that this folder belongs to</param>
         /// <param name="folderName">the name of the folder</param>
         /// <param name="relativePath">the path relative to the root directory where the folder should be located</param>
-        /// <returns>true if the folder was created</returns>
-        bool CreateFolder(string folderName, string relativePath);
+        /// <returns>the newly created folder</returns>
+        Folder CreateFolder(string folderName, int? storageItemId);
 
 
         /// <summary>
@@ -27,16 +27,14 @@ namespace Portal.FileManager
         /// <param name="website">the website that we are deleting the folder from</param>
         /// <param name="path">the path of the folder to be deleted</param>
         /// <returns></returns>
-        bool DeleteFolder(string path);
+        bool DeleteFolder(int storageItemId);
 
 
         /// <summary>
-        /// Deletes a file from the file system
+        /// Deletes a storage item from the file system
         /// </summary>
-        /// <param name="website">the website that we are deleting the folder from</param>
-        /// <param name="path">the path of the folder to be deleted</param>
         /// <returns></returns>
-        bool DeleteFile(string path);
+        bool DeleteFile(int storageItemId);
 
 
         /// <summary>
@@ -45,13 +43,26 @@ namespace Portal.FileManager
         /// <param name="files">the files to upload</param>
         /// <param name="imagePath">The path to save the files to</param>
         /// <returns>list of result objects with filename and success / fail messages</returns>
-        IList<FileUploadResult> UploadFiles(HttpFileCollectionBase files, string path);
+        IList<IStorageItem> UploadFiles(HttpFileCollectionBase files, int? parentFolderId);
 
         
         /// <summary>
-        /// Gets a list of all the storage items for a specific path
+        /// Gets a list of all the storage items for a parent
         /// </summary>
-        /// <param name="path">the path to the storage items</param>
-        IList<IStorageItem> GetStorageItems(string path);
+        /// <param name="path">the id of the parent storage item</param>
+        IList<IStorageItem> GetStorageItems(int? parentId);
+
+        /// <summary>
+        /// Gets a specfic storage item from teh database
+        /// </summary>
+        /// <param name="storageItemId">the id of the storage item</param>
+        /// <returns></returns>
+        IStorageItem GetStorageItem(int storageItemId);
+
+
+        IList<IStorageItem> GetBlobStorageItems();
+
+
+        void DeleteBlobStorageItem(string path);
     }
 }

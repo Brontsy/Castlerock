@@ -13,9 +13,9 @@ namespace Auslink.Web.Controllers
         public ActionResult Prospective()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/sustainable-buildings.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/sustainable-buildings.png";
             page.RedLogoText = "Sustainable Buildings";
-            page.HeaderImageUrl = "/Content/Images/header/investors-prospective.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/investors-prospective.jpg";
 
             return View(page);
         }
@@ -30,9 +30,9 @@ namespace Auslink.Web.Controllers
 
             PageViewModel page = new PageViewModel();
             page.Login.LoginLocation = LoginLocation.CurrentUnitHolders;
-            page.RedLogoImageUrl = "/Content/Images/header/low-management-fees.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/low-management-fees.png";
             page.RedLogoText = "Low Management Fees";
-            page.HeaderImageUrl = "/Content/Images/header/investors-unitholders.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/investors-unitholders.jpg";
 
 
             return View(page);

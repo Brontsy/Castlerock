@@ -23,14 +23,21 @@ namespace Auslink.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ServiceLocator.GetMembershipService().Authenticate(login.Username, login.Password))
+                try
                 {
-                    FormsAuthentication.SetAuthCookie(login.Username, false);
-                    return this.RedirectToRoute("Investors-Current-Unitholders-Members");
+                    if (ServiceLocator.GetMembershipService().Authenticate(login.Username, login.Password))
+                    {
+                        FormsAuthentication.SetAuthCookie(login.Username, false);
+                        return this.RedirectToRoute("Investors-Current-Unitholders-Members");
+                    }
+                    else
+                    {
+                        this.ModelState.AddModelError("Email", "Invalid username or password, please try again");
+                    }
                 }
-                else
+                catch (Exception exception)
                 {
-                    this.ModelState.AddModelError("Email", "Invalid username or password, please try again");
+                    this.ModelState.AddModelError("Email", "There was a problem logging you in. Please try again.");
                 }
             }
 

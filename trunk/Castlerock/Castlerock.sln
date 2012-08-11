@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\SharedLibrarie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.Websites", "..\Portal\Portal.Websites\Portal.Websites.csproj", "{2B3BF2E7-A251-4182-BE94-2AF69A073944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.Membership", "..\Portal\Portal.Membership\Portal.Membership.csproj", "{9AC2069E-B262-43D0-96A0-990F18757B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.FileManager", "..\Portal\Portal.FileManager\Portal.FileManager.csproj", "{0F40C13B-9CB6-4F03-A234-2B4689858D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{2B3BF2E7-A251-4182-BE94-2AF69A073944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B3BF2E7-A251-4182-BE94-2AF69A073944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3BF2E7-A251-4182-BE94-2AF69A073944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC2069E-B262-43D0-96A0-990F18757B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC2069E-B262-43D0-96A0-990F18757B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC2069E-B262-43D0-96A0-990F18757B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC2069E-B262-43D0-96A0-990F18757B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F40C13B-9CB6-4F03-A234-2B4689858D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F40C13B-9CB6-4F03-A234-2B4689858D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F40C13B-9CB6-4F03-A234-2B4689858D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F40C13B-9CB6-4F03-A234-2B4689858D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

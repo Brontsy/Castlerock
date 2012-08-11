@@ -6,14 +6,13 @@
       <generator class="native"/>
     </id>
 
-    <property name="Name" column="Name" />
-    <property name="Company" column="Company" />
-    <property name="Username" column="Username" />
     <property name="Email" column="Email" />
     <property name="PasswordHashed" column="Password" />
     <property name="DateCreated" column="DateCreated" />
 
-    <bag name="Websites" table="MemberWebsites" cascade="none" lazy="true">
+    <many-to-one name="Profile" column="ProfileId" cascade="all" class="Portal.Membership.Models.Profile, Portal.Membership" />
+
+    <bag name="Websites" table="MemberWebsites" cascade="all" lazy="true">
       <key column="MemberId"/>
       <many-to-many column="WebsiteId" fetch="join" class="Portal.Websites.Models.Website, Portal.Websites" />
     </bag>

@@ -10,17 +10,30 @@ namespace Portal.Web.ModelBinders
     /// This code was not actually written by me, it was taken from the net as I needed to use a custom model binder
     /// and still allow for data annotation validation
     /// </summary>
-    public abstract class PortalModelBinder : IModelBinder
+    public abstract class PortalModelBinder : DefaultModelBinder
     {
 
         // Abstract methods
         public abstract object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext);
 
         // Methods
-        protected virtual object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             // Create model
             object model = this.CreateModel(controllerContext, bindingContext);
+
+            if (controllerContext.RequestContext.HttpContext.Request.HttpMethod == "POST")
+            {
+                bindingContext.ModelName = model.GetType().Name;
+
+                bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, model.GetType());
+                bindingContext.ModelMetadata.Model = model;
+
+                model = base.BindModel(controllerContext, bindingContext);
+
+            }
+
+            return model;
 
             // Iterate through model properties
             foreach (ModelMetadata property in bindingContext.PropertyMetadata.Values)
@@ -44,10 +57,35 @@ namespace Portal.Web.ModelBinders
         }
 
         // IModelBinder members
-        object IModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        //object IModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        //{
+        //    return this.BindModel(controllerContext, bindingContext);
+        //}
+
+    }
+
+    /// <summary>
+    /// This code was not actually written by me, it was taken from the net as I needed to use a custom model binder
+    /// and still allow for data annotation validation
+    /// </summary>
+    public abstract class GetPortalModelBinder : DefaultModelBinder
+    {
+
+        // Abstract methods
+        public abstract object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext);
+
+        // Methods
+        public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            return this.BindModel(controllerContext, bindingContext);
+            // Create model
+            return this.CreateModel(controllerContext, bindingContext);
         }
+
+        // IModelBinder members
+        //object IModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        //{
+        //    return this.BindModel(controllerContext, bindingContext);
+        //}
 
     }
 }

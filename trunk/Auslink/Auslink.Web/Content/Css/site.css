@@ -12,11 +12,11 @@ a:hover { color: #ba0618; text-decoration: none; }
 a:visited { color: #ba0618; }
 a:active { color: #ba0618; }
         .hidden { display: none; }
-.content { line-height: 20px; width: 910px; margin: 0px auto 0px auto; padding: 20px; background: #ffffff url(/Content/Images/side-graphic.png) no-repeat; min-height: 920px; background-position: left bottom; }
+.content { line-height: 20px; width: 910px; margin: 0px auto 0px auto; padding: 20px; background: #ffffff url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/side-graphic.png) no-repeat; min-height: 920px; background-position: left bottom; }
           
 .header { width: 100%; overflow: hidden; min-height: 300px; }
 .header h1 { margin: -300px 0px 0px 0px; float: left; }
-.header h1 a { display: block; background: url(/Content/Images/logo.png) no-repeat; width: 369px;height: 131px; text-indent: -9999px; }
+.header h1 a { display: block; background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/logo.png) no-repeat; width: 369px;height: 131px; text-indent: -9999px; }
 .header .red-logo { display: block; text-indent: -9999px; float: right; margin: -260px 0px 0px 0px; }
 .header .background { display: block; margin: 0px 0px 0px 0px; float: left; }
         
@@ -31,8 +31,8 @@ a:active { color: #ba0618; }
 .navigation li a:hover, .navigation li a.hover, .navigation li.selected { background: #7a0000; }
         
 .navigation li > div { position: absolute;  background: #ba0618; display: none; border-top: 1px solid #dd838c; }
-.navigation li > div a {  background: url(/Content/Images/nav-drop-down.png) no-repeat; background-position: 20px 12px; padding-left: 30px; }
-.navigation li > div a:hover {  background: #7a0000 url(/Content/Images/nav-drop-down.png) no-repeat; background-position: 20px 12px; }
+.navigation li > div a {  background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-drop-down.png) no-repeat; background-position: 20px 12px; padding-left: 30px; }
+.navigation li > div a:hover {  background: #7a0000 url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-drop-down.png) no-repeat; background-position: 20px 12px; }
   
 .page-content { margin: 20px 0px 0px 0px; width: 100%; overflow: hidden; }
 .page-content .left { float: left; width: 135px; margin: 0px 20px 0px 0px; }
@@ -50,8 +50,8 @@ a:active { color: #ba0618; }
         
 .page-content .left ul li { border-bottom: 1px solid #ba0618; }
 .page-content .left ul li:first-child {  border-top: 1px solid #ba0618; }
-.page-content .left ul li a { display: block; background: #ffffff url(/Content/Images/nav-left.png) no-repeat; background-position: 8px 14px; padding: 10px 0px 10px 20px; color: #ba0618; }
-.page-content .left ul li.selected a { background: #f1cdd1 url(/Content/Images/nav-left.png) no-repeat; background-position: 8px 14px; }
+.page-content .left ul li a { display: block; background: #ffffff url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-left.png) no-repeat; background-position: 8px 14px; padding: 10px 0px 10px 20px; color: #ba0618; }
+.page-content .left ul li.selected a { background: #f1cdd1 url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-left.png) no-repeat; background-position: 8px 14px; }
 
 ul.table + ul.table { margin: 30px 0px 0px 0px; }
 ul.table { margin: 0px 0px 10px 0px; }
@@ -72,7 +72,7 @@ ul.four-column li div.wide { width: 310px; }
 ul.three-column li div { width: 120px; }
 ul.three-column li div.wide { width: 450px; }
 
-ul.list li { background: #ffffff url(/Content/Images/nav-left.png) no-repeat; background-position: 0px 14px; padding: 8px 0px 5px 20px; }
+ul.list li { background: #ffffff url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-left.png) no-repeat; background-position: 0px 14px; padding: 8px 0px 5px 20px; }
 
 #current-unit-holders ul.two-column li p { width: 160px;  }
 #current-unit-holders ul.table li { width: 100%; overflow: hidden; border-bottom: 0px solid #000; padding: 0px 0px 0px 0px; margin: 0px; }
@@ -81,7 +81,7 @@ ul.list li { background: #ffffff url(/Content/Images/nav-left.png) no-repeat; ba
 #current-unit-holders ul.table li:first-child { border-top: 0px solid #bab9ba; }
 
 /* Property Portfolio + Map */
-.map { background: url(/Content/Images/Australia/map.png) no-repeat; width: 509px; height: 462px; margin: 50px 0px 100px 30px; }
+.map { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/map.png) no-repeat; width: 509px; height: 462px; margin: 50px 0px 100px 30px; }
 .map .blue { position: absolute; margin: 335px 0px 0px 335px; width: 18px; height: 21px; }
 .map .green { position: absolute; margin: 150px 0px 0px 0px; width: 18px; height: 21px; }
 .map .orange { position: absolute; margin: 265px 0px 0px 285px; width: 18px; height: 21px; }
@@ -90,24 +90,24 @@ ul.list li { background: #ffffff url(/Content/Images/nav-left.png) no-repeat; ba
 
 ul.properties { float: right; }
 ul.properties a { color: #000000; }
-ul.properties .blue { background: url(/Content/Images/Australia/blue.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .green { background: url(/Content/Images/Australia/green.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .orange { background: url(/Content/Images/Australia/orange.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .purple { background: url(/Content/Images/Australia/purple.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .red { background: url(/Content/Images/Australia/red.png) no-repeat; padding: 0px 0px 10px 25px; }
+ul.properties .blue { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/blue.png) no-repeat; padding: 0px 0px 10px 25px; }
+ul.properties .green { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/green.png) no-repeat; padding: 0px 0px 10px 25px; }
+ul.properties .orange { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/orange.png) no-repeat; padding: 0px 0px 10px 25px; }
+ul.properties .purple { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/purple.png) no-repeat; padding: 0px 0px 10px 25px; }
+ul.properties .red { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/red.png) no-repeat; padding: 0px 0px 10px 25px; }
 
 
 /* Login From */
 #login { float: right; }
-form { background: url(/Content/Images/login/login-background.png) repeat-y; min-height: 229px; width: 239px;}
+form { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/login/login-background.png) repeat-y; min-height: 229px; width: 239px;}
 form fieldset { display: block; padding: 20px;  }
 form label { display: block; margin: 10px 0px 0px 0px; }
 form input[type="text"] { display: block; background: #ebebeb; height: 20px; width: 90%; }
 form input[type="password"] { display: block; background: #ebebeb; height: 20px; width: 90%; }
-form input[type="submit"] { cursor: hand; cursor: pointer; display: block; margin: 10px 0px 0px 0px; background: url(/Content/Images/login/login-button.png) no-repeat;  width: 82px; height: 32px; border: 0px solid #000; }
+form input[type="submit"] { cursor: hand; cursor: pointer; display: block; margin: 10px 0px 0px 0px; background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/login/login-button.png) no-repeat;  width: 82px; height: 32px; border: 0px solid #000; }
 form a { display: block; margin: 20px 0px 0px 0px; color: #000; }
-.form-top { background: url(/Content/Images/login/login-top.png) no-repeat; width: 239px; height: 2px; }
-.form-bottom { background: url(/Content/Images/login/login-bottom.png) no-repeat; width: 239px; height: 26px; }
+.form-top { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/login/login-top.png) no-repeat; width: 239px; height: 2px; }
+.form-bottom { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/login/login-bottom.png) no-repeat; width: 239px; height: 26px; }
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -121,9 +121,9 @@ form a { display: block; margin: 20px 0px 0px 0px; color: #000; }
     display: none;
 }
 
-.input-validation-error
+form input.input-validation-error
 {
-    border: 1px solid #ff0000;
+    border: 1px solid #ff0000 !important;
     background-color: #ffeeee !important;
 }
 

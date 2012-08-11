@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using NHibernate;
 
-using Portal.Cms.Interfaces;
+using Portal.Interfaces.Cms;
 using Portal.Cms.Controls;
+using Portal.Cms.Interfaces;
 
 namespace Portal.Cms.Persistence
 {

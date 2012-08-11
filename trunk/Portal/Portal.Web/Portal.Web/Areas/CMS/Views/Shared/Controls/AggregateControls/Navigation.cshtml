@@ -1,28 +1,15 @@
-﻿@model AggregateControl
+﻿@model NavigationControl
 @using Portal.Cms.Controls
 @using Portal.Cms.Interfaces
 @using Portal.Web.Areas.CMS.Models
+@using Portal.Interfaces.Cms
 
-<style>
-.auslink .navigation { width: 910px; overflow: hidden; background: #ba0618; margin: 10px auto 0px auto; }
-.auslink .navigation li { float: left;}
-.auslink .navigation li.logout, .auslink .navigation li.login { float: right; }
-.auslink .navigation li a { display: block; padding: 8px 20px 8px 20px; color: #ffffff; text-decoration: none; border-right: 1px solid #dd838c;  }
-.auslink .navigation li.logout a, .auslink .navigation li.login a { border-left: 1px solid #dd838c; }
-        
-.auslink .navigation li a:hover, .auslink .navigation li a.hover, .auslink .navigation li.selected { background: #7a0000; }
-        
-.auslink .navigation li > div { position: absolute;  background: #ba0618; display: none; border-top: 1px solid #dd838c; }
-.auslink .navigation li > div a {  background: url(http://www.auslinkproperty.com.au/Content/Images/nav-drop-down.png) no-repeat; background-position: 20px 12px; padding-left: 30px; }
-.auslink .navigation li > div a:hover {  background: #7a0000 url(http://www.auslinkproperty.com.au/Content/Images/nav-drop-down.png) no-repeat; background-position: 20px 12px; }
-</style>
 
-<div class="auslink">
 
-<ul class="navigation">
+<ul class="navigation" id="control-@Model.Id.ToString()">
     @foreach (IControl control in Model.Controls)
     {
         Html.RenderPartial(control.View, control);
     }
 
-</ul></div>
+</ul>

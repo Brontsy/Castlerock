@@ -24,10 +24,10 @@ namespace Portal.Web.Areas.Membership
 
             context.MapRoute(MembershipAreaRegistration.MembershipRouteUrl, "Membership", new { controller = "Membership", action = "Index", area = "Membership" });
             context.MapRoute(MembershipAreaRegistration.MembershipNewRouteUrl, "Membership/New", new { controller = "Membership", action = "New", memberId = 0 });
-            context.MapRoute(MembershipAreaRegistration.MembershipEditRouteUrl, "Membership/Edit/{memberName}/{memberId}", new { controller = "Membership", action = "Edit" });
-            context.MapRoute(MembershipAreaRegistration.MembershipSaveRouteUrl, "Membership/Save/{memberName}/{memberId}", new { controller = "Membership", action = "Save" });
+            context.MapRoute(MembershipAreaRegistration.MembershipEditRouteUrl, "Membership/Edit/{email}/{memberId}", new { controller = "Membership", action = "Edit" });
+            context.MapRoute(MembershipAreaRegistration.MembershipSaveRouteUrl, "Membership/Save/{email}/{memberId}", new { controller = "Membership", action = "Save" });
             context.MapRoute(MembershipAreaRegistration.MembershipSaveNewRouteUrl, "Membership/Save/New-Member", new { controller = "Membership", action = "Save" });
-            context.MapRoute(MembershipAreaRegistration.MembershipChangePasswordRouteUrl, "Membership/Change-Password/{memberName}/{memberId}", new { controller = "Membership", action = "ChangePassword" });
+            context.MapRoute(MembershipAreaRegistration.MembershipChangePasswordRouteUrl, "Membership/Change-Password/{email}/{memberId}", new { controller = "Membership", action = "ChangePassword" });
 
         }
     }

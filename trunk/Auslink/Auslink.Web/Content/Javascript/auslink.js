@@ -20,13 +20,13 @@ window.addEvent('domready', function () {
 
 
 var images = [
-        { 'imageUrl': '/Content/Images/header/stable-income.png', 'width': '235px', 'height': '113px' },
-        { 'imageUrl': '/Content/Images/header/tax-advantage-income.png', 'width': '271px', 'height': '113px' },
-        { 'imageUrl': '/Content/Images/header/attractive-yields.png', 'width': '235px', 'height': '113px' },
-        { 'imageUrl': '/Content/Images/header/property-location-diversification.png', 'width': '265px', 'height': '150px' },
-        { 'imageUrl': '/Content/Images/header/low-management-fees.png', 'width': '235px', 'height': '146px' },
-        { 'imageUrl': '/Content/Images/header/sustainable-buildings.png', 'width': '264px', 'height': '143px' },
-        { 'imageUrl': '/Content/Images/header/quality-assets.png', 'width': '235px', 'height': '113px' }
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/stable-income.png', 'width': '235px', 'height': '113px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/tax-advantage-income.png', 'width': '271px', 'height': '113px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/attractive-yields.png', 'width': '235px', 'height': '113px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/property-location-diversification.png', 'width': '265px', 'height': '150px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/low-management-fees.png', 'width': '235px', 'height': '146px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/sustainable-buildings.png', 'width': '264px', 'height': '143px' },
+        { 'imageUrl': 'http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/quality-assets.png', 'width': '235px', 'height': '113px' }
 ];
 
 var rotate = function (index, redLogo) {

@@ -7,38 +7,54 @@
 <ul>
     
     <li>
-        @Html.LabelFor(o => o.Name) 
-        @Html.TextBoxFor(o => o.Name) 
-        @Html.ValidationMessageFor(o => o.Name) 
-    </li>
-        
-    <li>
-        @Html.LabelFor(o => o.Company) 
-        @Html.TextBoxFor(o => o.Company) 
-        @Html.ValidationMessageFor(o => o.Company) 
-    </li>
-        
-    <li>
-        @Html.LabelFor(o => o.Username) 
-        @Html.TextBoxFor(o => o.Username) 
-        @Html.ValidationMessageFor(o => o.Username) 
-    </li>
-        
-    <li>
         @Html.LabelFor(o => o.Email) 
         @Html.TextBoxFor(o => o.Email)
         @Html.ValidationMessageFor(o => o.Email)
     </li>
 
+    
+    <li>
+        @Html.LabelFor(o => o.Profile.Username) 
+        @Html.TextBoxFor(o => o.Email)
+        @Html.ValidationMessageFor(o => o.Email)
+    </li>
+
+    
     @if (Model.Id == 0)
     {
-        <li class="pasword">
-            @Html.LabelFor(o => o.ChangePassword.Password) 
-            @Html.TextBoxFor(o => o.ChangePassword.Password)
-            @Html.ValidationMessageFor(o => o.ChangePassword.Password)
-        </li>
+    <li class="pasword">
+        @Html.LabelFor(o => o.ChangePassword.Password) 
+        @Html.TextBoxFor(o => o.ChangePassword.Password)
+        @Html.ValidationMessageFor(o => o.ChangePassword.Password)
+    </li>
     }
     
+    
+    <li>
+        @Html.LabelFor(o => o.Profile.FirstName) 
+        @Html.TextBoxFor(o => o.Profile.FirstName)
+        @Html.ValidationMessageFor(o => o.Profile.FirstName)
+    </li>
+    
+    <li>
+        @Html.LabelFor(o => o.Profile.LastName) 
+        @Html.TextBoxFor(o => o.Profile.LastName)
+        @Html.ValidationMessageFor(o => o.Profile.LastName)
+    </li>
+    
+    <li>
+        @Html.LabelFor(o => o.Profile.Company) 
+        @Html.TextBoxFor(o => o.Profile.Company)
+        @Html.ValidationMessageFor(o => o.Profile.Company)
+    </li>
+
+    <li>
+        @Html.LabelFor(o => o.Profile.Phone) 
+        @Html.TextBoxFor(o => o.Profile.Phone)
+        @Html.ValidationMessageFor(o => o.Profile.Phone)
+    </li>
+
+
     <li>
         <button type="submit"><div>Save</div></button>
         @Html.RouteLink("Cancel", Portal.Web.Areas.Membership.MembershipAreaRegistration.MembershipRouteUrl)

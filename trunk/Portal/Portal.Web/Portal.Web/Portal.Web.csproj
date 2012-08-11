@@ -133,26 +133,37 @@
     <Compile Include="App_Start\NinjectMVC3.cs" />
     <Compile Include="Areas\CMS\CMSAreaRegistration.cs" />
     <Compile Include="Areas\CMS\Controllers\PagesController.cs" />
+    <Compile Include="Areas\CMS\Controllers\TemplateController.cs" />
+    <Compile Include="Areas\CMS\ModelBinders\ControlModelBinder.cs" />
+    <Compile Include="Areas\CMS\ModelBinders\ControlModelBinderProvider.cs" />
     <Compile Include="Areas\CMS\Models\CmsPagesViewModel.cs" />
     <Compile Include="Areas\CMS\Models\CmsPageViewModel.cs" />
-    <Compile Include="Areas\CMS\Models\ControlViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\AddControlsViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\AddControlViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\TemplatesPageViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\TemplateViewModel.cs" />
+    <Compile Include="Areas\CMS\Models\TemplatePageViewModel.cs" />
     <Compile Include="Areas\CMS\Models\PageViewModel.cs" />
+    <Compile Include="Areas\FileManager\Controllers\BlobStorageController.cs" />
     <Compile Include="Areas\FileManager\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\FileManager\FileManagerAreaRegistration.cs" />
+    <Compile Include="Areas\FileManager\Models\FolderViewModel.cs" />
     <Compile Include="Areas\FileManager\Models\FileManagerPageViewModel.cs" />
-    <Compile Include="Areas\FileManager\Models\StorageItemViewModel.cs" />
+    <Compile Include="Areas\FileManager\Models\FileViewModel.cs" />
+    <Compile Include="Areas\FileManager\Models\IStorageItemViewModel.cs" />
     <Compile Include="Areas\Google-Analytics\Controllers\GoogleAnalyticsController.cs" />
     <Compile Include="Areas\Google-Analytics\GoogleAnalyticsAreaRegistration.cs" />
     <Compile Include="Areas\Membership\Controllers\MembershipController.cs" />
-    <Compile Include="Areas\Membership\Extensions\MembershipExtensions.cs" />
     <Compile Include="Areas\Membership\MembershipAreaRegistration.cs" />
     <Compile Include="Areas\Membership\ModelBinders\MemberModelBinder.cs" />
     <Compile Include="Areas\Membership\ModelBinders\MemberModelBinderProvider.cs" />
+    <Compile Include="Areas\Membership\Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Areas\Membership\Models\ProfileViewModel.cs" />
+    <Compile Include="Areas\Messages\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Messages\MessagesAreaRegistration.cs" />
     <Compile Include="Areas\Property-Editor\Extensions\PropertyEditorExtensions.cs" />
-    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="ModelBinders\PortalModelBinder.cs" />
-    <Compile Include="Areas\Membership\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Areas\Property-Editor\Controllers\PropertiesController.cs" />
     <Compile Include="Areas\Property-Editor\Models\PropertiesPageViewModel.cs" />
     <Compile Include="Areas\Property-Editor\Models\PropertyViewModel.cs" />
@@ -175,12 +186,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\CMS\Views\Shared\Parameters1.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\CMS\Views\Shared\Parameters\Selectbox.cshtml" />
     <Content Include="Content\Css\reset.css" />
     <Content Include="Content\Css\site.css" />
     <Content Include="Content\Images\check.gif" />
     <Content Include="Content\Images\question.gif" />
     <Content Include="Content\Images\warning.gif" />
     <Content Include="Content\Images\x.gif" />
+    <Content Include="Content\Scripts\NavigationItem.js" />
     <Content Include="Content\Scripts\File.Upload.js" />
     <Content Include="Content\Scripts\mootools-more.js" />
     <Content Include="Content\Scripts\mootools.js" />
@@ -202,6 +218,37 @@
     <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\NavigationItem.cshtml" />
     <Content Include="Areas\Google-Analytics\Views\GoogleAnalytics\Index.cshtml" />
     <Content Include="Areas\Google-Analytics\Views\Web.config" />
+    <Content Include="Areas\FileManager\Views\FileManager\StorageItems.cshtml" />
+    <Content Include="Areas\FileManager\Views\BlobStorage\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Parameters.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Parameters\Textbox.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\ImageLink.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Parameters\Textarea.cshtml" />
+    <Content Include="Areas\CMS\Views\Pages\AddControls.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Html.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\ControlList.cshtml" />
+    <Content Include="Areas\CMS\Views\Template\Add.cshtml" />
+    <Content Include="Areas\CMS\Views\Template\Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Template\Edit.cshtml" />
+    <Content Include="Areas\CMS\Views\Template\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\Pages\New.cshtml" />
+    <Content Include="Areas\CMS\Views\Pages\Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Pages\AddControl.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\InternalLink.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\ImageLink.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Html.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Heading.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Image.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\InternalLink.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\Link.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\NavigationItem.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\Navigation.Fields.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\AggregateControls\AuslinkHeader.Fields.cshtml" />
+    <Content Include="Areas\Messages\Views\Web.config" />
+    <Content Include="Areas\Messages\Views\Messages\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\FileBrowser.cshtml" />
+    <Content Include="Areas\CMS\Views\Shared\Controls\FileBrowser.Fields.cshtml" />
+    <None Include="Properties\PublishProfiles\Local Disk.pubxml" />
     <None Include="Properties\PublishProfiles\portalauslink - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\portalauslink - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\portalmanagement - FTP %282%29.pubxml" />
@@ -219,6 +266,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Shared\ImageUpload.cshtml" />
   </ItemGroup>
@@ -227,8 +275,12 @@
     <Folder Include="Areas\FileManager\Views\Shared\" />
     <Folder Include="Areas\Google-Analytics\Models\" />
     <Folder Include="Areas\Google-Analytics\Views\Shared\" />
+    <Folder Include="Areas\Membership\Extensions\" />
     <Folder Include="Areas\Membership\Views\Shared\" />
+    <Folder Include="Areas\Messages\Models\" />
+    <Folder Include="Areas\Messages\Views\Shared\" />
     <Folder Include="Areas\Property-Editor\Views\Shared\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -258,17 +310,25 @@
       <Project>{2578A7D7-2BD4-4963-BBB1-B6C1D0BE0DC1}</Project>
       <Name>Portal.Cms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Events\Portal.Events.csproj">
+      <Project>{73B79562-0C67-4CD2-870F-81CC1CE682C4}</Project>
+      <Name>Portal.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Portal.FileManager\Portal.FileManager.csproj">
       <Project>{0F40C13B-9CB6-4F03-A234-2B4689858D0A}</Project>
       <Name>Portal.FileManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Portal.Images\Portal.Images.csproj">
-      <Project>{BEEDC002-ABA8-478E-9951-EE3A214E8D99}</Project>
-      <Name>Portal.Images</Name>
+    <ProjectReference Include="..\..\Portal.Interfaces\Portal.Interfaces.csproj">
+      <Project>{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}</Project>
+      <Name>Portal.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Portal.Membership\Portal.Membership.csproj">
       <Project>{9AC2069E-B262-43D0-96A0-990F18757B53}</Project>
       <Name>Portal.Membership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Portal.Messaging\Portal.Messaging.csproj">
+      <Project>{B010B451-89C1-48B4-9E2B-E5522EBF2232}</Project>
+      <Name>Portal.Messaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Portal.Websites\Portal.Websites.csproj">
       <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>

@@ -12,19 +12,19 @@ var HeaderImage = new Class({
 
 
         this._images = images[0];
-    
 
-        
-        this._images.push(new Asset.image('/Content/Images/HomePage/2.jpg', {id: 'image2', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/3.jpg', {id: 'image3', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/4.jpg', {id: 'image4', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/5.jpg', {id: 'image5', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/6.jpg', {id: 'image6', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/7.jpg', {id: 'image7', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/8.jpg', {id: 'image8', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/9.jpg', {id: 'image9', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/10.jpg', {id: 'image10', title: 'myImage', onload: this.imageLoaded.bind(this)}));
-        this._images.push(new Asset.image('/Content/Images/HomePage/11.jpg', {id: 'image11', title: 'myImage', onload: this.imageLoaded.bind(this)}));
+
+
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/2.jpg', { id: 'image2', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/3.jpg', { id: 'image3', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/4.jpg', { id: 'image4', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/5.jpg', { id: 'image5', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/6.jpg', { id: 'image6', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/7.jpg', { id: 'image7', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/8.jpg', { id: 'image8', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/9.jpg', { id: 'image9', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/10.jpg', { id: 'image10', title: 'myImage', onload: this.imageLoaded.bind(this) }));
+        this._images.push(new Asset.image('http://castlerockproperty.blob.core.windows.net/castlerock/images/homepage/11.jpg', { id: 'image11', title: 'myImage', onload: this.imageLoaded.bind(this) }));
     
         this.showHideImages.periodical(6000, this);
 	},

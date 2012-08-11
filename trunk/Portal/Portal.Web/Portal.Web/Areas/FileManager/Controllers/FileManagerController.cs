@@ -7,9 +7,13 @@ using Microsoft.WindowsAzure.StorageClient;
 using Portal.Web.Areas.FileManager.Models;
 using Portal.Websites.Interfaces;
 using Portal.FileManager;
+using Portal.FileManager.Interfaces;
+using Portal.FileManager.Models;
+using Portal.Web.Attributes;
 
 namespace Portal.Web.Areas.FileManager.Controllers
 {
+    [AdministratorFilter]
     public class FileManagerController : Controller
     {
         private IWebsite _website = null;
@@ -23,41 +27,71 @@ namespace Portal.Web.Areas.FileManager.Controllers
 
         public ActionResult Index()
         {
-            return View("Index", new FileManagerPageViewModel(this._website, this._fileManagerService.GetStorageItems(string.Empty), string.Empty));
+            var viewModel = new FileManagerPageViewModel(this._website, null, this._fileManagerService.GetStorageItems(null));
+
+            return View("Index", viewModel);
         }
 
-        public ActionResult View(string path)
+        public ActionResult View(int? storageItemId)
         {
-            return View("Index", new FileManagerPageViewModel(this._website, this._fileManagerService.GetStorageItems(path), path));
-        }
-        
-        public ActionResult DeleteFolder(string path)
-        {
-            this._fileManagerService.DeleteFolder(path);
+            IStorageItem currentStorageItem = null;
 
-            // If there was a problem then return the edit view
+            if (storageItemId.HasValue)
+            {
+                currentStorageItem = this._fileManagerService.GetStorageItem(storageItemId.Value);
+            }
+
+            var viewModel = new FileManagerPageViewModel(this._website, currentStorageItem, this._fileManagerService.GetStorageItems(storageItemId));
+
+            return View("Index", viewModel);
+        }
+
+        public ActionResult DeleteFolder(int storageItemId)
+        {
+            IStorageItem item = this._fileManagerService.GetStorageItem(storageItemId);
+
+            this._fileManagerService.DeleteFolder(storageItemId);
+
+            if (item.Parent != null)
+            {
+                return this.RedirectToRoute("FileManager-View", new { storageItemId = item.Parent.Id });
+            }
+
             return this.RedirectToRoute("FileManager");
         }
 
-        public ActionResult DeleteFile(string path)
+        public ActionResult DeleteFile(int storageItemId)
         {
-            this._fileManagerService.DeleteFile(path);
+            IStorageItem item = this._fileManagerService.GetStorageItem(storageItemId);
 
-            // If there was a problem then return the edit view
+            this._fileManagerService.DeleteFile(storageItemId);
+
+            if (item.Parent != null)
+            {
+                return this.RedirectToRoute("FileManager-View", new { storageItemId = item.Parent.Id });
+            }
+
             return this.RedirectToRoute("FileManager");
         }
         
 
-        public ActionResult NewFolder(string FolderName, string path)
+        public ActionResult NewFolder(string FolderName, int? storageItemId)
         {
-            this._fileManagerService.CreateFolder(FolderName, path);
+            this._fileManagerService.CreateFolder(FolderName, storageItemId);
 
-            return this.RedirectToRoute("FileManager-View", new { path = path });
+            if (storageItemId.HasValue)
+            {
+                return this.RedirectToRoute("FileManager-View", new { storageItemId = storageItemId });
+            }
+
+            return this.RedirectToRoute("FileManager");
         }
 
-        public ActionResult Upload(string path)
+        public ActionResult Upload(int? parentFolderId)
         {
-            return this.Json(this._fileManagerService.UploadFiles(Request.Files, path));
+            var storageItems = this._fileManagerService.UploadFiles(Request.Files, parentFolderId);
+
+            return this.View("StorageItems", storageItems.Select(o => new FileViewModel(o as File) as IStorageItemViewModel).ToList());
         }
 
     }

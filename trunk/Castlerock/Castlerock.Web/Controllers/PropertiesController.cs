@@ -36,7 +36,7 @@ namespace Castlerock.Web.Controllers
 
             if (this.Request.IsAjaxRequest())
             {
-                return View("PropertiesInState", propertyModel);
+                return this.PartialView("PropertiesInState", propertyModel);
             }
 
             var model = new PageViewModel();

@@ -26,9 +26,9 @@ namespace Portal.FileManager.Storage
         /// <param name="website">the website these files are for</param>
         /// <param name="path">the path to the location to upload the files to</param>
         /// <returns>a colletion of result objects</returns>
-        public IList<FileUploadResult> UploadFiles(HttpFileCollectionBase files, IWebsite website, string path)
+        public IList<IStorageItem> UploadFiles(HttpFileCollectionBase files, IWebsite website, string path)
         {
-            IList<FileUploadResult> result = new List<FileUploadResult>();
+            IList<IStorageItem> result = new List<IStorageItem>();
 
             foreach (string key in files.Keys)
             {
@@ -45,7 +45,7 @@ namespace Portal.FileManager.Storage
         /// <param name="domain">the domain this website lives in. eg castlerockproperty, auslinkproperty etc</param>
         /// <param name="path">The path to save the image to</param>
         /// <returns>result object with filename and success / fail messages</returns>
-        public FileUploadResult UploadFile(HttpPostedFileBase file, IWebsite website, string path)
+        public IStorageItem UploadFile(HttpPostedFileBase file, IWebsite website, string path)
         {
             return this.UploadFile(file.InputStream, file.FileName, website, path);
         }
@@ -58,10 +58,8 @@ namespace Portal.FileManager.Storage
         /// <param name="domain">the domain this website lives in. eg castlerockproperty, auslinkproperty etc</param>
         /// <param name="path">The path to save the image to</param>
         /// <returns>result object with filename and success / fail messages</returns>
-        public FileUploadResult UploadFile(Stream file, string fileName, IWebsite website, string path)
+        public IStorageItem UploadFile(Stream file, string fileName, IWebsite website, string path)
         {
-            FileUploadResult uploadResult = new FileUploadResult();
-
             CloudBlobContainer blobContainer = this.GetCloudBlobContainer(website);
 
             if (!string.IsNullOrEmpty(path) && !path.EndsWith("/"))
@@ -75,17 +73,19 @@ namespace Portal.FileManager.Storage
             // Create or overwrite the "myblob" blob with contents from a local file
             blob.UploadFromStream(file);
 
-            // Create a new image so we can calculate the width and height
-            uploadResult.Source = blob.Uri.ToString();
-            uploadResult.StorageId = fileName;
-
             if (!string.IsNullOrEmpty(path))
             {
                 CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
                 cloudBlob.DeleteIfExists();
             }
 
-            return uploadResult;
+            string host = blob.Uri.Host;
+            for (int i = 0; i < 2; i++) { host += blob.Uri.Segments[i]; }
+
+            File uploadFile = new File(website, blob.Uri.Scheme, host, path, fileName);
+            uploadFile.Type = this.GetContentType(fileName);
+
+            return uploadFile;
         }
 
         private string GetContentType(string fileName)
@@ -97,6 +97,13 @@ namespace Portal.FileManager.Storage
                 {
                     case "pdf":
                         return "application/pdf";
+                    case "jpg":
+                    case "jpeg":
+                        return "image/jpg";
+                    case "png":
+                        return "image/png";
+                    case "gif":
+                        return "image/gif";
                 }
             }
 
@@ -147,24 +154,64 @@ namespace Portal.FileManager.Storage
                 blobItems = directory.ListBlobs().Where(o => o.Uri != directory.Uri);
             }
 
-            foreach (IListBlobItem blobItem in blobItems)
+
+            foreach (var item in blobItems)
             {
-                if (this.IsFolder(blobItem))
+                IStorageItem storageItem = null;
+
+                if(this.IsFolder(item))
                 {
-                    folders.Add(new Folder(blobItem.Uri));
+                    Folder folder = this.CreateFolderFromUri(website, item.Uri);
+
+                    if (folder.Path + folder.Name != path)
+                    {
+                        folder.Children = this.GetStorageItems(website, folder.Path + folder.Name);
+                    }
+
+                    storageItem = folder;
                 }
                 else
                 {
-                    files.Add(new File(blobItem.Uri));
+                    File file = this.CreateFileFromUri(website, item.Uri);
+
+                    storageItem = file;
                 }
+
+                files.Add(storageItem);
             }
 
-            files = files.OrderBy(o => o.Name).ToList();
-            folders = folders.OrderBy(o => o.Name).ToList();
+            return files;
 
-            folders.AddRange(files);
 
-            return folders;
+            //foreach (IListBlobItem blobItem in blobItems)
+            //{
+            //    if (this.IsFolder(blobItem))
+            //    {
+            //        folders.Add(new Folder(blobItem.Uri));
+            //    }
+            //    else
+            //    {
+            //        files.Add(this.CreateFileFromUri(website, blobItem.Uri));
+            //    }
+            //}
+
+            //files = files.OrderBy(o => o.Name).ToList();
+            //folders = folders.OrderBy(o => o.Name).ToList();
+
+            //folders.AddRange(files);
+
+            //return folders;
+        }
+
+        private File CreateFileFromUri(IWebsite website, Uri uri)
+        {
+            string host = uri.Host;
+            string path = string.Empty;
+            string fileName = uri.Segments[uri.Segments.Length - 1];
+            for (int i = 0; i < 2; i++) { host += uri.Segments[i]; }
+            for (int i = 2; i < uri.Segments.Length - 1; i++) { path += uri.Segments[i]; }
+
+            return new File(website, uri.Scheme, host, path, fileName);
         }
 
         private bool IsFolder(IListBlobItem blobItem)
@@ -187,20 +234,32 @@ namespace Portal.FileManager.Storage
         /// <param name="folderName">the name of the folder</param>
         /// <param name="path">the relative path to where the folder will live it</param>
         /// <returns></returns>
-        public bool CreateFolder(IWebsite website, string folderName, string path)
+        public Folder CreateFolder(IWebsite website, string folderName, string path)
         {
             string assemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            assemblyLocation = new System.Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).AbsolutePath + "/folder.txt";
+            assemblyLocation = new System.Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).AbsolutePath + "/folder2.txt";
 
             FileStream file = System.IO.File.Open(assemblyLocation, FileMode.OpenOrCreate);
 
-            this.UploadFile(file, folderName + "/", website, path);
+           IStorageItem uploadedFile = this.UploadFile(file, folderName + "/", website, path);
 
             file.Close();
 
-            return true;
+            return this.CreateFolderFromUri(website, uploadedFile.Uri);
         }
+
+        private Folder CreateFolderFromUri(IWebsite website, Uri uri)
+        {
+            string host = uri.Host;
+            string path = string.Empty;
+            string fileName = uri.Segments[uri.Segments.Length - 1];
+            for (int i = 0; i < 2; i++) { host += uri.Segments[i]; }
+            for (int i = 2; i < uri.Segments.Length - 1; i++) { path += uri.Segments[i]; }
+
+            return new Folder(website, uri.Scheme, host, path, fileName.Substring(0, fileName.Length - 1));
+        }
+
 
         /// <summary>
         /// Deletes a file from the file system

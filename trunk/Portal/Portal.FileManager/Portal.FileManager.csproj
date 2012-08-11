@@ -33,6 +33,13 @@
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -44,22 +51,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FileBrowser.cs" />
+    <Compile Include="Daos\StorageItemNhibernateRepository.cs" />
     <Compile Include="FileManagerService.cs" />
     <Compile Include="IFileManagerService.cs" />
     <Compile Include="Interfaces\IFileStorage.cs" />
+    <Compile Include="Interfaces\IStorageItemRepository.cs" />
     <Compile Include="Interfaces\IStorageItem.cs" />
+    <Compile Include="Models\StorageItem.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileUploadResult.cs" />
     <Compile Include="Models\Folder.cs" />
+    <Compile Include="Enums\StorageItemType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\AzureBlobStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="folder.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="folder2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="MappingFiles\File.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
+      <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
+      <Name>Common.Nhibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Interfaces\Portal.Interfaces.csproj">
+      <Project>{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}</Project>
+      <Name>Portal.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Portal.Websites\Portal.Websites.csproj">
       <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
       <Name>Portal.Websites</Name>

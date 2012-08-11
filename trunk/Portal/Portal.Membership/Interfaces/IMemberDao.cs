@@ -16,6 +16,13 @@ namespace Portal.Membership.Interfaces
         /// <returns>A Member object if one exists otherwise null</returns>
         Member GetMemberByUsername(IWebsite website, string username);
 
+        
+        /// <summary>
+        /// Get a specific member by there email
+        /// </summary>
+        /// <param name="email">the email of the member to return</param>
+        Member GetMemberByEmail(IWebsite website, string email);
+
         /// <summary>
         /// Gets a specific member by there id
         /// </summary>

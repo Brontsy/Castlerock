@@ -6,6 +6,7 @@ using System.Web;
 using Portal.Websites.Interfaces;
 using Portal.FileManager.Models;
 using System.IO;
+using File = Portal.FileManager.Models;
 
 namespace Portal.FileManager.Interfaces
 {
@@ -23,7 +24,7 @@ namespace Portal.FileManager.Interfaces
         /// <param name="website">the website these files are for</param>
         /// <param name="path">the path to the location to upload the files to</param>
         /// <returns>a colletion of result objects</returns>
-        IList<FileUploadResult> UploadFiles(HttpFileCollectionBase files, IWebsite website, string path);
+        IList<IStorageItem> UploadFiles(HttpFileCollectionBase files, IWebsite website, string path);
 
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace Portal.FileManager.Interfaces
         /// <param name="domain">the website that is uploading the file in. eg castlerockproperty, auslinkproperty etc</param>
         /// <param name="imagePath">The path to save the image to</param>
         /// <returns>result object with filename and success / fail messages</returns>
-        FileUploadResult UploadFile(HttpPostedFileBase file, IWebsite website, string imagePath);
+        IStorageItem UploadFile(HttpPostedFileBase file, IWebsite website, string imagePath);
 
         
         /// <summary>
@@ -44,7 +45,7 @@ namespace Portal.FileManager.Interfaces
         /// <param name="domain">the domain this website lives in. eg castlerockproperty, auslinkproperty etc</param>
         /// <param name="path">The path to save the image to</param>
         /// <returns>result object with filename and success / fail messages</returns>
-        FileUploadResult UploadFile(Stream file, string fileName, IWebsite website, string path);
+        IStorageItem UploadFile(Stream file, string fileName, IWebsite website, string path);
 
         
         /// <summary>
@@ -61,7 +62,7 @@ namespace Portal.FileManager.Interfaces
         /// <param name="folderName">the name of the folder</param>
         /// <param name="path">the relative path to where the folder will live it</param>
         /// <returns></returns>
-        bool CreateFolder(IWebsite website, string folderName, string path);
+        Folder CreateFolder(IWebsite website, string folderName, string path);
 
         /// <summary>
         /// Deletes a folder from the file system

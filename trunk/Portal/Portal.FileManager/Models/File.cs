@@ -2,37 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Portal.FileManager.Interfaces;
+using Portal.Websites.Interfaces;
+using Portal.FileManager.Enums;
 
 namespace Portal.FileManager.Models
 {
-    public class File : IStorageItem
+    public class File : StorageItem
     {
-        public File(Uri url)
-        {
-            this.Url = url;
-        }
+        public File() : base (StorageItemType.File) { }
 
-        /// <summary>
-        /// Gets the url to access this storage item
-        /// </summary>
-        public Uri Url
+        public File(IWebsite website, string scheme, string host, string path, string fileName)
+            : base(StorageItemType.File, website, scheme, host, path, fileName) 
         {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets the name of the file. This simply gets the last segment of the Uri
-        /// </summary>
-        public string Name
-        {
-            get
-            {
-                string[] segments = this.Url.ToString().Split('/');
-
-                return segments[segments.Length - 1];
-            }
         }
     }
 }

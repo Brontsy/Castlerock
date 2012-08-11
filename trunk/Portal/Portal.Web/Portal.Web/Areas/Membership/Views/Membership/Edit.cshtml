@@ -6,9 +6,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="content-padding">
+<ul class="sub-navigation">
+    <li class="left">
+        <h1>Edit Login Details: @Model.Member.Email</h1>
+    </li>
+</ul>
 
-<h1>Edit @Model.Member.Name</h1>
+<div class="content-padding">
 
 @Html.ValidationMessage("ErrorMessage")
 
@@ -19,12 +23,13 @@
 
 }
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 @{Html.RenderPartial("ChangePassword", Model.Member);}
+
 
 </div>

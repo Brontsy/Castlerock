@@ -6,6 +6,9 @@ using Portal.Cms.Interfaces;
 using Common.Extensions;
 using Portal.Web.Models;
 using Portal.Websites.Interfaces;
+using System.Web.Mvc;
+using Portal.Cms.Models;
+using Portal.Interfaces.Cms;
 
 namespace Portal.Web.Areas.CMS.Models
 {
@@ -14,18 +17,36 @@ namespace Portal.Web.Areas.CMS.Models
         private IPage _page = null;
         private IList<IControl> _controls = null;
 
+        private string _name;
+        private string _template;
+        private int _templateId;
+
+        private IList<Template> _templates;
+
+        public PageViewModel()
+        {
+        }
+
         public PageViewModel(IPage page)
         {
             this._page = page;
+            this.Name = page.Name;
+            this.Id = page.Id;
             this._controls = page.Controls;
+        }
+
+        public PageViewModel(IList<Template> templates)
+        {
+            this._templates = templates;
         }
 
         /// <summary>
         /// Gets the id of this page
         /// </summary>
-        public string Id
+        public int Id
         {
-            get { return this._page.Id.ToString(); }
+            get;
+            set;
         }
 
         /// <summary>
@@ -33,7 +54,16 @@ namespace Portal.Web.Areas.CMS.Models
         /// </summary>
         public string Name
         {
-            get { return this._page.Name; }
+            get;
+            set;
+        }
+        /// <summary>
+        /// Gets the url of the page
+        /// </summary>
+        public string Url
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -52,5 +82,28 @@ namespace Portal.Web.Areas.CMS.Models
             get { return this._controls; }
         }
 
+        public int TemplateId
+        {
+            get;
+            set;
+        }
+
+        public TemplateViewModel Template
+        {
+            get { return new TemplateViewModel(this._page.Template); }
+        }
+
+        public SelectList Templates
+        {
+            get
+            {
+                return new SelectList(this._templates, "Id", "Name");
+            }
+        }
+
+        public void AddTemplates(IList<Template> templates)
+        {
+            this._templates = templates;
+        }
     }
 }

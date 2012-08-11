@@ -17,11 +17,8 @@ namespace Portal.Membership.Models
     {
         public const string DefaultPassword = "PA$$word1";
         private int _id;
-        private string _name = string.Empty;
-        private string _company = string.Empty;
-        private string _username = string.Empty;
         private string _email = string.Empty;
-        private string _password = Member.DefaultPassword;
+        private string _password = string.Empty;// Member.DefaultPassword;
         private DateTime _dateCreated = DateTime.Now;
 
         private string _passwordHashed = string.Empty;
@@ -31,45 +28,20 @@ namespace Portal.Membership.Models
 
         private IList<Role> _roles = new List<Role>();
 
+        private Profile _profile = new Profile();
+
         public virtual int Id
         {
             get { return this._id; }
             set { this._id = value; }
         }
 
-        //[Required(ErrorMessage = "* Please enter a name")]
-        //[DisplayName("Name")]
-        public virtual string Name
-        {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-
-        //[DisplayName("Company")]
-        public virtual string Company
-        {
-            get { return this._company; }
-            set { this._company = value; }
-        }
-
-        //[Required(ErrorMessage = "* Please enter a Username")]
-        //[DisplayName("Username")]
-        public virtual string Username
-        {
-            get { return this._username; }
-            set { this._username = value; }
-        }
-
-        //[DisplayName("Email")]
         public virtual string Email
         {
             get { return this._email; }
             set { this._email = value; }
         }
 
-        //[PasswordMinLengthAttribute(6, ErrorMessage = "* Password must be at least 6 characters long")]
-        //[PasswordRequired(ErrorMessage = "* Please enter a password")]
-        //[DisplayName("Password")]
         public virtual string Password
         {
             get { return this._password; }
@@ -84,9 +56,6 @@ namespace Portal.Membership.Models
             }
         }
 
-        //[Required(ErrorMessage = "* Please enter a password")]
-        //[MinimumLength(6, ErrorMessage = "* Password must be at least 6 characters long")]
-        //[DisplayName("Password")]
         public virtual string PasswordHashed
         {
             get { return this._passwordHashed; }
@@ -108,6 +77,12 @@ namespace Portal.Membership.Models
         {
             get { return this._websites; }
             set { this._websites = value; }
+        }
+
+        public virtual Profile Profile
+        {
+            get { return this._profile; }
+            set { this._profile = value; }
         }
     }
 }

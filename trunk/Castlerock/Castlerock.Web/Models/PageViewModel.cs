@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 
 namespace Castlerock.Web.Models
 {
@@ -16,6 +17,14 @@ namespace Castlerock.Web.Models
         /// The model object that is going to be passed to the view
         /// </summary>
         public object Model { get; set; }
-        
+
+        /// <summary>
+        /// Is the member logged in or not
+        /// </summary>
+        public bool IsLoggedIn
+        {
+            get { return HttpContext.Current.User.Identity.IsAuthenticated; }
+        }
+
     }
 }

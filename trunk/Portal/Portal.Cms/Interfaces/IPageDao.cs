@@ -20,6 +20,14 @@ namespace Portal.Cms.Interfaces
         /// </summary>
         /// <param name="name">the name of the page to return</param>
         /// <returns></returns>
-        IPage GetPageByName(string name);
+        IPage GetPageByName(IWebsite website, string name);
+
+
+        /// <summary>
+        /// Gets all the pages that have that control on it
+        /// </summary>
+        /// <param name="controlId">the id of the control to search the pages for</param>
+        /// <returns></returns>
+        IList<IPage> GetPagesWithControl(IWebsite website, Guid controlId);
     }
 }

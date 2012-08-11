@@ -35,6 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Portal.Web\packages\Newtonsoft.Json.4.5.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
@@ -42,7 +45,11 @@
     <Reference Include="NHibernate.ByteCode.Castle">
       <HintPath>..\Portal.Web\packages\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\Portal.Web\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,28 +59,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CmsService.cs" />
-    <Compile Include="Controls\AggregateControls\AggregateControl.cs" />
-    <Compile Include="Controls\AggregateControls\Column.cs" />
+    <Compile Include="Controls\AggregateControls\AggregateControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\AggregateControls\Navigation.cs" />
     <Compile Include="Controls\AggregateControls\NavigationItem.cs" />
-    <Compile Include="Controls\AggregateControls\Layout.cs" />
     <Compile Include="Controls\Control.cs" />
+    <Compile Include="Controls\InternalLink.cs" />
     <Compile Include="Controls\Heading.cs" />
-    <Compile Include="Controls\Html.cs" />
-    <Compile Include="Controls\Image.cs" />
+    <Compile Include="Controls\Html.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Image.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controls\ImageLink.cs" />
-    <Compile Include="Controls\Link.cs" />
+    <Compile Include="Controls\Link.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Daos\ControlNhibernateDao.cs" />
+    <Compile Include="Daos\TemplateNhibernateDao.cs" />
     <Compile Include="Daos\PageNhibernateDao.cs" />
-    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ParameterExtensions.cs" />
     <Compile Include="ICmsService.cs" />
+    <Compile Include="Interfaces\ITemplateDao.cs" />
     <Compile Include="Interfaces\IAggregateControl.cs" />
-    <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IControlDao.cs" />
     <Compile Include="Interfaces\IPage.cs" />
     <Compile Include="Interfaces\IPageDao.cs" />
     <Compile Include="Interfaces\IParameter.cs" />
+    <Compile Include="Models\Template.cs" />
     <Compile Include="Pages\Page.cs" />
     <Compile Include="Parameters\Checkbox.cs" />
     <Compile Include="Parameters\DatePicker.cs" />
@@ -86,13 +103,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MappingFiles\Control.hbm.xml" />
     <EmbeddedResource Include="MappingFiles\Page.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj">
       <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
       <Name>Common.Nhibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Events\Portal.Events.csproj">
+      <Project>{73B79562-0C67-4CD2-870F-81CC1CE682C4}</Project>
+      <Name>Portal.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Interfaces\Portal.Interfaces.csproj">
+      <Project>{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}</Project>
+      <Name>Portal.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Messaging\Portal.Messaging.csproj">
+      <Project>{B010B451-89C1-48B4-9E2B-E5522EBF2232}</Project>
+      <Name>Portal.Messaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Portal.Websites\Portal.Websites.csproj">
       <Project>{2B3BF2E7-A251-4182-BE94-2AF69A073944}</Project>
@@ -101,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Template.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

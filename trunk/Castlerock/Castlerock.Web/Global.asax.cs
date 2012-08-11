@@ -41,6 +41,11 @@ namespace Castlerock.Web
 
             routes.MapRoute("Property", "Properties/Show/{propertyName}/{propertyId}", new { controller = "Properties", action = "Show" });
 
+            routes.MapRoute("Login", "login", new { controller = "Login", action = "Index" });
+            routes.MapRoute("Logout", "Logout", new { controller = "Login", action = "Logout" });
+            routes.MapRoute("Member-Downloads", "members/downloads", new { controller = "Member", action = "Downloads" });
+
+
             routes.MapRoute("Error-404", "Error/404", new { controller = "Error", action = "Show404" });
             routes.MapRoute("Error-500", "Error/500", new { controller = "Error", action = "Show500" });
 

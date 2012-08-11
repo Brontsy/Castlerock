@@ -11,7 +11,7 @@
     
     <div id="contentArea" style="float:left;">
 
-        <img src="/Content/Images/Properties/<%= Model.Property.ImageFolder %>/755x311.jpg" />
+        <img src="http://castlerockproperty.blob.core.windows.net/castlerock/images/properties/<%= Model.Property.ImageFolder %>/755x311.jpg" />
         
         
             <div class="propertyHeadingContainer">

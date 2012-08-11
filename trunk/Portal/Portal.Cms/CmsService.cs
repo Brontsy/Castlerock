@@ -12,174 +12,350 @@ using Portal.Cms.Interfaces;
 using Portal.Cms.Pages;
 using Portal.Websites.Interfaces;
 
+using Newtonsoft.Json;
+using Portal.Cms.Models;
+using System.Text.RegularExpressions;
+using Portal.Messaging;
+using Portal.Messaging.Interfaces;
+using Portal.Cms.Extensions;
+using Portal.Messaging.Enums;
+using Portal.Events;
+using Portal.Interfaces.Cms;
+using Portal.Events.Interfaces;
+using Portal.Events.Events;
+
 namespace Portal.Cms
 {
-    public class CmsService : ICmsService
+    public class CmsService : ICmsService, IEventSubscriber
     {
         private IPageDao _pageDao;
         private IControlDao _controlDao;
+        private ITemplateDao _templateDao;
+        private IWebsite _website;
+        private ITransactionManager _transactionManager;
+        private IMessageService _messageService;
 
-        public CmsService(IPageDao pageDo, IControlDao controlDao)
+        private IList<IPage> _pages = null;
+
+        public CmsService(IPageDao pageDo, IControlDao controlDao, IWebsite website, ITransactionManager transactionManager, ITemplateDao templateDao, IMessageService messageService)
         {
             this._pageDao = pageDo;
             this._controlDao = controlDao;
+            this._templateDao = templateDao;
+            this._website = website;
+            this._transactionManager = transactionManager;
+            this._messageService = messageService;
         }
 
-        public IList<IPage> GetPages(IWebsite website)
+        /// <summary>
+        /// Get all the pages from the database
+        /// </summary>
+        public IList<IPage> GetPages()
         {
-            return this._pageDao.GetPagesForWebsite(website);
+            // Only load the page once!
+            if (this._pages == null)
+            {
+                this._pages = this._pageDao.GetPagesForWebsite(this._website);
+            } 
+
+            return this._pages;
         }
 
+        /// <summary>
+        /// Get a specific page by its id
+        /// </summary>
+        /// <param name="pageId">the id of the page to load</param>
         public IPage GetPageById(int pageId)
         {
             return this._pageDao.GetById(pageId);
         }
 
+        /// <summary>
+        /// Gets a sepcific page by its name
+        /// </summary>
+        /// <param name="pageName">the name of the page to load</param>
         public IPage GetPageByName(string pageName)
         {
-            return this._pageDao.GetPageByName(pageName);
+            return this._pageDao.GetPageByName(this._website, pageName);
         }
 
-        public IControl GetControlById(int controlId)
+        /// <summary>
+        /// Deletes a specific control from the page
+        /// </summary>
+        /// <param name="controlId">the id of the control to delete</param>
+        public void DeleteControl(int pageId, Guid controlId)
         {
-            return this._controlDao.GetById(controlId);
-        }
-
-        public IControl AddControl(int pageId, int? parentControlId, string assembly, string className, NameValueCollection parameters, ITransactionManager transactionManager)
-        {
-            // Load the control otherwise set it to null if we are adding a control to a specific location
-            IControl control = null;
-            if(parentControlId.HasValue) { control = this.GetControlById(parentControlId.Value); }
             IPage page = this.GetPageById(pageId);
 
-            // Create a new instance of our new control
-            Cms.Interfaces.IControl newControl = (Cms.Interfaces.IControl)Activator.CreateInstance(Type.GetType(className + ", " + assembly));
+            IControl control = page.Controls.Child(controlId);
 
-            newControl.DisplayOrder = 1;
+            page.Controls.Delete(control);
 
-            if (control != null)
-            {
-                newControl.ParentControl = control;
+            // Add the parent control because this is the one we need to update on other pages
+            this._messageService.AddMessage<IControl>(control, MessageAction.Delete);
 
-                if (control.Controls.Count > 1)
-                {
-                    newControl.DisplayOrder = control.Controls.Last().DisplayOrder + 1;
-                }
-            }
-            else
-            {
-                newControl.DisplayOrder = page.Controls.ToList().Last().DisplayOrder + 1;
-                    
-                newControl.Pages.Add(page);
-            }
-
-            this.SaveControl(newControl, parameters, transactionManager);
-
-            return newControl;
+            this.SavePage(page);
         }
 
-        public bool SaveControl(IControl control, NameValueCollection parameters, ITransactionManager transactionManager)
+        /// <summary>
+        /// Adds a control that already exists on another page to the page that is passed in
+        /// </summary>
+        /// <param name="pageId">the id of the page to add the control to</param>
+        /// <param name="controlId">the id of the control we are adding</param>
+        /// <param name="parentControlId">the id of the parent control we might be adding it to (null if there is no parent)</param>
+        /// <param name="location">the location on the page to add the control to</param>
+        /// <returns></returns>
+        public IControl AddExistingControl(int pageId, Guid controlId, Guid? parentControlId, string location)
         {
-            if (control.Update(parameters))
+            IPage page = this.GetPageById(pageId);
+            IControl existingControl = null;
+            IList<IPage> pages = this._pageDao.GetPagesWithControl(this._website, controlId);
+
+            foreach (IPage anotherPage in pages)
             {
-                return this.SaveControl(control, transactionManager);
+                existingControl = page.Controls.Child(controlId);
             }
 
-            return false;
+            if (existingControl != null)
+            {
+                page.Controls.Add(parentControlId, existingControl);
+                this.SavePage(page);
+            }
+
+            return existingControl;
         }
 
-        public void SetPagesForControl(int controlId, int[] pageIds, ITransactionManager transactionManager)
+        public IControl AddControl(int pageId, NameValueCollection parameters, Guid? parentControlId, IControl control, string location)
         {
-            IControl control = this.GetControlById(controlId);
-            control.Pages = new List<IPage>();
+            IPage page = this.GetPageById(pageId);
 
-            foreach (int pageId in pageIds)
+            control.Location = location;
+
+            MessageAction action = MessageAction.Update;
+
+            if (control.Id == new Guid())
             {
-                if(!control.AlreadyExistsOnPage(pageId))
-                {
-                    control.Pages.Add(this.GetPageById(pageId));
-                }
+                control.Id = Guid.NewGuid();
+                action = MessageAction.Insert;
             }
 
-            this.SaveControl(control, transactionManager);
+            // Add control
+            page.Controls.Add(parentControlId, control);
+
+            this.SavePage(page);
+
+            // Add the parent control because this is the one we need to update on other pages
+            this._messageService.AddMessage<IControl>(control, action);
+
+            return control;
         }
 
-        public bool SaveControl(IControl control, ITransactionManager transactionManager)
+
+
+
+        /// <summary>
+        /// Saves a page back to the database
+        /// </summary>
+        /// <param name="pageId">the id of the page to save (null means its a new page)</param>
+        /// <param name="name">the name of the page</param>
+        /// <param name="templateId">the id of the template that this page will use</param>
+        /// <returns></returns>
+        public IPage SavePage(int? pageId, string name, string url, int templateId)
+        {
+            IPage page = new Page();
+
+            if (pageId.HasValue)
+            {
+                page = this.GetPageById(pageId.Value);
+            }
+
+            (page as Page).Name = name;
+            (page as Page).Url = url;
+            (page as Page).Template = this.GetTemplateById(templateId);
+            (page as Page).Website = this._website;
+
+            return this.SavePage(page);
+        }
+
+        public IPage SavePage(IPage page)
         {
             try
             {
-                transactionManager.BeginTransaction();
+                var settings = new JsonSerializerSettings();
+                settings.TypeNameHandling = TypeNameHandling.Objects;
 
-                this._controlDao.SaveOrUpdate(control as Control);
+                ((Page)page).Content = JsonConvert.SerializeObject(page.Controls, Newtonsoft.Json.Formatting.Indented, settings);
 
-                transactionManager.CommitTransaction();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                if (transactionManager.IsInTransaction())
-                {
-                    transactionManager.RollbackTransaction();
-                }
-
-                throw new ApplicationException(string.Format("Error trying to save control: {0}", control.Id), e);
-            }
-        }
-
-        public bool SavePage(IPage page, ITransactionManager transactionManager)
-        {
-            try
-            {
-                transactionManager.BeginTransaction();
+                this._transactionManager.BeginTransaction();
 
                 this._pageDao.SaveOrUpdate(page as Page);
 
-                transactionManager.CommitTransaction();
-
-                return true;
+                this._transactionManager.CommitTransaction();
             }
             catch (Exception e)
             {
-                if (transactionManager.IsInTransaction())
+                if (this._transactionManager.IsInTransaction())
                 {
-                    transactionManager.RollbackTransaction();
+                    this._transactionManager.RollbackTransaction();
                 }
 
                 throw new ApplicationException(string.Format("Error trying to save page: {0}", page.Id), e);
             }
+
+            return page;
         }
 
-        public bool RemoveControl(IControl control, ITransactionManager transactionManager)
+
+
+
+
+
+
+        /// <summary>
+        /// Gets all the templates
+        /// </summary>
+        /// <returns></returns>
+        public IList<Template> GetTemplates()
+        {
+            return this._templateDao.GetTemplates(this._website);
+        }
+
+        /// <summary>
+        /// Gets a specific template by its id
+        /// </summary>
+        /// <param name="templateId">the id of the template to return</param>
+        public Template GetTemplateById(int templateId)
+        {
+            return this._templateDao.GetById(templateId);
+        }
+
+        /// <summary>
+        /// Saves the template + details to the database
+        /// </summary>
+        /// <param name="templateId">the id of the template to save</param>
+        /// <param name="name">the name of the template</param>
+        /// <param name="html">the html for the template</param>
+        public Template SaveTemplate(int? templateId, string name, string html)
+        {
+            Template template = new Template();
+
+            if (templateId.HasValue)
+            {
+                template = this.GetTemplateById(templateId.Value);
+            }
+
+            template.Name = name;
+            template.Html = html;
+            template.Website = this._website;
+
+            Regex re = new Regex(@"\[location=""([a-z0-9\-]+)""\]");
+            MatchCollection mc = re.Matches(template.Html);
+            foreach (Match m in mc)
+            {
+                template.Locations.Add(m.Groups[1].Value);
+            }
+
+            template.LocationsJson = JsonConvert.SerializeObject(template.Locations, Newtonsoft.Json.Formatting.Indented);
+
+            return this.SaveTemplate(template);
+        }
+
+        /// <summary>
+        /// Saves the template back to the database
+        /// </summary>
+        /// <param name="template">the template to be saved</param>
+        /// <returns></returns>
+        public Template SaveTemplate(Template template)
         {
             try
             {
-                transactionManager.BeginTransaction();
+                this._transactionManager.BeginTransaction();
 
-                if (control.ParentControl != null)
-                {
-                    control.ParentControl.Controls.Remove(control);
-                    control.ParentControl = null;
-                }
+                this._templateDao.SaveOrUpdate(template);
 
-                control.Pages = null;
-
-                this._controlDao.Delete(control as Control);
-
-                transactionManager.CommitTransaction();
-
+                this._transactionManager.CommitTransaction();
             }
             catch (Exception e)
             {
-                if (transactionManager.IsInTransaction())
+                if (this._transactionManager.IsInTransaction())
                 {
-                    transactionManager.RollbackTransaction();
+                    this._transactionManager.RollbackTransaction();
                 }
 
-                throw new ApplicationException(string.Format("Error trying to remove control: {0}", control.Id), e);
+                throw new ApplicationException(string.Format("Error trying to save template: {0}", template.Id), e);
             }
 
-            return true;
+            return template;
         }
+
+
+
+
+
+        public void ProcessControls()
+        {
+            IList<IMessage<IControl>> messages = this._messageService.GetMessages<IControl>(Subscription.Cms);
+
+            foreach (IMessage<IControl> message in messages)
+            {
+                IList<IPage> pages = this._pageDao.GetPagesWithControl(this._website, message.Content.Id);
+
+                foreach (IPage page in pages)
+                {
+                    if (message.Action == MessageAction.Insert)
+                    {
+                        IControl parent = page.Controls.Parent(message.Content);
+
+                        // if the control has a parent on this page
+                        if (parent != null)
+                        {
+                            IList<IPage> pagesWithParent = this._pageDao.GetPagesWithControl(this._website, parent.Id);
+
+                            foreach (IPage pageWithParent in pagesWithParent.Where(o => o.Id != page.Id))
+                            {
+                                pageWithParent.Controls.Add(parent.Id, message.Content);
+
+                                this.SavePage(pageWithParent);
+                            }
+                        }
+                    }
+
+                    if (message.Action == MessageAction.Update)
+                    {
+                        page.Controls.Update(message.Content);
+
+                        this.SavePage(page);
+                    }
+
+                    if (message.Action == MessageAction.Delete)
+                    {
+                        page.Controls.Delete(message.Content);
+
+                        this.SavePage(page);
+                    }
+                }
+            }
+
+            this._messageService.Processed(messages);
+        }
+
+        #region IEventSubscriber Members
+
+        public void Notify(IEvent e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T Request<T>(IEvent e)
+        {
+            if (e is PageEvent)
+            {
+                return (T)this.GetPageById((e as PageEvent).PageId);
+            }
+
+            return default(T);
+        }
+
+        #endregion
     }
 }

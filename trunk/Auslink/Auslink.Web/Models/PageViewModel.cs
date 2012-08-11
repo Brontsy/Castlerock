@@ -8,8 +8,8 @@ namespace Auslink.Web.Models
     public class PageViewModel
     {
         private Login _login = new Login();
-        private string _heaerImageUrl = "/Content/Images/header/home.jpg";
-        private string _redLogoImageUrl = "/Content/Images/header/quality-assets.png";
+        private string _heaerImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/home.jpg";
+        private string _redLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/quality-assets.png";
         private string _redLogoText = "Quality Assets";
         
         public PageViewModel() { }

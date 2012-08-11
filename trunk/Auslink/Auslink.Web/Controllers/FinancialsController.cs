@@ -12,9 +12,9 @@ namespace Auslink.Web.Controllers
         public ActionResult Returns()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/tax-advantage-income.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/tax-advantage-income.png";
             page.RedLogoText = "Tax Advantage Income";
-            page.HeaderImageUrl = "/Content/Images/header/financials.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/financials.jpg";
 
             return View(page);
         }
@@ -22,9 +22,9 @@ namespace Auslink.Web.Controllers
         public ActionResult FundSummary()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/stable-income.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/stable-income.png";
             page.RedLogoText = "Stable Income";
-            page.HeaderImageUrl = "/Content/Images/header/financials.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/financials.jpg";
 
             return View(page);
         }

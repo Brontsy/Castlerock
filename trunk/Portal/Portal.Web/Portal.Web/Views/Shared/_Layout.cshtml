@@ -6,14 +6,19 @@
     <link href="@Url.Content("~/Content/Css/reset.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Css/site.css")" rel="stylesheet" type="text/css" />
     
+    <link href='http://fonts.googleapis.com/css?family=Signika:400,700,600,300' rel='stylesheet' type='text/css'>
+
     <script src="@Url.Content("~/Content/Scripts/mootools.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/mootools-more.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/File.Upload.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/Image.Upload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/NavigationItem.js")" type="text/javascript"></script>
 
 </head>
 
 <body>
+
+<div class="wrapper">
 
 <div class="page">
 
@@ -56,22 +61,53 @@
 
     </div>
 
+    <footer>
+        @RenderSection("footer", false)
+    </footer>
+
 </div>
     
+</div>
+
 </body>
 </html>
 
 <script type="text/javascript">
     window.addEvent('domready', function () {
 
-        $$('button').addEvent('click', function () 
-        { 
-            this.addClass('disabled'); 
+        $$('button').addEvent('click', function () {
+            this.addClass('disabled');
             var div = this.getElement('div');
 
-            div.set('html', GetButtonText(div.get('html'))); 
+            div.set('html', GetButtonText(div.get('html')));
         });
 
+        $$('.tooltip-toggle').addEvent('click', function (event) {
+            event.stop();
+            $$('.tooltip-toggle.selected').each(function (element) {
+                if (element != this) {
+                    element.removeClass('selected');
+                }
+            }, this);
+
+            $$('.tooltip').each(function (element) {
+                if (element.get('data-tooltip') != this.get('data-tooltip')) {
+                    element.addClass('hidden');
+                }
+            }, this);
+
+            this.toggleClass('selected');
+
+            var element = $$('[data-tooltip="' + this.get('data-tooltip') + '"]');
+
+            element.toggleClass('hidden');
+        });
+
+        $$('body').addEvent('click', function (event) {
+
+            $$('.tooltip-toggle').removeClass('selected');
+            $$('.tooltip').addClass('hidden');
+        });
     });
 
     function GetButtonText(buttonText) {

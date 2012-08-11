@@ -137,49 +137,12 @@
   <ItemGroup>
     <Content Include="Content\Css\reset.css" />
     <Content Include="Content\Css\site.css" />
-    <Content Include="Content\Images\Australia\blue.png" />
-    <Content Include="Content\Images\Australia\green.png" />
-    <Content Include="Content\Images\Australia\map.png" />
-    <Content Include="Content\Images\Australia\orange.png" />
-    <Content Include="Content\Images\Australia\purple.png" />
-    <Content Include="Content\Images\Australia\red.png" />
-    <Content Include="Content\Images\header\about-key-features.jpg" />
-    <Content Include="Content\Images\header\about-overview.jpg" />
-    <Content Include="Content\Images\header\attractive-yields.png" />
-    <Content Include="Content\Images\header\contact-us.jpg" />
-    <Content Include="Content\Images\header\financials.jpg" />
-    <Content Include="Content\Images\header\home.jpg" />
-    <Content Include="Content\Images\header\investors-prospective.jpg" />
-    <Content Include="Content\Images\header\investors-unitholders.jpg" />
-    <Content Include="Content\Images\header\low-entry-costs.png" />
-    <Content Include="Content\Images\header\low-management-fees.png" />
-    <Content Include="Content\Images\header\management-expertise.png" />
-    <Content Include="Content\Images\header\management.jpg" />
-    <Content Include="Content\Images\header\property-development.png" />
-    <Content Include="Content\Images\header\property-location-diversification.png" />
-    <Content Include="Content\Images\header\property-portfolio-01.jpg" />
-    <Content Include="Content\Images\header\property-portfolio-02.jpg" />
-    <Content Include="Content\Images\header\quality-assets.png" />
-    <Content Include="Content\Images\header\stable-income.png" />
-    <Content Include="Content\Images\header\sustainable-buildings.png" />
-    <Content Include="Content\Images\header\tax-advantage-income.png" />
-    <Content Include="Content\Images\login\login-background.png" />
-    <Content Include="Content\Images\login\login-bottom.png" />
-    <Content Include="Content\Images\login\login-button.png" />
-    <Content Include="Content\Images\login\login-top.png" />
-    <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\Images\nav-drop-down.png" />
-    <Content Include="Content\Images\nav-left.png" />
-    <Content Include="Content\Images\Properties\Boronia\755x311.jpg" />
-    <Content Include="Content\Images\Properties\Carnarvon\755x311.jpg" />
-    <Content Include="Content\Images\Properties\Footscray\755x311.jpg" />
-    <Content Include="Content\Images\Properties\Port-Pirie\755x311.jpg" />
-    <Content Include="Content\Images\Properties\South-Brisbane\755x311.jpg" />
-    <Content Include="Content\Images\side-graphic.png" />
     <Content Include="Content\Javascript\auslink.js" />
     <Content Include="Content\Javascript\mootools.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -278,16 +241,9 @@
     <Content Include="Views\PropertyPortfolio\PropertySideNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Pdfs\Auslink-Property-Trust-AGM-October-Amended.pdf" />
-    <None Include="Content\Pdfs\Auslink-Property-Trust-AGM.pdf" />
-    <None Include="Content\Pdfs\Final-Signed-2009-Accounts.pdf" />
-    <None Include="Content\Pdfs\Final-Signed-2010-Accounts.pdf" />
-    <None Include="Content\Pdfs\Final-Signed-2011-Accounts.pdf" />
     <Content Include="Views\Error\500.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Views\Privacy\Index.cshtml" />
-    <None Include="Content\Pdfs\Quarterly-Update-December-2011.pdf" />
-    <None Include="Content\Pdfs\Quarterly-Update-March-2012.pdf" />
     <None Include="Properties\PublishProfiles\Auslink Local Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\auslinkproperty - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\auslinkproperty - Web Deploy.pubxml" />

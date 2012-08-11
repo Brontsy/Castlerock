@@ -1,6 +1,6 @@
 ﻿
 html { background: #5d6068; }
-body { background: #5d6068; font-size: 14px; font-family: 'Arimo', Arial, Verdana, Helvetica, Sans-Serif; margin: 0; padding: 0; color: #5d5f67; height: 100%; }
+body { background: #5d6068; font-size: 14px; font-family: Arial, Verdana, Helvetica, Sans-Serif; margin: 0; padding: 0; color: #5d5f67; height: 100%; }
 img { display: block; border: 0px solid #000; }
 
 h1, h2, h3 { color: #000000; margin: 0px; }
@@ -27,8 +27,8 @@ a:hover { color : #5d6068; text-decoration: underline; }
 
 
 #header { padding: 20px 20px 0px 20px; width: 930px; overflow: hidden; }
-#header h1#headerLogo { float: left; background: url(/Content/Images/logo.gif) no-repeat; width: 188px; height: 29px; }
-#header h1#headerLogo a { display: block; background: url(/Content/Images/logo.gif) no-repeat; width: 188px; height: 29px; text-indent: -9999px; }
+#header h1#headerLogo { float: left; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/logo.gif) no-repeat; width: 188px; height: 29px; }
+#header h1#headerLogo a { display: block; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/logo.gif) no-repeat; width: 188px; height: 29px; text-indent: -9999px; }
 
 #header ul { margin: 5px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right; height: 28px; }
 #header ul li { list-style-type: none; margin: 0px 0px 0px 2px; padding: 0px; text-transform: uppercase; float: left; width: 130px; height: 21px; text-align: center; }
@@ -56,13 +56,13 @@ a:hover { color : #5d6068; text-decoration: underline; }
 
 #main .left img.map { margin: 20px 0px 0px 20px; }
 
-#main .australia .headerImage { background: #90bd24 url(/Content/Images/Australia/australia.jpg) no-repeat; }
-#main .investors .headerImage { background: url(/Content/Images/investors.jpg) no-repeat; }
-#main .developmentExpertise .headerImage { background: url(/Content/Images/developmentExpertise.jpg) no-repeat; }
-#main .managementExpertise .headerImage { background: url(/Content/Images/managementExpertise.jpg) no-repeat; }
-#main .aboutUs .headerImage { background: url(/Content/Images/aboutUs.jpg) no-repeat; }
-#main .contactUs .headerImage { background: url(/Content/Images/contactUs.jpg) no-repeat; }
-/*#main .home .headerImage { background: url(/Content/Images/home.jpg) no-repeat; }*/
+#main .australia .headerImage { background: #90bd24 url(http://castlerockproperty.blob.core.windows.net/castlerock/images/australia/australia.jpg) no-repeat; }
+#main .investors .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/investors.jpg) no-repeat; }
+#main .developmentExpertise .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/developmentExpertise.jpg) no-repeat; }
+#main .managementExpertise .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/managementExpertise.jpg) no-repeat; }
+#main .aboutUs .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/aboutUs.jpg) no-repeat; }
+#main .contactUs .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/contactUs.jpg) no-repeat; }
+/*#main .home .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/home.jpg) no-repeat; }*/
 #main .home .headerImage img { position: absolute; }
 
 
@@ -94,7 +94,7 @@ h2.propertyName { float: left; }
 h3.propertyAddress { float: left; font-size: 16px; font-weight: normal; margin: 5px 0px 0px 20px; }
 
 
-#content ul li { margin: 3px 0px 0px 0px; padding: 0px 0px 0px 12px; list-style-type: none; background: url(/Content/Images/greenCircle.gif) no-repeat; background-position: 0px 6px; }
+#content ul li { margin: 3px 0px 0px 0px; padding: 0px 0px 0px 12px; list-style-type: none; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/greenCircle.gif) no-repeat; background-position: 0px 6px; }
 #content ul.links { margin: 10px 0px 10px 0px; }
 #content ul.links li {  }
 #content ul.properties li { background: none; padding: 0px; float: left; margin: 8px 0px 0px 14px; }
@@ -134,3 +134,44 @@ h3.propertyAddress { float: left; font-size: 16px; font-weight: normal; margin: 
 #AustralianMap div.tas {  position: absolute; margin: 273px 0px 0px 825px; width: 25px; height: 27px; }
 #AustralianMap div.state { cursor: hand; cursor: pointer; }
 #AustralianMap div a { outline: none; }
+
+
+
+/* Login From */
+#login { float: none; }
+
+legend { display: none; }
+form fieldset { display: block; padding: 20px; border: none; }
+form label { display: block; margin: 10px 0px 0px 0px; font-weight: bold; color: #000000;  }
+form input[type="text"] { display: block; background: #ebebeb; width: 50%; padding: 5px; background: #ffffff; border: 1px solid #666666; font-size: 16px; }
+form input[type="password"] { display: block; background: #ebebeb; width: 50%; padding: 5px; background: #ffffff; border: 1px solid #666666; font-size: 16px;  }
+form input[type="submit"] { cursor: hand; cursor: pointer; display: block; margin: 10px 0px 0px 0px; width: 82px; height: 32px; }
+form a { display: block; margin: 20px 0px 0px 0px; color: #000; }
+
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000 !important;
+    background-color: #ffeeee !important;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}

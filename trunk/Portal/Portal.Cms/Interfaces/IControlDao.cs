@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Portal.Cms.Controls;
+using Portal.Interfaces.Cms;
 
 namespace Portal.Cms.Interfaces
 {

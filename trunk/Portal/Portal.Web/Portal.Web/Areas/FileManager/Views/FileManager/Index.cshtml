@@ -6,58 +6,47 @@
 
 
 
-<style>
-.files { width: 100%; overflow: hidden; margin-top: 20px; }
-.files li { float: left; margin: 20px 20px 20px 0px; width: 130px; }
-a.remove { position: absolute; margin: 10px 0px 0px 97px; float: right; background: url(/Content/images/icons/remove.png) no-repeat; width: 16px; height: 16px; text-indent: -9999px }
-
-.add-folder {  float: right;}
-.tooltip { position: absolute; padding: 10px; box-shadow: 3px 3px 5px rgba(0,0,0,0.5); border: 1px solid #666666; background :#f5f6f6; }
-.add-folder-tooltip { width: 500px; margin: 30px 0px 0px -40px; }
-
-.loading-large { position: absolute; opacity: 0.8; font-size: 38px; text-align: center; background: #ffffff url(/content/images/icons/loading.gif) no-repeat;  }
-
-</style>
+<ul class="sub-navigation">
+    <li>
+        <a href="/File-Manager/Folder/New" class="add-folder tooltip-toggle button white-arrow" data-tooltip="new-folder">Add folder</a>
+    </li>
+</ul>
 
 
-<a href="/File-Manager/Folder/New" class="add-folder tooltip-toggle button white-arrow" data-tooltip="new-folder">Add folder</a>
-
-<div class="content-padding">
 
 <div style="float: right; width: 500px; overflow: hidden;">
 
-    <div class="hidden tooltip add-folder-tooltip" data-tooltip="new-folder">
+    <div class="hidden tooltip add-folder-tooltip" data-tooltip="new-folder" data-focus="new-folder-textbox" id="myid">
     
-        <form action="/File-Manager/Folder/New?path=@Model.Path" method="post">
-            <ul>
-                <li>
-                    <label for="FolderName">Folder Name</label>
-                    <input type="text" name="FolderName" id="FolderName" />
+        @using (Html.BeginRouteForm(Model.NewFolderRouteName, Model.CurrentStorageItemRouteValues, FormMethod.Post, new { }))
+        {
+            <fieldset>
+                <ul>
+                    <li>
+                        <label for="FolderName">Folder Name</label>
+                        <input type="text" name="FolderName" id="FolderName" class="new-folder-textbox" />
 
-                </li>
-                <li>
-                    <button type="submit"><div>Add Folder</div></button>
-                </li>
-            </ul>
-        </form>
-
+                    </li>
+                    <li>
+                        <button type="submit"><div>Add Folder</div></button>
+                    </li>
+                </ul>
+            </fieldset>
+        }
     </div>
 
 </div>
 
+<div class="content-padding">
+
 
 <ul class="files">
     <li>
-        <a href="/File-Manager/View?path=@Model.ParentPath" style="text-align: center;">
-            <img src="/Content/images/icons/folder-back.png" height="128" /><br />
-        </a>  
+        @Html.RouteLink("back", "FileManager-View", Model.ParentFoldersRouteValues, new { @class = "back-folder" })
     </li>
-@foreach (var file in Model.Files)
-{
-    <li>
-        @{Html.RenderPartial(file.View, file);}
-    </li>
-}
+    
+    @{Html.RenderPartial("StorageItems", Model.StorageItems);}
+
 </ul>
 
 
@@ -66,22 +55,28 @@ a.remove { position: absolute; margin: 10px 0px 0px 97px; float: right; backgrou
 
 <script type="text/javascript">
     window.addEvent('domready', function () {
-        new FileUpload('files', '@Model.Path');
+        new FileUpload('content', '@(Model.CurrentStorageItemId.HasValue ? Model.CurrentStorageItemId.Value.ToString() : string.Empty)');
 
         $$('.tooltip-toggle').addEvent('click', function (event) {
             event.stop();
 
             var element = $$('.tooltip:[data-tooltip="' + this.get('data-tooltip') + '"');
+            
             element.toggleClass('hidden');
+
+            //alert(element.getElements(element.get('data-focus')).get('class')); //('label').focus();
+            //element.getChildren(element.get('data-focus'))[0].focus();
+
+            //element.getElements(element.get('data-focus')).focus()
+
+            document.id('FolderName').focus();
         });
-        
-        $$('.folder, .file').addEvent('mouseover', function(event)
-        {
+
+        $$('.folder, .file').addEvent('mouseover', function (event) {
             this.getElement('a.remove').removeClass('hidden');
         });
-        
-        $$('.folder, .file').addEvent('mouseleave', function(event)
-        {
+
+        $$('.folder, .file').addEvent('mouseleave', function (event) {
             this.getElement('a.remove').addClass('hidden');
         });
 

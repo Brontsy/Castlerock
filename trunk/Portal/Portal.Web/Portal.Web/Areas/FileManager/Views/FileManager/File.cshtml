@@ -1,17 +1,11 @@
-﻿@model Portal.Web.Areas.FileManager.Models.StorageItemViewModel
+﻿@model Portal.Web.Areas.FileManager.Models.FileViewModel
 @{
     ViewBag.Title = "File Manager";
 }
 
-
-
-
 <div class="file">
-<a href="/File-Manager/File/Delete?path=@Model.Path" class="remove hidden" title="Remove Folder" alt="Remove Folder">Delete</a>
-<a href="@Model.Url" style="text-align: center; display:block;">
-    <img src="/Content/images/icons/@Model.FileExtension" /><br />@Model.Name
-</a>  
+    @Html.RouteLink("Delete", "FileManager-File-Delete", Model.RouteValues, new { @class = "remove hidden", title = "Remove File", alt = "Remove File" })
+    <a href="@Model.Url" class="view-file @Model.FileExtension">
+        @Model.Name
+    </a>  
 </div>
-
-
-

@@ -16,6 +16,14 @@ namespace Portal.Membership
         /// <param name="password">the members password</param>
         /// <returns>true if the email and password match a record in the database</returns>
         bool Authenticate(string email, string password);
+        
+        /// <summary>
+        /// Authenticates the email address and password passed
+        /// </summary>
+        /// <param name="email">the members email address</param>
+        /// <param name="password">the members password</param>
+        /// <returns>true if the email and password match a record in the database</returns>
+        bool AuthenticateEmail(string email, string password);
 
         /// <summary>
         /// Gets all the members in the system

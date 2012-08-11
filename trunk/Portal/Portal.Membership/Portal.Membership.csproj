@@ -67,6 +67,7 @@
     <Compile Include="MembershipService.cs" />
     <Compile Include="Models\IMember.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\MinLength.cs" />
@@ -93,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MappingFiles\Role.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Profile.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

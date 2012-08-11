@@ -11,15 +11,22 @@
 .pages { width: 100%; overflow: hidden; margin: 40px 0px 0px 0px; }
 .pages li { float: left; width: 280px; min-height: 70px; margin-right: 40px; }
 .pages li:nth-child(4n + 4) { margin-right: 0px; }
-
-.new-page { float: right; }
 </style>
 
-@Html.RouteLink("New Page", CMSAreaRegistration.CmsNewPageRouteUrl, new { }, new { @class = "new-page button white-arrow" })
 
+<ul class="sub-navigation">
+    <li class="left">
+        <h1>Content Management</h1>
+    </li>
+    <li>
+        @Html.RouteLink("New Page", CMSAreaRegistration.CmsNewPageRouteUrl, new { }, new { @class = "button white-arrow" })
+    </li>
+    <li>
+        @Html.RouteLink("Templates", CMSAreaRegistration.CmsTemplatesRouteUrl, new { }, new { @class = "button" })
+    </li>
+</ul>
     
 <div class="content-padding">
-    <h1>Content Management System</h1>
 
     <ul class="pages">
     

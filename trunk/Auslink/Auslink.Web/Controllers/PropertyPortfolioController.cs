@@ -12,9 +12,9 @@ namespace Auslink.Web.Controllers
         public ActionResult AllProperties()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/property-development.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/property-development.png";
             page.RedLogoText = "Property Development";
-            page.HeaderImageUrl = "/Content/Images/header/property-portfolio-01.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/property-portfolio-01.jpg";
 
             return View(page);
         }
@@ -22,9 +22,9 @@ namespace Auslink.Web.Controllers
         public ActionResult Property(string propertyName)
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/property-location-diversification.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/property-location-diversification.png";
             page.RedLogoText = "Property Location Diversification";
-            page.HeaderImageUrl = "/Content/Images/header/property-portfolio-02.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/property-portfolio-02.jpg";
 
             return View(propertyName, page);
         }

@@ -12,9 +12,9 @@ namespace Auslink.Web.Controllers
         public ActionResult TrustManager()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/management-expertise.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/management-expertise.png";
             page.RedLogoText = "Management Expertise";
-            page.HeaderImageUrl = "/Content/Images/header/management.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/management.jpg";
 
             return View(page);
         }
@@ -22,9 +22,9 @@ namespace Auslink.Web.Controllers
         public ActionResult PropertyManager()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/management-expertise.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/management-expertise.png";
             page.RedLogoText = "Management Expertise";
-            page.HeaderImageUrl = "/Content/Images/header/management.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/management.jpg";
 
             return View(page);
         }

@@ -7,7 +7,7 @@
         <% Html.RenderPartial("Australia", Model); %>
     
         <div class="left">
-            <img class="propertiesDeliveredHeading" src="/Content/Images/propertiesDelivered.jpg" />
+            <img class="propertiesDeliveredHeading" src="http://castlerockproperty.blob.core.windows.net/castlerock/images/propertiesDelivered.jpg" />
         </div>
         <div class="center">
 

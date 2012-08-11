@@ -12,9 +12,9 @@ namespace Auslink.Web.Controllers
         public ActionResult NotFound()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/attractive-yields.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/attractive-yields.png";
             page.RedLogoText = "Attractive Yields";
-            page.HeaderImageUrl = "/Content/Images/header/contact-us.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/contact-us.jpg";
 
             return View("404", page);
         }
@@ -22,9 +22,9 @@ namespace Auslink.Web.Controllers
         public ActionResult Unknown()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/attractive-yields.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/attractive-yields.png";
             page.RedLogoText = "Attractive Yields";
-            page.HeaderImageUrl = "/Content/Images/header/contact-us.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/contact-us.jpg";
 
             return View("500", page);
         }

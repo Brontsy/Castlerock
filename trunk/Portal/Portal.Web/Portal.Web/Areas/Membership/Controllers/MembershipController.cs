@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Common.Nhibernate;
 using Portal.Membership;
 using Portal.Membership.Models;
-using Portal.Web.Areas.Membership.Extensions;
 using Portal.Web.Areas.Membership.Models;
 using Portal.Web.Attributes;
 using Portal.Web.Controllers;
@@ -34,7 +33,7 @@ namespace Portal.Web.Areas.Membership.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            IList<Member> members = this._membershipService.GetAllMembers().OrderBy(o => o.Username).ToList();
+            IList<Member> members = this._membershipService.GetAllMembers().OrderBy(o => o.Profile.LastName).ToList();
 
             MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, members);
 
@@ -77,11 +76,11 @@ namespace Portal.Web.Areas.Membership.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ExportModelStateToTempData]
-        public ActionResult ChangePassword(Member member, ChangePasswordViewModel changePassword)
+        public ActionResult ChangePassword(Member member, MemberViewModel memberViewModel)
         {
             if (this.ModelState.IsValid)
             {
-                this._membershipService.ChangePassword(member, changePassword.Password);
+                this._membershipService.ChangePassword(member, memberViewModel.ChangePassword.Password);
 
                 this.ConfirmationMessage = "Password has been changed.";
 
@@ -94,12 +93,24 @@ namespace Portal.Web.Areas.Membership.Controllers
         [ExportModelStateToTempData]
         public ActionResult Save(MemberViewModel memberViewModel, Member member)
         {
-                if (this.ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 try
                 {
-                    // Copy the properties from the view model to our member object
-                    member = memberViewModel.ToMember(member);
+                    member.Profile.FirstName = memberViewModel.Profile.FirstName;
+                    member.Profile.LastName = memberViewModel.Profile.LastName;
+                    member.Profile.Company = memberViewModel.Profile.Company;
+                    member.Profile.Phone = memberViewModel.Profile.Phone;
+                    member.Profile.Username = memberViewModel.Profile.Username;
+
+
+                    member.Email = memberViewModel.Email;
+
+                    if (memberViewModel.Id == 0)
+                    {
+                        member.Password = memberViewModel.ChangePassword.Password;
+                    }
+
 
                     // Save the member back to the database
                     this._membershipService.SaveMember(member);
@@ -110,8 +121,6 @@ namespace Portal.Web.Areas.Membership.Controllers
                 }
                 catch (Exception exception)
                 {
-                    exception.Data.Add("Member Id", member.Id);
-                    exception.Data.Add("Username", member.Username);
                     this._exceptionManager.LogException(exception, "Unable to save Member");
 
                     this.ErrorMessage = "There was a problem saving. Please try again";

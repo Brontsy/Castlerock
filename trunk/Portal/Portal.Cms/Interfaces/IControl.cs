@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Specialized;
+using Portal.Cms.Events;
+using Portal.Cms.Pages;
 
 namespace Portal.Cms.Interfaces
 {
-    public interface IControl
+    public interface IControl12
     {
-        int Id { get; }
+        Guid Id { get; }
 
         /// <summary>
         /// Gets the name of the control that is stored in the databse
@@ -16,26 +18,21 @@ namespace Portal.Cms.Interfaces
         string Name { get; }
 
         /// <summary>
-        /// Gets the name of the control to render in the cms editor when
-        /// adding controls to a page
+        /// Gets the location that this control is to be rendered on the page
         /// </summary>
-        string ControlsName { get; }
+        string Location { get; }
 
         /// <summary>
         /// Gets the name of hte view to render this control
         /// </summary>
         string View { get; }
 
-        int DisplayOrder { get; set; }
+        int DisplayOrder { get; }
 
 
-        IControl ParentControl { get; set; }
+        IList<IControl> Controls { get; }
 
-        IList<IControl> Controls { get; set; }
-
-        IList<IPage> Pages { get; set; }
-
-        IList<IParameter> Parameters { get; }
+        //IList<IParameter> Parameters { get; }
 
 
         /// <summary>
@@ -44,19 +41,13 @@ namespace Portal.Cms.Interfaces
         /// </summary>
         /// <param name="request"></param>
         /// <returns>True if the control was updated, false if it wasnt (i.e there was a validation issue)</returns>
-        bool Update(NameValueCollection parameters);
+        //bool Update(NameValueCollection parameters);
 
-        /// <summary>
-        /// Does this control already exist on the page?
-        /// This will check through each parent control as well, to make sure that the parent
-        /// doesnt also already exist
-        /// </summary>
-        bool AlreadyExistsOnPage(int pageId);
-        
-        /// <summary>
-        /// Returns a list of all the pages including all the pages the parent control
-        /// exists on
-        /// </summary>
-        IList<IPage> GetAllPages(IList<IPage> pages);
+        //event IEvent PropertySetChanged;
+        //declare the event using the delegate
+        event Notify Notify;
+
+
+        void EventRaised(EventArgs e);
     }
 }

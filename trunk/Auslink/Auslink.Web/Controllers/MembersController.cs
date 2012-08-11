@@ -13,9 +13,9 @@ namespace Auslink.Web.Controllers
         public override ActionResult CurrentUnitholders()
         {
             PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "/Content/Images/header/low-management-fees.png";
+            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/low-management-fees.png";
             page.RedLogoText = "Low Management Fees";
-            page.HeaderImageUrl = "/Content/Images/header/investors-unitholders.jpg";
+            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/investors-unitholders.jpg";
 
             return View(page);
         }

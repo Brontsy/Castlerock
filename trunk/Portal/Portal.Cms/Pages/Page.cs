@@ -5,23 +5,69 @@ using System.Text;
 using Portal.Cms.Interfaces;
 using Portal.Websites.Interfaces;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Portal.Cms.Controls;
+using Portal.Cms.Models;
+using Ninject;
+using Portal.Interfaces.Cms;
+
 namespace Portal.Cms.Pages
 {
     public class Page : IPage
     {
         private int _id;
-        public int _websiteId;
         private string _name;
         private string _url;
         private string _key;
+        public string _content;
+
         private IWebsite _website = null;
 
-        private IList<IControl> _controls = new List<IControl>();
+        private IList<IControl> _controls = null;
+        private Template _template;
+        private IList<string> _controlIds = null;
 
         public IList<IControl> Controls
         {
-            get { return this._controls; }
-            set { this._controls = value; }
+            get     
+            {
+                if (this._controls == null)
+                {
+                    try
+                    {
+
+                        JsonSerializerSettings settings = new JsonSerializerSettings();
+                        settings.TypeNameHandling = TypeNameHandling.Objects;
+
+                        this._controls = JsonConvert.DeserializeObject<List<IControl>>(this._content, settings);
+                    }
+                    catch (Exception exception)
+                    {
+                        this._controls = new List<IControl>();
+                    }
+                }
+
+                if (this._controls == null)
+                {
+                    this._controls = new List<IControl>();
+                }
+
+                return this._controls; 
+            }
+        }
+
+        public IList<string> ControlIds
+        {
+            get
+            {
+                this._controlIds = new List<string>();
+
+                this.LoadControlIds(this.Controls);
+
+                return this._controlIds;
+            }
+            internal set { this._controlIds = value; }
         }
 
         /// <summary>
@@ -30,16 +76,17 @@ namespace Portal.Cms.Pages
         public int Id
         {
             get { return this._id; }
-            set { this._id = value; }
+            internal set { this._id = value; }
         }
 
+
         /// <summary>
-        /// Gets and sets the id of the website that this page belongs to
+        /// Gets and sets the template for this page
         /// </summary>
-        public int WebsiteId
+        public Template Template
         {
-            get { return this._websiteId; }
-            set { this._websiteId = value; }
+            get { return this._template; }
+            internal set { this._template = value; }
         }
 
         /// <summary>
@@ -48,7 +95,16 @@ namespace Portal.Cms.Pages
         public string Name
         {
             get { return this._name; }
-            set { this._name = value; }
+            internal set { this._name = value; }
+        }
+
+        /// <summary>
+        /// Gets and sets all the content for this page. Ie all the json to construct all the controls
+        /// </summary>
+        public string Content
+        {
+            get { return this._content; }
+            internal set { this._content = value; }
         }
 
         /// <summary>
@@ -66,8 +122,9 @@ namespace Portal.Cms.Pages
 
                 return this._key; 
             }
-            set { this._key = value; }
+            internal set { this._key = value; }
         }
+        
 
         /// <summary>
         /// Gets and sets the matching url for this page
@@ -75,7 +132,7 @@ namespace Portal.Cms.Pages
         public string Url
         {
             get { return this._url; }
-            set { this._url = value; }
+            internal set { this._url = value; }
         }
 
         
@@ -85,36 +142,180 @@ namespace Portal.Cms.Pages
         public IWebsite Website
         {
             get { return this._website; }
-            set { this._website = value; }
+            internal set { this._website = value; }
         }
 
-        /// <summary>
-        /// Checks to see if a control already on the page has the same unique identifier
-        /// </summary>
-        public virtual bool ControlExistsOnPage(int controlId)
-        {
-            return this.ControlExistsOnPage(this.Controls, controlId);
-        }
 
-        private bool ControlExistsOnPage(IList<IControl> controls, int controlId)
+
+
+
+
+
+
+
+
+
+
+
+        //public IControl GetParent(IControl control)
+        //{
+        //    return this.GetParent(this.Controls, control);
+        //}
+
+        //private IControl GetParent(IList<IControl> controls, IControl childControl)
+        //{
+        //    foreach (IControl control in controls)
+        //    {
+        //        if (control.Controls.Contains(childControl))
+        //        {
+        //            return control;
+        //        }
+
+        //        if (control.Controls.Count > 0)
+        //        {
+        //            IControl parentControl = this.GetParent(control.Controls, childControl);
+        //            if (parentControl != null)
+        //            {
+        //                return parentControl;
+        //            }
+        //        }
+        //    }
+
+        //    return null;
+        //}
+
+
+
+
+
+
+
+
+
+        //public void UpdateControl(IControl control)
+        //{
+        //    IControl foundControl = this.UpdateControl(this.Controls, control);
+
+        //    if (foundControl != null)
+        //    {
+        //        this.Controls[this.Controls.IndexOf(foundControl)] = control;
+        //    }
+
+        //    this._controlIds = new List<string>();
+        //    this.LoadControlIds(this.Controls);
+        //}
+
+        //private IControl UpdateControl(IList<IControl> controls, IControl updatedControl)
+        //{
+        //    foreach (IControl control in controls)
+        //    {
+        //        if (control.Id == updatedControl.Id)
+        //        {
+        //            return control;
+        //        }
+
+        //        if (control.Controls.Count > 0)
+        //        {
+        //            IControl foundControl = this.UpdateControl(control.Controls, updatedControl);
+        //            if (foundControl != null)
+        //            {
+        //                control.Controls[control.Controls.IndexOf(foundControl)] = updatedControl;
+        //            }
+        //        }
+        //    }
+
+        //    return null;
+        //}
+
+
+
+        //public void AddControl(Guid? parentControlId, IControl control)
+        //{
+        //    if (parentControlId.HasValue)
+        //    {
+        //        this.GetControl(parentControlId.Value).Controls.Add(control);
+        //    }
+        //    else
+        //    {
+        //        this.Controls.Add(control);
+        //    }
+
+        //    this._controlIds = new List<string>();
+        //    this.LoadControlIds(this.Controls);
+        //}
+
+        //public IControl GetControl(Guid controlId)
+        //{
+        //    return this.GetControl(this.Controls, controlId);
+        //}
+
+        //public void DeleteControl(Guid controlId)
+        //{
+        //    IControl foundControl = this.DeleteControl(this.Controls, controlId);
+
+        //    if (foundControl != null)
+        //    {
+        //        this.Controls.Remove(foundControl);
+        //    }
+        //}
+
+        //private IControl DeleteControl(IList<IControl> controls, Guid controlId)
+        //{
+        //    foreach (IControl control in controls)
+        //    {
+        //        if (control.Id == controlId)
+        //        {
+        //            return control;
+        //        }
+
+        //        if (control.Controls.Count > 0)
+        //        {
+        //            IControl foundControl = this.DeleteControl(control.Controls, controlId);
+        //            if (foundControl != null)
+        //            {
+        //                control.Controls.Remove(foundControl);
+        //            }
+        //        }
+        //    }
+
+        //    return null;
+        //}
+
+        //private IControl GetControl(IList<IControl> controls, Guid controlId)
+        //{
+        //    foreach (IControl control in controls)
+        //    {
+        //        if (control.Id == controlId)
+        //        {
+        //            return control;
+        //        }
+
+        //        if (control.Controls.Count > 0)
+        //        {
+        //            IControl foundControl = this.GetControl(control.Controls, controlId);
+        //            if (foundControl != null)
+        //            {
+        //                return foundControl;
+        //            }
+        //        }
+        //    }
+
+        //    return null;
+        //}
+
+        private void LoadControlIds(IList<IControl> controls)
         {
             foreach (IControl control in controls)
             {
+                this._controlIds.Add(control.Id.ToString());
+
                 if (control.Controls.Count > 0)
                 {
-                    if (this.ControlExistsOnPage(control.Controls, controlId))
-                    {
-                        return true;
-                    }
+                    this.LoadControlIds(control.Controls);
                 }
 
-                if (control.Id == controlId)
-                {
-                    return true;
-                }
             }
-
-            return false;
         }
+
     }
 }

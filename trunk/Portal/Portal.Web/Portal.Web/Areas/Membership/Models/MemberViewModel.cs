@@ -6,32 +6,30 @@ using Portal.Membership.Models;
 using Portal.Web.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Portal.Membership.Validation;
 
 namespace Portal.Web.Areas.Membership.Models
 {
     public class MemberViewModel
     {
         private int _id = 0;
-        private string _name = string.Empty;
-        private string _username = string.Empty;
         private string _email = string.Empty;
-        private string _company = string.Empty;
+        private string _password = string.Empty;
 
         private Member _member = null;
-
-        private ChangePasswordViewModel _changePassword = null;
+        private ProfileViewModel _profile = new ProfileViewModel();
+        private ChangePasswordViewModel _changePassword = new ChangePasswordViewModel();
         
         public MemberViewModel() { }
 
         public MemberViewModel(Member member)
         {
             this._member = member;
+            this._profile = new ProfileViewModel(member.Profile);
 
             this._id = member.Id;
-            this._name = member.Name;
-            this._username = member.Username;
+            this._password = member.Password;
             this._email = member.Email;
-            this._company = member.Company;
         }
 
         /// <summary>
@@ -44,61 +42,13 @@ namespace Portal.Web.Areas.Membership.Models
         }
 
         /// <summary>
-        /// Gets the name of the member
-        /// </summary>
-        [Required(ErrorMessage = "* Please enter a name")]
-        [DisplayName("Name")]
-        public string Name
-        {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-
-        /// <summary>
-        /// Gets the members name that can be then used in the url
-        /// </summary>
-        public string NameUrlFriendly
-        {
-            get 
-            {
-                if (string.IsNullOrEmpty(this.Name))
-                {
-                    return string.Empty;
-                }
-
-                return this.Name.Replace("/", "-").Replace("&", string.Empty).Replace("?", string.Empty).Replace(" ", "-"); 
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the username
-        /// </summary>
-        [Required(ErrorMessage = "* Please enter a Username")]
-        [DisplayName("Username")]
-        public string Username
-        {
-            get { return this._username; }
-            set { this._username = value; }
-        }
-
-        /// <summary>
         /// Gets the email of the member
         /// </summary>
-        [DisplayName("Email")]
+        [DisplayName("Email*")]
         public string Email
         {
             get { return this._email; }
             set { this._email = value; }
-        }
-
-        /// <summary>
-        /// Gets the company this member works for
-        /// </summary>
-        [DisplayName("Company")]
-        public string Company
-        {
-            get { return this._company; }
-            set { this._company = value; }
         }
 
         /// <summary>
@@ -117,6 +67,12 @@ namespace Portal.Web.Areas.Membership.Models
             }
         }
 
+        public ProfileViewModel Profile
+        {
+            get { return this._profile; }
+        }
+
+
         public ChangePasswordViewModel ChangePassword
         {
             get
@@ -124,7 +80,7 @@ namespace Portal.Web.Areas.Membership.Models
                 if (this._changePassword == null)
                 {
                     this._changePassword = new ChangePasswordViewModel();
-                } 
+                }
 
                 return this._changePassword;
             }
