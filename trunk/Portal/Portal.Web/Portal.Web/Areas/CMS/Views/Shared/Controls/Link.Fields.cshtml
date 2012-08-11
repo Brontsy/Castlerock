@@ -1,0 +1,22 @@
+﻿@model Portal.Cms.Controls.Link
+@using Portal.Web.Areas.CMS.Models
+
+
+
+<li>
+    @Html.LabelFor(o => o.Name) 
+    @Html.TextBoxFor(o => o.Name) 
+    @Html.ValidationMessageFor(o => o.Name) 
+</li>
+    
+<li>
+    @Html.LabelFor(o => o.Url) 
+    @Html.TextBoxFor(o => o.Url) 
+    @Html.ValidationMessageFor(o => o.Url) 
+</li>
+    
+<li>
+    @Html.LabelFor(o => o.Text) 
+    @Html.TextBoxFor(o => o.Text) 
+    @Html.ValidationMessageFor(o => o.Text) 
+</li>

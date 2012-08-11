@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="Membership" assembly="Portal.Membership" namespace="Portal.Membership.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.Membership.Models.Profile" table="Profiles">
+    
+    <id column="ProfileId" name="Id">
+      <generator class="native"/>
+    </id>
+
+    <property name="FirstName" column="FirstName" />
+    <property name="LastName" column="LastName" />
+    <property name="Username" column="Username" />
+    <property name="Company" column="Company" />
+    <property name="Phone" column="Phone" />
+    <property name="DateCreated" column="DateCreated" />
+
+    <bag name="Members" access="property" table="Members" lazy="true" cascade="all">
+      <key column="ProfileId" />
+      <one-to-many class="Portal.Membership.Models.Member, Portal.Membership"/>
+    </bag>
+
+  </class>
+
+</hibernate-mapping>
+
+

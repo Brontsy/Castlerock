@@ -1,0 +1,48 @@
+﻿@model AddControlsViewModel
+@using Portal.Cms.Interfaces
+@using Portal.Web.Areas.CMS.Models
+@using Portal.Web.Areas.CMS
+@{
+    ViewBag.Title = "Content Management System";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .add-controls { width: 100%; overflow: hidden; }
+    .add-controls li { float: left; padding: 10px 20px 10px 20px; width: 184px; border: 1px solid #00ADEE; text-align: center; margin: 0px 20px 20px 0px; }
+    .add-controls li:nth-child(5n+5) { margin-right: 0px; }
+    
+    .add-controls li h2 { color: #00ADEE; }
+</style>
+
+<ul class="sub-navigation">
+    <li class="left">
+        <h1>Add New Control</h1>
+    </li>
+</ul>
+
+<div class="content-padding">
+
+    <ul class="add-controls">
+    @foreach (var control in Model.AddedableControls)
+    {
+        <li>
+            <h2>@control.Name</h2>
+
+            @Html.RouteLink("add", CMSAreaRegistration.CmsAddControlRouteUrl, new { location = Model.Location, assembly = control.GetType().Assembly.GetName().Name, className = control.GetType().FullName }, new { })
+        </li>
+
+    }
+    </ul>
+
+
+    <ul>
+    @foreach (var control in Model.ControlsFromOtherPages)
+    {
+        <li>
+            @Html.RouteLink(control.Name, CMSAreaRegistration.CmsAddExistingControlRouteUrl, new { controlId = control.Id }, new { })
+        </li>
+    }
+    </ul>
+
+</div>

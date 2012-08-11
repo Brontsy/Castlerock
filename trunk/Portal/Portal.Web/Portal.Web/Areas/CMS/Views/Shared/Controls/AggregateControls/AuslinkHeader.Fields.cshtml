@@ -1,0 +1,12 @@
+﻿@model AggregateControl
+@using Portal.Cms.Controls
+@using Portal.Cms.Interfaces
+@using Portal.Web.Areas.CMS.Models
+
+
+<li>
+    @Html.LabelFor(o => o.Name) 
+    @Html.TextBoxFor(o => o.Name) 
+    @Html.ValidationMessageFor(o => o.Name) 
+</li>
+    

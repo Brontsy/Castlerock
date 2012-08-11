@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="Azure.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-05.1.7">
+  <WebRole name="Azure.WebRole" vmsize="Small">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+      <Site name="Auslink" physicalDirectory="D:\Github\Castlerock\trunk\Auslink\Auslink.Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.auslinkproperty.com.au" />
+        </Bindings>
+      </Site>
+      <Site name="Castlerock" physicalDirectory="D:\Github\Castlerock\trunk\Castlerock\Castlerock.Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.castlerockproperty.com.au" />
+        </Bindings>
+      </Site>
+      <Site name="Auslink Portal" physicalDirectory="D:\Github\Castlerock\trunk\Portal\Portal.Web\Portal.Web">
+        <Bindings>
+          <Binding name="AuslinkPortal" endpointName="Endpoint1" hostHeader="portal.auslinkproperty.com.au" />
+          <Binding name="CastlerockPortal" endpointName="Endpoint1" hostHeader="portal.castlerockproperty.com.au" />
+        </Bindings>
+      </Site>
+      <!--<Site name="Castlerock Portal" physicalDirectory="D:\Github\Castlerock\trunk\Portal\Portal.Web\Portal.Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="portal.castlerockproperty.com.au" />
+        </Bindings>
+      </Site>-->
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="BlobConnectionString" />
+    </ConfigurationSettings>
+  </WebRole>
+  <WorkerRole name="Portal.Meassaging.Worker" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+    </Imports>
+  </WorkerRole>
+</ServiceDefinition>

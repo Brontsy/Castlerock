@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" ?>
+<hibernate-mapping schema="dbo" assembly="Portal.FileManager" namespace="Portal.FileManager.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Portal.FileManager.Models.StorageItem" table="StorageItems">
+
+    <id column="StorageItemId" name="Id">
+      <generator class="identity"/>
+    </id>
+
+
+    <discriminator column="StorageItemType" type="string"/>
+
+
+    <property name="Scheme" column="Scheme" />
+    <property name="Host" column="Host" />
+    <property name="Path" column="Path" />
+    <property name="Name" column="Name" />
+    <property name="Type" column="Type" />
+
+    <many-to-one name="Website" column="WebsiteId" cascade="none" class="Portal.Websites.Models.Website, Portal.Websites" />
+
+    <many-to-one name="Parent" column="ParentId" cascade="none" class="Portal.FileManager.Models.StorageItem, Portal.FileManager" />
+
+    <bag name="Children" access="property" table="Files" lazy="true" inverse="true" cascade="all" order-by="Name asc">
+      <key column="ParentId" />
+      <one-to-many class="Portal.FileManager.Models.StorageItem, Portal.FileManager"/>
+    </bag>
+
+
+    <subclass name="Portal.FileManager.Models.File, Portal.FileManager" discriminator-value="1"></subclass>
+    <subclass name="Portal.FileManager.Models.Folder, Portal.FileManager" discriminator-value="2"></subclass>
+
+  </class>
+
+</hibernate-mapping>
+
+

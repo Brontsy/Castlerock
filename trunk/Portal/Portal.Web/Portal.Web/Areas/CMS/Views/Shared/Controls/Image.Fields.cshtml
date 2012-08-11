@@ -1,0 +1,20 @@
+﻿@model Portal.Cms.Controls.Image
+@using Portal.Web.Areas.CMS.Models
+
+<li>
+    @Html.LabelFor(o => o.Name) 
+    @Html.TextBoxFor(o => o.Name) 
+    @Html.ValidationMessageFor(o => o.Name) 
+</li>
+    
+<li>
+    @Html.LabelFor(o => o.ImageUrl) 
+    @Html.TextBoxFor(o => o.ImageUrl) 
+    @Html.ValidationMessageFor(o => o.ImageUrl) 
+</li>
+    
+<li>
+    @Html.LabelFor(o => o.CssClass) 
+    @Html.TextBoxFor(o => o.CssClass) 
+    @Html.ValidationMessageFor(o => o.CssClass) 
+</li>

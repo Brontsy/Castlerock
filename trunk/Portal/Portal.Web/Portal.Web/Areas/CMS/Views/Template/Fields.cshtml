@@ -1,0 +1,23 @@
+﻿@model TemplateViewModel
+@using Portal.Web.Areas.CMS.Models
+
+<ul>
+    
+    <li>
+        @Html.LabelFor(o => o.Name) 
+        @Html.TextBoxFor(o => o.Name) 
+        @Html.ValidationMessageFor(o => o.Name) 
+    </li>
+    
+    <li>
+        @Html.LabelFor(o => o.Html) 
+        @Html.TextAreaFor(o => o.Html) 
+        @Html.ValidationMessageFor(o => o.Html) 
+    </li>
+    
+    <li>
+        <button type="submit"><div>Save</div></button>
+        @Html.RouteLink("Cancel", Portal.Web.Areas.CMS.CMSAreaRegistration.CmsTemplatesRouteUrl)
+    </li>
+
+</ul>
