@@ -1,0 +1,45 @@
+﻿@model MembershipPageViewModel
+@using Portal.Web.Areas.Membership.Models;
+@using Portal.Web.Areas.Membership;
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.members { width: 100%; overflow: hidden; margin: 40px 0px 0px 0px; }
+.members li { float: left; width: 280px; min-height: 70px; margin-right: 40px; }
+.members li:nth-child(4n + 4) { margin-right: 0px; }
+
+.new-member { float: right; }
+</style>
+
+<ul class="sub-navigation">
+    <li>
+        @Html.RouteLink("Create New Member", MembershipAreaRegistration.MembershipNewRouteUrl, new { }, new { @class = "new-member button white-arrow" })
+    </li>
+
+    <li class="left">
+        <h1>Membership</h1>
+    </li>
+</ul>
+
+
+<div class="content-padding">
+
+    <ul class="members">
+        @foreach (MemberViewModel member in Model.Members)
+        {
+        <li>
+            @Html.RouteLink(member.Email, MembershipAreaRegistration.MembershipEditRouteUrl, new { memberId = member.Id, email = member.Email }, new { })
+            <p>
+                @member.Profile.FirstName
+            </p>
+        </li>
+        }
+
+    </ul>
+
+</div>
+
+

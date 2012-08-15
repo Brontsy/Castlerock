@@ -26,7 +26,7 @@ namespace Portal.Web.Areas.FileManager
             context.MapRoute("FileManager-View", "File-Manager/{storageItemId}/{path}", new { controller = "FileManager", action = "View", path = UrlParameter.Optional, storageItemId = UrlParameter.Optional });
 
             context.MapRoute("FileManager-Folder-Delete", "File-Manager/Folder/Delete/{storageItemId}/{path}", new { controller = "FileManager", action = "DeleteFolder" });
-            context.MapRoute("FileManager-File-Delete", "File-Manager/File/Delete/{storageItemId}/{path}", new { controller = "FileManager", action = "DeleteFile" });
+            context.MapRoute("FileManager-File-Delete", "File-Manager/File/Delete/{storageItemId}", new { controller = "FileManager", action = "DeleteFile" });
             context.MapRoute("FileManager", "File-Manager", new { controller = "FileManager", action = "Index" });
         }
     }

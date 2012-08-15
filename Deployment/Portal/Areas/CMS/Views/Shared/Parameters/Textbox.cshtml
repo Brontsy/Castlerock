@@ -1,0 +1,14 @@
+﻿@model Textbox
+@using Portal.Cms.Parameters
+
+
+<label for="@Model.Key">@Model.Label</label>
+<input type="text" id="@Model.Key" name="@Model.Key" value="@Model.Value"@Model.CssClass />
+
+
+@if (!Model.IsValid)
+{
+    <p class="error-message">
+        @Model.Message
+    </p>
+}

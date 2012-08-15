@@ -1,0 +1,17 @@
+﻿@model IList<IStorageItemViewModel>
+@using Portal.Web.Areas.FileManager.Models;
+@{
+    ViewBag.Title = "File Manager";
+}
+
+
+
+
+@foreach (IStorageItemViewModel storageItem in Model)
+{
+    <li>
+        @{Html.RenderPartial(storageItem.View, storageItem);}
+    </li>
+}
+
+

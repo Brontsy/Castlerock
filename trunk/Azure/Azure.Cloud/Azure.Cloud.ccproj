@@ -45,14 +45,6 @@
       <RoleName>Azure.WebRole</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Meassaging.Worker\Portal.Meassaging.Worker.csproj">
-      <Name>Portal.Meassaging.Worker</Name>
-      <Project>{f49d1c4d-4850-4a81-8991-ef372b1b5828}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>Portal.Meassaging.Worker</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Profiles" />

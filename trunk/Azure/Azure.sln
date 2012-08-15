@@ -5,8 +5,6 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Azure.Cloud", "Azure.Cloud\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.WebRole", "Azure.WebRole\Azure.WebRole.csproj", "{37545A2F-B35D-43AB-9D24-BB1271749940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.Meassaging.Worker", "Portal.Meassaging.Worker\Portal.Meassaging.Worker.csproj", "{F49D1C4D-4850-4A81-8991-EF372B1B5828}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +19,6 @@ Global
 		{37545A2F-B35D-43AB-9D24-BB1271749940}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37545A2F-B35D-43AB-9D24-BB1271749940}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37545A2F-B35D-43AB-9D24-BB1271749940}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F49D1C4D-4850-4A81-8991-EF372B1B5828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F49D1C4D-4850-4A81-8991-EF372B1B5828}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F49D1C4D-4850-4A81-8991-EF372B1B5828}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F49D1C4D-4850-4A81-8991-EF372B1B5828}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

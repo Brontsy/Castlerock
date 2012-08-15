@@ -1,0 +1,11 @@
+﻿@model Portal.Web.Areas.FileManager.Models.FileViewModel
+@{
+    ViewBag.Title = "File Manager";
+}
+
+<div class="file">
+    @Html.RouteLink("Delete", "FileManager-File-Delete", Model.RouteValues, new { @class = "remove hidden", title = "Remove File", alt = "Remove File" })
+    <a href="@Model.Url" class="view-file @Model.FileExtension">
+        @Model.Name
+    </a>  
+</div>

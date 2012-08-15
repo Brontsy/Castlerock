@@ -11,6 +11,7 @@ using Portal.Web.Attributes;
 using Portal.Web.Controllers;
 using Portal.Websites.Interfaces;
 using Common.Exceptions;
+using Portal.Membership.Enums;
 
 namespace Portal.Web.Areas.Membership.Controllers
 {
@@ -91,7 +92,7 @@ namespace Portal.Web.Areas.Membership.Controllers
         }
 
         [ExportModelStateToTempData]
-        public ActionResult Save(MemberViewModel memberViewModel, Member member)
+        public ActionResult Save(MemberViewModel memberViewModel, Member member, IList<RoleType> SelectedRoles)
         {
             if (this.ModelState.IsValid)
             {
@@ -103,6 +104,12 @@ namespace Portal.Web.Areas.Membership.Controllers
                     member.Profile.Phone = memberViewModel.Profile.Phone;
                     member.Profile.Username = memberViewModel.Profile.Username;
 
+
+                    //member.Roles.Clear();
+                    //foreach(RoleType role in SelectedRoles)
+                    //{
+                    //    member.Roles.Add(new Role() { Type = role, Name = role.ToString() });
+                    //}
 
                     member.Email = memberViewModel.Email;
 

@@ -7,6 +7,7 @@ using Portal.Web.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Portal.Membership.Validation;
+using Portal.Membership.Enums;
 
 namespace Portal.Web.Areas.Membership.Models
 {
@@ -72,7 +73,6 @@ namespace Portal.Web.Areas.Membership.Models
             get { return this._profile; }
         }
 
-
         public ChangePasswordViewModel ChangePassword
         {
             get
@@ -85,5 +85,41 @@ namespace Portal.Web.Areas.Membership.Models
                 return this._changePassword;
             }
         }
+        
+        //    public bool WasPosted { get; set; }
+        //public IEnumerable<RoleType> AvailableRoles { get; set; }
+        //public IEnumerable<RoleType> SelectedRoles { get; set; }
+        public PostedRole PostedRole { get; set; }
+
+        public string[] Roles
+        {
+            get { 
+                return new string[] { RoleType.Member.ToString(), RoleType.Administrator.ToString() }; 
+            } 
+        }
+
+
+        public List<string> SelectedRoles
+        {
+            get
+            {
+                if (this._member != null)
+                {
+                    return this._member.Roles.Select(o => o.Type.ToString()).ToList();
+                }
+
+                return new List<string>();
+            }
+        }
+    }
+
+    public class PostedRole
+    {
+        [Key]
+        public int? RoleId { get; set; }
+        public string RoleName { get; set; }
+
+        public virtual ICollection<RoleType> RoleTypes { get; set; }
     }
 }
+

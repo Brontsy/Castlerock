@@ -7,6 +7,7 @@ using Common.Nhibernate;
 using Portal.Membership.Interfaces;
 using Portal.Membership.Models;
 using Portal.Websites.Interfaces;
+using Portal.Membership.Enums;
 
 namespace Portal.Membership
 {

@@ -1,0 +1,177 @@
+﻿
+html { background: #5d6068; }
+body { background: #5d6068; font-size: 14px; font-family: Arial, Verdana, Helvetica, Sans-Serif; margin: 0; padding: 0; color: #5d5f67; height: 100%; }
+img { display: block; border: 0px solid #000; }
+
+h1, h2, h3 { color: #000000; margin: 0px; }
+h1 { font-size: 20px; }
+h3 { margin: 20px 0px 0px 0px; }
+h4 { font-size: 12px; margin: 0px; padding: 0px; color: #8fbd24 }
+
+
+p { line-height: 20px;  margin: 5px 0px 10px 0px; }
+p + ul { margin: 0px 0px 0px 0px; }
+
+ul, li, ol { margin: 0px; padding: 0px; list-style-type: none; }
+
+a:link, a:active, a:visited { color: #8fbd24; text-decoration: none; }
+a:hover { color : #5d6068; text-decoration: underline; } 
+
+.hidden { display: none; }
+
+.divider { border-bottom: 1px dotted #000; height: 1px; margin: 5px 0px 5px 0px; }
+.container { width: 100%; overflow: hidden; }
+.strong { font-weight: bold; color: #000000; }
+
+#page { width: 970px; margin: 10px auto 0px auto; background : #ffffff; height: 100%; }
+
+
+#header { padding: 20px 20px 0px 20px; width: 930px; overflow: hidden; }
+#header h1#headerLogo { float: left; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/logo.gif) no-repeat; width: 188px; height: 29px; }
+#header h1#headerLogo a { display: block; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/logo.gif) no-repeat; width: 188px; height: 29px; text-indent: -9999px; }
+
+#header ul { margin: 5px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right; height: 28px; }
+#header ul li { list-style-type: none; margin: 0px 0px 0px 2px; padding: 0px; text-transform: uppercase; float: left; width: 130px; height: 21px; text-align: center; }
+#header ul li a { display: block; width: 130px; height: 21px; padding-top: 7px; background: #5d6068; font-size: 13px; }
+#header ul li a:link, #header ul li a:active, #header ul li a:visited { color: #FFFFFF; text-decoration: none; font-weight: bold; }
+#header ul li a:hover { color : #ffffff; background: #9d9d9d; }  
+#header ul li.selected a { background: #8fbd24; }
+#header ul li.selected a:hover { color : #ffffff; background: #8fbd24; }  
+
+
+#main { padding: 0px 20px 15px 20px; margin: 5px 0px 0px 0px; }
+
+/* Header Image */
+
+
+
+#main .headerImage { width: 930px; min-height: 317px; overflow: hidden; }
+#main .propertiesDeliveredHeading { margin: 30px 0px 0px 20px; }
+
+#main .left { float: left; width: 330px; border: 0px solid #000; height: 317px; }
+#main .center { float: left; width: 270px; border: 0px solid #000; min-height: 317px; color: #ffffff; padding: 25px 0px 7px 0px; }
+#main .center h1 { color: #ffffff; font-size: 20px; }
+#main .center h3 { color: #ffffff; font-size: 12px; margin: 10px 0px 5px 0px; }
+#main .right { float: left; width: 330px; border: 0px solid #000; height: 317px; }
+
+#main .left img.map { margin: 20px 0px 0px 20px; }
+
+#main .australia .headerImage { background: #90bd24 url(http://castlerockproperty.blob.core.windows.net/castlerock/images/australia/australia.jpg) no-repeat; }
+#main .investors .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/investors.jpg) no-repeat; }
+#main .developmentExpertise .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/developmentExpertise.jpg) no-repeat; }
+#main .managementExpertise .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/managementExpertise.jpg) no-repeat; }
+#main .aboutUs .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/aboutUs.jpg) no-repeat; }
+#main .contactUs .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/contactUs.jpg) no-repeat; }
+/*#main .home .headerImage { background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/home.jpg) no-repeat; }*/
+#main .home .headerImage img { position: absolute; }
+
+
+#main .headerImage ul { margin: 0px; padding: 0px; }
+#main .headerImage ul li { margin: 0px 0px 0px 0px; padding: 3px 0px 0px 0px; list-style-type: none; }
+#main .headerImage ul li.selected { color: #ffffff; text-decoration: underline; }
+
+#main .headerImage ul li  a:link, #main .headerImage ul li  a:active, #main .headerImage ul li  a:visited { color: #000000; text-decoration: none;  }
+#main .headerImage ul li  a:hover { color : #ffffff; text-decoration: underline; } 
+
+#main .headerImage ul li  a.selected:link, #main .headerImage ul li a.selected:active, #main .headerImage ul li  a.selected:visited { color: #ffffff; text-decoration: underline;  }
+#main .headerImage ul li  a.selected:hover { color : #ffffff; text-decoration: underline; } 
+
+
+#footer { width: 970px; margin: 0 auto; color: #ffffff; min-height: 50px; padding: 10px 0px 0px 25px; }
+#footer a:link, #footer a:active, #footer a:visited { color: #FFFFFF; text-decoration: none;  }
+#footer a:hover { color : #ffffff; text-decoration: underline; }
+
+
+
+#content { margin: 20px 0px 20px 0px; width: 100%; overflow: hidden; }
+
+/* Middle Column (the pages content) */
+
+.greenColumn { float: left; width: 150px; margin-right: 25px; height: 485px; background: #90bd24; }
+
+div.propertyHeadingContainer { width: 100%; overflow: hidden; margin: 20px 0px 10px 0px; }
+h2.propertyName { float: left; }
+h3.propertyAddress { float: left; font-size: 16px; font-weight: normal; margin: 5px 0px 0px 20px; }
+
+
+#content ul li { margin: 3px 0px 0px 0px; padding: 0px 0px 0px 12px; list-style-type: none; background: url(http://castlerockproperty.blob.core.windows.net/castlerock/images/greenCircle.gif) no-repeat; background-position: 0px 6px; }
+#content ul.links { margin: 10px 0px 10px 0px; }
+#content ul.links li {  }
+#content ul.properties li { background: none; padding: 0px; float: left; margin: 8px 0px 0px 14px; }
+#content ul.properties li img { margin-bottom: 5px; width: 178px; height: 117px; }
+#content ul.properties li.first{ margin: 10px 0px 0px 0px; clear: left; }
+
+#content ul.properties li a:link, #content ul.properties li a:active, #content ul.properties li  a:visited { color: #000000; text-decoration: none;  }
+#content ul.properties li a:hover { color : #8fbd24; text-decoration: underline; } 
+
+
+#content ul.propertyDetails li { background: none; padding: 0px; margin: 8px 0px 0px 0px; width: 100%; overflow: hidden; }
+#content ul.propertyDetails li div.field { float: left; font-weight: bold; width: 180px; color: #000000; }
+#content ul.propertyDetails li div.value { float: left; width: 250px; }
+
+#content .leftColumn { float: left; width: 605px; padding-right: 24px; border-right: 1px dotted #000; }
+
+
+
+#content .rightColumn { float: right; width: 270px; min-height: 150px; padding: 0px 0px 0px 30px; }
+#content .rightColumn p.important { font-size: 14px; font-style: italic; }
+#content .rightColumn h3 { margin: 0px; padding: 0px; }
+#content .rightColumn h4 { margin: 10px 0px 0px 0px; padding: 0px; }
+#content .rightColumn ul li { margin: 5px 0px 5px 0px !important;}
+
+#content .rightColumn ul li a:link, .rightColumn ul li a:active, .rightColumn ul li  a:visited { color: #000000; text-decoration: underline;  }
+#content .rightColumn ul li a:hover { color : #8fbd24; text-decoration: underline; } 
+#content .rightColumn div.investmentProperty { font-weight: bold; color: #000000; margin: 0px 0px 3px 0px; padding: 0px; }
+
+
+#AustralianMap div.selected a { display: block !important; }
+#AustralianMap div.vic { position: absolute; margin: 217px 0px 0px 806px; width: 59px; height: 43px; }
+#AustralianMap div.nsw { position: absolute; margin: 175px 0px 0px 806px; width: 96px; height: 75px; }
+#AustralianMap div.qld { position: absolute; margin: 24px 0px 0px 790px; width: 111px; height: 160px;  }
+#AustralianMap div.sa { position: absolute; margin: 150px 0px 0px 723px; width: 87px; height: 102px;  }
+#AustralianMap div.nt { position: absolute; margin: 26px 0px 0px 721px; width: 72px; height: 123px; }
+#AustralianMap div.wa { position: absolute; margin: 50px 0px 0px 610px; width: 114px; height: 184px; }
+#AustralianMap div.tas {  position: absolute; margin: 273px 0px 0px 825px; width: 25px; height: 27px; }
+#AustralianMap div.state { cursor: hand; cursor: pointer; }
+#AustralianMap div a { outline: none; }
+
+
+
+/* Login From */
+#login { float: none; }
+
+legend { display: none; }
+form fieldset { display: block; padding: 20px; border: none; }
+form label { display: block; margin: 10px 0px 0px 0px; font-weight: bold; color: #000000;  }
+form input[type="text"] { display: block; background: #ebebeb; width: 50%; padding: 5px; background: #ffffff; border: 1px solid #666666; font-size: 16px; }
+form input[type="password"] { display: block; background: #ebebeb; width: 50%; padding: 5px; background: #ffffff; border: 1px solid #666666; font-size: 16px;  }
+form input[type="submit"] { cursor: hand; cursor: pointer; display: block; margin: 10px 0px 0px 0px; width: 82px; height: 32px; }
+form a { display: block; margin: 20px 0px 0px 0px; color: #000; }
+
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000 !important;
+    background-color: #ffeeee !important;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}

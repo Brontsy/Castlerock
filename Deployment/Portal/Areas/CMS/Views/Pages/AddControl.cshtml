@@ -1,0 +1,39 @@
+﻿@model AddControlViewModel
+@using Portal.Cms.Interfaces
+@using Portal.Web.Areas.CMS.Models
+@using Portal.Web.Areas.CMS
+@{
+    ViewBag.Title = "Content Management System";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="sub-navigation">
+    <li class="left">
+        <h1>Add @Model.Control.Name</h1>
+    </li>
+</ul>
+
+<div class="content-padding">
+@using (Html.BeginRouteForm(CMSAreaRegistration.CmsSaveControlRouteUrl, new { parentControlId = Model.ParentControl == null ? string.Empty : Model.ParentControl.Id.ToString(), location = Model.Location }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<fieldset>
+    <legend>Add new @Model.Control.Name</legend>
+    <ul class="paramters">
+                
+        <input name="assembly" type="hidden" value="@Model.Control.GetType().Assembly.FullName" />
+        <input name="className" type="hidden" value="@Model.Control.GetType().FullName" />
+
+        @{Html.RenderPartial(Model.Control.View+".fields", Model.Control);}
+
+    
+        <li>
+            <button type="submit"><div>Save</div></button>
+            @Html.RouteLink("Cancel", Portal.Web.Areas.CMS.CMSAreaRegistration.CmsPageRouteUrl)
+        </li>
+
+    </ul>
+</fieldset>
+        
+}
+
+</div>

@@ -141,16 +141,6 @@ namespace Portal.FileManager
                 }
             }
 
-            string connectionInfo = ConfigurationManager.AppSettings["BlobStorageConnectionString"];
-
-            // Retrieve storage account from connection-string
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionInfo);
-            qc = storageAccount.CreateCloudQueueClient();
-            q = qc.GetQueueReference("FileUpdates");
-            q.CreateIfNotExist();
-
-            q.AddMessage(new CloudQueueMessage("File Updates"));
-
             return filesUploaded;
         }
 

@@ -1,0 +1,38 @@
+﻿@model TemplatesPageViewModel
+@using Portal.Web.Areas.CMS.Models
+@using Portal.Web.Areas.CMS
+@{
+    ViewBag.Title = "Add Template";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.templates { width: 100%; overflow: hidden; margin: 40px 0px 0px 0px; }
+.templates li { float: left; width: 280px; min-height: 70px; margin-right: 40px; }
+.templates li:nth-child(4n + 4) { margin-right: 0px; }
+</style>
+
+<ul class="sub-navigation">
+
+    <li class="left">
+        <h1>Website Templates</h1>
+    </li>
+
+    <li>
+        @Html.RouteLink("Add Template", CMSAreaRegistration.CmsAddTemplateRouteUrl, new { }, new { @class = "sub-navigation button" })
+    </li>
+
+</ul>
+
+<div class="content-padding">
+
+    <ul class="templates">
+    @foreach (TemplateViewModel template in Model.Templates)
+    {
+        <li>
+            @Html.RouteLink(template.Name, CMSAreaRegistration.CmsViewTemplateRouteUrl, new { name = template.Key, templateId = template.Id }, new { })
+        </li>
+    }
+    </ul>
+
+</div>

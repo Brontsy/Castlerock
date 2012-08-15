@@ -47,9 +47,17 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="MvcCheckBoxList, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcCheckBoxList.1.4.3.0\lib\MvcCheckBoxList.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
@@ -163,6 +171,7 @@
     <Compile Include="Areas\Messages\MessagesAreaRegistration.cs" />
     <Compile Include="Areas\Property-Editor\Extensions\PropertyEditorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\InputExtensions.cs" />
     <Compile Include="ModelBinders\PortalModelBinder.cs" />
     <Compile Include="Areas\Property-Editor\Controllers\PropertiesController.cs" />
     <Compile Include="Areas\Property-Editor\Models\PropertiesPageViewModel.cs" />
@@ -192,7 +201,19 @@
     <Content Include="Areas\CMS\Views\Shared\Parameters\Selectbox.cshtml" />
     <Content Include="Content\Css\reset.css" />
     <Content Include="Content\Css\site.css" />
+    <Content Include="Content\Images\arrowwhite.png" />
     <Content Include="Content\Images\check.gif" />
+    <Content Include="Content\Images\icons\folder-back.png" />
+    <Content Include="Content\Images\icons\folder.png" />
+    <Content Include="Content\Images\icons\gif.jpg" />
+    <Content Include="Content\Images\icons\jpg.jpg" />
+    <Content Include="Content\Images\icons\loading.gif" />
+    <Content Include="Content\Images\icons\pdf.jpg" />
+    <Content Include="Content\Images\icons\plus.png" />
+    <Content Include="Content\Images\icons\plus02.png" />
+    <Content Include="Content\Images\icons\png.jpg" />
+    <Content Include="Content\Images\icons\remove.png" />
+    <Content Include="Content\Images\icons\x.gif" />
     <Content Include="Content\Images\question.gif" />
     <Content Include="Content\Images\warning.gif" />
     <Content Include="Content\Images\x.gif" />
@@ -256,8 +277,8 @@
     <None Include="Properties\PublishProfiles\portalmanagement - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\portalmanagement - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
-    <None Include="Views\Shared\Messages\Confirmation.cshtml" />
-    <None Include="Views\Shared\Messages\Error.cshtml" />
+    <Content Include="Views\Shared\Messages\Confirmation.cshtml" />
+    <Content Include="Views\Shared\Messages\Error.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

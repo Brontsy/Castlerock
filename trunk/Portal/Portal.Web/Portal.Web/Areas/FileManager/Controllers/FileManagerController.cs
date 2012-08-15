@@ -60,6 +60,7 @@ namespace Portal.Web.Areas.FileManager.Controllers
             return this.RedirectToRoute("FileManager");
         }
 
+        [ValidateInput(false)]
         public ActionResult DeleteFile(int storageItemId)
         {
             IStorageItem item = this._fileManagerService.GetStorageItem(storageItemId);

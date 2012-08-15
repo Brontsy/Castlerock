@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Financial Returns - Auslink Property Trust";
+    ViewBag.PageId = "financials-returns";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.SelectedTab = "Financials";
+}
+
+@section LeftNavigation{
+
+    <ul>
+        <li class="selected">
+            @Html.RouteLink("Returns", "Financials")
+        </li>
+        <li>
+            @Html.RouteLink("Fund Summary", "Financials-Fund-Summary")
+        </li>
+    </ul>
+}
+
+<style>
+
+</style>
+
+<h2>Returns</h2><p>    The objective of the Trust is to provide an average total return to investors over the term of the Trust of 
+    at least 11.0% per annum, with income distributions each year of at least 8.0% per annum. 
+</p>
+<p>
+    Distributions are paid quarterly and expected to be 100% tax advantaged for the next three financial years.
+</p>
+    The returns provided to investors to date are shown below: 
+</p><ul class="table four-column">    <li class="table-header">        <div class="wide">Year Ending</div>        <div>30 June 2009</div>        <div>30 June 2010</div>        <div>30 June 2011</div>    </li>    <li>        <div class="wide">Distribution (per unit)</div>        <div>8.0 cents*</div>        <div>8.0 cents</div>        <div>8.7 cents</div>    </li>    <li>        <div class="wide">Tax Deferred Component</div>        <div>100%</div>        <div>100%</div>        <div>100%</div>    </li>    <li>        <div class="wide">Net Tangible Assets (per unit)</div>        <div>$1.00</div>        <div>$1.07</div>        <div>$1.10</div>    </li></ul><p>    *Annualised</p>

@@ -1,0 +1,24 @@
+﻿@model TemplatePageViewModel
+@using Portal.Web.Areas.CMS.Models
+@using Portal.Web.Areas.CMS
+@{
+    ViewBag.Title = "Add Template";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h1 { background: #a2c865; font-weight: bold; float: left; padding: 10px 30px 10px 30px; margin-left: 1px; margin-right: 1px; margin-top: 1px; text-align: center; min-width: 140px; color: #ffffff; font-size: 1.6em; }
+</style>
+
+<h1>Edit Template</h1>
+
+<div class="content-padding">
+
+@using (Html.BeginRouteForm(CMSAreaRegistration.CmsSaveTemplateRouteUrl, new { name = Model.Template.Name, templateId = Model.Template.Id }, FormMethod.Post, new { }))
+{
+    
+    Html.RenderPartial("Fields", Model.Template);
+
+}
+
+</div>

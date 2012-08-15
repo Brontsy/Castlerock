@@ -1,0 +1,123 @@
+﻿@model Auslink.Web.Models.PageViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Css/reset.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Css/site.css")" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Arimo:400,700|Bitter|Convergence' rel='stylesheet' type='text/css'>
+    
+    <script src="@Url.Content("~/Content/Javascript/mootools.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Javascript/auslink.js")" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <div class="content" id="@ViewBag.PageId">
+    
+        <div class="header">
+            <img class="background" src="@Model.HeaderImageUrl" />
+            <h1>
+                @Html.RouteLink("Austlink Property", "Home", new { }, new { title = "Austlink Property", alt = "Austlink Property" })
+            </h1>
+            <img class="red-logo" src="http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/quality-assets.png" alt="Quality Assests" title="Quality Assests" />
+        </div>
+    
+        <ul class="navigation">
+            <li@(ViewBag.SelectedTab == "About" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("About", "About")
+                
+                <div>
+                    @Html.RouteLink("Overview", "About")
+                    @Html.RouteLink("Key Features", "About-Key-Features")
+                </div>
+            </li>
+
+            <li@(ViewBag.SelectedTab == "Property Portfolio" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("Property Portfolio", "Property-Portfolio")
+
+                <div>
+                    @Html.RouteLink("Location Map", "Property-Portfolio")
+                    @Html.RouteLink("Carnarvon, WA", "Carnarvon")
+                    @Html.RouteLink("Boronia, VIC", "Boronia")
+                    @Html.RouteLink("Port Pirie, SA", "Port-Pirie")
+                    @Html.RouteLink("Footscray, VIC", "Footscray")
+                    @Html.RouteLink("South Brisbane, QLD", "South-Brisbane")
+                </div>
+            </li>
+
+            <li@(ViewBag.SelectedTab == "Financials" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("Financials", "Financials")
+                
+                <div>
+                    @Html.RouteLink("Returns", "Financials")
+                    @Html.RouteLink("Fund Summary", "Financials-Fund-Summary")
+                </div>
+            </li>
+
+            <li@(ViewBag.SelectedTab == "Management" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("Management", "Management")
+                
+                <div>
+                    @Html.RouteLink("Trust Manager", "Management")
+                    @Html.RouteLink("Development & Property Manager", "Management-Property-Manager")
+                </div>
+            </li>
+
+            <li@(ViewBag.SelectedTab == "Investors" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("Investors", "Investors")
+                
+                <div>
+                    @Html.RouteLink("Prospective Investors", "Investors")
+                    @Html.RouteLink("Current Unitholders", "Investors-Current-Unitholders")
+                </div>
+            </li>
+
+            <li@(ViewBag.SelectedTab == "Contact Us" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+                @Html.RouteLink("Contact Us", "Contact-Us")
+            </li>
+
+            @if (Model.Login.IsLoggedIn)
+            {
+            <li class="logout">
+                @Html.RouteLink("Logout", "Logout")
+            </li>
+            }
+            else
+            {
+            <li class="login hidden">
+                @Html.RouteLink("Login", "Login")
+            </li>
+            }
+        </ul>
+    
+        <div class="page-content">
+            <div class="left">
+                @RenderSection("LeftNavigation", false)&nbsp;
+            </div>
+            
+            <div class="center">
+                @RenderBody()
+            </div>
+            
+            <div class="right">
+                @RenderSection("RightNavigation", false)&nbsp;
+            </div>
+        </div>
+    
+    </div>
+        
+    <div class="footer">
+        @Html.RouteLink("Disclaimer", "Disclaimer") &nbsp; &nbsp; 
+        @Html.RouteLink("Privacy Policy", "Privacy") &nbsp; &nbsp; 
+        Copyright © 2011 Centreway Capital Ltd 
+    </div>
+    
+    @Html.Partial("GoogleAnalytics")
+
+</body>
+</html>
+
+
+        

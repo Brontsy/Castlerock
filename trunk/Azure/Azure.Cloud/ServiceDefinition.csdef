@@ -7,17 +7,17 @@
           <Binding name="Endpoint1" endpointName="Endpoint1" />
         </Bindings>
       </Site>
-      <Site name="Auslink" physicalDirectory="D:\Github\Castlerock\trunk\Auslink\Auslink.Web">
+      <Site name="Auslink" physicalDirectory="D:\Github\Castlerock\Deployment\Auslink">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.auslinkproperty.com.au" />
         </Bindings>
       </Site>
-      <Site name="Castlerock" physicalDirectory="D:\Github\Castlerock\trunk\Castlerock\Castlerock.Web">
+      <Site name="Castlerock" physicalDirectory="D:\Github\Castlerock\Deployment\Castlerock">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.castlerockproperty.com.au" />
         </Bindings>
       </Site>
-      <Site name="Auslink Portal" physicalDirectory="D:\Github\Castlerock\trunk\Portal\Portal.Web\Portal.Web">
+      <Site name="Auslink Portal" physicalDirectory="D:\Github\Castlerock\Deployment\Portal">
         <Bindings>
           <Binding name="AuslinkPortal" endpointName="Endpoint1" hostHeader="portal.auslinkproperty.com.au" />
           <Binding name="CastlerockPortal" endpointName="Endpoint1" hostHeader="portal.castlerockproperty.com.au" />
@@ -41,10 +41,4 @@
       <Setting name="BlobConnectionString" />
     </ConfigurationSettings>
   </WebRole>
-  <WorkerRole name="Portal.Meassaging.Worker" vmsize="Small">
-    <Imports>
-      <Import moduleName="Diagnostics" />
-      <Import moduleName="RemoteAccess" />
-    </Imports>
-  </WorkerRole>
 </ServiceDefinition>

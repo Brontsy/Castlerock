@@ -1,0 +1,8 @@
+﻿@model NavigationControl
+@using Portal.Cms.Controls
+
+<li>
+    @Html.LabelFor(o => o.Name) 
+    @Html.TextBoxFor(o => o.Name) 
+    @Html.ValidationMessageFor(o => o.Name) 
+</li>

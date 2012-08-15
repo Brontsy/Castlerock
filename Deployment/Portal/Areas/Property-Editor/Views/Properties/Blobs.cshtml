@@ -1,0 +1,11 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Castlerock Properties";
+}
+
+
+<h2>My Cloudy Album</h2>
+
+@foreach (var item in Model) {
+    <img src="@item" />
+}
