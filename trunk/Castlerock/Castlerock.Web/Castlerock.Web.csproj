@@ -191,7 +191,7 @@
     <Content Include="Views\Member\Downloads.cshtml" />
     <None Include="Properties\PublishProfiles\Castlerock Local.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Views\Properties\PropertiesInState.cshtml" />
+    <Content Include="Views\Properties\PropertiesInState.cshtml" />
     <Content Include="Views\Properties\Property.ascx" />
     <Content Include="Views\Shared\GoogleAnalytics.ascx" />
     <Content Include="Views\Shared\List.ascx" />
