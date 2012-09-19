@@ -15,7 +15,7 @@ namespace Castlerock.Web.Controllers
         [HttpGet]
         public ActionResult Downloads()
         {
-            int pdfFolder = Int32.Parse(ConfigurationManager.AppSettings["PdfFolder"].ToString());
+            string pdfFolder = ConfigurationManager.AppSettings["PdfFolder"].ToString();
 
             IList<IStorageItem> items = ServiceLocator.GetFileManagerService().GetStorageItems(pdfFolder);
             ViewData["StorageItems"] = items;

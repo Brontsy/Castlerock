@@ -46,7 +46,8 @@ namespace Castlerock.Web
         public static IMembershipService GetMembershipService()
         {
             IMemberDao memberDao = new MemberNhibernateDao(GetCurrentSession());
-            return new MembershipService(GetWebsite(), memberDao, GetCastlerockTransactionManager());
+            IRoleDao roleDao = new RoleNhibernateDao(GetCurrentSession());
+            return new MembershipService(GetWebsite(), memberDao, roleDao, GetCastlerockTransactionManager());
         }
 
         public static Common.Nhibernate.ITransactionManager GetCastlerockTransactionManager()
