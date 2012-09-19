@@ -11,20 +11,31 @@
     
     <fieldset>
 
-        @Html.ValidationSummary()
-        <ul>
+        <ol class="fields">
             <li>
-                @Html.LabelFor(model => model.Username)
-                @Html.TextBoxFor(model => model.Username)
+                <div class="left">
+                    @Html.LabelFor(model => model.Username)
+                    @Html.TextBoxFor(model => model.Username)
+                </div>
+                <div class="validation">
+                    @Html.ValidationMessageFor(model => model.Username)
+                </div>
             </li>
             <li>
-                @Html.LabelFor(model => model.Password)
-                @Html.PasswordFor(model => model.Password)
+                <div class="left">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.PasswordFor(model => model.Password)
+                </div>
+                <div class="validation">
+                    @Html.ValidationMessageFor(model => model.Username)
+                </div>
             </li>
             <li>
-                <button type="submit"><div>Login</div></button>
+                <div class="left">
+                    <button type="submit" class="right">Login</button>
+                </div>
             </li>
-        </ul>
+        </ol>
     </fieldset>
     }
 

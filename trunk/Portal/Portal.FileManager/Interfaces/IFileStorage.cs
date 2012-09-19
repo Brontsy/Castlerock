@@ -16,6 +16,7 @@ namespace Portal.FileManager.Interfaces
     /// </summary>
     public interface IFileStorage
     {
+        IStorageItem GetById(IWebsite website, string path);
         
         /// <summary>
         /// Upload a collection of files to the server
@@ -70,7 +71,7 @@ namespace Portal.FileManager.Interfaces
         /// <param name="website">the website that we are deleting the folder from</param>
         /// <param name="path">the path of the folder to be deleted</param>
         /// <returns></returns>
-        bool DeleteFolder(IWebsite website, string path);
+        IStorageItem DeleteFolder(IWebsite website, string path);
         
         /// <summary>
         /// Deletes a file from the file system

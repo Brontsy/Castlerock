@@ -1,4 +1,7 @@
-﻿html { background-color: #eeeeee; }
+﻿
+/*
+
+html { background-color: #eeeeee; }
 body { background-color: #eeeeee; font-size: 12px; font-family: "Segoe UI","Helvetica",Garuda,Arial,sans-serif; margin: 0; padding: 0px; color: #777777; }
 
 a { color: #4A91AC; text-decoration: none; }
@@ -14,28 +17,16 @@ h3 { color: #888676; font-weight: bold; margin: 0px 0px 5px 0px; }
 .float-container { width: 100%; overflow: hidden; }
 .content { background: #ffffff; min-height: 600px; }
 .content-padding { padding: 20px; }
-.wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -35px; /* the bottom margin is the negative value of the footer's height */ }
+.wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -35px; /* the bottom margin is the negative value of the footer's height  }
+.left { float: left; }
+.right { float: right; }
 
 footer { background: #3C454F; height: 35px; padding: 0px 0px 0px 20px; display: block; }
 footer a { text-decoration: none; font-weight: bold; color: #ffffff; }
 footer > a { line-height: 35px; }
 
 .page { width: 1280px; margin: 0px auto 0px auto; box-shadow: 0 0 85px rgba(0, 0, 0, .3); border-radius: 0 0 10px 10px; }
-header { background: #3C454F; height: 35px; color: #ffffff; line-height: 35px; padding: 0px 0px 0px 20px; display: block; }
-header a { text-decoration: none; font-weight: bold; color: #ffffff; font-family: 'Signika', sans-serif; font-size: 1.2em; }
-header a:hover { text-decoration: underline; color: #ffffff; }
 
-header ul { float: right; }
-header ul li { float: left; margin-left: 2px; }
-header ul li { -webkit-transition: all .25s linear; transition: all .25s linear; background:-moz-linear-gradient(top,#5f676f 0%,#424a54 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5f676f),color-stop(100%,#424a54));background:-webkit-linear-gradient(top,#5f676f 0%,#424a54 100%);background:-o-linear-gradient(top,#5f676f 0%,#424a54 100%);background:-ms-linear-gradient(top,#5f676f 0%,#424a54 100%);background:linear-gradient(top,#5f676f 0%,#424a54 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5f676f',endColorstr='#424a54',GradientType=0) }
-header ul li:hover { background: #3C454F !important; }
-
-
-header ul li a { display: block; padding: 0px 30px 0px 30px; -webkit-transition: all .25s linear; transition: all .25s linear; }
-header ul li.selected { background: #ffffff; }
-header ul li.selected a { color: #000000; }
-
-header ul li:hover a { color: #ffffff; } 
 
 .button { background-color: #00ADEE; padding: 10px 50px 10px 20px; font-weight: bold; font-size: 1.2em; min-width: 70px; }
 a.button { color: #ffffff; }
@@ -52,27 +43,30 @@ div.question-message { background: #E8F8FE url(/Content/Images/question.gif) no-
 
 
 
-/* Form Styles */
-input[type="text"] { font-size: 14px; padding: 5px; border: 1px solid #666666; width: 60%; }
-input[type="password"] { font-size: 14px; padding: 5px; border: 1px solid #666666; width: 60%; }
-textarea { font-size: 14px; padding: 5px;  border: 1px solid #666666; min-height: 450px; }
-select { height: 28px; font-size: 14px; border: 1px solid #666666; border-right: 0px solid #666666; }
+/* Form Styles 
+input[type="text"] { font-size: 14px; padding: 5px; border: 1px solid #dddddd; width: 600px; }
+input[type="password"] { font-size: 14px; padding: 5px; border: 1px solid #dddddd; width: 600px; }
+textarea { font-size: 14px; padding: 5px;  border: 1px solid #dddddd; min-height: 450px; }
+select { height: 28px; font-size: 14px; border: 1px solid #dddddd; border-right: 0px solid #666666; }
 button { display: block; font-weight:bold; color:#ffffff; cursor:pointer; width: 112px; padding: 0; height: 31px; border-style: none; border-width: 0px; border-spacing: 0px; border-color: #00ADEE; background: none; }
 button div { font-weight: 700; cursor: hand; cursor: pointer; display: block; text-decoration: none; width: 110px; overflow: hidden; height: 29px; font-size: 13px; color: #ffffff; border:1px solid #0076a1; text-align: center; line-height:29px; background-color:#00ADEE; }
 button:hover div { background: #0091F2; }
 button.disabled div { background: #aaaaaa; border: 1px solid #d8d8d8; color: #000000; }
     
 form ul li { width: 100%; overflow: hidden; margin: 10px 0px 10px 0px; }
-form ul li span { display: block; float: left; width: 200px; margin: 0px 0px 0px 33%; }
-form ul li label { width: 30%;  font-size: 14px; float: left; margin-right: 3%; display: block;  }
+form ul li span { display: block; float: left; width: 500px; margin: 0px 0px 0px 20px; }
+form ul li label { font-size: 14px;  display: block;  }
 form ul li label.selected { font-weight: bold; }
-form ul li input { float: left; display: block; }
-form ul li select { float: left; display: block; }
-form ul li textarea { float: left; display: block; width: 60%; }
-form ul li a { margin: 15px 0px 0px 10px; float: left; display: block; }
-form ul li input[type="checkbox"] { margin: 2px 0px 0px 33%; }
-form ul li.checkbox label { margin: 0px 0px 0px 15px; }
-form ul li button { float: left; margin: 0px 0px 0px 33%; }
+form ul li input { display: block; }
+form ul li select {  display: block; }
+form ul li textarea {  display: block; width: 60%; }
+form ul li a { margin: 15px 0px 0px 10px; display: block; float: left; }
+form ul li input[type="checkbox"] { float: left; margin: 2px 0px 0px 0px; }
+form ul li.checkbox label { float: left; margin: 0px 0px 0px 15px; }
+form ul li button { float: left; margin: 0px 0px 0px 455px; }
+
+form ul li.divider { border-top: 1px solid #dddddd; margin: 20px 0px 20px 0px; }
+form ul li .error { float: left; margin: 25px 0px 0px 0px; }
 
 input[type="checkbox"] + label { margin-left: 10px !important; }
 
@@ -80,55 +74,18 @@ form legend { font-weight: bold; display: none; }
 
 
 /* Styles for validation helpers
------------------------------------------------------------*/
+-----------------------------------------------------------
 .field-validation-error { color: #ff0000; }
 .field-validation-valid { display: none; }
 .input-validation-error { border: 1px solid #ff0000 !important; background-color: #ffeeee !important; }
 .validation-summary-errors { font-weight: bold; color: #ff0000; font-size: 12px; }
 .validation-summary-valid { display: none; }
-/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------
 
 .border-thin { border: 1px solid #666666; }
 .border-thin.active { border: 1px solid #ff0000; }
 
-/* Images */
-.upload-image { float: left; width: 120px; height: 90px; margin: 0px 10px 0px 0px; }
-
-
-
-/* File Manager */
-.pdf { background: url(/Content/images/icons/pdf.jpg) no-repeat; }
-.jpg { background: url(/Content/images/icons/jpg.jpg) no-repeat; background-position: 0px 0px; }
-.png { background: url(/Content/images/icons/png.jpg) no-repeat; }
-.gif { background: url(/Content/images/icons/gif.jpg) no-repeat; }
-.folder { text-align: center; display: block; }
-.view-file { text-align: center; display:block; padding-top: 135px; }
-.view-folder { background: url(/Content/images/icons/folder.png) no-repeat; background-position: 0px 0px; padding-top: 135px; width: 128px; display: block; text-align: center; }
-.back-folder { background: url(/Content/images/icons/folder-back.png) no-repeat; background-position: 0px 0px; padding-top: 135px; width: 128px; display: block; text-align: center; text-indent: -9999px; }
-
-.files { width: 100%; overflow: hidden; margin-top: 20px; }
-.files li { float: left; margin: 20px 20px 20px 0px; width: 130px; }
-.remove { position: absolute; margin: 10px 0px 0px 97px; float: right; background: url(/Content/images/icons/remove.png) no-repeat; width: 16px; height: 16px; text-indent: -9999px }
-.add-folder {  float: right;}
-
-
-
-/* CMS */
-.sub-navigation { width: 100%; overflow: hidden; }
-.sub-navigation > li { float: right; }
-.sub-navigation > li.left { float: left; }
-.sub-navigation > li > a { transition: background .3s linear; font-family: 'Signika', sans-serif;  border-right: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-top: 1px solid #ffffff;
-   -o-transition: background .3s linear;
-   -moz-transition: background .3s linear;
-   -webkit-transition: background .3s linear; display: block; background: #00ADEE; font-weight: bold; padding: 10px 10px 10px 10px; text-align: center; min-width: 140px; color: #ffffff; font-size: 1.4em; }
-   
-.sub-navigation > li > a:last-child { border-left: 1px solid #ffffff; }
-
-.sub-navigation > li > a:hover { background: #55D0FF; }
-.sub-navigation > li > h1 { background: #a2c865; font-weight: bold; float: left; padding: 10px 30px 10px 30px; margin-left: 1px; margin-right: 1px; margin-top: 1px; text-align: center; min-width: 140px; color: #ffffff; font-size: 1.8em; }
-.sub-navigation > li > a.selected { background: #55D0FF; border-bottom: 1px solid #55D0FF; }
-
-
+/
 
 
 

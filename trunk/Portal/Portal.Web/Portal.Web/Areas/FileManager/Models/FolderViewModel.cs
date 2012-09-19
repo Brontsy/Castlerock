@@ -28,7 +28,7 @@ namespace Portal.Web.Areas.FileManager.Models
         /// </summary>
         public object RouteValues
         {
-            get { return new { storageItemId = this._folder.Id, path = this.PathForUrl }; }
+            get { return new { storageItemId = this.Path, path = this.PathForUrl }; }
         }
 
         /// <summary>
@@ -52,6 +52,19 @@ namespace Portal.Web.Areas.FileManager.Models
                 }
 
                 return string.Format("{0}{1}", this._folder.Path, this._folder.Name).Replace("/", "-");
+            }
+        }
+
+        private string Path
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this._folder.Path))
+                {
+                    return this._folder.Name;
+                }
+
+                return string.Format("{0}{1}", this._folder.Path, this._folder.Name);
             }
         }
 

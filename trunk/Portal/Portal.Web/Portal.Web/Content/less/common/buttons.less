@@ -1,0 +1,82 @@
+
+
+
+.button,button
+{
+	cursor: hand; cursor: pointer;
+    font-weight: 700;
+    display: block;
+    border: 1px solid #ffffff;
+    color: @primary-text-colour; 
+    text-align: center;
+    text-decoration: none;
+    background-color: @primary-background-colour;
+    padding: 7px 15px 7px 15px;
+	margin:0px;
+	font-size: 13px;
+	line-height: 14px;
+    .transition(background .3s linear);
+}
+
+.button:hover,button:hover
+{
+    cursor: pointer;
+    background-color: darken(@primary-background-colour, 5%);
+    color: @primary-text-colour; 
+}
+
+.button.selected,button.selected
+{
+    cursor: pointer;
+    background-color: darken(@primary-background-colour, 5%);
+    color: @primary-text-colour; 
+}
+
+.button.disabled,
+button.disabled,
+.button.secondary.disabled,
+button.secondary.disabled
+{
+    background-color: @disabled-background-colour;
+    border: 1px solid @disabled-border-colour;
+    cursor: default;
+}
+
+.button.disabled:hover,
+button.disabled:hover,
+.button.secondary.disabled:hover,
+button.secondary.disabled:hover
+{
+	cursor: default;
+	background-color: @disabled-background-colour;
+    border: 1px solid @disabled-border-colour;
+}
+
+.button.secondary 
+{ 
+	background-color: @secondary-background-colour; 
+	color: @secondary-text-colour; 
+	border: 1px solid @secondary-border-colour; 
+}
+
+.button.secondary:hover,button.secondary:hover
+{
+    cursor: pointer;
+    background-color: darken(@secondary-background-colour, 5%);
+    border: 1px solid darken(@secondary-border-colour, 5%);
+    color: @secondary-text-colour; 
+}
+
+
+.button.gradient 
+{ 
+	#gradient.vertical(#ffffff, #dddddd);
+	border: 1px solid #aaaaaa; 
+}
+
+
+.button.gradient:hover,button.gradient:hover
+{
+	#gradient.vertical(#dddddd, #ffffff);
+    border: 1px solid darken(#aaaaaa, 15%);
+}

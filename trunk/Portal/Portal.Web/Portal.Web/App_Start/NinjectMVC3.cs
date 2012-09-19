@@ -84,6 +84,8 @@ namespace Portal.Web.App_Start
         {
             //kernel.Bind<IMembershipService>().To<MembershipService>();
             kernel.Bind<IMemberDao>().To<MemberNhibernateDao>();
+            kernel.Bind<IRoleDao>().To<RoleNhibernateDao>();
+            //kernel.Bind<IMemberDao>().To<MemberPetaPocoDao>();
 
             kernel.Bind<IWebsiteService>().To<WebsiteService>();
             kernel.Bind<IWebsiteDao>().To<WebsiteNhibernateDao>();
@@ -97,7 +99,8 @@ namespace Portal.Web.App_Start
             kernel.Bind<ITemplateDao>().To<TemplateNhibernateDao>();
 
             kernel.Bind<IFileManagerService>().To<FileManagerService>();
-            kernel.Bind<IStorageItemRepository>().To<StorageItemNhibernateRepository>();
+            //kernel.Bind<IStorageItemRepository>().To<StorageItemNhibernateRepository>();
+            kernel.Bind<IStorageItemRepository>().To<Portal.FileManager.Storage.AzureBlobStorage>();
             kernel.Bind<IFileStorage>().To<Portal.FileManager.Storage.AzureBlobStorage>();
 
             kernel.Bind<IExceptionManager>().To<DatabaseExceptionManager>();

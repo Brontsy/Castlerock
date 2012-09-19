@@ -9,10 +9,12 @@ namespace Portal.FileManager.Models
 {
     public class File : StorageItem
     {
-        public File() : base (StorageItemType.File) { }
+        public File()
+        {
+        }
 
-        public File(IWebsite website, string scheme, string host, string path, string fileName)
-            : base(StorageItemType.File, website, scheme, host, path, fileName) 
+        public File(IWebsite website, Uri url)
+            : base(StorageItemType.File, website, url) 
         {
         }
     }

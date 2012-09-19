@@ -45,6 +45,6 @@ namespace Portal.FileManager.Interfaces
         /// <summary>
         /// Gets all the children of this storage item (ie. files in a folder)
         /// </summary>
-        IList<IStorageItem> Children { get; }
+        //IList<IStorageItem> Children { get; }
     }
 }

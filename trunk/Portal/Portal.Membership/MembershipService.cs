@@ -15,12 +15,14 @@ namespace Portal.Membership
     {
         private IWebsite _website = null;
         private IMemberDao _memberDao = null;
+        private IRoleDao _roleDao = null;
         private ITransactionManager _transactionManager = null;
 
-        public MembershipService(IWebsite website, IMemberDao memberDao, ITransactionManager transactionManager)
+        public MembershipService(IWebsite website, IMemberDao memberDao, IRoleDao roleDao, ITransactionManager transactionManager)
         {
             this._website = website;
             this._memberDao = memberDao;
+            this._roleDao = roleDao;
             this._transactionManager = transactionManager;
         }
 
@@ -77,6 +79,11 @@ namespace Portal.Membership
             }
 
             return false;
+        }
+
+        public IList<Role> GetRoles()
+        {
+            return this._roleDao.GetRoles(this._website);
         }
 
         /// <summary>

@@ -6,9 +6,9 @@
       <generator class="native"/>
     </id>
 
+    <property name="Email" column="Email" />
     <property name="FirstName" column="FirstName" />
     <property name="LastName" column="LastName" />
-    <property name="Username" column="Username" />
     <property name="Company" column="Company" />
     <property name="Phone" column="Phone" />
     <property name="DateCreated" column="DateCreated" />

@@ -1,28 +1,0 @@
-﻿@model Auslink.Web.Models.PageViewModel
-@{
-    ViewBag.Title = "Investors - Current Unitholders";
-    ViewBag.PageId = "investors-current-unitholders";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.SelectedTab = "Investors";
-}
-
-@section LeftNavigation{
-
-    <ul>
-        <li>
-            @Html.RouteLink("Prospective Investors", "Investors")
-        </li>
-        <li class="selected">
-            @Html.RouteLink("Current Unitholders", "Investors-Current-Unitholders")
-        </li>
-    </ul>
-}
-
-
-@section RightNavigation {
-
-    @Html.Partial("Login", Model.Login)
-}
-
-
-<h2>Current Unitholders</h2><p>    If you are a registered unitholder and have your username and password please log-in on the right. </p>

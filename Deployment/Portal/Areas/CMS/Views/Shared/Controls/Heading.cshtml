@@ -1,17 +1,0 @@
-﻿@model Heading
-@using Portal.Cms.Controls
-@using Portal.Cms.Interfaces
-@using Portal.Web.Areas.CMS.Models
-
-
-<@Model.Size id="control-@Model.Id.ToString()">@if (Model.Controls.Count > 0)
-{
-    foreach (IControl control in Model.Controls)
-    {
-        Html.RenderPartial(control.View, control);
-    }
-}
-else
-{
-    @Model.Name
-}</@Model.Size>

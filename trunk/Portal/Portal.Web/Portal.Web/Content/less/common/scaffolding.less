@@ -1,0 +1,67 @@
+
+html { background-color: #eeeeee; }
+body { background-color: #eeeeee; font-size: 12px; font-family: "Segoe UI","Helvetica",Garuda,Arial,sans-serif; margin: 0; padding: 0px; color: #777777; margin-bottom: 400px; }
+
+a
+{
+    color: @link-colour;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: darken(@link-colour, 20%);
+}
+
+a:active
+{
+    outline: 0;
+}
+
+
+a.font
+{
+    color: @font-colour;
+}
+
+a.font:hover
+{
+    color: darken(@font-colour, 20%);
+}
+
+a.action
+{
+    color: @red;
+}
+
+a.action:hover
+{
+    color: darken(@red, 20%);
+}
+
+.right
+{
+    float: right;
+}
+
+.left
+{
+    float: left;
+}
+
+.float-container
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.component
+{
+    margin-top: @spacing;
+	display: block;
+}

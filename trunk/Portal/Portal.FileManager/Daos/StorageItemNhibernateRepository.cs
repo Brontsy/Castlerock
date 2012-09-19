@@ -10,12 +10,18 @@ using Portal.Websites.Interfaces;
 
 namespace Portal.FileManager.Daos
 {
-    public class StorageItemNhibernateRepository : AbstractNHibernateDao<StorageItem, int>, IStorageItemRepository
+    public class StorageItemNhibernateRepository : AbstractNHibernateDao<StorageItem, string>, IStorageItemRepository
     {
         public StorageItemNhibernateRepository(ISession session)
             :base(session)
         {
 
+        }
+
+
+        public IStorageItem GetById(IWebsite website, string path)
+        {
+            return null;
         }
 
 
@@ -60,20 +66,20 @@ namespace Portal.FileManager.Daos
         /// <param name="website">the website that the files / folders belong to</param>
         /// <param name="parentId">the id of the parent</param>
         /// <returns></returns>
-        public IList<IStorageItem> GetStorageItems(IWebsite website, int? parentId)
+        public IList<IStorageItem> GetStorageItems(IWebsite website, string parentId)
         {
             IList<IStorageItem> storageItems = new List<IStorageItem>();
             IQuery query = null;
 
-            if (parentId.HasValue)
+            if (string.IsNullOrEmpty(parentId))
+            {
+                query = this.Session.CreateQuery("Select storageItem From StorageItem storageItem Inner Join Fetch storageItem.Website w Where storageItem.Parent Is Null And w.Id = :websiteId");
+            }
+            else
             {
                 query = this.Session.CreateQuery("Select storageItem From StorageItem storageItem Inner Join Fetch storageItem.Website w Where storageItem.Parent.Id = :parentId And w.Id = :websiteId");
 
                 query.SetParameter("parentId", parentId);
-            }
-            else
-            {
-                query = this.Session.CreateQuery("Select storageItem From StorageItem storageItem Inner Join Fetch storageItem.Website w Where storageItem.Parent Is Null And w.Id = :websiteId");
             }
 
             query.SetParameter("websiteId", website.Id);

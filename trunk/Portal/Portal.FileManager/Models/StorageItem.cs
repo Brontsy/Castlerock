@@ -34,13 +34,54 @@ namespace Portal.FileManager.Models
         }
 
 
-        public StorageItem(StorageItemType type, IWebsite website, string scheme, string host, string path, string name)
+        public StorageItem(StorageItemType type, IWebsite website, Uri url)//string scheme, string host, string path, string name)
         {
             this._website = website;
-            this._scheme = scheme;
-            this._host = host;
-            this._path = path;
-            this._name = name;
+            this._scheme = url.Scheme;
+            this._host = url.Host + "/" + url.Segments[1];
+
+            string localPath = url.LocalPath;
+
+            if (localPath.EndsWith("/"))
+            {
+                localPath = localPath.Substring(0, localPath.Length - 1);
+            }
+
+            var segments = localPath.Split('/');
+
+            this._name = segments[segments.Length - 1];
+            for (int i = 2; i < segments.Length - 1; i++) { this._path += segments[i] + "/"; }
+
+            if (type == StorageItemType.Folder)
+            {
+                //this._name = this._name.Substring(0, this._name.Length - 1);
+            }
+
+            //return new Folder(website, uri.Scheme, host, path, fileName.Substring(0, fileName.Length - 1));
+
+
+
+            //string fileName = uri.Segments[uri.Segments.Length - 1];
+            //for (int i = 0; i < 2; i++) { host += uri.Segments[i]; }
+            //for (int i = 2; i < uri.Segments.Length - 1; i++) { path += uri.Segments[i]; }
+
+
+            //this._path = path;
+            //this._name = name;
+
+            if (!string.IsNullOrEmpty(this._path))
+            {
+                string[] parents = this._path.Split('/');
+
+                string parentPath = string.Empty;
+                if (parents.Length >= 2)
+                {
+                    string parentFileName = parents[parents.Length - 2];
+                    for (int i = 0; i < parents.Length - 2; i++) { parentPath += parents[i]; }
+
+                    this.Parent = new Folder(website, new Uri(this._scheme + "://" + this._host + this._path));
+                }
+            }
         }
 
 

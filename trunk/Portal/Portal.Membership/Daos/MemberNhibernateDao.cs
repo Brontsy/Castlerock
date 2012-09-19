@@ -24,7 +24,7 @@ namespace Portal.Membership.Daos
         /// <returns>A Member object if one exists otherwise null</returns>
         public Member GetMemberByUsername(IWebsite website, string username)
         {
-            IQuery query = this.Session.CreateQuery("Select m From Member m Inner Join Fetch m.Profile p Inner Join Fetch m.Websites w  Where p.Username = :username And w.Id = :websiteId");
+            IQuery query = this.Session.CreateQuery("Select m From Member m Inner Join Fetch m.Websites w  Where m.Username = :username And w.Id = :websiteId");
 
             query.SetParameter("username", username);
             query.SetParameter("websiteId", website.Id);
@@ -40,7 +40,7 @@ namespace Portal.Membership.Daos
         /// <param name="email">the email of the member to return</param>
         public Member GetMemberByEmail(IWebsite website, string email)
         {
-            IQuery query = this.Session.CreateQuery("Select m From Member m Inner Join Fetch m.Websites w  Where m.Email = :email And w.Id = :websiteId");
+            IQuery query = this.Session.CreateQuery("Select m From Member m Inner Join Fetch m.Profile p Inner Join Fetch m.Websites w  Where p.Email = :email And w.Id = :websiteId");
 
             query.SetParameter("email", email);
             query.SetParameter("websiteId", website.Id);

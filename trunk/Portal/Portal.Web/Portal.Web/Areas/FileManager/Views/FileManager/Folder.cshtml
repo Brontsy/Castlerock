@@ -7,5 +7,8 @@
 <div class="folder">
     @Html.RouteLink("Delete", "FileManager-Folder-Delete", Model.RouteValues, new { @class = "remove hidden", title = "Remove Folder", alt = "Remove Folder" })
 
-    @Html.RouteLink(Model.Name, "FileManager-View", Model.RouteValues, new { @class = "view-folder" })
+    <a class="view-folder" href="@Url.RouteUrl("FileManager-View", Model.RouteValues)">
+        <img height="30" src="/Content/images/icons/folder.png" />
+        @Model.Name
+    </a>
 </div>

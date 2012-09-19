@@ -29,7 +29,7 @@ namespace Portal.Web.Areas.FileManager.Models
         /// </summary>
         public object RouteValues
         {
-            get { return new { storageItemId = this._file.Id, path = this.PathForUrl }; }
+            get { return new { storageItemId = string.Format("{0}{1}", this._file.Path, this._file.Name), path = this.PathForUrl }; }
         }
 
         /// <summary>

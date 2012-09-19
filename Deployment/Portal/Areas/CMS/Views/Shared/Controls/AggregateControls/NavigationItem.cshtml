@@ -1,18 +1,0 @@
-﻿@model NavigationItem
-@using Portal.Cms.Controls
-@using Portal.Cms.Interfaces
-@using Portal.Web.Areas.CMS.Models
-@using Portal.Interfaces.Cms
-
-
-<li@(string.IsNullOrEmpty(Model.CssClass) ? string.Empty : " class=" + Model.CssClass + "") id="control-@Model.Id.ToString()">    <a href="@Model.Page.Url">@Model.Name</a>
-    @if (Model.Controls.Count > 0)
-    {
-    <div>
-        @foreach (IControl control in Model.Controls)
-        {
-            Html.RenderPartial(control.View, control);
-        }
-    </div>
-    }
-</li>

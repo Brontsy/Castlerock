@@ -15,6 +15,7 @@ namespace Portal.Membership.Models
         private Website _website = null;
         private IList<Member> _members = null;
 
+        [PetaPoco.Column("RoleId")]
         public virtual int Id
         {
             get { return this._id; }

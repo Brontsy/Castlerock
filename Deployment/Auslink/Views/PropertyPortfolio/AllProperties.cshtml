@@ -1,30 +1,0 @@
-﻿@using Auslink.Web.Extensions;
-@{
-    ViewBag.Title = "Property Portfolio - Auslink Property Trust";
-    ViewBag.PageId = "property-portfolio-all";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.SelectedTab = "Property Portfolio";
-    ViewBag.SelctedProperty = "Location Map";
-}
-
-
-@section LeftNavigation{
-
-    @Html.Partial("PropertySideNav")
-}
-
-<h2>Property Portfolio</h2><ul class="properties">    <li class="green">
-        @Html.RouteLink("Carnarvon, WA", "Carnarvon")
-    </li>
-    <li class="blue">
-        @Html.RouteLink("Boronia, VIC", "Boronia")
-    </li>
-    <li class="orange">
-        @Html.RouteLink("Port Pirie, SA", "Port-Pirie")
-    </li>
-    <li class="purple">
-        @Html.RouteLink("Footscray, VIC", "Footscray")
-    </li>
-    <li class="red">
-        @Html.RouteLink("South Brisbane, QLD", "South-Brisbane")
-    </li></ul><div class="map">    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/blue.png", "Property-Portfolio-Single", new { @class = "blue", alt = "Boronia, VIC", title = "Boronia, VIC" }, new { propertyName = "Boronia" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/green.png", "Property-Portfolio-Single", new { @class = "green", alt = "Carnarvon, WA", title = "Carnarvon, WA" }, new { propertyName = "Carnarvon" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/orange.png", "Property-Portfolio-Single", new { @class = "orange", alt = "Port Pirie, SA", title = "Port Pirie, SA" }, new { propertyName = "Port-Pirie" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/purple.png", "Property-Portfolio-Single", new { @class = "purple", alt = "Footscray, VIC", title = "Footscray, VIC" }, new { propertyName = "Footscray" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/red.png", "Property-Portfolio-Single", new { @class = "red", alt = "South Brisbane, QLD", title = "South Brisbane, QLD" }, new { propertyName = "South-Brisbane" })</div>

@@ -11,8 +11,10 @@ namespace Portal.FileManager.Interfaces
     /// <summary>
     /// Interface to save and retrieve the location of images
     /// </summary>
-    public interface IStorageItemRepository : IBaseDao<StorageItem, int>
+    public interface IStorageItemRepository : IBaseDao<StorageItem, string>
     {
+
+        IStorageItem GetById(IWebsite website, string path);
 
         /// <summary>
         /// Does the file already exist in the database or not
@@ -35,6 +37,6 @@ namespace Portal.FileManager.Interfaces
         /// <param name="website">the website that the files / folders belong to</param>
         /// <param name="parentId">the id of the parent</param>
         /// <returns></returns>
-        IList<IStorageItem> GetStorageItems(IWebsite website, int? parentId);
+        IList<IStorageItem> GetStorageItems(IWebsite website, string parentId);
     }
 }

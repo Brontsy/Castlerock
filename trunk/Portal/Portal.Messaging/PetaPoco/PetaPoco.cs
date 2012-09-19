@@ -2094,6 +2094,10 @@ namespace PetaPoco
                     {
                         converter = delegate(object src) { return Enum.Parse(dstType, src.ToString()); };
                     }
+                    else if (dstType.IsEnum && (srcType == typeof(char) || srcType == typeof(int)))
+                    {
+                        converter = delegate(object src) { return Enum.Parse(dstType, src.ToString()); };
+                    }
 					else if (!dstType.IsAssignableFrom(srcType))
 					{
 						converter = delegate(object src) { return Convert.ChangeType(src, dstType, null); };

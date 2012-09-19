@@ -1,76 +1,0 @@
-﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage<Castlerock.Web.Models.PageViewModel>" %>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" > 
-
-<head>
-    <title><%= Model.Title %></title>
-    
-    <meta name="title" content="<%= Model.Title %>" /> 
-    <meta name="description" content="Castlerock property management is an independent fund manager specialising in purpose built government leased assets" /> 
-    <meta name="keywords" content="Castlerock, property management, Centrelink, property, management, government tenants" />     
-
-    <link href="/Content/Css/Site.css" rel="stylesheet" type="text/css" />
-    <link href='http://fonts.googleapis.com/css?family=Arimo:400,700|Bitter|Convergence' rel='stylesheet' type='text/css'>
-    
-    <script type="text/javascript" src="/Content/Javascript/mootools.js"></script> 
-    <script type="text/javascript" src="/Content/Javascript/mootools-more.js"></script>
-    <script type="text/javascript" src="/Content/Javascript/AustralianMap.js"></script>
-    <script type="text/javascript" src="/Content/Javascript/HeaderImage.js"></script>
-    <script type="text/javascript" src="/Content/Javascript/Castlerock.js"></script>
-    
-    <!--[if IE 6]>
-        <link rel="stylesheet" href="/Content/Css/pngFix.css" type="text/css" />
-    <![endif]--> 
-</head>
-<body>
-    
-    <div id="page">
-
-        <div id="header">
-
-            <div class="container">
-                <h1 id="headerLogo"><a href="/" class="logo">Castlerock</a></h1>
-                
-                <ul>
-                    <li<%= (Model.SelectedNavigation == "Home" ? " class=\"selected\"" : string.Empty) %>>                        <a href="/">Home</a>                    </li>                    <li<%= (Model.SelectedNavigation == "Investors" ? " class=\"selected\"" : string.Empty) %>>                        <a href="/Investors">Investors</a>                    </li>                    <li<%= (Model.SelectedNavigation == "Properties" ? " class=\"selected\"" : string.Empty) %>>                        <a href="/Properties">Properties</a>                    </li>                    <li<%= (Model.SelectedNavigation == "Experience" ? " class=\"selected\"" : string.Empty) %>>                        <a href="/Experience">Experience</a>                    </li>                    <li<%= (Model.SelectedNavigation == "AboutUs" ? " class=\"selected\"" : string.Empty) %>>                        <a href="/AboutUs">About Us</a>                    </li>                </ul>
-            </div>
-
-        </div>
-        
-
-        <div id="main">
-
-            <asp:ContentPlaceHolder ID="ContentPage" runat="server"></asp:ContentPlaceHolder>
-            
-        </div>
-
-
-    </div>
-    
-    <div id="footer">
-
-        © 2010 Castlerock &nbsp; | &nbsp; 
-        <a href="/ContactUs">Contact Us</a> &nbsp; | &nbsp; 
-        <a href="/PrivacyPolicy">Privacy Policy</a> &nbsp; | &nbsp; 
-        <a href="/Disclaimer">Disclaimer</a> &nbsp; | &nbsp; 
-        <a href="/Login">Login</a> &nbsp; | &nbsp; 
-
-    </div>    
-
-<% 
-        Html.RenderPartial("GoogleAnalytics", null); %>
-    
-    <div id="overlay" class="hidden"></div>
-    <div id="close" class="hidden"><div class="float-right">Close X</div></div>
-    <div id="modal" class="hidden">
-        
-        <h2>Text goes in here</h2>
-        <p>
-            Modal text goes here
-        </p>
-    </div>
-</body>
-</html>

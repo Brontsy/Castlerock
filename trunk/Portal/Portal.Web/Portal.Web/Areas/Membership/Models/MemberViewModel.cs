@@ -14,23 +14,25 @@ namespace Portal.Web.Areas.Membership.Models
     public class MemberViewModel
     {
         private int _id = 0;
-        private string _email = string.Empty;
+        private string _username = string.Empty;
         private string _password = string.Empty;
 
         private Member _member = null;
         private ProfileViewModel _profile = new ProfileViewModel();
         private ChangePasswordViewModel _changePassword = new ChangePasswordViewModel();
-        
+        private IList<Role> _roles;
+
         public MemberViewModel() { }
 
-        public MemberViewModel(Member member)
+        public MemberViewModel(Member member, IList<Role> roles)
         {
             this._member = member;
+            this._roles = roles;
             this._profile = new ProfileViewModel(member.Profile);
 
             this._id = member.Id;
             this._password = member.Password;
-            this._email = member.Email;
+            this._username = member.Username;
         }
 
         /// <summary>
@@ -45,11 +47,12 @@ namespace Portal.Web.Areas.Membership.Models
         /// <summary>
         /// Gets the email of the member
         /// </summary>
-        [DisplayName("Email*")]
-        public string Email
+        [DisplayName("Username*")]
+        [Required(ErrorMessage = "Please enter a username to use to login")]
+        public string Username
         {
-            get { return this._email; }
-            set { this._email = value; }
+            get { return this._username; }
+            set { this._username = value; }
         }
 
         /// <summary>
@@ -91,10 +94,10 @@ namespace Portal.Web.Areas.Membership.Models
         //public IEnumerable<RoleType> SelectedRoles { get; set; }
         public PostedRole PostedRole { get; set; }
 
-        public string[] Roles
+        public IList<Role> Roles
         {
             get { 
-                return new string[] { RoleType.Member.ToString(), RoleType.Administrator.ToString() }; 
+                return this._roles; 
             } 
         }
 
@@ -105,7 +108,7 @@ namespace Portal.Web.Areas.Membership.Models
             {
                 if (this._member != null)
                 {
-                    return this._member.Roles.Select(o => o.Type.ToString()).ToList();
+                    return this._member.Roles.Select(o => o.Id.ToString()).ToList();
                 }
 
                 return new List<string>();

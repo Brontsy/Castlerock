@@ -10,12 +10,11 @@ namespace Portal.FileManager.Models
     public class Folder : StorageItem
     {
         public Folder()
-            :base (StorageItemType.Folder)
         {
-
         }
-        public Folder(IWebsite website, string scheme, string host, string path, string folderName)
-            : base(StorageItemType.Folder, website, scheme, host, path, folderName) 
+
+        public Folder(IWebsite website, Uri url)
+            : base(StorageItemType.Folder, website, url) 
         {
         }
     }

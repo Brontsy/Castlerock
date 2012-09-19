@@ -21,7 +21,7 @@ namespace Portal.Web.Areas.FileManager.Models
         public FileManagerPageViewModel(IWebsite website, IStorageItem currentStorageItem, IList<IStorageItem> childStorageItems)
             : base(website)
         {
-            this._childStorageItems = childStorageItems;
+            this._childStorageItems = childStorageItems.OrderBy(o => o.Name).ToList();
             this._currentStorageItem = currentStorageItem;
         }
 
@@ -38,14 +38,17 @@ namespace Portal.Web.Areas.FileManager.Models
 
                     foreach (IStorageItem item in this._childStorageItems)
                     {
-                        if (item.GetType() == typeof(File))
-                        {
-                            this._storageItems.Add(new FileViewModel(item as File));
-                        }
-                        
                         if (item.GetType() == typeof(Folder))
                         {
                             this._storageItems.Add(new FolderViewModel(item as Folder));
+                        }
+                    }
+
+                    foreach (IStorageItem item in this._childStorageItems)
+                    {
+                        if (item.GetType() == typeof(File))
+                        {
+                            this._storageItems.Add(new FileViewModel(item as File));
                         }
                     }
                 }
@@ -61,12 +64,18 @@ namespace Portal.Web.Areas.FileManager.Models
         {
             get
             {
-                if (this._currentStorageItem != null)
-                {
-                    return new FolderViewModel(this._currentStorageItem as Folder).RouteValues;
-                }
+                //return new FolderViewModel(new Folder(null, HttpContext.Current.Request.Url)).RouteValues;
+                var request = HttpContext.Current.Request;
+                return new { path = request.Params["storageItemId"] };
+            }
+        }
 
-                return null;
+        public string CurrentPath
+        {
+            get
+            {
+                var request = HttpContext.Current.Request;
+                return request.Params["storageItemId"];
             }
         }
 
@@ -77,6 +86,17 @@ namespace Portal.Web.Areas.FileManager.Models
         {
             get 
             {
+                if (this._childStorageItems.Any())
+                {
+                    var item = this._childStorageItems.First().Parent;
+
+                    if (item != null)
+                    {
+                        string path = (item.Path == null ? null : item.Path.Replace("/", "-"));
+                        return new { path = path, storageItemId = item.Path };
+                    }
+                }
+
                 if (this._currentStorageItem != null && this._currentStorageItem.Parent != null)
                 {
                     return new FolderViewModel(this._currentStorageItem.Parent as Folder).RouteValues;
@@ -91,7 +111,7 @@ namespace Portal.Web.Areas.FileManager.Models
         /// </summary>
         public string NewFolderRouteName
         {
-            get { return (this._currentStorageItem == null ? "FileManager-New-Root-Folder" : "FileManager-New-Child-Folder"); }
+            get { return "FileManager-New-Root-Folder"; }
         }
 
         /// <summary>

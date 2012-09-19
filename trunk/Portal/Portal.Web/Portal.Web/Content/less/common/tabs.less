@@ -1,0 +1,46 @@
+
+
+
+
+
+
+ul.tabs
+{
+    overflow: hidden;
+	position: absolute;
+}
+
+ul.tabs li
+{
+    float: left;
+}
+
+ul.tabs li a
+{
+    display: block;
+    background: #f5f5f5;
+    line-height: 30px;
+    padding: 0px 20px 0px 20px;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+
+ul.tabs li:first-child a
+{
+    border-left: 1px solid #dddddd;
+}
+
+ul.tabs li.selected a
+{
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+ul.tabs  + .tabs-content
+{
+    border: 1px solid #dddddd;
+    margin-top: 31px;
+    padding: 10px;
+    background: #ffffff;
+}

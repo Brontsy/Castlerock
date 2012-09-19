@@ -16,7 +16,7 @@ using System.Reflection;
 
 namespace Portal.FileManager.Storage
 {
-    public class AzureBlobStorage : IFileStorage
+    public class AzureBlobStorage : IFileStorage, IStorageItemRepository
     {
 
         /// <summary>
@@ -75,14 +75,14 @@ namespace Portal.FileManager.Storage
 
             if (!string.IsNullOrEmpty(path))
             {
-                CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
-                cloudBlob.DeleteIfExists();
+                //CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
+                //cloudBlob.DeleteIfExists();
             }
 
             string host = blob.Uri.Host;
             for (int i = 0; i < 2; i++) { host += blob.Uri.Segments[i]; }
 
-            File uploadFile = new File(website, blob.Uri.Scheme, host, path, fileName);
+            File uploadFile = new File(website, blob.Uri);
             uploadFile.Type = this.GetContentType(fileName);
 
             return uploadFile;
@@ -155,18 +155,13 @@ namespace Portal.FileManager.Storage
             }
 
 
-            foreach (var item in blobItems)
+            foreach (var item in blobItems.Where(o => !o.Uri.PathAndQuery.Contains("folder.txt")))
             {
                 IStorageItem storageItem = null;
 
-                if(this.IsFolder(item))
+                if(this.IsFolder(item.Uri))
                 {
                     Folder folder = this.CreateFolderFromUri(website, item.Uri);
-
-                    if (folder.Path + folder.Name != path)
-                    {
-                        folder.Children = this.GetStorageItems(website, folder.Path + folder.Name);
-                    }
 
                     storageItem = folder;
                 }
@@ -211,12 +206,12 @@ namespace Portal.FileManager.Storage
             for (int i = 0; i < 2; i++) { host += uri.Segments[i]; }
             for (int i = 2; i < uri.Segments.Length - 1; i++) { path += uri.Segments[i]; }
 
-            return new File(website, uri.Scheme, host, path, fileName);
+            return new File(website, uri);
         }
 
-        private bool IsFolder(IListBlobItem blobItem)
+        private bool IsFolder(Uri url)
         {
-            string[] segments = blobItem.Uri.ToString().Split('/');
+            string[] segments = url.ToString().Split('/');
 
             if (segments[segments.Length - 1].Contains("."))
             {
@@ -242,7 +237,7 @@ namespace Portal.FileManager.Storage
 
             FileStream file = System.IO.File.Open(assemblyLocation, FileMode.OpenOrCreate);
 
-           IStorageItem uploadedFile = this.UploadFile(file, folderName + "/", website, path);
+           IStorageItem uploadedFile = this.UploadFile(file, folderName + "/folder.txt", website, path);
 
             file.Close();
 
@@ -257,7 +252,7 @@ namespace Portal.FileManager.Storage
             for (int i = 0; i < 2; i++) { host += uri.Segments[i]; }
             for (int i = 2; i < uri.Segments.Length - 1; i++) { path += uri.Segments[i]; }
 
-            return new Folder(website, uri.Scheme, host, path, fileName.Substring(0, fileName.Length - 1));
+            return new Folder(website, uri);
         }
 
 
@@ -288,7 +283,7 @@ namespace Portal.FileManager.Storage
         /// </summary>
         /// <param name="website">the website that we are deleting the folder from</param>
         /// <param name="path">the path of the file to be deleted</param>
-        public bool DeleteFolder(IWebsite website, string path)
+        public IStorageItem DeleteFolder(IWebsite website, string path)
         {
             // Retrieve a reference to a container 
             CloudBlobContainer blobContainer = this.GetCloudBlobContainer(website);
@@ -312,8 +307,72 @@ namespace Portal.FileManager.Storage
             // If we cannot delete a direct reference (ie a file) then we must be deleting a directory
             cloudBlob.DeleteIfExists();
 
+            if (this.IsFolder(cloudBlob.Uri))
+            {
+                return new Folder(website, cloudBlob.Uri);
+            }
 
-            return true;
+            return new File(website, cloudBlob.Uri);
         }
+
+        #region IStorageItemRepository Members
+
+        public bool FileExists(IWebsite website, File file)
+        {
+            throw new NotImplementedException();
+        }
+
+        public File GetFile(IWebsite website, File file)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IBaseDao<StorageItem,string> Members
+
+        public StorageItem GetById(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IStorageItem GetById(IWebsite website, string path)
+        {
+            // Retrieve a reference to a container 
+            CloudBlobContainer blobContainer = this.GetCloudBlobContainer(website);
+            
+            CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
+
+            if (this.IsFolder(cloudBlob.Uri))
+            {
+                return this.CreateFolderFromUri(website, cloudBlob.Uri);
+            }
+            else
+            {
+                return this.CreateFileFromUri(website, cloudBlob.Uri);
+            }
+        }
+
+        public StorageItem Save(StorageItem entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public StorageItem SaveOrUpdate(StorageItem entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public NHibernate.ISession Session
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void Delete(StorageItem entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

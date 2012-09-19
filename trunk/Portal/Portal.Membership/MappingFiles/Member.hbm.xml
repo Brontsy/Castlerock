@@ -6,7 +6,7 @@
       <generator class="native"/>
     </id>
 
-    <property name="Email" column="Email" />
+    <property name="Username" column="Username" />
     <property name="PasswordHashed" column="Password" />
     <property name="DateCreated" column="DateCreated" />
 
@@ -17,7 +17,7 @@
       <many-to-many column="WebsiteId" fetch="join" class="Portal.Websites.Models.Website, Portal.Websites" />
     </bag>
 
-    <bag name="Roles" table="MemberRoles" cascade="none">
+    <bag name="Roles" table="MemberRoles" cascade="all">
       <key column="MemberId"/>
       <many-to-many column="RoleId" fetch="join" class="Portal.Membership.Models.Role, Portal.Membership" />
     </bag>

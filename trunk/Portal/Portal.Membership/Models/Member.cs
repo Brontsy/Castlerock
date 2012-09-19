@@ -13,11 +13,13 @@ using Portal.Membership.Attributes;
 
 namespace Portal.Membership.Models
 {
+    [PetaPoco.TableName("Membership.Members")]
+    [PetaPoco.PrimaryKey("MemberId")]
     public class Member : IMember
     {
         public const string DefaultPassword = "PA$$word1";
         private int _id;
-        private string _email = string.Empty;
+        private string _username = string.Empty;
         private string _password = string.Empty;// Member.DefaultPassword;
         private DateTime _dateCreated = DateTime.Now;
 
@@ -30,18 +32,20 @@ namespace Portal.Membership.Models
 
         private Profile _profile = new Profile();
 
+        [PetaPoco.Membership.Column("MemberId")]
         public virtual int Id
         {
             get { return this._id; }
             set { this._id = value; }
         }
 
-        public virtual string Email
+        public virtual string Username
         {
-            get { return this._email; }
-            set { this._email = value; }
+            get { return this._username; }
+            set { this._username = value; }
         }
 
+        [PetaPoco.Membership.Ignore]
         public virtual string Password
         {
             get { return this._password; }

@@ -38,20 +38,9 @@ namespace Portal.FileManager
         /// <param name="folderName">the name of the folder</param>
         /// <param name="path">the path relative to the root directory where the folder should be located</param>
         /// <returns>true if the folder was created</returns>
-        public Folder CreateFolder(string folderName, int? storageItemId)
+        public Folder CreateFolder(string folderName, string path)
         {
-            string path = null;
-            Folder parentFolder = null;
-            if (storageItemId.HasValue)
-            {
-                parentFolder = this._storageItemRepository.GetById(storageItemId.Value) as Folder;
-                path = parentFolder.Path + parentFolder.Name + "/";
-            }
-
-            Folder folder = this._fileStorage.CreateFolder(this._website, folderName, path);
-            folder.Parent = parentFolder;
-
-            return this.SaveStorageItem(folder) as Folder;
+            return this._fileStorage.CreateFolder(this._website, folderName, path);
         }
 
         /// <summary>
@@ -60,20 +49,9 @@ namespace Portal.FileManager
         /// <param name="website">the website that we are deleting the folder from</param>
         /// <param name="path">the path of the folder to be deleted</param>
         /// <returns></returns>
-        public bool DeleteFolder(int storageItemId)
+        public IStorageItem DeleteFolder(string path)
         {
-            IStorageItem storageItem = this.GetStorageItem(storageItemId);
-
-            if (storageItem != null)
-            {
-                 this._fileStorage.DeleteFolder(this._website, storageItem.Path);
-
-                 this.DeleteStorageItem(storageItem);
-
-                return true;
-            }
-
-            return false;
+            return this._fileStorage.DeleteFolder(this._website, path);
         }
 
         /// <summary>
@@ -82,11 +60,6 @@ namespace Portal.FileManager
         /// <param name="storageItem"></param>
         private void DeleteStorageItem(IStorageItem storageItem)
         {
-            foreach (IStorageItem item in storageItem.Children)
-            {
-                this.DeleteStorageItem(item);
-            }
-
             this._storageItemRepository.Delete(storageItem as StorageItem);
         }
 
@@ -95,20 +68,20 @@ namespace Portal.FileManager
         /// </summary>
         /// <param name="website">the website that we are deleting the folder from</param>
         /// <param name="path">the path of the file to be deleted</param>
-        public bool DeleteFile(int storageItemId)
+        public bool DeleteFile(string path)
         {
-            IStorageItem storageItem = this.GetStorageItem(storageItemId);
+            //IStorageItem storageItem = this.GetStorageItem(storageItemId);
 
-            if (storageItem != null)
-            {
-                this._fileStorage.DeleteFile(this._website, storageItem.Path + storageItem.Name);
+            //if (storageItem != null)
+            //{
+                this._fileStorage.DeleteFile(this._website, path);
                 
-                this._storageItemRepository.Delete(storageItem as StorageItem);
+                //this._storageItemRepository.Delete(storageItem as StorageItem);
 
                 return true;
-            }
+            //}
 
-            return false;
+            //return false;
         }
 
         /// <summary>
@@ -117,31 +90,31 @@ namespace Portal.FileManager
         /// <param name="files">the files to upload</param>
         /// <param name="imagePath">The path to save the files to</param>
         /// <returns>list of result objects with filename and success / fail messages</returns>
-        public IList<IStorageItem> UploadFiles(HttpFileCollectionBase files, int? parentFolderId)
+        public IList<IStorageItem> UploadFiles(HttpFileCollectionBase files, string path)
         {
-            string path = null;
-            Folder parentFolder = null;
-            if (parentFolderId.HasValue)
-            {
-                parentFolder = this._storageItemRepository.GetById(parentFolderId.Value) as Folder;
-                path = parentFolder.Path + parentFolder.Name + "/";
-            }
+            //string path = null;
+            //Folder parentFolder = null;
+            //if (!string.IsNullOrEmpty(parentFolderId))
+            //{
+            //    parentFolder = this._storageItemRepository.GetById(parentFolderId) as Folder;
+            //    path = parentFolder.Path + parentFolder.Name + "/";
+            //}
 
             // Upload the image to the storage
-            IList<IStorageItem> uploadedFiles = this._fileStorage.UploadFiles(files, this._website, path);
-            IList<IStorageItem> filesUploaded = new List<IStorageItem>();
+            return this._fileStorage.UploadFiles(files, this._website, path);
+            //IList<IStorageItem> filesUploaded = new List<IStorageItem>();
 
-            foreach (File file in uploadedFiles)
-            {
-                file.Parent = parentFolder;
-                if (!this.FileExists(file))
-                {
-                    this.SaveStorageItem(file);
-                    filesUploaded.Add(file);
-                }
-            }
+            //foreach (File file in uploadedFiles)
+            //{
+            //    file.Parent = parentFolder;
+            //    if (!this.FileExists(file))
+            //    {
+            //        this.SaveStorageItem(file);
+            //        filesUploaded.Add(file);
+            //    }
+            //}
 
-            return filesUploaded;
+            //return filesUploaded;
         }
 
 
@@ -162,7 +135,7 @@ namespace Portal.FileManager
         /// Gets a list of all the storage items for a parent
         /// </summary>
         /// <param name="path">the id of the parent storage item</param>
-        public IList<IStorageItem> GetStorageItems(int? parentId)
+        public IList<IStorageItem> GetStorageItems(string parentId)
         {
             return this._storageItemRepository.GetStorageItems(this._website, parentId);
         }
@@ -173,11 +146,11 @@ namespace Portal.FileManager
         /// </summary>
         /// <param name="storageItemId">the id of the storage item</param>
         /// <returns></returns>
-        public IStorageItem GetStorageItem(int storageItemId)
+        public IStorageItem GetStorageItem(string storageItemId)
         {
             try
             {
-                return this._storageItemRepository.GetById(storageItemId);
+                return this._storageItemRepository.GetById(this._website, storageItemId);
             }
             catch (Exception exception)
             {

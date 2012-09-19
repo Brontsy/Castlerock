@@ -32,13 +32,13 @@ namespace Portal.Web.Areas.FileManager.Controllers
             return View("Index", viewModel);
         }
 
-        public ActionResult View(int? storageItemId)
+        public ActionResult View(string storageItemId)
         {
             IStorageItem currentStorageItem = null;
 
-            if (storageItemId.HasValue)
+            if (!string.IsNullOrEmpty(storageItemId))
             {
-                currentStorageItem = this._fileManagerService.GetStorageItem(storageItemId.Value);
+                currentStorageItem = this._fileManagerService.GetStorageItem(storageItemId);
             }
 
             var viewModel = new FileManagerPageViewModel(this._website, currentStorageItem, this._fileManagerService.GetStorageItems(storageItemId));
@@ -46,22 +46,40 @@ namespace Portal.Web.Areas.FileManager.Controllers
             return View("Index", viewModel);
         }
 
-        public ActionResult DeleteFolder(int storageItemId)
+        [ValidateInput(false)]
+        public ActionResult DeleteFolder(string storageItemId)
         {
-            IStorageItem item = this._fileManagerService.GetStorageItem(storageItemId);
-
-            this._fileManagerService.DeleteFolder(storageItemId);
-
-            if (item.Parent != null)
+            IStorageItem item = this._fileManagerService.DeleteFolder(storageItemId);
+            
+            if (item != null)
             {
-                return this.RedirectToRoute("FileManager-View", new { storageItemId = item.Parent.Id });
+                return this.RedirectToRoute("FileManager-View", this.GetRouteValues(item.Path));
             }
 
             return this.RedirectToRoute("FileManager");
         }
 
+        /// <summary>
+        /// TODO: Make this accept a IStoreage Item
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private object GetRouteValues(string path)
+        {
+            string originalPath = path;
+            if (path != null && path.EndsWith("/"))
+            {
+                path = path.Substring(0, path.Length - 1);
+                originalPath = path;
+            }
+
+            path = (path == null ? null : path.Replace("/", "-"));
+
+            return new { path = path, storageItemId = originalPath };
+        }
+
         [ValidateInput(false)]
-        public ActionResult DeleteFile(int storageItemId)
+        public ActionResult DeleteFile(string storageItemId)
         {
             IStorageItem item = this._fileManagerService.GetStorageItem(storageItemId);
 
@@ -69,26 +87,26 @@ namespace Portal.Web.Areas.FileManager.Controllers
 
             if (item.Parent != null)
             {
-                return this.RedirectToRoute("FileManager-View", new { storageItemId = item.Parent.Id });
+                return this.RedirectToRoute("FileManager-View", this.GetRouteValues(item.Path));
             }
 
             return this.RedirectToRoute("FileManager");
         }
-        
 
-        public ActionResult NewFolder(string FolderName, int? storageItemId)
+
+        public ActionResult NewFolder(string FolderName, string path)
         {
-            this._fileManagerService.CreateFolder(FolderName, storageItemId);
+            this._fileManagerService.CreateFolder(FolderName, path);
 
-            if (storageItemId.HasValue)
+            if (!string.IsNullOrEmpty(path))
             {
-                return this.RedirectToRoute("FileManager-View", new { storageItemId = storageItemId });
+                return this.RedirectToRoute("FileManager-View", this.GetRouteValues(path));
             }
 
             return this.RedirectToRoute("FileManager");
         }
 
-        public ActionResult Upload(int? parentFolderId)
+        public ActionResult Upload(string parentFolderId)
         {
             var storageItems = this._fileManagerService.UploadFiles(Request.Files, parentFolderId);
 

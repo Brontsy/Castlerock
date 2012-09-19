@@ -15,9 +15,9 @@ namespace Portal.Web.Areas.Membership.Models
         /// <summary>
         /// Gets the password of the member
         /// </summary>
-        [Required(ErrorMessage = "* Please enter a password")]
-        [MinimumLength(6, ErrorMessage = "* Password must be at least 6 characters long")]
-        [DisplayName("Password")]
+        [Required(ErrorMessage = "Please enter a password")]
+        [MinimumLength(6, ErrorMessage = "Password must be at least 6 characters long")]
+        [DisplayName("Password*")]
         public string Password
         {
             get { return this._password; }

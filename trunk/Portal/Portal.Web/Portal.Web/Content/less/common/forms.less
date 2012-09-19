@@ -1,0 +1,89 @@
+
+
+
+
+
+
+legend
+{
+    display: none;
+}
+
+label, .label
+{
+    font-size: 14px;
+    line-height: 28px;
+	display: block;
+}
+
+input[type="text"], input[type="password"]
+{
+    padding: 5px;
+	height: 20px;
+    font-size: 16px;
+}
+
+select
+{
+    font-size: 16px;
+    padding: 5px;
+	border: 1px solid @input-border; 
+	height: 30px;
+}
+
+
+    select { border: 1px solid #dddddd;font-size: 16px; padding: 5px; }
+
+input, textarea, select
+{
+    border: 1px solid @input-border;
+
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+textarea:focus,
+textarea:hover,
+input[type="text"]:focus,
+input[type="text"]:hover,
+select:focus
+{
+    border-color: @input-border-hover;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	outline: 0;
+	outline: thin dotted \9;
+}
+
+
+
+
+
+form ol.fields { margin-top: 20px; }
+form ol.fields li { width: 100%; overflow: hidden; margin: 15px 0px 15px 0px; }
+form ol.fields li .left { width: 562px; }
+form ol.fields li input[type="text"] { width: 550px; }
+form ol.fields li input[type="password"] { width: 550px; }
+form ol.fields li select { width: 560px; }
+form ol.fields li .help { line-height: 16px; margin: 2px 0px 0px 20px; font-size: 11px; }
+form ol.fields li .tick { float: left; margin: 35px 0px 0px 20px; max-width: 300px; background: url(/content/seller/images/create-ad/bike/create-ad-sprite.png) no-repeat; background-position: 0px -627px;  padding: 2px 0px 2px 30px; min-height: 10px; }
+form ol.fields li label, form.horizontal ol li .label { width: 200px; }
+form ol.fields li button { margin-left: 0px; }
+
+form ol.fields li.checkbox input[type="checkbox"] { float: left; margin: 6px 10px 0px 0px; } 
+form ol.fields li.checkbox label { float: left; width: 540px; } 
+form ol.fields li.checkbox h4 { margin-bottom: 5px; }
+form ol.fields li.checkbox .error { margin: 20px 0px 0px 20px; }
+
+.success .validation { float: left; line-height: 18px; min-height: 23px; min-width: 20px; margin: 37px 0px 0px 20px;  background: url(/content/images/create-ad-sprite.png) no-repeat; background-position: 0px -627px; }
+.error .validation { margin: 37px 0px 0px 20px; max-width: 420px; line-height: 18px; float: left; background: url(/content/images/create-ad-sprite.png) no-repeat; background-position: 0px -538px; min-width: 20px; }
+
+.field-validation-error { color: #ff0000;  display: block; padding: 0px 0px 0px 30px; }
+.success { }

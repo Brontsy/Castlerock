@@ -25,6 +25,9 @@ namespace Portal.Membership
         /// <returns>true if the email and password match a record in the database</returns>
         bool AuthenticateEmail(string email, string password);
 
+
+        IList<Role> GetRoles();
+
         /// <summary>
         /// Gets all the members in the system
         /// </summary>

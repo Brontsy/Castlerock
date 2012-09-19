@@ -35,8 +35,9 @@ namespace Portal.Web.Areas.Membership.Controllers
         public ActionResult Index()
         {
             IList<Member> members = this._membershipService.GetAllMembers().OrderBy(o => o.Profile.LastName).ToList();
+            var roles = this._membershipService.GetRoles();
 
-            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, members);
+            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, members, roles);
 
             return View("Index", viewModel);
         }
@@ -58,7 +59,8 @@ namespace Portal.Web.Areas.Membership.Controllers
         /// <returns></returns>
         private ActionResult NewMember(Member member)
         {
-            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, member);
+            var roles = this._membershipService.GetRoles();
+            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, member, roles);
 
             return View("New", viewModel);
         }
@@ -71,7 +73,8 @@ namespace Portal.Web.Areas.Membership.Controllers
         [ImportModelStateFromTempData]
         public ActionResult Edit(Member member)
         {
-            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, member);
+            var roles = this._membershipService.GetRoles();
+            MembershipPageViewModel viewModel = new MembershipPageViewModel(this.Website, member, roles);
 
             return View("Edit", viewModel);
         }
@@ -92,7 +95,7 @@ namespace Portal.Web.Areas.Membership.Controllers
         }
 
         [ExportModelStateToTempData]
-        public ActionResult Save(MemberViewModel memberViewModel, Member member, IList<RoleType> SelectedRoles)
+        public ActionResult Save(MemberViewModel memberViewModel, Member member, IList<int> SelectedRoles)
         {
             if (this.ModelState.IsValid)
             {
@@ -102,16 +105,18 @@ namespace Portal.Web.Areas.Membership.Controllers
                     member.Profile.LastName = memberViewModel.Profile.LastName;
                     member.Profile.Company = memberViewModel.Profile.Company;
                     member.Profile.Phone = memberViewModel.Profile.Phone;
-                    member.Profile.Username = memberViewModel.Profile.Username;
+                    member.Profile.Email = memberViewModel.Profile.Email;
 
 
-                    //member.Roles.Clear();
-                    //foreach(RoleType role in SelectedRoles)
-                    //{
-                    //    member.Roles.Add(new Role() { Type = role, Name = role.ToString() });
-                    //}
+                    member.Roles.Clear();
+                    var roles = this._membershipService.GetRoles();
 
-                    member.Email = memberViewModel.Email;
+                    foreach (int roleId in SelectedRoles)
+                    {
+                        member.Roles.Add(roles.First(o => o.Id == roleId));
+                    }
+
+                    member.Username = memberViewModel.Username;
 
                     if (memberViewModel.Id == 0)
                     {

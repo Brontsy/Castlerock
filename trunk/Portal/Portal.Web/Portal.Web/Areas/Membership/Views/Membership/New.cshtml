@@ -15,8 +15,6 @@
 
 <div class="content-padding">
 
-@Html.ValidationMessage("ErrorMessage")
-
 @using (Html.BeginRouteForm(MembershipAreaRegistration.MembershipSaveNewRouteUrl, new { }, FormMethod.Post, new { }))
 {
     Html.RenderPartial("Fields", Model.Member);

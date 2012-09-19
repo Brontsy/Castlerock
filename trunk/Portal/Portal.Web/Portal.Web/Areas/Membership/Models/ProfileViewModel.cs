@@ -7,6 +7,7 @@ using Portal.Web.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Common.Extensions;
+using Portal.Web.Attributes.Validation;
 
 namespace Portal.Web.Areas.Membership.Models
 {
@@ -15,7 +16,7 @@ namespace Portal.Web.Areas.Membership.Models
         private int _id = 0;
         private string _firstName = string.Empty;
         private string _lastName = string.Empty;
-        private string _username = string.Empty;
+        private string _email = string.Empty;
         private string _company = string.Empty;
         private string _phone = string.Empty;
 
@@ -33,7 +34,7 @@ namespace Portal.Web.Areas.Membership.Models
                 this._id = profile.Id;
                 this._firstName = profile.FirstName;
                 this._lastName = profile.LastName;
-                this._username = profile.Username;
+                this._email = profile.Email;
                 this._company = profile.Company;
                 this._phone = profile.Phone;
             }
@@ -88,6 +89,7 @@ namespace Portal.Web.Areas.Membership.Models
         /// Gets the name of the username
         /// </summary>
         [DisplayName("Phone")]
+        [PhoneNumber(ErrorMessage = "Please enter a valid australian phone number")]
         public string Phone
         {
             get { return this._phone; }
@@ -104,11 +106,12 @@ namespace Portal.Web.Areas.Membership.Models
             set { this._company = value; }
         }
 
-        [DisplayName("Username")]
-        public string Username
+        [DisplayName("Email")]
+        [Email(ErrorMessage = "Please enter a valid email address")]
+        public string Email
         {
-            get { return this._username; }
-            set { this._username = value; }
+            get { return this._email; }
+            set { this._email = value; }
         }
 
         /// <summary>
