@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" ?>
-<hibernate-mapping schema="CastleRock.dbo" assembly="Castlerock.Properties" namespace="Castlerock.Properties.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
+<hibernate-mapping schema="dbo" assembly="Castlerock.Properties" namespace="Castlerock.Properties.Models" default-access="field.camelcase-underscore" auto-import="true" default-lazy="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nhibernate-mapping-2.2">
     <class mutable="true" name="Castlerock.Properties.Models.Investment" table="Investments">
         <id column="InvestmentId" name="Id">
             <generator class="native"/>
