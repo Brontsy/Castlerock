@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.Web", "Auslink.Web\Auslink.Web.csproj", "{D888A946-08FF-4CB1-A046-29C10170B654}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Nhibernate", "..\SharedLibraries\Common.Nhibernate\Common.Nhibernate.csproj", "{346B7863-037E-4783-BE0B-31EF5EA56624}"

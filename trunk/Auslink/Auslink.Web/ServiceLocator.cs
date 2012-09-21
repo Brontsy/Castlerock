@@ -19,11 +19,12 @@ namespace Auslink.Web
         public static MembershipService GetMembershipService()
         {
             IMemberDao memberDao = new MemberNhibernateDao(GetCurrentSession());
+            IRoleDao roleDao = new RoleNhibernateDao(GetCurrentSession());
 
             string host = HttpContext.Current.Request.Url.Host;
             IWebsite website = GetWebsiteService().GetWebsiteByHostUrl(host.Replace("www.", string.Empty).Replace("dev.", string.Empty));
 
-            return new MembershipService(website, memberDao, GetTransactionManager());
+            return new MembershipService(website, memberDao, roleDao, GetTransactionManager());
         }
 
         public static ISession GetCurrentSession()
