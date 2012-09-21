@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Azure.Cloud", "Azure.Cloud\Azure.Cloud.ccproj", "{4A7DA3B7-BFA2-4D53-BA87-66A1D2616A03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.WebRole", "Azure.WebRole\Azure.WebRole.csproj", "{37545A2F-B35D-43AB-9D24-BB1271749940}"
