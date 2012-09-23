@@ -165,7 +165,7 @@ namespace Portal.Web.App_Start
                 host.Replace("portal", string.Empty).Replace(".azurewebsites.net", string.Empty);
             }
 
-            return this._websiteService.GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("portal.", string.Empty));
+            return this._websiteService.GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("uat.", string.Empty).Replace("portal.", string.Empty));
         }
     }
 }
