@@ -68,15 +68,9 @@ namespace Portal.Web.Areas.PropertyEditor.Controllers
                     // Copy the properties from the view model to our member object
                     property = propertyViewModel.ToProperty(property as Property);
 
-                    // convert the json string into a list of image ids
-                    List<int> ids = this.Deserialise<List<int>>(imageIds);
-                    foreach (int imageId in ids)
-                    {
-                        property.ImageIds.Add(imageId);
-                    }
 
                     // Save the property back to the database
-                    //this._propertyService.SaveProperty(property);
+                    this._propertyService.SaveProperty(property);
 
                     this.ConfirmationMessage = "Property was saved.";
 

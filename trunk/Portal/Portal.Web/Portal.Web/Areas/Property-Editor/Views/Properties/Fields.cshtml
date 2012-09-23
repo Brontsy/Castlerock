@@ -5,85 +5,126 @@
 
 @Html.HiddenFor(o => o.Id)
 
-<ul>
+<ol class="fields">
     
     <li>
-        @Html.LabelFor(o => o.Name) 
-        @Html.TextBoxFor(o => o.Name) 
-        @Html.ValidationMessageFor(o => o.Name) 
-    </li>
-    
-    <li>
-        @Html.LabelFor(o => o.Address) 
-        @Html.TextBoxFor(o => o.Address) 
-        @Html.ValidationMessageFor(o => o.Address) 
-    </li>
-    
-    <li>
-        @Html.LabelFor(o => o.Town) 
-        @Html.TextBoxFor(o => o.Town) 
-        @Html.ValidationMessageFor(o => o.Town) 
-    </li>
-
-    <li>
-        @Html.LabelFor(o => o.State) 
-        @Html.EnumDropDownListFor(o => o.State) 
-        @Html.ValidationMessageFor(o => o.State) 
-    </li>
-
-    <li>
-        @Html.LabelFor(o => o.Tenant) 
-        @Html.TextBoxFor(o => o.Tenant) 
-        @Html.ValidationMessageFor(o => o.Tenant) 
-    </li>
-
-    <li>
-        @Html.LabelFor(o => o.Department) 
-        @Html.TextBoxFor(o => o.Department) 
-        @Html.ValidationMessageFor(o => o.Department) 
-    </li>
-
-    <li>
-        @Html.LabelFor(o => o.FloorArea) 
-        @Html.TextBoxFor(o => o.FloorArea) 
-        @Html.ValidationMessageFor(o => o.FloorArea) 
+        <div class="left">
+            @Html.LabelFor(o => o.Name) 
+            @Html.TextBoxFor(o => o.Name) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.Name)
+        </div>
     </li>
     
     <li>
-        @Html.LabelFor(o => o.LeaseCommenced) 
-        @Html.TextBoxFor(o => o.LeaseCommenced) 
-        @Html.ValidationMessageFor(o => o.LeaseCommenced) 
+        <div class="left">
+            @Html.LabelFor(o => o.Address) 
+            @Html.TextBoxFor(o => o.Address) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.Address)
+        </div>
+    </li>
+    
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.Town) 
+            @Html.TextBoxFor(o => o.Town) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.Town)
+        </div>
     </li>
 
     <li>
-        @Html.LabelFor(o => o.ExpectedCompletionDate) 
-        @Html.TextBoxFor(o => o.ExpectedCompletionDate) 
-        @Html.ValidationMessageFor(o => o.ExpectedCompletionDate) 
+        <div class="left">
+            @Html.LabelFor(o => o.State) 
+            @Html.EnumDropDownListFor(o => o.State) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.State)
+        </div>
     </li>
 
     <li>
-        @Html.LabelFor(o => o.EnergyRating) 
-        @Html.TextBoxFor(o => o.EnergyRating) 
-        @Html.ValidationMessageFor(o => o.EnergyRating) 
+        <div class="left">
+            @Html.LabelFor(o => o.Tenant) 
+            @Html.TextBoxFor(o => o.Tenant) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.Tenant)
+        </div>
+    </li>
+
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.Department) 
+            @Html.TextBoxFor(o => o.Department) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.Department)
+        </div>
+    </li>
+
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.FloorArea) 
+            @Html.TextBoxFor(o => o.FloorArea) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.FloorArea)
+        </div>
+    </li>
+    
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.LeaseCommenced) 
+            @Html.TextBoxFor(o => o.LeaseCommenced) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.LeaseCommenced)
+        </div>
+    </li>
+
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.ExpectedCompletionDate) 
+            @Html.TextBoxFor(o => o.ExpectedCompletionDate) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.ExpectedCompletionDate)
+        </div>
+    </li>
+
+    <li>
+        <div class="left">
+            @Html.LabelFor(o => o.EnergyRating) 
+            @Html.TextBoxFor(o => o.EnergyRating) 
+        </div>
+        <div class="validation">
+            @Html.ValidationMessageFor(o => o.EnergyRating)
+        </div>
     </li>
 
     <li class="checkbox">
-        @Html.CheckBoxFor(o => o.IsComplete)
-        @Html.LabelFor(o => o.IsComplete)  
-        @Html.ValidationMessageFor(o => o.IsComplete) 
+        <div class="float-container">
+            @Html.CheckBoxFor(o => o.IsComplete)
+            @Html.LabelFor(o => o.IsComplete)  
+        </div>
+        
+        <div class="float-container">
+            @Html.CheckBoxFor(o => o.IsManaged) 
+            @Html.LabelFor(o => o.IsManaged) 
+        </div>
     </li>
 
-    <li class="checkbox">
-        @Html.CheckBoxFor(o => o.IsManaged) 
-        @Html.LabelFor(o => o.IsManaged) 
-        @Html.ValidationMessageFor(o => o.IsManaged) 
-    </li>
-
-    @{Html.RenderPartial("ImageUpload", Model.ImageUpload);}
-
+    
     <li>
-        <button type="submit"><div>Save</div></button>
-        @Html.RouteLink("Cancel", Portal.Web.Areas.PropertyEditor.PropertyEditorAreaRegistration.ViewAll)
+        <div class="left">
+            @Html.RouteLink("Cancel", Portal.Web.Areas.PropertyEditor.PropertyEditorAreaRegistration.ViewAll)
+            <button type="submit" class="right">Save</button>
+        </div>
     </li>
 
-</ul>
+</ol>
