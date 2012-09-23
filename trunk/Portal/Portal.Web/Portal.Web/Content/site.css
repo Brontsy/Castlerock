@@ -177,6 +177,10 @@ a.action:hover {
   margin-top: 20px;
   display: block;
 }
+.ajax-loading {
+  background: url(/content/images/icons/ajax-loader.gif) no-repeat;
+  padding: 7px 0px 10px 45px;
+}
 .content {
   background: #ffffff;
   min-height: 600px;
@@ -1288,3 +1292,26 @@ header ul li:hover a {
 .file-manager .tooltip {
   margin: 0px 0px 0px -93px;
 }
+.uploading {
+  display: none;
+  font-size: 16px;
+  color: #000000;
+  margin: 5px 0px 0px 20px;
+}
+.drop-file {
+  display: none;
+  font-size: 16px;
+  color: #000000;
+  margin: 5px 0px 0px 20px;
+}
+.file-uploading .files {
+  display: none;
+}
+.file-uploading .uploading {
+  display: block;
+}
+.file-dragged .drop-file {
+  display: block;
+}
+
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */

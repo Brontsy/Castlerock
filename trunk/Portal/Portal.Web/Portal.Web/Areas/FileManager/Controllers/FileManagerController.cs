@@ -108,9 +108,11 @@ namespace Portal.Web.Areas.FileManager.Controllers
 
         public ActionResult Upload(string parentFolderId)
         {
-            var storageItems = this._fileManagerService.UploadFiles(Request.Files, parentFolderId);
+            var uploadedItems = this._fileManagerService.UploadFiles(Request.Files, parentFolderId);
 
-            return this.View("StorageItems", storageItems.Select(o => new FileViewModel(o as File) as IStorageItemViewModel).ToList());
+            var storageItems = this._fileManagerService.GetStorageItems(parentFolderId);
+
+            return this.View("StorageItems", new FileManagerPageViewModel(this._website, null, storageItems).StorageItems);
         }
 
     }

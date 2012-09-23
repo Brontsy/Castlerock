@@ -29,7 +29,7 @@ namespace Portal.Web
             routes.MapRoute("No-Permission", "Permission/Invalid", new { controller = "Permission", action = "Invalid" });
             routes.MapRoute("Upload-Images", "Upload/Images", new { controller = "Upload", action = "Images" });
 
-            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Login", action = "Login", id = UrlParameter.Optional });
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Login", action = "Index", id = UrlParameter.Optional });
         }
 
         protected void Application_Start()

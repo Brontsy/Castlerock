@@ -4,11 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    
 
+</style>
 
 <div class="file-manager">
 
     <ul class="sub-navigation">
+        <li class="uploading left ajax-loading">Uploading....</li>
+        <li class="drop-file left">Drop file to upload</li>
         <li>
             <a href="/File-Manager/Folder/New" class="add-folder tooltip-toggle button white-arrow" data-tooltip="new-folder">Add folder</a>
         </li>
@@ -40,18 +45,18 @@
     </div>
 
     <div class="content-padding">
+            
 
-
-    <ul class="files">
-        <li class="back">
-            <a href="@Url.RouteUrl("FileManager-View", Model.ParentFoldersRouteValues)" alt="back" title="back">
-                <img height="30" src="/Content/images/icons/folder-back.png" /> Back
-            </a>
-        </li>
+        <ul class="files">
+            <li class="back">
+                <a href="@Url.RouteUrl("FileManager-View", Model.ParentFoldersRouteValues)" alt="back" title="back">
+                    <img height="30" src="/Content/images/icons/folder-back.png" /> Back
+                </a>
+            </li>
     
-        @{Html.RenderPartial("StorageItems", Model.StorageItems);}
+            @{Html.RenderPartial("StorageItems", Model.StorageItems);}
 
-    </ul>
+        </ul>
 
 
     </div>
@@ -61,18 +66,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $('.file, .folder').on('mouseover', function (event) {
-                $(this).find('a.remove').removeClass('hidden');
-            });
-
-            $('.file, .folder').on('mouseleave', function (event) {
-                $(this).find('a.remove').addClass('hidden');
-            });
-
-
-            $('.files').fileUpload('@Model.CurrentPath');
-
-
+            $('.file-manager').fileUpload('@Model.CurrentPath');
         });
     </script>
 </div>

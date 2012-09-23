@@ -25,6 +25,7 @@
 
             this.addEvents();
 
+            this.addRemoveEvents();
         },
 
         addEvents: function () {
@@ -34,6 +35,18 @@
             $(this._dropZone).bind('dragleave', function (event) { me.dragLeave(event); });
             $(document).bind('dragover', function (event) { me.dragOver(event); });
             $(document).bind('drop', function (event) { me.drop(event); });
+
+        },
+
+        addRemoveEvents: function()
+        {
+            $('.file, .folder').on('mouseover', function (event) {
+                $(this).find('a.remove').removeClass('hidden');
+            });
+
+            $('.file, .folder').on('mouseleave', function (event) {
+                $(this).find('a.remove').addClass('hidden');
+            });
         },
 
         dragEnter: function (event) {
@@ -59,6 +72,7 @@
             event.preventDefault();
 
             this._dropZone.removeClass('file-dragged');
+            this._dropZone.addClass('file-uploading');
 
             // if we dragged it over the dropzone
             if (this._dropZone.find($(event.target)).length > 0) {
@@ -77,13 +91,14 @@
         },
 
         upload: function (formData) {
-            var xhr = new XMLHttpRequest();
+            var me = this;
 
+            var xhr = new XMLHttpRequest();
             xhr.upload.addEventListener("progress", this.progress, false);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
-                        this.uploadComplete(xhr.responseText);
+                        me.uploadComplete(xhr.responseText);
                     }
                     else {
                         alert('fail');
@@ -94,6 +109,15 @@
             xhr.open("POST", '/file-manager/upload?parentFolderId=' + this._path);
             xhr.send(formData);
             return;
+        },
+
+        uploadComplete: function (response) {
+
+            this._dropZone.removeClass('file-uploading');
+            $('.files li:not(:first-child)').remove();
+            $('.files').append(response);
+
+            this.addRemoveEvents();
         }
     };
 

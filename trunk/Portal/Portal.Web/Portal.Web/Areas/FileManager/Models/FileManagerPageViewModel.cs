@@ -21,7 +21,7 @@ namespace Portal.Web.Areas.FileManager.Models
         public FileManagerPageViewModel(IWebsite website, IStorageItem currentStorageItem, IList<IStorageItem> childStorageItems)
             : base(website)
         {
-            this._childStorageItems = childStorageItems.OrderBy(o => o.Name).ToList();
+            this._childStorageItems = childStorageItems.OrderBy(o => o.Uri.ToString()).ToList();
             this._currentStorageItem = currentStorageItem;
         }
 

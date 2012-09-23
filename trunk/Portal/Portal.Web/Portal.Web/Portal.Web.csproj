@@ -218,6 +218,9 @@
     <Content Include="Content\Css\site.css" />
     <Content Include="Content\Images\arrowwhite.png" />
     <Content Include="Content\Images\check.gif" />
+    <Content Include="Content\Images\create-ad-sprite.png" />
+    <Content Include="Content\Images\cross.png" />
+    <Content Include="Content\Images\icons\ajax-loader.gif" />
     <Content Include="Content\Images\icons\folder-back.png" />
     <Content Include="Content\Images\icons\folder.png" />
     <Content Include="Content\Images\icons\gif.jpg" />
