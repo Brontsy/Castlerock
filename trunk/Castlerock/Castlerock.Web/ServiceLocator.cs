@@ -68,7 +68,7 @@ namespace Castlerock.Web
         public static IFileManagerService GetFileManagerService()
         {
             IFileStorage fileStorage = new AzureBlobStorage();
-            IStorageItemRepository repository = new StorageItemNhibernateRepository(GetCurrentSession());
+            IStorageItemRepository repository = new AzureBlobStorage();// new StorageItemNhibernateRepository(GetCurrentSession());
 
             return new FileManagerService(GetWebsite(), fileStorage, repository, GetCastlerockTransactionManager());
         }
