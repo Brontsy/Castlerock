@@ -19,11 +19,13 @@
       <Site name="Auslink" physicalDirectory="D:\Programming\release\auslink">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.auslinkproperty.com.au" />
+          <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="auslinkproperty.com.au" />
         </Bindings>
       </Site>
       <Site name="Castlerock" physicalDirectory="D:\Programming\release\castlerock">
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.castlerockproperty.com.au" />
+          <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="castlerockproperty.com.au" />
         </Bindings>
       </Site>
       <Site name="Auslink Portal" physicalDirectory="D:\Programming\release\portal">

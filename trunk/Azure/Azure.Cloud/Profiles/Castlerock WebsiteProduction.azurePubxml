@@ -15,8 +15,8 @@
     <AzureEnableProfiling>False</AzureEnableProfiling>
     <AzureServiceConfiguration>Cloud</AzureServiceConfiguration>
     <AzureSolutionConfiguration>Release</AzureSolutionConfiguration>
-    <AzureStorageAccountLabel>miniaturemoose</AzureStorageAccountLabel>
-    <AzureStorageAccountName>miniaturemoose</AzureStorageAccountName>
+    <AzureStorageAccountLabel>Castlerock Storage</AzureStorageAccountLabel>
+    <AzureStorageAccountName>castlerockproperty</AzureStorageAccountName>
     <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
   </PropertyGroup>
 </Project>
