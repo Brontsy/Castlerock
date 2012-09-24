@@ -61,7 +61,7 @@ namespace Castlerock.Web
 
             string host = System.Web.HttpContext.Current.Request.Url.Host;
 
-            return new WebsiteService(websiteDao).GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("www.", string.Empty).Replace("portal.", string.Empty));
+            return new WebsiteService(websiteDao).GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("uat.", string.Empty).Replace("www.", string.Empty).Replace("portal.", string.Empty));
             //return new WebsiteService(websiteDao).GetWebsiteByHostUrl(HttpContext.Current.Request.Url.Host);
         }
 

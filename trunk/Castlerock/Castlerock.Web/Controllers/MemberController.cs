@@ -18,7 +18,7 @@ namespace Castlerock.Web.Controllers
             string pdfFolder = ConfigurationManager.AppSettings["PdfFolder"].ToString();
 
             IList<IStorageItem> items = ServiceLocator.GetFileManagerService().GetStorageItems(pdfFolder);
-            ViewData["StorageItems"] = items;
+            ViewData["StorageItems"] = items.OrderBy(o => o.Uri.ToString()).ToList();
 
             return View("Downloads", new PageViewModel() { Title = "Downloads" });
         }

@@ -22,7 +22,7 @@ namespace Auslink.Web
             IRoleDao roleDao = new RoleNhibernateDao(GetCurrentSession());
 
             string host = HttpContext.Current.Request.Url.Host;
-            IWebsite website = GetWebsiteService().GetWebsiteByHostUrl(host.Replace("www.", string.Empty).Replace("dev.", string.Empty));
+            IWebsite website = GetWebsiteService().GetWebsiteByHostUrl(host.Replace("www.", string.Empty).Replace("dev.", string.Empty).Replace("uat.", string.Empty));
 
             return new MembershipService(website, memberDao, roleDao, GetTransactionManager());
         }
