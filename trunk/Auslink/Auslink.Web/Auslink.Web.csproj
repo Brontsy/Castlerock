@@ -157,6 +157,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.Release.config" />
+    <Content Include="Web.Uat.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Members\CurrentUnitholders.cshtml" />
@@ -251,10 +253,6 @@
     <None Include="Properties\PublishProfiles\Auslink Local Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\auslinkproperty - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\auslinkproperty - Web Deploy.pubxml" />
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Uat.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
