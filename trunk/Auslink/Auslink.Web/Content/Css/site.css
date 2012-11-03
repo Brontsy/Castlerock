@@ -69,6 +69,9 @@ ul.two-column li p:first-child { width: 320px; font-weight: bold; }
 ul.four-column li div { width: 120px; }
 ul.four-column li div.wide { width: 310px; }
 
+ul.five-column li div { width: 110px; }
+ul.five-column li div.wide { width: 210px; }
+
 ul.three-column li div { width: 120px; }
 ul.three-column li div.wide { width: 450px; }
 
