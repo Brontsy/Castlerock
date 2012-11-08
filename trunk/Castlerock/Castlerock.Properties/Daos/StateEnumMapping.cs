@@ -7,11 +7,13 @@ using Castlerock.Properties.Enums;
 
 namespace Castlerock.Properties.Daos
 {
-    public class StateEnumMapping : EnumCharType<State>
+    public class StateEnumMapping : NHibernate.Type.EnumStringType<State>
     {
         public StateEnumMapping()
             : base()
         {
+
         }
+
     }
 }
