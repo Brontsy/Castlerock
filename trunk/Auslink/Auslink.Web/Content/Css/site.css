@@ -85,20 +85,25 @@ ul.list li { background: #ffffff url(http://castlerockproperty.blob.core.windows
 
 /* Property Portfolio + Map */
 .map { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/map.png) no-repeat; width: 509px; height: 462px; margin: 50px 0px 100px 30px; }
-.map .blue { position: absolute; margin: 335px 0px 0px 335px; width: 18px; height: 21px; }
-.map .green { position: absolute; margin: 150px 0px 0px 0px; width: 18px; height: 21px; }
-.map .orange { position: absolute; margin: 265px 0px 0px 285px; width: 18px; height: 21px; }
-.map .purple { position: absolute; margin: 325px 0px 0px 355px; width: 18px; height: 21px; }
-.map .red { position: absolute; margin: 210px 0px 0px 475px; width: 18px; height: 21px; }
 
-ul.properties { float: right; }
+
+ul.properties { float: right; line-height: 18px; }
+ul.properties li { margin-bottom: 10px; }
 ul.properties a { color: #000000; }
-ul.properties .blue { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/blue.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .green { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/green.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .orange { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/orange.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .purple { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/purple.png) no-repeat; padding: 0px 0px 10px 25px; }
-ul.properties .red { background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/australia/red.png) no-repeat; padding: 0px 0px 10px 25px; }
 
+.square { width: 18px !important; margin-right: 5px !important; height: 18px; color: #ffffff !important; text-align: center; line-height: 18px; text-decoration: none; }
+.square.blue { background: #0066cc;  }
+.square.green { background: #29a329;  }
+.square.orange { background: #ff6600;  }
+.square.purple { background: #990099;  }
+.square.red { background: #ea0000;  }
+.square.light-blue { background: #2AD4FF;  }
+.square.carnarvon { position: absolute; margin: 150px 0px 0px 0px;  }
+.square.boronia { position: absolute; margin: 335px 0px 0px 335px;  }
+.square.port-pirie { position: absolute; margin: 265px 0px 0px 285px;  }
+.square.footscray { position: absolute; margin: 325px 0px 0px 355px;  }
+.square.south-brisbane { position: absolute; margin: 210px 0px 0px 475px;  }
+.square.townsville { position: absolute; margin: 35px 0px 0px 365px;  }
 
 /* Login From */
 #login { float: right; }

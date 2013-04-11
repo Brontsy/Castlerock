@@ -13,18 +13,44 @@
     @Html.Partial("PropertySideNav")
 }
 
-<h2>Property Portfolio</h2><ul class="properties">    <li class="green">
+<h2>Property Portfolio</h2>
+
+<ul class="properties">
+    <li>
+        <div class="left square green">1</div>
         @Html.RouteLink("Carnarvon, WA", "Carnarvon")
     </li>
     <li class="blue">
+        <div class="left square blue">2</div>
         @Html.RouteLink("Boronia, VIC", "Boronia")
     </li>
     <li class="orange">
+        <div class="left square orange">3</div>
         @Html.RouteLink("Port Pirie, SA", "Port-Pirie")
     </li>
     <li class="purple">
+        <div class="left square purple">4</div>
         @Html.RouteLink("Footscray, VIC", "Footscray")
     </li>
     <li class="red">
+        <div class="left square red">5</div>
         @Html.RouteLink("South Brisbane, QLD", "South-Brisbane")
-    </li></ul><div class="map">    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/blue.png", "Property-Portfolio-Single", new { @class = "blue", alt = "Boronia, VIC", title = "Boronia, VIC" }, new { propertyName = "Boronia" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/green.png", "Property-Portfolio-Single", new { @class = "green", alt = "Carnarvon, WA", title = "Carnarvon, WA" }, new { propertyName = "Carnarvon" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/orange.png", "Property-Portfolio-Single", new { @class = "orange", alt = "Port Pirie, SA", title = "Port Pirie, SA" }, new { propertyName = "Port-Pirie" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/purple.png", "Property-Portfolio-Single", new { @class = "purple", alt = "Footscray, VIC", title = "Footscray, VIC" }, new { propertyName = "Footscray" })    @Html.RouteImageLink("http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/Australia/red.png", "Property-Portfolio-Single", new { @class = "red", alt = "South Brisbane, QLD", title = "South Brisbane, QLD" }, new { propertyName = "South-Brisbane" })</div>
+    </li>
+    <li class="red">
+        <div class="left square light-blue">6</div>
+        @Html.RouteLink("Townsville, QLD", "Townsville")
+    </li>
+</ul>
+
+<div class="map">
+    
+    @Html.RouteLink("1", "Carnarvon", new { }, new { @class = "square green carnarvon" })
+        @Html.RouteLink("2", "Boronia", new { }, new { @class = "square blue boronia" })
+        @Html.RouteLink("3", "Port-Pirie", new { }, new { @class = "square orange port-pirie" })
+        @Html.RouteLink("4", "Footscray", new { }, new { @class = "square purple footscray" })
+        @Html.RouteLink("5", "South-Brisbane", new { }, new { @class = "square red south-brisbane" })
+        @Html.RouteLink("6", "Townsville", new { }, new { @class = "square light-blue townsville" })
+
+</div>
+
+
