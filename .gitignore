@@ -28,6 +28,9 @@ local.properties
 # PDT-specific
 .buildpath
 
+# My Ignores
+*.publishsettings
+*.Release.config
 
 #################
 ## Visual Studio
