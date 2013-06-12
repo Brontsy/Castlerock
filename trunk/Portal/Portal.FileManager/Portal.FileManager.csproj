@@ -86,6 +86,10 @@
       <Project>{346B7863-037E-4783-BE0B-31EF5EA56624}</Project>
       <Name>Common.Nhibernate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SharedLibraries\Common\Common.csproj">
+      <Project>{25746165-e026-4443-88ea-a1e8ddf82bcc}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Portal.Interfaces\Portal.Interfaces.csproj">
       <Project>{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}</Project>
       <Name>Portal.Interfaces</Name>
