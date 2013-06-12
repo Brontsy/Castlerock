@@ -61,21 +61,7 @@
             <p> 
                 Please contact the Castlerock team on <br />(03) 9827 4600 for a copy of the current Information Memorandum.
             </p> 
-            
-            
-            <h3>Closed investments</h3> 
- 
-            <p> 
-                <ul class="links"> 
-                    <li>Cheltenham Properties Trust</li> 
-                    <li>Cranbourne Properties Trust</li> 
-                    <li>East Gippsland Properties Trust</li> 
-                    <li>Goondiwindi Property Trust</li> 
-                    <li>Horsham Properties Trust</li> 
-                    <li>Remotelink Property Trust</li> 
-                    <li>Greenwattle Property Trust</li> 
-                </ul> 
-            </p>
+  
         </div>            
     
 </div>
