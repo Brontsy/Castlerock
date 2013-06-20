@@ -50,17 +50,6 @@
             
         </div>
         <div class="rightColumn">
-            <h3>Open investments</h3> 
-            <p> 
-                <ul class="links"> 
-                    <li>Auslink Property Trust</li> 
-                    <li>Auswide Investment Trust</li> 
-                </ul> 
-            </p> 
- 
-            <p> 
-                Please contact the Castlerock team on <br />(03) 9827 4600 for a copy of the current Information Memorandum.
-            </p> 
   
         </div>            
     
