@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.ServiceRuntime;
+/*using Microsoft.WindowsAzure.ServiceRuntime;*/
 using Microsoft.WindowsAzure.StorageClient;
 using Portal.FileManager.Interfaces;
 using Portal.FileManager.Models;
