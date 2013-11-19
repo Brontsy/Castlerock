@@ -37,7 +37,7 @@ namespace Auslink.Web.Controllers
                 }
                 catch (Exception exception)
                 {
-                    this.ModelState.AddModelError("Email", "There was a problem logging you in. Please try again.");
+                    this.ModelState.AddModelError("Email", "There was a problem logging you in. Please try again." + exception.Message);
                 }
             }
 
