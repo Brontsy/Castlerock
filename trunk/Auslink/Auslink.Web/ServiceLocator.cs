@@ -22,7 +22,15 @@ namespace Auslink.Web
             IRoleDao roleDao = new RoleNhibernateDao(GetCurrentSession());
 
             string host = HttpContext.Current.Request.Url.Host;
-            IWebsite website = GetWebsiteService().GetWebsiteByHostUrl(host.Replace("www.", string.Empty).Replace("dev.", string.Empty).Replace("uat.", string.Empty));
+
+            host = host.Replace("www.", string.Empty).Replace("dev.", string.Empty).Replace("uat.", string.Empty);
+
+            if (host == "auslink.azurewebsites.net")
+            {
+                host = "auslinkproperty.com.au";
+            }
+
+            IWebsite website = GetWebsiteService().GetWebsiteByHostUrl(host);
 
             return new MembershipService(website, memberDao, roleDao, GetTransactionManager());
         }
