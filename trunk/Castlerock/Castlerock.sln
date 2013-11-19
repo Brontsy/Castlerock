@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.FileManager", "..\Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.Interfaces", "..\Portal\Portal.Interfaces\Portal.Interfaces.csproj", "{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Encryption", "..\SharedLibraries\Common.Encryption\Common.Encryption.csproj", "{82F0A793-89C7-403D-9233-37AFD99D330A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,12 @@ Global
 		{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}.Uat|Any CPU.ActiveCfg = Uat|Any CPU
 		{E27C5FB8-0EA9-4DF9-85E7-C6EB0C141A57}.Uat|Any CPU.Build.0 = Uat|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Uat|Any CPU.ActiveCfg = Uat|Any CPU
+		{82F0A793-89C7-403D-9233-37AFD99D330A}.Uat|Any CPU.Build.0 = Uat|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
