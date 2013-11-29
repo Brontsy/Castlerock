@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<publishData>
-  <publishProfile publishUrl="https://b33d0a18b8874cf6995852be63c266ec.cloudapp.net:8172/MsDeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Castlerock.Portal_IN_0_Web" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Castlerock Website - Staging" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="luke.bronts" savePWD="False" userPWD="" SelectedForPublish="True" />
-  <publishProfile publishUrl="https://castlerockproperty.cloudapp.net:8172/MsDeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Castlerock.Portal_IN_0_Web" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Castlerock Website - Production" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="luke.bronts" savePWD="False" userPWD="" SelectedForPublish="False" />
-</publishData>
