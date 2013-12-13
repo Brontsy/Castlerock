@@ -14,7 +14,7 @@ namespace Portal.Web.Areas.GoogleAnalytics
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapRoute("GoogleAnalytics_default", "Google-Analytics", new { controller = "GoogleAnalytics", action = "Index", id = UrlParameter.Optional });
+            context.MapRoute("GoogleAnalytics_default", "google-analytics", new { controller = "GoogleAnalytics", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

@@ -22,12 +22,12 @@ namespace Portal.Web.Areas.Membership
         public override void RegisterArea(AreaRegistrationContext context)
         {
 
-            context.MapRoute(MembershipAreaRegistration.MembershipRouteUrl, "Membership", new { controller = "Membership", action = "Index", area = "Membership" });
-            context.MapRoute(MembershipAreaRegistration.MembershipNewRouteUrl, "Membership/New", new { controller = "Membership", action = "New", memberId = 0 });
-            context.MapRoute(MembershipAreaRegistration.MembershipEditRouteUrl, "Membership/Edit/{username}/{memberId}", new { controller = "Membership", action = "Edit" });
-            context.MapRoute(MembershipAreaRegistration.MembershipSaveRouteUrl, "Membership/Save/{username}/{memberId}", new { controller = "Membership", action = "Save" });
-            context.MapRoute(MembershipAreaRegistration.MembershipSaveNewRouteUrl, "Membership/Save/New-Member", new { controller = "Membership", action = "Save" });
-            context.MapRoute(MembershipAreaRegistration.MembershipChangePasswordRouteUrl, "Membership/Change-Password/{username}/{memberId}", new { controller = "Membership", action = "ChangePassword" });
+            context.MapRoute(MembershipAreaRegistration.MembershipRouteUrl, "membership", new { controller = "Membership", action = "Index", area = "Membership" });
+            context.MapRoute(MembershipAreaRegistration.MembershipNewRouteUrl, "membership/new", new { controller = "Membership", action = "New", memberId = 0 });
+            context.MapRoute(MembershipAreaRegistration.MembershipEditRouteUrl, "membership/edit/{username}/{memberId}", new { controller = "Membership", action = "Edit" });
+            context.MapRoute(MembershipAreaRegistration.MembershipSaveRouteUrl, "membership/save/{username}/{memberId}", new { controller = "Membership", action = "Save" });
+            context.MapRoute(MembershipAreaRegistration.MembershipSaveNewRouteUrl, "membership/save/new-member", new { controller = "Membership", action = "Save" });
+            context.MapRoute(MembershipAreaRegistration.MembershipChangePasswordRouteUrl, "membership/change-password/{username}/{memberId}", new { controller = "Membership", action = "ChangePassword" });
 
         }
     }
