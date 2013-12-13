@@ -30,7 +30,7 @@ a:active { color: #ba0618; }
         
 .navigation li a:hover, .navigation li a.hover, .navigation li.selected { background: #7a0000; }
         
-.navigation li > div { position: absolute;  background: #ba0618; display: none; border-top: 1px solid #dd838c; }
+.navigation li > div { position: absolute;  background: #ba0618; display: none; border-top: 1px solid #dd838c; z-index: 100; }
 .navigation li > div a {  background: url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-drop-down.png) no-repeat; background-position: 20px 12px; padding-left: 30px; }
 .navigation li > div a:hover {  background: #7a0000 url(http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/nav-drop-down.png) no-repeat; background-position: 20px 12px; }
   
@@ -98,6 +98,7 @@ ul.properties a { color: #000000; }
 .square.purple { background: #990099;  }
 .square.red { background: #ea0000;  }
 .square.light-blue { background: #2AD4FF;  }
+.square.dark-green{ background: #d7cc1a;  }
 .square.light-green { background: rgb(0, 202, 97);  }
 .square.carnarvon { position: absolute; margin: 150px 0px 0px 0px;  }
 .square.boronia { position: absolute; margin: 335px 0px 0px 335px;  }
@@ -106,6 +107,9 @@ ul.properties a { color: #000000; }
 .square.south-brisbane { position: absolute; margin: 210px 0px 0px 475px;  }
 .square.townsville { position: absolute; margin: 100px 0px 0px 390px;  }
 .square.albury { position: absolute; margin: 315px 0px 0px 380px;  }
+.square.bowen { position: absolute; margin: 123px 0px 0px 414px;  }
+
+
 
 /* Login From */
 #login { float: right; }

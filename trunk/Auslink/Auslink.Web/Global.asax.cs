@@ -62,6 +62,7 @@ namespace Auslink.Web
             routes.MapRoute("South-Brisbane", "Property-Portfolio/South-Brisbane", new { controller = "Property-Portfolio", action = "SouthBrisbane" });
             routes.MapRoute("Townsville", "Property-Portfolio/Townsville", new { controller = "Property-Portfolio", action = "Townsville" });
             routes.MapRoute("Albury", "Property-Portfolio/Albury", new { controller = "Property-Portfolio", action = "Albury" });
+            routes.MapRoute("Bowen", "Property-Portfolio/Bowen", new { controller = "Property-Portfolio", action = "Bowen" });
 
 
             routes.MapRoute("Home", "", new { controller = "Home", action = "Index" });
