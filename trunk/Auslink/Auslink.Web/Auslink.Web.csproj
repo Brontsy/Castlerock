@@ -253,6 +253,7 @@
     <None Include="Properties\PublishProfiles\auslinkproperty - Web Deploy.pubxml" />
     <Content Include="Views\PropertyPortfolio\Townsville.cshtml" />
     <Content Include="Views\PropertyPortfolio\Albury.cshtml" />
+    <Content Include="Views\PropertyPortfolio\Bowen.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
