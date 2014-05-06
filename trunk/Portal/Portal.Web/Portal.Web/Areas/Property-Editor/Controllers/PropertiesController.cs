@@ -47,6 +47,12 @@ namespace Portal.Web.Areas.PropertyEditor.Controllers
             return View(new PropertiesPageViewModel(this.Website, property));
         }
 
+        [ImportModelStateFromTempData]
+        public ActionResult New()
+        {
+            return View(new PropertiesPageViewModel(this.Website, new Property()));
+        }
+
         private T Deserialise<T>(string json)
         {
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
@@ -56,14 +62,18 @@ namespace Portal.Web.Areas.PropertyEditor.Controllers
             }
         }
 
-        [ExportModelStateToTempData]
-        public ActionResult Save(PropertyViewModel propertyViewModel, int propertyId, string imageIds)
+        public ActionResult Save(PropertyViewModel propertyViewModel, int? propertyId, string imageIds)
         {
             if (this.ModelState.IsValid)
             {
                 try
                 {
-                    IProperty property = this._propertyService.GetPropertyById(propertyId);
+                    IProperty property = new Property();
+
+                    if (propertyId.HasValue)
+                    {
+                        property = this._propertyService.GetPropertyById(propertyId.Value);
+                    }
 
                     // Copy the properties from the view model to our member object
                     property = propertyViewModel.ToProperty(property as Property);
