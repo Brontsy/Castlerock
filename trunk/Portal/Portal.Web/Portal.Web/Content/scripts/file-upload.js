@@ -74,6 +74,7 @@
             this._dropZone.removeClass('file-dragged');
             this._dropZone.addClass('file-uploading');
 
+
             // if we dragged it over the dropzone
             if (this._dropZone.find($(event.target)).length > 0) {
 
@@ -92,7 +93,7 @@
 
         upload: function (formData) {
             var me = this;
-
+            alert('2');
             var xhr = new XMLHttpRequest();
             xhr.upload.addEventListener("progress", this.progress, false);
             xhr.onreadystatechange = function () {
