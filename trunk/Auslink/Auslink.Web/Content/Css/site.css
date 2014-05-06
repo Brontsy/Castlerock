@@ -100,14 +100,16 @@ ul.properties a { color: #000000; }
 .square.light-blue { background: #2AD4FF;  }
 .square.dark-green{ background: #d7cc1a;  }
 .square.light-green { background: rgb(0, 202, 97);  }
+.square.dark-grey { background: #333333;  }
 .square.carnarvon { position: absolute; margin: 150px 0px 0px 0px;  }
 .square.boronia { position: absolute; margin: 335px 0px 0px 335px;  }
-.square.port-pirie { position: absolute; margin: 265px 0px 0px 285px;  }
+.square.port-pirie { position: absolute; margin: 275px 0px 0px 295px;  }
 .square.footscray { position: absolute; margin: 325px 0px 0px 355px;  }
 .square.south-brisbane { position: absolute; margin: 210px 0px 0px 475px;  }
 .square.townsville { position: absolute; margin: 100px 0px 0px 390px;  }
 .square.albury { position: absolute; margin: 315px 0px 0px 380px;  }
 .square.bowen { position: absolute; margin: 123px 0px 0px 414px;  }
+.square.port-augusta { position: absolute; margin: 265px 0px 0px 275px;  }
 
 
 
