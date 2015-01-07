@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Goondiwindi, QLD Centrelink";
+    ViewBag.PageId = "property-portfolio-single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.SelectedTab = "Property Portfolio";
+    ViewBag.SelctedProperty = "Goondiwindi";
+}
+
+@section LeftNavigation{
+
+    @Html.Partial("PropertySideNav")
+}
+
+<h2>Goondiwindi, QLD</h2>
+
+<ul class="table two-column">
+    <li>
+        <p>Address:</p>
+        <p>31 Marshall St, Goondiwindi, QLD</p>
+    </li>
+    <li>
+        <p>Description:</p>	
+        <p>Single level office building with parking for 13 cars</p>
+    </li>
+    <li>
+        <p>Net Lettable Area:</p>
+        <p>600 square metres</p>
+    </li>
+    <li>
+        <p>Tenant:</p>
+        <p>Commonwealth Government</p>
+    </li>
+    <li>
+        <p>Lease Term:</p>
+        <p>7 years + 2 x 3 years</p>
+    </li>
+    <li>
+        <p>Lease Commencement:</p>
+        <p>March 2010</p>
+    </li>
+</ul>
+
+<img src="http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/properties/Goondiwindi/goondiwindi.jpg" />

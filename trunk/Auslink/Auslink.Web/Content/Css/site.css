@@ -101,6 +101,7 @@ ul.properties a { color: #000000; }
 .square.dark-green{ background: #d7cc1a;  }
 .square.light-green { background: rgb(0, 202, 97);  }
 .square.dark-grey { background: #333333;  }
+.square.black { background: #000;  }
 .square.carnarvon { position: absolute; margin: 150px 0px 0px 0px;  }
 .square.boronia { position: absolute; margin: 335px 0px 0px 335px;  }
 .square.port-pirie { position: absolute; margin: 275px 0px 0px 295px;  }
@@ -110,6 +111,7 @@ ul.properties a { color: #000000; }
 .square.albury { position: absolute; margin: 315px 0px 0px 380px;  }
 .square.bowen { position: absolute; margin: 123px 0px 0px 414px;  }
 .square.port-augusta { position: absolute; margin: 265px 0px 0px 275px;  }
+.square.goondiwindi { position: absolute; margin: 231px 0px 0px 424px;  }
 
 
 
