@@ -91,17 +91,18 @@ ul.properties { float: right; line-height: 18px; }
 ul.properties li { margin-bottom: 10px; }
 ul.properties a { color: #000000; }
 
-.square { width: 18px !important; margin-right: 5px !important; height: 18px; color: #ffffff !important; text-align: center; line-height: 18px; text-decoration: none; }
-.square.blue { background: #0066cc;  }
-.square.green { background: #29a329;  }
-.square.orange { background: #ff6600;  }
-.square.purple { background: #990099;  }
-.square.red { background: #ea0000;  }
-.square.light-blue { background: #2AD4FF;  }
-.square.dark-green{ background: #d7cc1a;  }
-.square.light-green { background: rgb(0, 202, 97);  }
-.square.dark-grey { background: #333333;  }
-.square.black { background: #000;  }
+.square { width: 18px !important; margin-right: 5px !important; height: 18px; color: #ffffff; text-align: center; line-height: 18px; text-decoration: none; }
+.square.blue { background: #0066cc; color: #ffffff;  }
+.square.green { background: #29a329; color: #ffffff;  }
+.square.orange { background: #ff6600; color: #ffffff;  }
+.square.purple { background: #990099; color: #ffffff;  }
+.square.red { background: #ea0000;  color: #ffffff; }
+.square.light-blue { background: #2AD4FF;  color: #ffffff; }
+.square.dark-green{ background: #d7cc1a; color: #ffffff;  }
+.square.light-green { background: rgb(0, 202, 97); color: #ffffff;  }
+.square.dark-grey { background: #333333; color: #ffffff;  }
+.square.light-grey { background: #cccccc; color: #333; }
+.square.black { background: #000;  color: #ffffff; }
 .square.carnarvon { position: absolute; margin: 150px 0px 0px 0px;  }
 .square.boronia { position: absolute; margin: 335px 0px 0px 335px;  }
 .square.port-pirie { position: absolute; margin: 275px 0px 0px 295px;  }
@@ -112,6 +113,7 @@ ul.properties a { color: #000000; }
 .square.bowen { position: absolute; margin: 123px 0px 0px 414px;  }
 .square.port-augusta { position: absolute; margin: 265px 0px 0px 275px;  }
 .square.goondiwindi { position: absolute; margin: 231px 0px 0px 424px;  }
+.square.glenorchy { position: absolute; margin: 428px 0px 0px 370px; color: #333; }
 
 
 
