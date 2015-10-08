@@ -88,7 +88,7 @@ namespace Portal.Web.App_Start
             //kernel.Bind<IMemberDao>().To<MemberPetaPocoDao>();
 
             kernel.Bind<IWebsiteService>().To<WebsiteService>();
-            kernel.Bind<IWebsiteDao>().To<WebsiteNhibernateDao>();
+            kernel.Bind<IWebsiteDao>().To<WebsiteDao>();
 
             kernel.Bind<IMessageService>().To<MessageService>();
             kernel.Bind<IMessageRepository>().To<MessageRepository>();
@@ -165,7 +165,7 @@ namespace Portal.Web.App_Start
                 host.Replace("portal", string.Empty).Replace(".azurewebsites.net", string.Empty);
             }
 
-            return this._websiteService.GetWebsiteByHostUrl(host.Replace("dev.", string.Empty).Replace("uat.", string.Empty).Replace("portal.", string.Empty));
+            return this._websiteService.GetWebsiteByHostUrl(host.Replace("csdev.", string.Empty).Replace("dev.", string.Empty).Replace("uat.", string.Empty).Replace("portal.", string.Empty));
         }
     }
 }

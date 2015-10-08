@@ -1,0 +1,43 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Membership.MemberListViewModel
+
+
+
+
+
+
+<div class="page-head">
+
+    <div class="row">
+        <div class="col-9">
+            <h2>Membership</h2>
+        </div>
+        <div class="col-3">
+            @Html.RouteLink("Add Member", AdminRoutes.Membership.Add, new { }, new { @class = "btn primary right" })
+        </div>
+    </div>
+
+</div>
+
+<div class="body-content">
+
+        <div class="item-list">
+            <ul class="items">
+                <li class="items-header row">
+                    <div class="col-3">Username</div>
+                    <div class="col-3">Name</div>
+                    <div class="col-4">Company</div>
+                    <div class="col-2">&nbsp;</div>
+                </li>
+
+                @foreach(Auslink.Web.New.Areas.Admin.Models.Membership.MemberViewModel member in Model.Members.OrderBy(o => o.Username))
+                {
+                <li class="row">
+                    <div class="col-3">@Html.RouteLink(member.Username, AdminRoutes.Membership.Edit, new { memberId = member.MemberId }, new { })</div>
+                    <div class="col-3">@member.FirstName @member.LastName</div>
+                    <div class="col-4">@member.Company</div>
+                    <div class="col-2">@Html.RouteLink("edit", AdminRoutes.Membership.Edit, new { memberId = member.MemberId }, new { })</div>
+                </li>
+                }
+            </ul>
+        </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Brunswick, VIC Centrelink";
+    ViewBag.PageId = "property-portfolio-single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.SelectedTab = "Property Portfolio";
+    ViewBag.SelctedProperty = "Brunswick";
+}
+
+@section LeftNavigation{
+
+    @Html.Partial("PropertySideNav")
+}
+
+<h2>Brunswick, VIC</h2>
+
+<ul class="table two-column">
+    <li>
+        <p>Address:</p>        <p>172 - 186 Moreland Rd Brunswick, VIC</p>    </li>
+    <li>        <p>Description:</p>	        <p>Two level office building with underground parking for 79 cars</p>    </li>
+    <li>        <p>Net Lettable Area:</p>        <p>4,218 square metres</p>    </li>
+    <li>        <p>Proposed Tenant:</p>        <p>Commonwealth Government</p>    </li>
+    <li>        <p>Lease Term:</p>        <p>10 years + 5 years</p>    </li>
+    <li>        <p>Lease Commencement:</p>
+        <p>October 2012</p>
+    </li>
+</ul>
+
+<img src="http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/properties/Brunswick.JPG" />

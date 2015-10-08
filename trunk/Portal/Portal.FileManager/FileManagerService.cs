@@ -10,9 +10,9 @@ using System.Reflection;
 using Portal.FileManager.Models;
 using File = Portal.FileManager.Models.File;
 using Common.Nhibernate;
-using Microsoft.WindowsAzure.StorageClient;
 using Microsoft.WindowsAzure;
 using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Queue;
 
 namespace Portal.FileManager
 {

@@ -1,0 +1,49 @@
+﻿
+<ul>
+    <li@(ViewBag.SelctedProperty == "Location Map" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Location Map", "Property-Portfolio")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Carnarvon" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Carnarvon, WA", "Carnarvon")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Boronia" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Boronia, VIC", "Boronia")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Port Pirie" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Port Pirie, SA", "Port-Pirie")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Footscray" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Footscray, VIC", "Footscray")
+    </li>
+    <li@(ViewBag.SelctedProperty == "South Brisbane" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("South Brisbane, QLD", "South-Brisbane")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Townsville" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Townsville, QLD", "Townsville")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Albury" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Albury, NSW", "Albury")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Bowen" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Bowen, QLD", "Bowen")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Port Augusta" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Port Augusta, SA", "Port-Augusta")
+    </li>
+    <li@(ViewBag.SelctedProperty == "Goondiwindi" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Goondiwindi, QLD", "Goondiwindi")
+    </li>
+
+    <li@(ViewBag.SelctedProperty == "Glenorchy" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Glenorchy, TAS", "Glenorchy")
+    </li>
+
+    <li@(ViewBag.SelctedProperty == "Warragul" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>        
+        @Html.RouteLink("Warragul, VIC", "Warragul")
+    </li>
+
+    <li@(ViewBag.SelctedProperty == "Brunswick" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Brunswick, VIC", "Brunswick")
+    </li>
+</ul>
+

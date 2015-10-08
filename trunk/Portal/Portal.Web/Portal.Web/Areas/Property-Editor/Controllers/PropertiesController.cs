@@ -14,7 +14,6 @@ using Portal.Web.Areas.PropertyEditor.Models;
 using Portal.Web.Areas.PropertyEditor.Extensions;
 using Portal.Web.Attributes;
 using Common.Exceptions;
-using Microsoft.WindowsAzure.StorageClient;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;

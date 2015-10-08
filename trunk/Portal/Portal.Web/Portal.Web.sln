@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal.Web", "Portal.Web\Portal.Web.csproj", "{13BCBA19-44E5-4136-8A1F-81472D8CB9BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Encryption", "..\..\SharedLibraries\Common.Encryption\Common.Encryption.csproj", "{82F0A793-89C7-403D-9233-37AFD99D330A}"

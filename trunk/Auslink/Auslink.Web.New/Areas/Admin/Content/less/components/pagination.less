@@ -1,0 +1,38 @@
+﻿.pagination {
+    position: relative;
+    min-height: 40px;
+    padding-bottom: 80px;
+    ul {
+        position: absolute; right: 0px;
+        margin-top: 20px;
+        li {
+            float: left;
+            margin-left: 0px;
+            
+            div {
+                
+                line-height: 30px;
+                min-width: 30px;
+                text-align: center;
+                padding: 0px 5px 0px 5px;
+                color:#333;
+            }
+            
+            a {
+                display: block;
+                line-height: 30px;
+                min-width: 30px;
+                text-align: center;
+                padding: 0px 5px 0px 5px;
+
+                &:hover {
+                    background: @blue;
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+            }
+
+            &.next { padding-left: 5px; }
+        }
+    }
+}

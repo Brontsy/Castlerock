@@ -6,13 +6,14 @@ using System.Text;
 using System.Web;
 using Microsoft.WindowsAzure;
 /*using Microsoft.WindowsAzure.ServiceRuntime;*/
-using Microsoft.WindowsAzure.StorageClient;
 using Portal.FileManager.Interfaces;
 using Portal.FileManager.Models;
 using Portal.Websites.Interfaces;
 using System.IO;
 using File = Portal.FileManager.Models.File;
 using System.Reflection;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage;
 
 namespace Portal.FileManager.Storage
 {
@@ -67,7 +68,7 @@ namespace Portal.FileManager.Storage
                 path += "/";
             }
 
-            CloudBlob blob = blobContainer.GetBlobReference(path + fileName);
+            ICloudBlob blob = blobContainer.GetBlobReferenceFromServer(path + fileName);
 
             blob.Properties.ContentType = this.GetContentType(fileName);
             // Create or overwrite the "myblob" blob with contents from a local file
@@ -125,7 +126,7 @@ namespace Portal.FileManager.Storage
             CloudBlobContainer blobContainer = blobClient.GetContainerReference(website.Domain);
 
             // Create the container if it doesn't already exist
-            if (blobContainer.CreateIfNotExist())
+            if (blobContainer.CreateIfNotExists())
             {
                 blobContainer.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
             }
@@ -267,7 +268,7 @@ namespace Portal.FileManager.Storage
             // Retrieve a reference to a container 
             CloudBlobContainer blobContainer = this.GetCloudBlobContainer(website);
 
-            CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
+            ICloudBlob cloudBlob = blobContainer.GetBlobReferenceFromServer(path);
 
             // If we cannot delete a direct reference (ie a file) then we must be deleting a directory
             if (!cloudBlob.DeleteIfExists())
@@ -296,13 +297,13 @@ namespace Portal.FileManager.Storage
 
             foreach (IListBlobItem blob in blobs)
             {
-                if ((blob as CloudBlob) != null)
+                if ((blob as ICloudBlob) != null)
                 {
-                    ((CloudBlob)blob).DeleteIfExists();
+                    ((ICloudBlob)blob).DeleteIfExists();
                 }
             }
 
-            CloudBlob cloudBlob = blobContainer.GetBlobReference(path + "/");
+            ICloudBlob cloudBlob = blobContainer.GetBlobReferenceFromServer(path + "/");
 
             // If we cannot delete a direct reference (ie a file) then we must be deleting a directory
             cloudBlob.DeleteIfExists();
@@ -340,8 +341,8 @@ namespace Portal.FileManager.Storage
         {
             // Retrieve a reference to a container 
             CloudBlobContainer blobContainer = this.GetCloudBlobContainer(website);
-            
-            CloudBlob cloudBlob = blobContainer.GetBlobReference(path);
+
+            ICloudBlob cloudBlob = blobContainer.GetBlobReferenceFromServer(path);
 
             if (this.IsFolder(cloudBlob.Uri))
             {

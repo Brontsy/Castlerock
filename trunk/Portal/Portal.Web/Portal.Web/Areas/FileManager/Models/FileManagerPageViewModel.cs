@@ -4,9 +4,7 @@ using System.Linq;
 using System.Web;
 using Portal.Web.Models;
 using Portal.Websites.Interfaces;
-using Microsoft.WindowsAzure.StorageClient;
 using Portal.Web.Areas.FileManager.Models;
-using Microsoft.WindowsAzure;
 using Portal.FileManager.Interfaces;
 using Portal.FileManager.Models;
 

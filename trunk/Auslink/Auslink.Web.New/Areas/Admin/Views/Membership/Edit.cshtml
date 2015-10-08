@@ -1,0 +1,87 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Membership.MemberViewModel
+
+
+
+
+
+
+<div class="page-head">
+    <h2>@(Model.MemberId == 0 ? "Add" : "Edit") @Model.Username</h2>
+</div>
+
+<div class="body-content membership">
+
+    @if (ViewBag.Saved != null && ViewBag.Saved)
+    {
+        <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Members details have been saved</div>
+    }
+
+    @using (Html.BeginRouteForm(AdminRoutes.Membership.Save, new { memberId = Model.MemberId }, FormMethod.Post, new { }))
+    {
+        <fieldset>
+            <ol>
+                <li>
+                    @Html.LabelFor(o => o.Username)
+                    @Html.TextBoxFor(o => o.Username, new { placeholder = "Username*" })
+                    @Html.ValidationMessageFor(o => o.Username)
+                </li>
+
+                @if (Model.MemberId == 0)
+                {
+                    <li>
+                        @Html.LabelFor(o => o.Password.Password)
+                        @Html.TextBoxFor(o => o.Password.Password, new { placeholder = "Password*" })
+                        @Html.ValidationMessageFor(o => o.Password.Password)
+                    </li>
+                }
+
+                <li>
+                    @Html.LabelFor(o => o.Email)
+                    @Html.TextBoxFor(o => o.Email, new { placeholder = "Email" })
+                    @Html.ValidationMessageFor(o => o.Email)
+                </li>
+
+                <li>
+                    @Html.LabelFor(o => o.FirstName)
+                    @Html.TextBoxFor(o => o.FirstName, new { placeholder = "First Name" })
+                    @Html.ValidationMessageFor(o => o.FirstName)
+                </li>
+
+                <li>
+                    @Html.LabelFor(o => o.LastName)
+                    @Html.TextBoxFor(o => o.LastName, new { placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(o => o.LastName)
+                </li>
+
+                <li>
+                    @Html.LabelFor(o => o.Company)
+                    @Html.TextBoxFor(o => o.Company, new { placeholder = "Company" })
+                    @Html.ValidationMessageFor(o => o.Company)
+                </li>
+
+                <li>
+                    @Html.LabelFor(o => o.Phone)
+                    @Html.TextBoxFor(o => o.Phone, new { placeholder = "Phone" })
+                    @Html.ValidationMessageFor(o => o.Phone)
+                </li>
+
+
+                <li>
+                    @foreach (Auslink.Membership.Models.Role role in Enum.GetValues(typeof(Auslink.Membership.Models.Role)))
+                    {
+                        <div class="checkbox-container">
+                            <input type="checkbox" @(Model.SelectedRoles.Contains(role) ? "checked=checked" : "") name="SelectedRoles" id="role-@role.ToString().ToLower()" value="@role.ToString()" />
+                            <label for="role-@role.ToString().ToLower()">@role</label>
+                        </div>
+                    }
+                </li>
+
+                <li>
+                    <button type="submit" class="btn primary">Save</button>
+                </li>
+            </ol>
+        </fieldset>
+    }
+
+    @{Html.RenderPartial("ChangePassword", Model.Password);}
+</div>

@@ -1,0 +1,79 @@
+﻿@model Auslink.Web.New.Models.Login
+@{
+    Layout = null;
+}
+
+@if (!Model.IsLoggedIn)
+{
+
+<div id="login">
+
+    @using (Html.BeginRouteForm("Login", FormMethod.Post))
+    {
+    
+        <fieldset>
+
+            <h2>Current Unitholders</h2>
+
+            @Html.ValidationSummary()
+        
+            @Html.LabelFor(model => model.Username)
+            @Html.TextBoxFor(model => model.Username)
+        
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password)
+
+            @Html.HiddenFor(model => model.LoginLocation)
+
+            <input type="submit" id="submit" name="submit" value="Login" />
+
+            
+            @Html.RouteLink("Forgotten your login details?", "Forgotten-Login-Details")
+
+        </fieldset>
+    }
+
+</div>
+}
+else
+{
+    <h3>Annual General Meeting</h3>
+    <p>
+        2013 AGM Presentation 
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-1.pdf">(part1)</a>
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-2.pdf">(part2)</a>
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-3.pdf">(part3)</a>
+        <br />
+        2012 AGM Presentation <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Auslink-Property-Trust-AGM-October-2012.pdf">(download pdf)</a> <br />
+        2011 AGM Presentation <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Auslink-Property-Trust-AGM-October-Amended.pdf">(download pdf)</a>
+    </p>
+    
+    <h3>Quarterly updates</h3>
+    <p>
+        March 2014 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-March-2014.pdf">(download pdf)</a> <br/>
+        December 2013 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-December-2013.pdf">(download pdf)</a> <br/>
+
+        September 2013 
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-1.pdf">(part1)</a>
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-2.pdf">(part2)</a>
+        <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-September-2013-3.pdf">(part3)</a>
+        <br/>
+        June 2013 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-June-2013.pdf">(download pdf)</a> <br/>
+        March 2013 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-March-2013.pdf">(download pdf)</a> <br/>
+        December 2012 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-December-2012.pdf">(download pdf)</a> <br/>
+        September 2012 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Auslink-Property-Trust-AGM-October-2012.pdf">(download pdf)</a> <br/>
+        June 2012 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-June-2012.pdf">(download pdf)</a> <br/>
+        March 2012 <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-March-2012.pdf">(download pdf)</a> <br/>
+        December 2011  <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Quarterly-Update-December-2011.pdf">(download pdf)</a>
+    </p>
+    
+    <h3>Financial Reports </h3>
+    <p>
+        2013 Financial Year <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Final-Signed-2013-Accounts.pdf">(download pdf)</a><br />
+        2012 Financial Year <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Final-Signed-2012-Accounts.pdf">(download pdf)</a><br />
+        2011 Financial Year <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Final-Signed-2011-Accounts.pdf">(download pdf)</a><br />
+        2010 Financial Year <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Final-Signed-2010-Accounts.pdf">(download pdf)</a><br />
+        2009 Financial Year <a href="http://castlerockproperty.blob.core.windows.net/auslinkproperty/pdfs/Final-Signed-2009-Accounts.pdf">(download pdf)</a>
+    </p>
+}
+

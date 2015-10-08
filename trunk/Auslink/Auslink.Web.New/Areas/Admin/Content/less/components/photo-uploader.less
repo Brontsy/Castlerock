@@ -1,0 +1,44 @@
+﻿
+
+
+.photo-uploader {
+    margin-top: 20px;
+
+    .photo-list {
+        margin-top: 20px;
+
+        li {
+            .image-container {
+                img {
+                    width: 100%;
+                    display: block;
+                }
+
+                border: 1px solid #cccccc;
+                padding: 2px;
+                overflow: hidden;
+            }
+
+            &.uploading {
+                .image-container {
+                    .progress {
+                        position: absolute;
+                        width: 99%;
+                        bottom: 0px;
+                        padding: 2px;
+                        height: 20px;
+                    }
+
+                    .file-name {
+                        font-size: 15px;
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+
+                    position: relative;
+                    min-height: 200px;
+                }
+            }
+        }
+    }
+}

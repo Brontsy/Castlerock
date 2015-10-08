@@ -30,7 +30,7 @@
 
     <header>
 
-        <a href="/">@Model.WebsiteName - New</a>
+        <a href="/">@Model.WebsiteName</a>
 
         <ul class="navigation">
 
@@ -39,7 +39,7 @@
                 foreach (Portal.Web.Models.ComponentViewModel component in Model.Components)
                 {
                     System.Web.Mvc.MvcHtmlString cssClass = new System.Web.Mvc.MvcHtmlString((component.IsSelected ? " class=\"selected\"" : string.Empty));
-                    <li@cssClass>
+                    <li @cssClass>
                         <a href="@component.Url">@component.Name</a>
                     </li>
                 }

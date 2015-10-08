@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Glenorchy, TAS Centrelink";
+    ViewBag.PageId = "property-portfolio-single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.SelectedTab = "Property Portfolio";
+    ViewBag.SelctedProperty = "Glenorchy";
+}
+
+@section LeftNavigation{
+
+    @Html.Partial("PropertySideNav")
+}
+
+<h2>Glenorchy, TAS</h2>
+
+<ul class="table two-column">
+    <li>
+        <p>Address:</p>        <p>451 - 455 Main Rd Glenorchy, TAS</p>    </li>
+    <li>        <p>Description:</p>	        <p>Single level office building with parking for 28 cars</p>    </li>
+    <li>        <p>Net Lettable Area:</p>        <p>1,100 square metres</p>    </li>
+    <li>        <p>Proposed Tenant:</p>        <p>Commonwealth Government</p>    </li>
+    <li>        <p>Lease Term:</p>        <p>7 years + 2 x 3 years</p>    </li>
+    <li>        <p>Lease Commencement:</p>
+        <p>March 2015</p>
+    </li>
+</ul>
+
+<img src="http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/properties/glenorchy/glenorchy.jpg" />

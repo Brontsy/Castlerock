@@ -1,0 +1,18 @@
+﻿
+@slash: "/\00a0";
+
+.breadcrumbs {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 4px;
+
+    li {
+        display: inline-block;
+    }
+
+        li + li:before {
+            padding: 0px 5px;
+            color: #cccccc;
+            content: @slash;
+        }
+}
