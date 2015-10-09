@@ -1,0 +1,98 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Login.LoginViewModel
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Auslink Property: Administrator</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" href="/Areas/Admin/Content/less/site.less" type="text/css" charset="utf-8" />
+
+
+    @Scripts.Render("~/admin/bundles/modernizr")
+    <!-- scripts -->
+    @Scripts.Render("~/admin/bundles/jquery")
+    @Scripts.Render("~/admin/bundles/jqueryval")
+    @Scripts.Render("~/admin/bundles/scripts")
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+</head>
+<body class="login">
+
+    <div class="header">
+        <h1>Auslinkproperty</h1>
+    </div>
+
+
+    <div class="float-container">
+
+        <div class="sidebar left">
+            <div class="sidebar-content left">
+                <ul class="navigation">
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="page-head">
+                <h2>Login</h2>
+
+
+                <div class="login">
+
+                    <div class="form-section">
+                        <div class="container">
+                            @using (Html.BeginRouteForm(AdminRoutes.Login, new { }, FormMethod.Post, new { @class = "form-inputs row" }))
+                            {
+                                <ol class="col-4">
+                                    <li>
+                                        <div class="input-icon input-icon-right">
+                                            <i class="fa fa-user"></i>
+                                            @Html.TextBoxFor(o => o.Username, new { placeholder = "Username", @class = "form-control" })
+                                        </div>
+                                        @Html.ValidationMessageFor(o => o.Username)
+                                    </li>
+                                    <li>
+                                        <div class="input-icon input-icon-right">
+                                            <i class="fa fa-user"></i>
+                                            @Html.PasswordFor(o => o.Password, new { placeholder = "Password", @class = "form-control" })
+                                        </div>
+                                        @Html.ValidationMessageFor(o => o.Password)
+
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn primary">Sign In</button>
+
+                                    </li>
+                                </ol>
+                            }
+                        </div>
+                    </div><!--emd of form-section-->
+                    <div class="footer">
+
+                    </div>
+                </div><!--cnd of login-page-->
+
+
+            </div>
+        </div>
+        </div>
+
+
+
+</body>
+</html>

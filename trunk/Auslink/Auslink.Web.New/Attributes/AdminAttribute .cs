@@ -1,4 +1,5 @@
-﻿using Auslink.Membership.Services;
+﻿using Auslink.Membership.Models;
+using Auslink.Membership.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,16 @@ namespace Auslink.Web.New.Attributes
         {
             if(httpContext.User.Identity.IsAuthenticated)
             {
+                int memberId;
 
+                if (int.TryParse(httpContext.User.Identity.Name, out memberId))
+                {
+                    Member member = this.MembershipService.GetMemberById(memberId);
+                    if (member != null && member.Roles.Contains(Role.Administrator))
+                    {
+                        return true;
+                    }
+                }
             }
 
             return false;

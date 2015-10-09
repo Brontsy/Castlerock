@@ -4,6 +4,7 @@ namespace Auslink.Web.New.Areas.Admin
 {
     public class AdminRoutes : AreaRegistration 
     {
+        public const string Default = "Admin Default";
         public const string Home = "Admin Home";
         public const string CMS = "Admin CMS";
         public const string Logout = "Admin Logout";
@@ -45,7 +46,8 @@ namespace Auslink.Web.New.Areas.Admin
 
             context.MapRoute(AdminRoutes.Login, "admin/login", new { controller = "Login", action = "Index" });
             context.MapRoute(AdminRoutes.Logout, "admin/logout", new { controller = "Logout", action = "Index" });
-            context.MapRoute(AdminRoutes.Home, "admin/{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+            context.MapRoute(AdminRoutes.Home, "admin", new { controller = "Home", action = "Index" });
+            context.MapRoute(AdminRoutes.Default, "admin/{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

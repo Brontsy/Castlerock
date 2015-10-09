@@ -8,6 +8,7 @@ using Auslink.Web.New.Models;
 using Auslink.Web.New.Attributes;
 using Auslink.Membership.Services;
 using Auslink.Web.New.Providers;
+using Auslink.Web.New.Areas.Admin;
 
 namespace Auslink.Web.New.Controllers
 {
@@ -21,8 +22,13 @@ namespace Auslink.Web.New.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string returnUrl)
         {
+            if(returnUrl == "/admin")
+            {
+                return this.RedirectToRoute(AdminRoutes.Login);
+            }
+
             return View("Login", new Login());
         }
         

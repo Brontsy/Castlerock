@@ -168,8 +168,10 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
+    <Compile Include="Areas\Admin\Models\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\MemberListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\PasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\MemberViewModel.cs" />
@@ -287,6 +289,7 @@
     <Content Include="Areas\Admin\Views\Membership\ChangePassword.cshtml" />
     <Content Include="Views\PropertyPortfolio\Brunswick.cshtml" />
     <Content Include="Views\PropertyPortfolio\Warragul.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -297,7 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Auslink.Membership\Auslink.Membership.csproj">
