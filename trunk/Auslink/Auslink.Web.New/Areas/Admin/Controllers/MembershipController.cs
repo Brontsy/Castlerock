@@ -1,6 +1,7 @@
 ﻿using Auslink.Membership.Models;
 using Auslink.Membership.Services;
 using Auslink.Web.New.Areas.Admin.Models.Membership;
+using Auslink.Web.New.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Auslink.Web.New.Areas.Admin.Controllers
 {
+    [AdminAttribute]
     public class MembershipController : Controller
     {
         private IMembershipService _membershipService;

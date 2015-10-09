@@ -16,15 +16,15 @@ namespace Auslink.Web.New
             bundles.Add(new ScriptBundle("~/admin/bundles/jquery").Include("~/Areas/Admin/Content/scripts/jquery/jquery-{version}.js").Include("~/Areas/Admin/Content/scripts/jquery/jquery-ui-1.10.4.custom.min.js"));
             bundles.Add(new ScriptBundle("~/admin/bundles/jqueryval").Include("~/Areas/Admin/Content/scripts/jquery/jquery.validate*"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+            //// Use the development version of Modernizr to develop with and learn from. Then, when you're
+            //// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/admin/bundles/modernizr").Include("~/Areas/Admin/Content/scripts/modernizr/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/admin/bundles/scripts")
                 .Include("~/Areas/Admin/Content/scripts/bootstrap/*.js")
                 .Include("~/Areas/Admin/Content/scripts/datepicker/*.js")
-                .Include("~/Areas/Admin/Content/scripts/lightbox/*.js")
-                .Include("~/Areas/Admin/Content/scripts/modules/*.js"));
+                .Include("~/Areas/Admin/Content/scripts/lightbox/*.js"));
+                //.Include("~/Areas/Admin/Content/scripts/modules/*.js"));
 
         }
     }

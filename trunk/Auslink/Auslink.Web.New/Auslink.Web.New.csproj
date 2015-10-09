@@ -140,18 +140,18 @@
     <Content Include="Areas\Admin\Content\scripts\datepicker\datepicker.source.js" />
     <Content Include="Areas\Admin\Content\less\modules\item-list.less" />
     <Content Include="Areas\Admin\Content\less\pages\membership.less" />
-    <None Include="Areas\Admin\Content\scripts\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\Admin\Content\scripts\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery-1.10.2.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery-1.10.2.min.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery-ui-1.10.4.custom.min.js" />
-    <None Include="Areas\Admin\Content\scripts\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\Admin\Content\scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery.validate.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery.validate.min.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\respond.js" />
     <Content Include="Areas\Admin\Content\scripts\jquery\respond.min.js" />
-    <None Include="Areas\Admin\Content\scripts\jquery\_references.js" />
+    <Content Include="Areas\Admin\Content\scripts\jquery\_references.js" />
     <Content Include="Areas\Admin\Content\scripts\lightbox\feather-light.js" />
     <Content Include="Areas\Admin\Content\scripts\modernizr\modernizr-2.6.2.js" />
     <Content Include="Content\Css\reset.css" />
@@ -286,8 +286,8 @@
     <Content Include="Areas\Admin\Views\Membership\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Membership\ChangePassword.cshtml" />
     <Content Include="Views\PropertyPortfolio\Brunswick.cshtml" />
-    <Content Include="Glenorchy.cshtml" />
     <Content Include="Views\PropertyPortfolio\Warragul.cshtml" />
+    <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

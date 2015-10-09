@@ -15,7 +15,12 @@ namespace Auslink.Web.New.Attributes
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            return true;
+            if(httpContext.User.Identity.IsAuthenticated)
+            {
+
+            }
+
+            return false;
         }
     }
 }
