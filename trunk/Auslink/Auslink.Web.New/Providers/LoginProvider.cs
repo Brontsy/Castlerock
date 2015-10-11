@@ -16,7 +16,6 @@ namespace Auslink.Web.New.Providers
         LoginResult Login(string email, string password, bool rememberMe);
 
         void Logout();
-
     }
 
     public class LoginResult

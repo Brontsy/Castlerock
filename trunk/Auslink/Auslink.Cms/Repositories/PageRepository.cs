@@ -14,6 +14,8 @@ namespace Auslink.Cms.Repositories
     {
         Page GetPageById(Guid pageId);
 
+        Page GetPageByName(string name);
+
         void SavePageContent(PageContent content);
     }
 
@@ -35,6 +37,21 @@ namespace Auslink.Cms.Repositories
                 if (page != null)
                 {
                     page.Content = this.GetPageContentByPageId(pageId);
+                }
+
+                return page;
+            }
+        }
+
+        public Page GetPageByName(string name)
+        {
+            string sql = "Select Top 1 * From Auslink.CmsPages Where Name = @Name";
+            using (SqlConnection connection = new SqlConnection(this._connectionString))
+            {
+                Page page = connection.Query<Page>(sql, new { Name = name }).FirstOrDefault();
+                if (page != null)
+                {
+                    page.Content = this.GetPageContentByPageId(page.PageId);
                 }
 
                 return page;

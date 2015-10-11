@@ -19,6 +19,8 @@ namespace Auslink.Membership.Models
 
         public string LastName { get; set; }
 
+        public string Name { get { return this.FirstName + " " + this.LastName;  } }
+
         public string Company { get; set; }
 
         public string Phone { get; set; }

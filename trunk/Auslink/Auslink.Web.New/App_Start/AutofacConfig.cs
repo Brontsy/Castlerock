@@ -31,6 +31,7 @@ namespace Auslink.Web.New
             //builder.RegisterType<HandleExceptionAttribute>().AsExceptionFilterFor<Controller>().InstancePerRequest().PropertiesAutowired();
 
             builder.RegisterType<LoginProvider>().As<ILoginProvider>();
+            builder.RegisterType<MemberProvider>().As<IMemberProvider>();
             builder.Register<IAuthenticationManager>(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
 
             var container = builder.Build();

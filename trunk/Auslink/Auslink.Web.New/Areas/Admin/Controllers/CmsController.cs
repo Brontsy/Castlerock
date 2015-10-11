@@ -5,6 +5,7 @@ using Auslink.QuarterlyUpdates.Services;
 using Auslink.Web.New.Areas.Admin.Models.Cms;
 using Auslink.Web.New.Areas.Admin.Models.QuarterlyUpdates;
 using Auslink.Web.New.Attributes;
+using Auslink.Web.New.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
     public class CmsController : Controller
     {
         private IPageService _pageService;
+        private IMemberProvider _memberProvider;
 
-        public CmsController(IPageService pageService)
+        public CmsController(IPageService pageService, IMemberProvider memberProvider)
         {
             this._pageService = pageService;
+            this._memberProvider = memberProvider;
         }
 
         public ActionResult Index()
@@ -57,7 +60,7 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
 
                 content.Html = viewModel.Html;
 
-                this._pageService.SavePageContent(content);
+                this._pageService.SavePageContent(content, this._memberProvider.GetLoggedInMember().Name);
 
                 return this.RedirectToRoute(AdminRoutes.Cms.ViewPage);
             }
@@ -67,7 +70,7 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
 
         public ActionResult PublishPageContent(Guid pageId, Guid contentId)
         {
-            this._pageService.PublishPageContent(pageId, contentId);
+            this._pageService.PublishPageContent(pageId, contentId, this._memberProvider.GetLoggedInMember().Name);
 
             return this.RedirectToRoute(AdminRoutes.Cms.ViewPage, new { published = true });
         }
