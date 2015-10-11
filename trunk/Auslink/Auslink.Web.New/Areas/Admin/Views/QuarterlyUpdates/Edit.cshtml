@@ -11,11 +11,6 @@
 
     <div class="body-content membership">
 
-        @if (ViewBag.Saved != null && ViewBag.Saved)
-        {
-            <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Quarterly Update have been saved</div>
-        }
-
         @using (Html.BeginRouteForm(AdminRoutes.QuarterlyUpdates.Save, new { QuarterlyUpdateId = Model.QuarterlyUpdateId }, FormMethod.Post, new { @class = "quarterly-update-form" + (string.IsNullOrEmpty(Model.DownloadLink) ? "" : " quarterly-update-pdf-uploaded") }))
         {
             <div class="uploading-overlay">

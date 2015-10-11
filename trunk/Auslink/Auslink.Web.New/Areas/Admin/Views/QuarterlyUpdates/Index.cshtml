@@ -17,8 +17,17 @@
     </div>
 
 </div>
-<div class
-     ="body-content">
+<div class="body-content">
+    @if (ViewBag.Saved != null && ViewBag.Saved)
+    {
+        <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Quarterly Update have been saved</div>
+    }
+    @if (ViewBag.Deleted != null && ViewBag.Deleted)
+    {
+        <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Quarterly Update have been deleted</div>
+    }
+
+
 
     <div class="item-list">
         <ul class="items">

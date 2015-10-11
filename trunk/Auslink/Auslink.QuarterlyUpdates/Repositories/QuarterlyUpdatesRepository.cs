@@ -32,7 +32,7 @@ namespace Auslink.QuarterlyUpdates.Repositories
 
         public IList<QuarterlyUpdate> GetQuarterlyUpdates()
         {
-            string sql = "Select * From QuarterlyUpdates Order By [Year], [Month] Desc";
+            string sql = "Select * From Auslink.QuarterlyUpdates Order By [Year], [Month] Desc";
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
                 return connection.Query<QuarterlyUpdate>(sql, new { }).ToList();
@@ -41,7 +41,7 @@ namespace Auslink.QuarterlyUpdates.Repositories
 
         public QuarterlyUpdate GetQuarterlyUpdateById(int quarterlyUpdateId)
         {
-            string sql = "Select * From QuarterlyUpdates Where Id = @Id";
+            string sql = "Select * From Auslink.QuarterlyUpdates Where Id = @Id";
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
                 return connection.Query<QuarterlyUpdate>(sql, new { Id = quarterlyUpdateId }).FirstOrDefault();
@@ -53,7 +53,7 @@ namespace Auslink.QuarterlyUpdates.Repositories
         {
             if(quarterlyUpdate.Id == 0)
             {
-                string sql = "Insert Into QuarterlyUpdates (Text,  DownloadLink, Month, Year) Values (@Text, @DownloadLink, @Month, @Year)";
+                string sql = "Insert Into Auslink.QuarterlyUpdates (Text,  DownloadLink, Month, Year) Values (@Text, @DownloadLink, @Month, @Year)";
 
                 using (SqlConnection connection = new SqlConnection(this._connectionString))
                 {
@@ -68,7 +68,7 @@ namespace Auslink.QuarterlyUpdates.Repositories
             }
             else
             {
-                string sql = "Update QuarterlyUpdates Set Text = @Text, DownloadLink = @DownloadLink, Month = @Month, Year = @Year Where Id = @Id";
+                string sql = "Update Auslink.QuarterlyUpdates Set Text = @Text, DownloadLink = @DownloadLink, Month = @Month, Year = @Year Where Id = @Id";
                 
                 using (SqlConnection connection = new SqlConnection(this._connectionString))
                 {
@@ -87,7 +87,7 @@ namespace Auslink.QuarterlyUpdates.Repositories
 
         public void Delete(int quarterlyUpdateId)
         {
-            string sql = "Delete QuarterlyUpdates Where Id = @Id";
+            string sql = "Delete Auslink.QuarterlyUpdates Where Id = @Id";
 
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {

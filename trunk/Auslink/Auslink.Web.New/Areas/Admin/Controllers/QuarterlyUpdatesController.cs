@@ -20,11 +20,14 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
             this._quarterlyUpdatesService = quarterlyUpdatesService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(bool? saved, bool? deleted)
         {
             IList<QuarterlyUpdate> quarterlyUpdates = this._quarterlyUpdatesService.GetQuarterlyUpdates();
 
             IList<QuarterlyUpdateViewModel> viewModel = quarterlyUpdates.Select(o => new QuarterlyUpdateViewModel(o)).ToList();
+
+            ViewBag.Saved = saved;
+            ViewBag.Deleted = deleted;
 
             return View("Index", viewModel);
         }
