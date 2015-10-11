@@ -1,0 +1,28 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Cms.PageContentViewModel
+
+
+
+
+
+@using (Html.BeginRouteForm(AdminRoutes.Cms.SavePageContent, new { pageId = Model.PageId, contentId = Model.ContentId }, FormMethod.Post, new { @class = "edit-page-form" }))
+{
+<fieldset>
+    <ol>
+        <li>
+            @Html.LabelFor(o => o.Html)
+            @Html.TextAreaFor(o => o.Html, new { placeholder = "Html*" })
+            @Html.ValidationMessageFor(o => o.Html)
+        </li>
+
+        <li>
+            <button type="submit" class="btn primary">Save</button>
+        </li>
+    </ol>
+</fieldset>
+}
+
+
+
+
+
+

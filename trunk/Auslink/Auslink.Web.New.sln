@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.QuarterlyUpdates", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.FileManager", "Auslink.FileManager\Auslink.FileManager.csproj", "{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.Cms", "Auslink.Cms\Auslink.Cms.csproj", "{23DD76A5-8D06-4699-8C1D-E6E788ED5799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23DD76A5-8D06-4699-8C1D-E6E788ED5799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DD76A5-8D06-4699-8C1D-E6E788ED5799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DD76A5-8D06-4699-8C1D-E6E788ED5799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DD76A5-8D06-4699-8C1D-E6E788ED5799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

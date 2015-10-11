@@ -22,6 +22,7 @@ namespace Auslink.Web.New
             builder.RegisterModule(new Auslink.Membership.Ioc.Bindings());
             builder.RegisterModule(new Auslink.QuarterlyUpdates.Ioc.Bindings());
             builder.RegisterModule(new Auslink.FileManager.Ioc.Bindings());
+            builder.RegisterModule(new Auslink.Cms.Ioc.Bindings());
 
             builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
             builder.RegisterModelBinderProvider();

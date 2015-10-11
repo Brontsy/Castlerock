@@ -171,11 +171,15 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\FileUploaderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CmsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuarterlyUpdatesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
+    <Compile Include="Areas\Admin\Models\Cms\EditPageViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Cms\PageContentViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Cms\PageViewModel.cs" />
     <Compile Include="Areas\Admin\Models\FileUploader\FileUploaderViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\MemberListViewModel.cs" />
@@ -307,6 +311,10 @@
     <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\Content\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Content\less\font-awesome\animated.less" />
+    <Content Include="Areas\Admin\Views\Cms\ViewPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Cms\EditPageContent.cshtml" />
+    <Content Include="Areas\Admin\Views\Cms\EditPageContentForm.cshtml" />
+    <Content Include="Areas\Admin\Content\less\pages\cms.less" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,6 +327,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Auslink.Cms\Auslink.Cms.csproj">
+      <Project>{23dd76a5-8d06-4699-8c1d-e6e788ed5799}</Project>
+      <Name>Auslink.Cms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Auslink.FileManager\Auslink.FileManager.csproj">
       <Project>{d4442290-b9e9-4968-b8b8-aca2fa16f4a7}</Project>
       <Name>Auslink.FileManager</Name>

@@ -28,6 +28,15 @@ namespace Auslink.Web.New.Areas.Admin
             public const string Delete = "Admin Quarterly Delete";
         }
 
+        public class Cms
+        {
+            public const string Index = "Admin Cms Index";
+            public const string ViewPage = "Admin Cms ViewPage";
+            public const string EditPageContent = "Admin Cms EditPageContent";
+            public const string SavePageContent = "Admin Quarterly SavePageContent";
+            public const string PublishPageContent = "Admin Quarterly PublishPageContent";
+        }
+
         public class FileUploader
         {
             public const string Index = "FileUploader Index";
@@ -57,6 +66,13 @@ namespace Auslink.Web.New.Areas.Admin
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Edit, "admin/quarterly-updates/edit/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Edit" });
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Save, "admin/quarterly-updates/save/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Save" });
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Delete, "admin/quarterly-updates/delete/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Delete" });
+
+            context.MapRoute(AdminRoutes.Cms.Index, "admin/cms", new { controller = "Cms", action = "Index" });
+            context.MapRoute(AdminRoutes.Cms.ViewPage, "admin/cms/view-page/{name}/{pageId}", new { controller = "Cms", action = "ViewPage" });
+            context.MapRoute(AdminRoutes.Cms.EditPageContent, "admin/cms/edit-page/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "EditPageContent" });
+            context.MapRoute(AdminRoutes.Cms.SavePageContent, "admin/cms/save-page/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "SavePageContent" });
+            context.MapRoute(AdminRoutes.Cms.PublishPageContent, "admin/cms/publish/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "PublishPageContent" });
+
 
             context.MapRoute(AdminRoutes.FileUploader.Index, "admin/file-uploader", new { controller = "FileUploader", action = "Add" });
             context.MapRoute(AdminRoutes.FileUploader.Upload, "admin/file-uploader/upload", new { controller = "FileUploader", action = "Upload" });

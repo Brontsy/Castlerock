@@ -1,0 +1,24 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Cms.EditPageContentViewModel
+
+
+
+
+<div class="cms view-page">
+
+    <div class="page-head">
+        <h2>Edit @Model.Page.Name</h2>
+    </div>
+    <div class="body-content">
+
+        @{Html.RenderPartial("EditPageContentForm", Model.Content);}
+
+    </div>
+
+</div>
+
+
+
+
+
+
+

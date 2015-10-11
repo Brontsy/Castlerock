@@ -1,0 +1,51 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.Cms.PageViewModel
+
+
+
+
+<div class="cms view-page">
+
+    <div class="page-head">
+
+        <div class="row">
+            <div class="col-9">
+                <h2>View @Model.Name</h2>
+            </div>
+            <div class="col-3">
+                @Html.RouteLink("Edit " + Model.Name, AdminRoutes.Cms.EditPageContent, new { }, new { @class = "btn primary right" })
+            </div>
+        </div>
+
+    </div>
+    <div class="body-content">
+
+        @if (ViewBag.Published != null && ViewBag.Published)
+        {
+            <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Page content has been published to the site</div>
+        }
+
+        <div class="item-list page-content-list">
+            <ul class="items">
+                <li class="items-header row">
+                    <div class="col-3">Date Updated</div>
+                    <div class="col-3">Edited By</div>
+                    <div class="col-3">Version</div>
+                    <div class="col-2">&nbsp;</div>
+                </li>
+
+                @foreach (Auslink.Web.New.Areas.Admin.Models.Cms.PageContentViewModel content in Model.Content.OrderByDescending(o => o.Version))
+                {
+                    <li class="row@(content.IsPublished ? " published": "")">
+                        <div class="col-3">@content.DateCreated.ToString("dd MMM yyyy")</div>
+                        <div class="col-3">@content.LastEditedBy</div>
+                        <div class="col-3">@content.Version</div>
+                        <div class="col-1">@Html.RouteLink("Edit", AdminRoutes.Cms.EditPageContent, new { contentId = content.ContentId }, new { })</div>
+                        <div class="col-1">@Html.RouteLink("Publish", AdminRoutes.Cms.PublishPageContent, new { contentId = content.ContentId }, new { })</div>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+
+</div>
