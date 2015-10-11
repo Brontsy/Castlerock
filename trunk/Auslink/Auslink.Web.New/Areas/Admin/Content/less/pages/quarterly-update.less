@@ -1,0 +1,42 @@
+﻿
+
+
+
+.quarterly-update
+{
+    &.edit
+    {
+        form
+        {
+            .file-upload-container 
+            { 
+                display: block; min-height: 120px;
+                
+                .quarterly-update-pdf-container { display: none; }
+                .file-upload { display: block; }
+
+                .quarterly-update-pdf-container 
+                { 
+                    padding-top: 30px;
+                    .quarterly-update-pdf
+                    {
+                        color: #333; font-size: 18px;  line-height: 22px;
+                        i { color: @red; }
+                    }
+
+                    .remove-pdf { font-size: 15px; line-height: 22px; }
+                }
+            }
+
+            
+            &.quarterly-update-pdf-uploaded
+            {
+                .file-upload-container 
+                { 
+                    .file-upload { display: none; }
+                    .quarterly-update-pdf-container { display: block; }
+                }
+            }
+        }
+    }
+}

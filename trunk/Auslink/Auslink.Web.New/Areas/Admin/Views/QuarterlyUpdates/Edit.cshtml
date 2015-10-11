@@ -1,0 +1,84 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.QuarterlyUpdates.QuarterlyUpdateViewModel
+
+
+
+
+
+<div class="quarterly-update edit">
+    <div class="page-head">
+        <h2>@(Model.QuarterlyUpdateId == 0 ? "Add" : "Edit") Quaterly Update</h2>
+    </div>
+
+    <div class="body-content membership">
+
+        @if (ViewBag.Saved != null && ViewBag.Saved)
+        {
+            <div class="alert positive"><i class="fa fa-check"></i> &nbsp; Quarterly Update have been saved</div>
+        }
+
+        @using (Html.BeginRouteForm(AdminRoutes.QuarterlyUpdates.Save, new { QuarterlyUpdateId = Model.QuarterlyUpdateId }, FormMethod.Post, new { @class = "quarterly-update-form" + (string.IsNullOrEmpty(Model.DownloadLink) ? "" : " quarterly-update-pdf-uploaded") }))
+        {
+            <div class="uploading-overlay">
+                Uploading
+
+                <img src="~/Areas/Admin/Content/images/uploading.gif" class="uploading-gif" />
+            </div>
+            <fieldset>
+                <ol>
+                    <li>
+                        @Html.LabelFor(o => o.Text)
+                        @Html.TextBoxFor(o => o.Text, new { placeholder = "Text*" })
+                        @Html.ValidationMessageFor(o => o.Text)
+                    </li>
+
+                    <li>
+                        @Html.LabelFor(o => o.Month)
+                        @Html.DropDownListFor(o => o.Month, Model.Months, "Month...", new { placeholder = "Month" })
+                        @Html.ValidationMessageFor(o => o.Month)
+                    </li>
+
+                    <li>
+                        @Html.LabelFor(o => o.Year)
+                        @Html.DropDownListFor(o => o.Year, Model.Years, "Year...", new { placeholder = "Year" })
+                        @Html.ValidationMessageFor(o => o.Year)
+                    </li>
+
+                    <li class="file-upload-container">
+                        @{Html.RenderAction("Index", "FileUploader", new { maxFiles = 1, fieldName = "DownloadLink", description = "Upload Quarterly Update Pdf", path = "pdfs/quarterly-updates" });}
+
+                        <div class="quarterly-update-pdf-container">
+                            <a class="quarterly-update-pdf" target="_blank" href="@Model.DownloadLink"><i class="fa fa-file-pdf-o"></i> &nbsp; <span>@Model.FileName</span></a>
+                            &nbsp; &nbsp; &nbsp;
+                            <a class="remove-pdf" href="@Url.RouteUrl(AdminRoutes.FileUploader.DeleteFile, new { path = Model.DownloadLink })"><i class="fa fa-times"></i></a>
+                        </div>
+
+                    </li>
+
+
+                    @Html.HiddenFor(o => o.DownloadLink, new { placeholder = "DownloadLink*" })
+
+                    <li>
+                        <button type="submit" class="btn primary">Save</button>
+                    </li>
+                </ol>
+            </fieldset>
+        }
+
+    </div>
+
+    <script type="text/javascript">
+
+        $(window).on('file-upload-complete', function (event, obj) {
+
+            $('#DownloadLink').val(obj.uri);
+
+            $('.quarterly-update-pdf').attr('href', obj.uri).find('span').html(obj.fileName);
+            $('.quarterly-update-form').toggleClass('quarterly-update-pdf-uploaded');
+        });
+
+        $('.remove-pdf').on('click', function (event) {
+            event.preventDefault();
+            $('.quarterly-update-form').toggleClass('quarterly-update-pdf-uploaded');
+        });
+    </script>
+</div>

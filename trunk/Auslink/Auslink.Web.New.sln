@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.Web.New", "Auslink.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.Membership", "Auslink.Membership\Auslink.Membership.csproj", "{D2ADDB61-ED2F-4D26-828F-90083788A4D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.QuarterlyUpdates", "Auslink.QuarterlyUpdates\Auslink.QuarterlyUpdates.csproj", "{B8F1181D-14AB-4BCA-9794-E7E4FC7C10D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auslink.FileManager", "Auslink.FileManager\Auslink.FileManager.csproj", "{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D2ADDB61-ED2F-4D26-828F-90083788A4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2ADDB61-ED2F-4D26-828F-90083788A4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2ADDB61-ED2F-4D26-828F-90083788A4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F1181D-14AB-4BCA-9794-E7E4FC7C10D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F1181D-14AB-4BCA-9794-E7E4FC7C10D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F1181D-14AB-4BCA-9794-E7E4FC7C10D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F1181D-14AB-4BCA-9794-E7E4FC7C10D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4442290-B9E9-4968-B8B8-ACA2FA16F4A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

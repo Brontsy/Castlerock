@@ -1,0 +1,43 @@
+﻿@model IList<Auslink.Web.New.Areas.Admin.Models.QuarterlyUpdates.QuarterlyUpdateViewModel>
+
+
+
+
+
+
+<div class="page-head">
+
+    <div class="row">
+        <div class="col-9">
+            <h2>Quarterly Updates</h2>
+        </div>
+        <div class="col-3">
+            @Html.RouteLink("Add Quarterly Update", AdminRoutes.QuarterlyUpdates.Add, new { }, new { @class = "btn primary right" })
+        </div>
+    </div>
+
+</div>
+<div class
+     ="body-content">
+
+    <div class="item-list">
+        <ul class="items">
+            <li class="items-header row">
+                <div class="col-3">Quarterly Update</div>
+                <div class="col-3">Date</div>
+                <div class="col-2">&nbsp;</div>
+            </li>
+
+            @foreach (Auslink.Web.New.Areas.Admin.Models.QuarterlyUpdates.QuarterlyUpdateViewModel quarterlyUpdate in Model)
+            {
+                <li class="row">
+                    <div class="col-3">@quarterlyUpdate.Text</div>
+                    <div class="col-3">@(new DateTime(quarterlyUpdate.Year.Value , quarterlyUpdate.Month.Value, 1).ToString("MMMM yyyy"))</div>
+                    <div class="col-1"><a href="@quarterlyUpdate.DownloadLink">Download</a></div>
+                    <div class="col-1">@Html.RouteLink("Edit", AdminRoutes.QuarterlyUpdates.Edit, new { quarterlyUpdateId = quarterlyUpdate.QuarterlyUpdateId }, new { })</div>
+                    <div class="col-1">@Html.RouteLink("Delete", AdminRoutes.QuarterlyUpdates.Delete, new { quarterlyUpdateId = quarterlyUpdate.QuarterlyUpdateId }, new { })</div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

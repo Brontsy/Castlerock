@@ -136,6 +136,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\images\uploading.gif" />
     <Content Include="Areas\Admin\Content\scripts\bootstrap\dropdown.js" />
     <Content Include="Areas\Admin\Content\scripts\datepicker\datepicker.source.js" />
     <Content Include="Areas\Admin\Content\less\modules\item-list.less" />
@@ -154,6 +156,7 @@
     <Content Include="Areas\Admin\Content\scripts\jquery\_references.js" />
     <Content Include="Areas\Admin\Content\scripts\lightbox\feather-light.js" />
     <Content Include="Areas\Admin\Content\scripts\modernizr\modernizr-2.6.2.js" />
+    <Content Include="Areas\Admin\Content\scripts\modules\file-upload.js" />
     <Content Include="Content\Css\reset.css" />
     <Content Include="Content\Css\site.css" />
     <Content Include="Content\Javascript\auslink.js" />
@@ -167,14 +170,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\FileUploaderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuarterlyUpdatesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
+    <Compile Include="Areas\Admin\Models\FileUploader\FileUploaderViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Login\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\MemberListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\PasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Membership\MemberViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\QuarterlyUpdates\QuarterlyUpdateViewModel.cs" />
     <Compile Include="Attributes\AdminAttribute .cs" />
     <Compile Include="Attributes\ModelStateTempDataTransfer.cs" />
     <Compile Include="Attributes\Validation\EmailAttribute.cs" />
@@ -290,6 +297,16 @@
     <Content Include="Views\PropertyPortfolio\Brunswick.cshtml" />
     <Content Include="Views\PropertyPortfolio\Warragul.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuarterlyUpdates\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuarterlyUpdates\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FileUploader\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\less\modules\file-upload.less" />
+    <Content Include="Areas\Admin\Content\less\pages\quarterly-update.less" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\less\font-awesome\animated.less" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -302,9 +319,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Auslink.FileManager\Auslink.FileManager.csproj">
+      <Project>{d4442290-b9e9-4968-b8b8-aca2fa16f4a7}</Project>
+      <Name>Auslink.FileManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Auslink.Membership\Auslink.Membership.csproj">
       <Project>{d2addb61-ed2f-4d26-828f-90083788a4d1}</Project>
       <Name>Auslink.Membership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Auslink.QuarterlyUpdates\Auslink.QuarterlyUpdates.csproj">
+      <Project>{b8f1181d-14ab-4bca-9794-e7e4fc7c10d8}</Project>
+      <Name>Auslink.QuarterlyUpdates</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -23,8 +23,8 @@ namespace Auslink.Web.New
             bundles.Add(new ScriptBundle("~/admin/bundles/scripts")
                 .Include("~/Areas/Admin/Content/scripts/bootstrap/*.js")
                 .Include("~/Areas/Admin/Content/scripts/datepicker/*.js")
-                .Include("~/Areas/Admin/Content/scripts/lightbox/*.js"));
-                //.Include("~/Areas/Admin/Content/scripts/modules/*.js"));
+                .Include("~/Areas/Admin/Content/scripts/lightbox/*.js")
+                .Include("~/Areas/Admin/Content/scripts/modules/*.js"));
 
         }
     }

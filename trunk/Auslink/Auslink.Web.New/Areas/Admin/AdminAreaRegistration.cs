@@ -23,6 +23,16 @@ namespace Auslink.Web.New.Areas.Admin
         {
             public const string Index = "Admin Quarterly Index";
             public const string Add = "Admin Quarterly Add";
+            public const string Edit = "Admin Quarterly Edit";
+            public const string Save = "Admin Quarterly Save";
+            public const string Delete = "Admin Quarterly Delete";
+        }
+
+        public class FileUploader
+        {
+            public const string Index = "FileUploader Index";
+            public const string Upload = "FileUploader Upload";
+            public const string DeleteFile = "FileUploader DeleteFile";
         }
         
         public override string AreaName 
@@ -43,6 +53,14 @@ namespace Auslink.Web.New.Areas.Admin
 
 
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Index, "admin/quarterly-updates", new { controller = "QuarterlyUpdates", action = "Index" });
+            context.MapRoute(AdminRoutes.QuarterlyUpdates.Add, "admin/quarterly-updates/add", new { controller = "QuarterlyUpdates", action = "Add" });
+            context.MapRoute(AdminRoutes.QuarterlyUpdates.Edit, "admin/quarterly-updates/edit/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Edit" });
+            context.MapRoute(AdminRoutes.QuarterlyUpdates.Save, "admin/quarterly-updates/save/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Save" });
+            context.MapRoute(AdminRoutes.QuarterlyUpdates.Delete, "admin/quarterly-updates/delete/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Delete" });
+
+            context.MapRoute(AdminRoutes.FileUploader.Index, "admin/file-uploader", new { controller = "FileUploader", action = "Add" });
+            context.MapRoute(AdminRoutes.FileUploader.Upload, "admin/file-uploader/upload", new { controller = "FileUploader", action = "Upload" });
+            context.MapRoute(AdminRoutes.FileUploader.DeleteFile, "admin/file-uploader/delete", new { controller = "FileUploader", action = "DeleteFile" });
 
             context.MapRoute(AdminRoutes.Login, "admin/login", new { controller = "Login", action = "Index" });
             context.MapRoute(AdminRoutes.Logout, "admin/logout", new { controller = "Logout", action = "Index" });

@@ -1,0 +1,28 @@
+﻿
+
+.file-upload
+{
+    .drop-zone
+    {
+        min-height: 116px; border: 2px dashed #ccc; text-align: center; line-height: 116px; font-size: 24px; color: #333;
+    }
+
+    &.file-dragged
+    {
+        .drop-zone { border-color: @green; }
+    }
+}
+
+
+form.file-uploading
+{
+    position: relative;
+    .uploading-overlay 
+    { 
+        display: block; position: absolute; width: 100%; height: 100%; background: rgba(255,255,255,0.9); 
+        text-align: center; padding-top: 40px; font-size: 24px;
+        .uploading-gif { display: block; margin: 40px auto; }
+    }
+}
+
+.uploading-overlay { display: none; }

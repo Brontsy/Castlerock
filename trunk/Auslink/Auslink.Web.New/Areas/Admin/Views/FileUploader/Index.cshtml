@@ -1,0 +1,17 @@
+﻿@model Auslink.Web.New.Areas.Admin.Models.FileUploader.FileUploaderViewModel
+
+
+
+<div class="file-upload">
+    <div class="drop-zone">
+        @Model.Description
+    </div>
+</div>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.file-upload').fileUpload($('#@Model.FieldName'), '@Model.Path');
+        });
+</script>
