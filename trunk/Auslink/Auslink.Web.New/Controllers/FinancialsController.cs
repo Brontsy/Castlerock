@@ -4,19 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Auslink.Web.New.Models;
+using Auslink.Cms.Models;
+using Auslink.Cms.Services;
 
 namespace Auslink.Web.New.Controllers
 {
     public class FinancialsController : Controller
     {
+        private IPageService _pageService;
+
+        public FinancialsController(IPageService pageService)
+        {
+            this._pageService = pageService;
+        }
+
         public ActionResult Returns()
         {
-            PageViewModel page = new PageViewModel();
-            page.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/tax-advantage-income.png";
-            page.RedLogoText = "Tax Advantage Income";
-            page.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/financials.jpg";
+            Page page = this._pageService.GetPageByName("returns");
 
-            return View(page);
+            ViewBag.Html = page.Content.First(o => o.IsPublished).Html;
+
+
+            PageViewModel viewModel = new PageViewModel();
+            viewModel.RedLogoImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/tax-advantage-income.png";
+            viewModel.RedLogoText = "Tax Advantage Income";
+            viewModel.HeaderImageUrl = "http://castlerockproperty.blob.core.windows.net/auslinkproperty/images/header/financials.jpg";
+
+            return View(viewModel);
         }
 
         public ActionResult FundSummary()
