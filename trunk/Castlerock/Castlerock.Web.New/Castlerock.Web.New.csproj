@@ -200,9 +200,8 @@
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Disclaimer\Index.cshtml" />
     <Content Include="Views\Experience\Index.cshtml" />
-    <Content Include="Views\Errors\404.aspx" />
-    <Content Include="Views\Errors\404a.aspx" />
-    <Content Include="Views\Errors\500.aspx" />
+    <None Include="Views\Errors\404.cshtml" />
+    <None Include="Views\Errors\500.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Investors\Index.cshtml" />
     <Content Include="Views\Member\Downloads.cshtml" />
