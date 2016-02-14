@@ -199,10 +199,10 @@
     <None Include="Views\AboutUs\Index.cshtml" />
     <None Include="Views\ContactUs\Index.cshtml" />
     <None Include="Views\Disclaimer\Index.cshtml" />
-    <Content Include="Views\Error\404.aspx" />
-    <Content Include="Views\Error\404a.aspx" />
-    <Content Include="Views\Error\500.aspx" />
     <None Include="Views\Experience\Index.cshtml" />
+    <Content Include="Views\Errors\404.aspx" />
+    <Content Include="Views\Errors\404a.aspx" />
+    <Content Include="Views\Errors\500.aspx" />
     <Content Include="Views\Login\Login.cshtml" />
     <None Include="Views\Investors\Index.cshtml" />
     <Content Include="Views\Member\Downloads.cshtml" />
