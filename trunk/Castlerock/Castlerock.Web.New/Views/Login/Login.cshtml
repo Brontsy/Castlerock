@@ -1,0 +1,37 @@
+@model Castlerock.Web.New.Models.Login
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="aboutUs">
+    <div class="headerImage">
+
+    </div>
+</div>
+
+
+<div id="login">
+
+    @using (Html.BeginRouteForm("Login", FormMethod.Post))
+    {
+
+        <fieldset>
+
+            <h2>Login.</h2>
+
+            @Html.ValidationSummary()
+
+            @Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email)
+
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password)
+
+            <input type="submit" id="submit" name="submit" value="Login" />
+
+        </fieldset>
+    }
+
+</div>
+

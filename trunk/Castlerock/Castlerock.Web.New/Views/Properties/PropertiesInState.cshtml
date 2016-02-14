@@ -1,0 +1,36 @@
+@model PropertyPageViewModel
+@using Castlerock.Web.New.Models
+
+<h1>@Model.getState()</h1>
+
+
+@if(Model.CompleteProperties.Count > 0)
+{
+
+<h3>Properties</h3>
+<ul class="completedProjects">
+    @foreach (Castlerock.Properties.Interfaces.IProperty property in Model.CompleteProperties)
+        {
+            bool selected = (Model.Property != null && property.PropertyId == Model.Property.PropertyId);
+        <li>
+            @Html.RouteLink(property.Name, "Property", new { propertyId = property.PropertyId, propertyName = property.Name.Replace(" ", "-") }, new { @class = (selected ? "selected" : "") })
+        </li>
+        }
+</ul>
+}
+
+@if(Model.InCompleteProperties.Count > 0)
+{
+   <h3>Under Construction</h3>
+   <ul>
+    @foreach (Castlerock.Properties.Interfaces.IProperty property in Model.InCompleteProperties)
+    {
+        bool selected = (Model.Property != null && property.PropertyId == Model.Property.PropertyId);
+        <li>
+            @Html.RouteLink(property.Name, "Property", new { propertyId = property.PropertyId, propertyName = property.Name.Replace(" ", "-") }, new { @class = (selected ? "selected" : "") })
+        </li>
+    }
+   </ul>
+}
+
+

@@ -1,0 +1,24 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="aboutUs">
+    <div class="headerImage">
+
+    </div>
+</div>
+
+@{IList<Castlerock.FileManager.Interfaces.IStorageItem> items = (IList<Castlerock.FileManager.Interfaces.IStorageItem>)ViewBag.StorageItems;}
+
+<div id="content">
+    <h2>Downloads</h2>
+
+    <ul>
+        @foreach (var item in items)
+        {
+            <li>
+                <a href="@item.Uri">@item.Name</a>
+            </li>
+        }
+    </ul>
+</div>

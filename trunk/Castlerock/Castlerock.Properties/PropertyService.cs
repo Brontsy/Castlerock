@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using Castlerock.Properties.Interfaces;
 using Castlerock.Properties.Models;
-using Common.Nhibernate;
 using Castlerock.Properties.Enums;
+using Castlerock.Properties.Repository;
 
 namespace Castlerock.Properties
 {
-    public class PropertyService : IPropertyService
+    internal class PropertyService : IPropertyService
     {
-        private IPropertyDao _propertyDao = null;
-        private ITransactionManager _transactionManager = null;
+        private IPropertyRepository _propertyRepository;
 
-        public PropertyService(IPropertyDao propertyDao, ITransactionManager transactionManager)
+        public PropertyService(IPropertyRepository propertyRepository)
         {
-            this._propertyDao = propertyDao;
-            this._transactionManager = transactionManager;
+            this._propertyRepository = propertyRepository;
         }
 
         public IList<IProperty> GetProperties(State state)
         {
-            return this._propertyDao.GetProperties(state);
+            return this._propertyRepository.GetProperties(state);
         }
 
         /// <summary>
@@ -29,12 +27,12 @@ namespace Castlerock.Properties
         /// </summary>
         public IList<IProperty> GetProperties()
         {
-            return this._propertyDao.GetProperties();
+            return this._propertyRepository.GetProperties();
         }
 
         public IProperty GetPropertyById(int id)
         {
-            return (IProperty)this._propertyDao.GetById(id);
+            return this._propertyRepository.GetPropertyById(id);
         }
 
         /// <summary>
@@ -43,7 +41,7 @@ namespace Castlerock.Properties
         /// <returns></returns>
         public IList<IProperty> GetManagedProperties()
         {
-            return this._propertyDao.GetManagedProperties();
+            return this._propertyRepository.GetManagedProperties();
         }
 
 
@@ -53,27 +51,27 @@ namespace Castlerock.Properties
         /// <param name="property"></param>
         public void SaveProperty(IProperty property)
         {
-            try
-            {
-                this._transactionManager.BeginTransaction();
+            //try
+            //{
+            //    this._transactionManager.BeginTransaction();
 
-                this._propertyDao.SaveOrUpdate((Property)property);
+            //    this._propertyDao.SaveOrUpdate((Property)property);
 
-                this._transactionManager.CommitTransaction();
-            }
-            catch (Exception e)
-            {
-                if (this._transactionManager.IsInTransaction())
-                {
-                    this._transactionManager.RollbackTransaction();
-                }
+            //    this._transactionManager.CommitTransaction();
+            //}
+            //catch (Exception e)
+            //{
+            //    if (this._transactionManager.IsInTransaction())
+            //    {
+            //        this._transactionManager.RollbackTransaction();
+            //    }
 
-                // Add additional data about the member to a new exception
-                ApplicationException exception = new ApplicationException("Probelm saving property", e);
-                exception.Data.Add("Property Id", property.PropertyId);
+            //    // Add additional data about the member to a new exception
+            //    ApplicationException exception = new ApplicationException("Probelm saving property", e);
+            //    exception.Data.Add("Property Id", property.PropertyId);
 
-                throw exception;
-            }
+            //    throw exception;
+            //}
         }
     }
 }
