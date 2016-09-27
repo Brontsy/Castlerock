@@ -33,7 +33,7 @@ namespace Castlerock.Properties.Repository
 
         public IList<IProperty> GetProperties(State state)
         {
-            string sql = @"Select * From Properties Where State = @State";
+            string sql = @"Select * From Properties Where State = @State Order By [Order]";
 
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
@@ -74,7 +74,7 @@ namespace Castlerock.Properties.Repository
 
         public IList<IProperty> GetManagedProperties()
         {
-            string sql = @"Select * From Properties Where IsManaged = 1 Order By State, Name";
+            string sql = @"Select * From Properties Where IsManaged = 1 Order By [Order]";
 
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
