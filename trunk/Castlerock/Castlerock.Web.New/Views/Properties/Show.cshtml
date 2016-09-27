@@ -4,57 +4,11 @@
         @{Html.RenderPartial("AustralianMap", Model);}
 <div id="content">
 
+    <div id="contentArea">
 
-    <div class="greenColumn" style=""></div>
-    
-    
-    
-    <div id="contentArea" style="float:left;">
+        <div class="greenColumn"></div>
 
-        <img src="http://castlerockproperty.blob.core.windows.net/castlerock/images/properties/@Model.Property.ImageFolder/755x311.jpg" />
-        
-        
-            <ul class="propertyDetails">
-                <li>
-                    <div class="field">Tenant</div>
-                    <div class="value">@Model.Property.Tenant</div>
-                </li>
-                <li>
-                    <div class="field">Department</div>
-                    <div class="value">@Model.Property.Department</div>
-                </li>
-                <li>
-                    <div class="field">Floor Area</div>
-                    <div class="value">@Model.Property.FloorArea</div>
-                </li>
-          
-                    @if (Model.Property.IsComplete && Model.Property.LeaseCommenced.HasValue)
-                    {
-                 
-                <li>
-                    <div class="field">Lease Commenced</div>
-                    <div class="value">@Model.Property.LeaseCommenced.Value.ToString("d MMMM yyyy")</div>
-                </li>
-       
-                    }
-                 
-                
-                    @if (!Model.Property.IsComplete && Model.Property.ExpectedCompletionDate.HasValue)
-                    {
-                 
-                <li>
-                    <div class="field">Expected Completion</div>
-                    <div class="value">@Model.Property.ExpectedCompletionDate.Value.ToString("d MMMM yyyy") </div>
-                </li>
-                
-                    }
-                 
-                <li>
-                    <div class="field">Energy Rating</div>
-                    <div class="value">@Model.Property.EnergyRating</div>
-                </li>                                                                
-            </ul>
-        
+        <img class="property-image" src="http://castlerockproperty.blob.core.windows.net/castlerock/images/properties/@Model.Property.ImageFolder/755x311.jpg" />
         
         </div>
     

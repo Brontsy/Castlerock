@@ -60,29 +60,8 @@
         </div>
 
         <div class="rightColumn">
-            <h3>Properties managed by Castlerock</h3>
-            
-            @foreach (string state in Model.Keys.OrderBy(o => o))
-            {
-                IList<Castlerock.Properties.Interfaces.IProperty> properties = Model[state];
-            
-                <h4>@state</h4>
-                <ul>
-
-                @foreach (Castlerock.Properties.Interfaces.IProperty property in properties)
-                {
-                
-                    <li>
-                        <a href="@property.NavigationUrl">
-                            @property.Name
-                        </a>
-                    </li>
-                }    
-                </ul>
-            }    
             
         </div>
-
-                
+     
     
 </div>
