@@ -55,21 +55,7 @@
                         <a href="@Url.RouteUrl(AdminRoutes.QuarterlyUpdates.Index)"><i class="fa fa-refresh"></i> Quarterly Updates</a>
                     </li>
                     <li>
-                        <h4>Website</h4>
-                        <ul>
-                            <li>
-                                <a href="@Url.RouteUrl(AdminRoutes.Cms.ViewPage, new { name = "home", pageId = "996C83AF-4D1D-41A1-AB1A-4BD56D59AAAB" })">- Homepage</a>
-                            </li>
-                            <li>
-                                <a href="@Url.RouteUrl(AdminRoutes.Cms.ViewPage, new { name = "returns", pageId = "2616B0E0-5C99-4D5E-93D2-D016998777D0" })">- Returns</a>
-                            </li>
-                            <li>
-                                <a href="@Url.RouteUrl(AdminRoutes.Cms.ViewPage, new { name = "overview", pageId = "0387304E-1962-443A-9E72-F8229F2B1215" })">- Overview</a>
-                            </li>
-                            <li>
-                                <a href="@Url.RouteUrl(AdminRoutes.Cms.ViewPage, new { name = "key-features", pageId = "11AA518F-A437-4731-B50E-F51763D93E49" })">- Key Features</a>
-                            </li>
-                        </ul>
+                        <a href="@Url.RouteUrl(AdminRoutes.Cms.Page.Index, new { })"><i class="fa fa-cloud"></i>  Website</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +66,6 @@
         </div>
 
     </div>
-
 
 </body>
 </html>

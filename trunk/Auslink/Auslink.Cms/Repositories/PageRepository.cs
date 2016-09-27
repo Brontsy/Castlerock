@@ -16,7 +16,11 @@ namespace Auslink.Cms.Repositories
 
         Page GetPageByName(string name);
 
+        IList<Page> GetPages();
+
         void SavePageContent(PageContent content);
+
+        void SavePage(Guid pageId, string name, string lastEditedBy);
     }
 
     internal class PageRepository : IPageRepository
@@ -26,6 +30,16 @@ namespace Auslink.Cms.Repositories
         public PageRepository()
         {
             this._connectionString = ConfigurationManager.ConnectionStrings["Castlerock"].ToString();
+        }
+
+
+        public IList<Page> GetPages()
+        {
+            string sql = "Select * From Auslink.CmsPages";
+            using (SqlConnection connection = new SqlConnection(this._connectionString))
+            {
+                return connection.Query<Page>(sql, new {  }).ToList();
+            }
         }
 
         public Page GetPageById(Guid pageId)
@@ -77,7 +91,12 @@ namespace Auslink.Cms.Repositories
             {
                 string sql = @" Declare @Version Int
                             Select @Version = (Max(Version) + 1) From Auslink.CmsPageContent Where PageId = @PageId
-                            
+
+                                If @Version Is Null
+                                Begin
+                                    Set @Version = 1
+                                End
+
                             Insert Into Auslink.CmsPageContent (ContentId,  PageId, DateCreated, Html, IsPublished, [Version], LastEditedBy) 
                             Values 
                             (@ContentId,  @PageId, @DateCreated, @Html, @IsPublished, @Version, @LastEditedBy)";
@@ -120,6 +139,47 @@ namespace Auslink.Cms.Repositories
             {
                 return connection.Query<PageContent>(sql, new { ContentId = contentId }).FirstOrDefault();
 
+            }
+        }
+
+
+        public void SavePage(Guid pageId, string name, string lastEditedBy)
+        {
+            if (this.GetPageById(pageId) == null)
+            {
+                string sql = @" Declare @Version Int
+                            Select @Version = (Max(Version) + 1) From Auslink.CmsPageContent Where PageId = @PageId
+                            
+                            Insert Into Auslink.CmsPages (PageId, Name, DateCreated, DateLastUpdated)
+                            Values 
+                            (@PageId, @Name, @DateCreated, @DateLastUpdated)";
+
+                using (SqlConnection connection = new SqlConnection(this._connectionString))
+                {
+                    connection.Execute(sql, new
+                    {
+                        PageId = pageId,
+                        Name = name,
+                        DateCreated = DateTime.Now,
+                        DateLastUpdated = DateTime.Now
+                    });
+                }
+
+                this.SavePageContent(new PageContent() { ContentId = Guid.NewGuid(), PageId = pageId, LastEditedBy = lastEditedBy, Html = "", IsPublished = false, Version = 1 });
+            }
+            else
+            {
+                string sql = "Update Auslink.CmsPages Set Name = @Name, DateLastUpdated = @DateLastUpdated Where PageId = @PageId";
+
+                using (SqlConnection connection = new SqlConnection(this._connectionString))
+                {
+                    connection.Execute(sql, new
+                    {
+                        PageId = pageId,
+                        Name = name,
+                        DateLastUpdated = DateTime.Now
+                    });
+                }
             }
         }
     }

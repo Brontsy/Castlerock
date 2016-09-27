@@ -30,8 +30,15 @@ namespace Auslink.Web.New.Areas.Admin
 
         public class Cms
         {
-            public const string Index = "Admin Cms Index";
-            public const string ViewPage = "Admin Cms ViewPage";
+            public class Page
+            {
+                public const string Index = "Admin Cms Index";
+                public const string AddPage = "Admin Cms AddPage";
+                public const string EditPage = "Admin Cms EditPage";
+                public const string SavePage = "Admin Cms SavePage";
+                public const string View = "Admin Cms ViewPage";
+            }
+
             public const string EditPageContent = "Admin Cms EditPageContent";
             public const string SavePageContent = "Admin Quarterly SavePageContent";
             public const string PublishPageContent = "Admin Quarterly PublishPageContent";
@@ -67,8 +74,12 @@ namespace Auslink.Web.New.Areas.Admin
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Save, "admin/quarterly-updates/save/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Save" });
             context.MapRoute(AdminRoutes.QuarterlyUpdates.Delete, "admin/quarterly-updates/delete/{quarterlyUpdateId}", new { controller = "QuarterlyUpdates", action = "Delete" });
 
-            context.MapRoute(AdminRoutes.Cms.Index, "admin/cms", new { controller = "Cms", action = "Index" });
-            context.MapRoute(AdminRoutes.Cms.ViewPage, "admin/cms/view-page/{name}/{pageId}", new { controller = "Cms", action = "ViewPage" });
+            context.MapRoute(AdminRoutes.Cms.Page.Index, "admin/cms", new { controller = "Cms", action = "Index" });
+            context.MapRoute(AdminRoutes.Cms.Page.View, "admin/cms/view-page/{name}/{pageId}", new { controller = "Cms", action = "ViewPage" });
+            context.MapRoute(AdminRoutes.Cms.Page.AddPage, "admin/cms/add-page", new { controller = "Cms", action = "AddPage" });
+            context.MapRoute(AdminRoutes.Cms.Page.EditPage, "admin/cms/edi-page/{name}/{pageId}", new { controller = "Cms", action = "EditPage" });
+            context.MapRoute(AdminRoutes.Cms.Page.SavePage, "admin/cms/save-page/{pageId}", new { controller = "Cms", action = "SavePage" });
+
             context.MapRoute(AdminRoutes.Cms.EditPageContent, "admin/cms/edit-page/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "EditPageContent" });
             context.MapRoute(AdminRoutes.Cms.SavePageContent, "admin/cms/save-page/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "SavePageContent" });
             context.MapRoute(AdminRoutes.Cms.PublishPageContent, "admin/cms/publish/{name}/{pageId}/content/{contentId}", new { controller = "Cms", action = "PublishPageContent" });

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Auslink.Web.New.Areas.Admin.Models.Cms.PageViewModel>
+@using Auslink.FileManager.Extensions;
+
+
+
+<div class="page-head">
+
+    <div class="row">
+        <div class="col-9">
+            <h2>Website Pages</h2>
+        </div>
+        <div class="col-3">
+            @Html.RouteLink("Add Page", AdminRoutes.Cms.Page.AddPage, new { }, new { @class = "btn primary right" })
+        </div>
+    </div>
+
+</div>
+
+<div class="body-content">
+
+    <div class="item-list">
+        <ul class="items">
+            <li class="items-header row">
+                <div class="col-3">Name</div>
+                <div class="col-2">&nbsp;</div>
+            </li>
+
+            @foreach (Auslink.Web.New.Areas.Admin.Models.Cms.PageViewModel page in Model.OrderBy(o => o.Name))
+            {
+                <li class="row">
+                    <div class="col-3">@page.Name</div>
+                    <div class="col-3">@Html.RouteLink("Edit", AdminRoutes.Cms.Page.View, new { pageId = page.PageId, name = page.Name.ToUrl() }, new { })</div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+

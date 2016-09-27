@@ -28,7 +28,11 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return null;
+            var pages = this._pageService.GetPages();
+
+            var viewModel = pages.Select(o => new PageViewModel(o));
+
+            return this.View("Index", viewModel);
         }
 
         public ActionResult ViewPage(Guid pageId, bool? published)
@@ -62,7 +66,7 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
 
                 this._pageService.SavePageContent(content, this._memberProvider.GetLoggedInMember().Name);
 
-                return this.RedirectToRoute(AdminRoutes.Cms.ViewPage);
+                return this.RedirectToRoute(AdminRoutes.Cms.Page.View);
             }
 
             return this.EditPageContent(viewModel.PageId, viewModel.ContentId);
@@ -72,7 +76,33 @@ namespace Auslink.Web.New.Areas.Admin.Controllers
         {
             this._pageService.PublishPageContent(pageId, contentId, this._memberProvider.GetLoggedInMember().Name);
 
-            return this.RedirectToRoute(AdminRoutes.Cms.ViewPage, new { published = true });
+            return this.RedirectToRoute(AdminRoutes.Cms.Page.View, new { published = true });
+        }
+
+
+        public ActionResult AddPage()
+        {
+            EditPageViewModel viewModel = new EditPageViewModel();
+
+            return this.View("AddPage", viewModel);
+        }
+
+        public ActionResult EditPage(Guid pageId)
+        {
+            Page page = this._pageService.GetPageById(pageId);
+            EditPageViewModel viewModel = new EditPageViewModel(page);
+
+            return this.View("EditPage", viewModel);
+        }
+
+        public ActionResult SavePage(EditPageViewModel viewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this._pageService.SavePage(viewModel.PageId, viewModel.Name, this._memberProvider.GetLoggedInMember().Name);
+            }
+
+            return this.EditPage(viewModel.PageId);
         }
     }
 }

@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
+    <Compile Include="Areas\Admin\Models\Cms\EditPageContentViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Cms\EditPageViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Cms\PageContentViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Cms\PageViewModel.cs" />
@@ -316,6 +317,11 @@
     <Content Include="Areas\Admin\Views\Cms\EditPageContent.cshtml" />
     <Content Include="Areas\Admin\Views\Cms\EditPageContentForm.cshtml" />
     <Content Include="Areas\Admin\Content\less\pages\cms.less" />
+    <Content Include="Areas\Admin\Views\Cms\Index - Copy.cshtml" />
+    <Content Include="Areas\Admin\Views\Cms\EditPage.cshtml" />
+    <None Include="Areas\Admin\Views\Cms\EditPageForm.cshtml" />
+    <None Include="Areas\Admin\Views\Cms\AddPage.cshtml" />
+    <None Include="Areas\Admin\Views\Cms\Index.cshtml" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

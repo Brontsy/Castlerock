@@ -1,22 +1,30 @@
 ﻿using Auslink.Cms.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Auslink.Web.New.Areas.Admin.Models.Cms
 {
-    public class EditPageContentViewModel
+    public class EditPageViewModel
     {
-        public PageViewModel Page { get; set; }
+        [Required]
+        public Guid PageId { get; set; }
 
-        public PageContentViewModel Content { get; set; }
+        [Required]
+        public string Name { get; set; }
 
-        public EditPageContentViewModel(Page page, Guid contentId)
+        public EditPageViewModel()
         {
-            this.Page = new PageViewModel(page);
-            this.Content = new PageContentViewModel(page.Content.First(o => o.ContentId == contentId));
+            this.PageId = Guid.NewGuid();
+        }
+
+        public EditPageViewModel(Page page)
+        {
+            this.PageId = page.PageId;
+            this.Name = page.Name;
         }
     }
 }
