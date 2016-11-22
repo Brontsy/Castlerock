@@ -45,5 +45,9 @@
     <li@(ViewBag.SelctedProperty == "Brunswick" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
         @Html.RouteLink("Brunswick, VIC", "Brunswick")
     </li>
+
+    <li@(ViewBag.SelctedProperty == "Mildura" ? Html.Raw(" class=\"selected\"") : Html.Raw(string.Empty))>
+        @Html.RouteLink("Mildura, VIC", "Mildura")
+    </li>
 </ul>
 

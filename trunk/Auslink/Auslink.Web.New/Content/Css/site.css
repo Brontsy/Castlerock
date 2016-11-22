@@ -116,8 +116,9 @@ ul.properties a { color: #000000; }
 .square.glenorchy { position: absolute; margin: 428px 0px 0px 370px; }
 .square.brunswick { position: absolute; margin: 355px 0px 0px 334px; }
 .square.warragul { position: absolute; margin: 355px 0px 0px 371px;}
+.square.mildura { position: absolute; margin: 312px 0px 0px 328px;}
 
-
+.full-width { width: 100%; display: block; }
 
 /* Login From */
 #login { float: right; }

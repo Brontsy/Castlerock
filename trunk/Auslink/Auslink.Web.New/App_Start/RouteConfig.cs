@@ -62,7 +62,8 @@ namespace Auslink.Web.New
             routes.MapRoute("Glenorchy", "Property-Portfolio/Glenorchy", new { controller = "Property-Portfolio", action = "Glenorchy" }, namespaces);
             routes.MapRoute("Warragul", "Property-Portfolio/Warragul", new { controller = "Property-Portfolio", action = "Warragul" }, namespaces);
             routes.MapRoute("Brunswick", "Property-Portfolio/Brunswick", new { controller = "Property-Portfolio", action = "Brunswick" }, namespaces);
-
+            routes.MapRoute("Mildura", "Property-Portfolio/Mildura", new { controller = "Property-Portfolio", action = "Mildura" }, namespaces);
+            
 
             routes.MapRoute("Home", "", new { controller = "Home", action = "Index"}, namespaces);
 

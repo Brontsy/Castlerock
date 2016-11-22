@@ -323,6 +323,7 @@
     <Content Include="Areas\Admin\Views\Cms\AddPage.cshtml" />
     <Content Include="Areas\Admin\Views\Cms\Index.cshtml" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
+    <Content Include="Views\PropertyPortfolio\Mildura.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
